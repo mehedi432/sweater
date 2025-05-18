@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-05-15 11:51:17.371301",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "comments_name",
+  "column_break_zdip",
+  "comments_file"
+ ],
+ "fields": [
+  {
+   "fieldname": "comments_name",
+   "fieldtype": "Data",
+   "label": "Comments Name"
+  },
+  {
+   "fieldname": "column_break_zdip",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comments_file",
+   "fieldtype": "Attach",
+   "label": "Comments File"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-05-15 11:51:17.371301",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Sample Comments",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

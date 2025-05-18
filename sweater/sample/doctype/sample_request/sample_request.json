@@ -1,0 +1,666 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SR-{YY}-{MM}-{style}-{#####}",
+ "creation": "2025-05-14 11:49:10.415415",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ecpc",
+  "requested_by",
+  "urgency_priority",
+  "sample_id",
+  "column_break_lqfk",
+  "overall_sample_status",
+  "request_date",
+  "column_break_mcyh",
+  "customer",
+  "production_status",
+  "column_break_ykpv",
+  "sample_type",
+  "season_collection",
+  "section_break_yvff",
+  "item_category",
+  "gauge",
+  "required_knitting_techniques",
+  "column_break_esly",
+  "style",
+  "ply",
+  "brief_style_description__key_features",
+  "column_break_otti",
+  "gender_age_group",
+  "weight",
+  "column_break_hmxs",
+  "technical_file",
+  "reference_image",
+  "target_measurements_chart",
+  "sample_chart",
+  "section_break_xgjs",
+  "material_requirement",
+  "section_break_zulk",
+  "requested_quantity",
+  "available_comments_section",
+  "available_comments",
+  "design_section_tab",
+  "section_break_bxei",
+  "column_break_ipvj",
+  "designer",
+  "column_break_vzjs",
+  "delivery_status",
+  "column_break_dosg",
+  "overall_production_status",
+  "column_break_trcn",
+  "expected_delivery_date",
+  "programmer_section_only_section",
+  "machine_type",
+  "column_break_zgag",
+  "knitting_time",
+  "column_break_rwia",
+  "programmer",
+  "column_break_helz",
+  "program_zip_file",
+  "section_break_agtp",
+  "column_break_melj",
+  "linking_time",
+  "column_break_mnws",
+  "column_break_zraq",
+  "column_break_bdir",
+  "section_break_gfgv",
+  "workstation_details",
+  "section_break_lpea",
+  "feedback_comments",
+  "quality_section_section",
+  "qc_name",
+  "column_break_usrg",
+  "qc_check_time",
+  "section_break_bpun",
+  "approval_date",
+  "column_break_omkh",
+  "approval_status",
+  "column_break_vyaq",
+  "approved_by",
+  "section_break_xtku",
+  "total_material_cost",
+  "column_break_hlkh",
+  "labor_cost",
+  "column_break_kzpq",
+  "overhead_cost",
+  "column_break_rdyn",
+  "total_cost",
+  "section_break_2dsq",
+  "amended_from",
+  "delivery_tab",
+  "sample_delivery_status",
+  "column_break_dnfg",
+  "dispatch_method",
+  "column_break_ghrh",
+  "courier_service",
+  "column_break_upfg",
+  "actual_ship_date",
+  "section_break_hnzv",
+  "shipping_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "requested_by",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Requested By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sample_id",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Sample ID",
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_lqfk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "request_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Request Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mcyh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sample_type",
+   "fieldtype": "Select",
+   "label": "Sample Type",
+   "options": "Costing\nWash Test\nDevelopment\nFit\nAdd & Omini Sample\nPre-Production (PPS)\nSalesman (SMS)\nSize Set\nSwatch / Knit-down\nProto / Development (or Proto Sample)\nCounter Sample\nPhoto Sample\nAd Sample\nWear Test Sample\nTOP / Shipment Sample\nMock-up\nGauge Sample\nLinking Sample\nColor Standard / Lab Dip"
+  },
+  {
+   "fieldname": "production_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Production Status",
+   "options": "Not Started\nIn Progress\nCompleted"
+  },
+  {
+   "fieldname": "designer",
+   "fieldtype": "Link",
+   "label": "Chief Designer",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "style_name.gauge",
+   "fieldname": "gauge",
+   "fieldtype": "Data",
+   "label": "Gauge"
+  },
+  {
+   "fetch_from": "style_name.ply",
+   "fieldname": "ply",
+   "fieldtype": "Data",
+   "label": "Ply"
+  },
+  {
+   "fetch_from": "style_name.machine_type",
+   "fieldname": "machine_type",
+   "fieldtype": "Select",
+   "label": "Machine Type",
+   "options": "SHIMA SHEKI SSR 112\nCHIXING\nGOSHENG\nFENGFANF\nMANUAL"
+  },
+  {
+   "fieldname": "section_break_bxei",
+   "fieldtype": "Section Break",
+   "label": "Design Section Only"
+  },
+  {
+   "fieldname": "column_break_ipvj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "column_break_dosg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "knitting_time",
+   "fieldtype": "Data",
+   "label": "Knitting Time"
+  },
+  {
+   "fieldname": "column_break_bdir",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "linking_time",
+   "fieldtype": "Data",
+   "label": "Linking Time"
+  },
+  {
+   "fieldname": "column_break_vzjs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Expected Delivery Date"
+  },
+  {
+   "fieldname": "delivery_status",
+   "fieldtype": "Select",
+   "label": "Delivery Status",
+   "options": "Not Delivered\nDelivered"
+  },
+  {
+   "fieldname": "section_break_xgjs",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_gfgv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "workstation_details",
+   "fieldtype": "Table",
+   "label": "Workstation Details",
+   "options": "Workstation Details"
+  },
+  {
+   "fieldname": "section_break_zulk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "requested_quantity",
+   "fieldtype": "Table",
+   "label": "Requested Quantity",
+   "options": "Sample Request Quantity"
+  },
+  {
+   "fieldname": "approval_status",
+   "fieldtype": "Select",
+   "label": "Approval Status",
+   "options": "Pending\nApproved\nRejected"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "approval_date",
+   "fieldtype": "Date",
+   "label": "Approval Date"
+  },
+  {
+   "fieldname": "available_comments_section",
+   "fieldtype": "Section Break",
+   "label": "Available Comments"
+  },
+  {
+   "fieldname": "available_comments",
+   "fieldtype": "Table",
+   "options": "Sample Comments"
+  },
+  {
+   "fieldname": "section_break_lpea",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "feedback_comments",
+   "fieldtype": "Markdown Editor",
+   "label": "Feedback Comments"
+  },
+  {
+   "fieldname": "section_break_xtku",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_material_cost",
+   "fieldtype": "Currency",
+   "label": "Total Material Cost"
+  },
+  {
+   "fieldname": "column_break_hlkh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "labor_cost",
+   "fieldtype": "Currency",
+   "label": "Labor Cost"
+  },
+  {
+   "fieldname": "column_break_kzpq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overhead_cost",
+   "fieldtype": "Currency",
+   "label": "Overhead Cost"
+  },
+  {
+   "fieldname": "column_break_rdyn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_cost",
+   "fieldtype": "Currency",
+   "label": "Total Cost"
+  },
+  {
+   "fieldname": "section_break_2dsq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sample Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_ecpc",
+   "fieldtype": "Section Break",
+   "label": "Order Request & Client Information"
+  },
+  {
+   "default": "SWEATER",
+   "fieldname": "item_category",
+   "fieldtype": "Link",
+   "label": "Item Category",
+   "options": "Item Group",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "style_name.buyer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "style",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Style",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technical_file",
+   "fieldtype": "Attach",
+   "label": "Technical File"
+  },
+  {
+   "fieldname": "material_requirement",
+   "fieldtype": "Table",
+   "label": "Raw Material Requirements",
+   "options": "Material Requirement"
+  },
+  {
+   "fieldname": "column_break_ykpv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "season_collection",
+   "fieldtype": "Data",
+   "label": "Season | Collection"
+  },
+  {
+   "fieldname": "urgency_priority",
+   "fieldtype": "Select",
+   "label": "Urgency Priority",
+   "options": "Low\nMedium\nHigh\nUrgent"
+  },
+  {
+   "fieldname": "overall_sample_status",
+   "fieldtype": "Select",
+   "label": "Overall Sample Status",
+   "options": "Request Submitted\nApproved\nIn Development\nPending Buyer Feedback\nApproved by Buyer\nRejected\nShipped\nCancelled"
+  },
+  {
+   "fieldname": "gender_age_group",
+   "fieldtype": "Select",
+   "label": "Gender Age Group",
+   "options": "Mens\nWomens\nKids\nUnisex\nOthers"
+  },
+  {
+   "fieldname": "reference_image",
+   "fieldtype": "Attach Image",
+   "label": "Reference Image"
+  },
+  {
+   "fieldname": "required_knitting_techniques",
+   "fieldtype": "Data",
+   "label": "Knitting Pattern"
+  },
+  {
+   "fieldname": "target_measurements_chart",
+   "fieldtype": "Attach",
+   "label": "Target Measurements Chart"
+  },
+  {
+   "fieldname": "design_section_tab",
+   "fieldtype": "Tab Break",
+   "label": "Design Section"
+  },
+  {
+   "fieldname": "section_break_yvff",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_esly",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_otti",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hmxs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "brief_style_description__key_features",
+   "fieldtype": "Small Text",
+   "label": "Brief Style Description / Key Features"
+  },
+  {
+   "fieldname": "section_break_agtp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mnws",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zraq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overall_production_status",
+   "fieldtype": "Select",
+   "label": "Overall Production Status",
+   "options": "Not Started\nSampling\nKnitting\nShipped"
+  },
+  {
+   "fieldname": "delivery_tab",
+   "fieldtype": "Tab Break",
+   "label": "Delivery"
+  },
+  {
+   "fieldname": "column_break_upfg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_ship_date",
+   "fieldtype": "Datetime",
+   "label": "Actual Ship Date"
+  },
+  {
+   "fieldname": "section_break_hnzv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shipping_details",
+   "fieldtype": "Small Text",
+   "label": "Shipping Details"
+  },
+  {
+   "fieldname": "sample_delivery_status",
+   "fieldtype": "Select",
+   "label": "Sample Delivery Status",
+   "options": "Pending Dispatch\nDispatched\nIn Transit\nDelivered to Buying House\nDelivered to End Buyer\nDelivery Issue"
+  },
+  {
+   "fieldname": "column_break_dnfg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dispatch_method",
+   "fieldtype": "Select",
+   "label": "Dispatch Method",
+   "options": "Courier\nLocal Hand Delivery\nBuyer Pickup"
+  },
+  {
+   "fieldname": "column_break_ghrh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "courier_service",
+   "fieldtype": "Select",
+   "label": "Courier Service",
+   "options": "DHL\nFedEx\nAramex\nUPS\nTNT\nLocal Courier\nOther"
+  },
+  {
+   "fieldname": "column_break_trcn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_bpun",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_vyaq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "programmer_section_only_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Programmer's"
+  },
+  {
+   "fieldname": "column_break_zgag",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rwia",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "programmer",
+   "fieldtype": "Link",
+   "label": "Programmer",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_melj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_omkh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_helz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program_zip_file",
+   "fieldtype": "Attach",
+   "label": "Program Zip File"
+  },
+  {
+   "fieldname": "sample_chart",
+   "fieldtype": "Attach",
+   "label": "Sample Chart"
+  },
+  {
+   "fieldname": "quality_section_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Section"
+  },
+  {
+   "fieldname": "qc_name",
+   "fieldtype": "Link",
+   "label": "Q.C Name",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_usrg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qc_check_time",
+   "fieldtype": "Datetime",
+   "label": "Q.C Check Time"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-05-18 10:33:47.043015",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Sample Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sample Technical Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Asst. Merchandiser",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "General Manager (Marketing & Merchandising)",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
