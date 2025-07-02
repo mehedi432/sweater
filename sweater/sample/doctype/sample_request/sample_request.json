@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SR-{YY}-{MM}-{style}-{#####}",
+ "autoname": "format:SR-{YY}-{MM}- {customer} -{style}-{#####}",
  "creation": "2025-05-14 11:49:10.415415",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -21,18 +21,19 @@
   "season_collection",
   "section_break_yvff",
   "item_category",
-  "gauge",
-  "required_knitting_techniques",
+  "ply",
+  "rib_knitting_pattern",
   "column_break_esly",
   "style",
-  "ply",
-  "brief_style_description__key_features",
+  "gauge",
+  "required_knitting_techniques",
   "column_break_otti",
   "gender_age_group",
   "weight",
+  "brief_style_description__key_features",
   "column_break_hmxs",
-  "technical_file",
   "reference_image",
+  "technical_file",
   "target_measurements_chart",
   "sample_chart",
   "section_break_xgjs",
@@ -162,7 +163,7 @@
    "fetch_from": "style_name.ply",
    "fieldname": "ply",
    "fieldtype": "Data",
-   "label": "Ply"
+   "label": "Body Ply"
   },
   {
    "fetch_from": "style_name.machine_type",
@@ -390,7 +391,7 @@
    "fieldname": "overall_sample_status",
    "fieldtype": "Select",
    "label": "Overall Sample Status",
-   "options": "Request Submitted\nApproved\nIn Development\nPending Buyer Feedback\nApproved by Buyer\nRejected\nShipped\nCancelled"
+   "options": "In Review\nRequest Submitted\nIn Development\nDelivered To Merchandise\nDelivered To Buyer\nPending Buyer Feedback\nApproved by Buyer\nApproved by Quality Dept.\nRejected\nCancelled"
   },
   {
    "fieldname": "gender_age_group",
@@ -405,8 +406,8 @@
   },
   {
    "fieldname": "required_knitting_techniques",
-   "fieldtype": "Data",
-   "label": "Knitting Pattern"
+   "fieldtype": "Small Text",
+   "label": "Body Knitting Pattern"
   },
   {
    "fieldname": "target_measurements_chart",
@@ -580,13 +581,18 @@
    "fieldname": "qc_check_time",
    "fieldtype": "Datetime",
    "label": "Q.C Check Time"
+  },
+  {
+   "fieldname": "rib_knitting_pattern",
+   "fieldtype": "Small Text",
+   "label": "Rib Knitting Pattern"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-05-18 10:33:47.043015",
+ "modified": "2025-06-25 12:46:36.003118",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Request",
@@ -602,6 +608,7 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "select": 1,
    "share": 1,
    "submit": 1,
    "write": 1
@@ -615,6 +622,7 @@
    "read": 1,
    "report": 1,
    "role": "Sample Technical Manager",
+   "select": 1,
    "share": 1,
    "write": 1
   },
@@ -651,6 +659,7 @@
    "read": 1,
    "report": 1,
    "role": "General Manager (Marketing & Merchandising)",
+   "select": 1,
    "share": 1,
    "submit": 1,
    "write": 1

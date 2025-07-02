@@ -1,0 +1,42 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-06-25 10:08:39.265803",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "MSFL",
+ "letterhead": null,
+ "modified": "2025-06-25 10:08:39.265803",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Sweater Sample Master Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    sr.name AS \"Sample ID:Link/Sample Request:120\",\n    sr.style AS \"Style Code:Data:100\",\n    sr.customer AS \"Buyer:Link/Customer:120\",\n    sr.item_category AS \"Item Category:Link/Item Group:100\",\n    sr.sample_type AS \"Sample Type:Data:120\",\n    sr.urgency_priority AS \"Priority:Data:80\",\n    sr.requested_by AS \"Requested By:Link/Employee:100\",\n    sr.designer AS \"Designer:Link/Employee:100\",\n    sr.programmer AS \"Programmer:Link/Employee:100\",\n    sr.qc_name AS \"Q.C Name:Link/Employee:100\",\n\n    sr.gender_age_group AS \"Target Gender Group:Data:80\",\n    sr.season_collection AS \"Season/Collection:Data:100\",\n    sr.brief_style_description__key_features AS \"Style Brief:Data:180\",\n    sr.required_knitting_techniques AS \"Knitting Pattern:Data:120\",\n    sr.rib_knitting_pattern AS \"Rib Pattern:Data:120\",\n\n    sr.reference_image AS \"Reference Image:Image:100\",\n\n    sr.request_date AS \"Requested On:Datetime:140\",\n    DATEDIFF(NOW(), sr.request_date) AS \"Days Since Request:Int:60\",\n\n    sr.production_status AS \"Production Status:Data:100\",\n    sr.overall_production_status AS \"Overall Prod. Status:Data:120\",\n    sr.knitting_time AS \"Knitting Time (hrs):Float:80\",\n    sr.linking_time AS \"Linking Time (hrs):Float:80\",\n\n    sr.qc_check_time AS \"Q.C Checked On:Datetime:120\",\n    sr.approval_status AS \"Approval Status:Data:80\",\n    sr.approved_by AS \"Approved By:Link/Employee:100\",\n    sr.approval_date AS \"Approval Date:Date:100\",\n\n    sr.expected_delivery_date AS \"Expected Delivery:Datetime:120\",\n    sr.actual_ship_date AS \"Actual Ship Date:Datetime:120\",\n    DATEDIFF(sr.actual_ship_date, sr.expected_delivery_date) AS \"Delivery Delay (days):Int:60\",\n\n    sr.sample_delivery_status AS \"Sample Delivery Stage:Data:120\",\n    sr.delivery_status AS \"Final Delivery Status:Data:100\",\n    sr.dispatch_method AS \"Dispatch Mode:Data:100\",\n    sr.courier_service AS \"Courier:Data:100\",\n\n    sr.total_material_cost AS \"Material Cost:Currency:100\",\n    sr.labor_cost AS \"Labor Cost:Currency:100\",\n    sr.overhead_cost AS \"Overhead Cost:Currency:100\",\n    sr.total_cost AS \"Total Sample Cost:Currency:120\",\n\n    sr.feedback_comments AS \"Internal Comments:Data:200\",\n    sr.shipping_details AS \"Shipping Note:Data:150\"\n\nFROM\n    `tabSample Request` sr\nWHERE\n    sr.docstatus < 2\nORDER BY\n    sr.request_date DESC;\n",
+ "ref_doctype": "Sample Request",
+ "report_name": "Sweater Sample Master Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Sample Technical Manager"
+  },
+  {
+   "role": "Merchandiser"
+  },
+  {
+   "role": "Asst. Merchandiser"
+  },
+  {
+   "role": "General Manager (Marketing & Merchandising)"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
