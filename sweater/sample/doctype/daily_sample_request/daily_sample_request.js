@@ -1,45 +1,40 @@
 // Copyright (c) 2025, Abdullah Al Mehedi and contributors
 // For license information, please see license.txt
-
 frappe.ui.form.on("Daily Sample Request", {
     onload: function(frm) {
-        frappe.msgprint("Development in Progress..");
-        
-        
+        fill_merchandiser(frm);
+    },
+    refresh: function(frm) {
+        fill_merchandiser(frm);
     }
 });
 
+// Helper function
+function fill_merchandiser(frm) {
+    if (!frm.doc.merchandiser) {
+        frappe.call({
+            method: "frappe.client.get_value",
+            args: {
+                doctype: "Employee",
+                filters: { user_id: frappe.session.user },
+                fieldname: ["name", "employee_number", "employee_name"]
+            },
+            callback: function(r) {
+                if (r.message) {
+                    // Save Employee docname in Link field (required for backend)
+                    frm.set_value("merchandiser", r.message.name);
 
-frappe.ui.form.on("Daily Sample Request", {
-    
-    before_save: function(frm) {
-        if (!frm.doc.merchandiser) {
-            // Get current user
-            let user = frappe.session.user;
-
-            // Get Employee linked to this user
-            frappe.db.get_value("Employee", {"user_id": user}, ["name", "employee_number", "employee_name"])
-                .then(r => {
-                    if (r.message) {
-                        let emp_no = r.message.employee_number || "";
-                        let emp_name = r.message.employee_name || "";
-                        let merch_text = `${emp_no} - ${emp_name}`;
-
-                        // Set Merchandiser field
-                        // frm.set_value("merchandiser", merch_text);
-                        frm.set_value("merchandiser", emp_no);  
-                    }
-                });
-        }
-        // ----------- Auto Set Name Pattern -----------
-        let buyer = frm.doc.buyer ? frm.doc.buyer.toUpperCase() : "NO-BUYER";
-        let style = frm.doc.style ? frm.doc.style.toUpperCase() : "NO-STYLE";
-        let gauge = frm.doc.gauge ? frm.doc.gauge.toUpperCase() : "NO-GAUGE";
-
-        // generate a 5-digit random number
-        let seq = Math.floor(10000 + Math.random() * 90000);
-
-        frm.doc.name = `${buyer} - ${style} - ${gauge} - ${seq}`;
+                    // Show card number + name in display field
+                    frm.set_value("merchandiser_display", r.message.employee_number + " - " + r.message.employee_name);
+                }
+            }
+        });
     }
-});   
+}
+
+
+
+
+
+  
 

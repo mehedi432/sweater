@@ -6,9 +6,11 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "merchandiser",
+  "section_break_lmpw",
   "requested_time",
   "column_break_sczh",
-  "merchandiser",
+  "merchandiser_display",
   "column_break_qisr",
   "designer",
   "column_break_jxxy",
@@ -62,6 +64,7 @@
    "allow_in_quick_entry": 1,
    "fieldname": "merchandiser",
    "fieldtype": "Link",
+   "hidden": 1,
    "label": "Merchandiser",
    "options": "Employee"
   },
@@ -157,13 +160,22 @@
    "fieldtype": "Table",
    "label": "Available Comments",
    "options": "Sample Comments"
+  },
+  {
+   "fieldname": "section_break_lmpw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "merchandiser_display",
+   "fieldtype": "Data",
+   "label": "Merchandiser "
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-08-29 19:55:45.281743",
+ "modified": "2025-09-05 15:54:19.761459",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",
