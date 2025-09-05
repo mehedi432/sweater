@@ -1,0 +1,257 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}",
+ "creation": "2025-08-28 22:35:41.323720",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "requested_time",
+  "column_break_sczh",
+  "merchandiser",
+  "column_break_qisr",
+  "designer",
+  "column_break_jxxy",
+  "buyer",
+  "section_break_dcgz",
+  "style",
+  "column_break_wmcl",
+  "gauge",
+  "column_break_kbov",
+  "knitting_pattern",
+  "column_break_kemp",
+  "sample_type",
+  "section_break_bcrp",
+  "raw_material",
+  "section_break_bbky",
+  "sample_request_quantity",
+  "section_break_gnzx",
+  "available_comments",
+  "section_break_smil",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_smil",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Daily Sample Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "Now",
+   "fieldname": "requested_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Requested Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sczh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "merchandiser",
+   "fieldtype": "Link",
+   "label": "Merchandiser",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_qisr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_jxxy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "style",
+   "fieldtype": "Data",
+   "label": "Style"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "designer",
+   "fieldtype": "Link",
+   "label": "Designer",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_dcgz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wmcl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "gauge",
+   "fieldtype": "Data",
+   "label": "Gauge"
+  },
+  {
+   "fieldname": "column_break_kbov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "knitting_pattern",
+   "fieldtype": "Data",
+   "label": "Knitting Pattern"
+  },
+  {
+   "fieldname": "column_break_kemp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "sample_type",
+   "fieldtype": "Data",
+   "label": "Sample Type"
+  },
+  {
+   "fieldname": "section_break_bcrp",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "raw_material",
+   "fieldtype": "Table",
+   "label": "Raw Material",
+   "options": "Material Requirement"
+  },
+  {
+   "fieldname": "section_break_bbky",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sample_request_quantity",
+   "fieldtype": "Table",
+   "label": "Sample Request Quantity",
+   "options": "Sample Request Quantity"
+  },
+  {
+   "fieldname": "section_break_gnzx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "available_comments",
+   "fieldtype": "Table",
+   "label": "Available Comments",
+   "options": "Sample Comments"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-08-29 19:55:45.281743",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Daily Sample Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Asst. Merchandiser",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "General Manager (Marketing & Merchandising)",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sample Technical Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sample Team Member",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
