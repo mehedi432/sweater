@@ -2,8 +2,8 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{SS}-{DD}-{MM}-{YY}-{sample_type}-{buyer}-{style}-{gauge}-{urgency_priority}",
- "creation": "2025-09-05 23:13:04.825201",
+ "autoname": "format:{sample_type}-{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}-{urgency_priority}",
+ "creation": "2025-09-07 00:43:47.433888",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -12,26 +12,27 @@
   "merchandiser",
   "section_break_hzzd",
   "urgency_priority",
+  "style",
   "column_break_mjju",
   "sample_type",
+  "season_collection",
   "column_break_obgt",
   "buyer",
+  "gender_age_group",
   "column_break_xifx",
   "designer",
+  "approximate_delivery_date",
   "section_break_lmpw",
-  "style",
   "pp_sample_size",
-  "season_collection",
+  "linking_type",
   "rib_knitting_pattern",
   "column_break_sczh",
   "gauge",
   "knitting_time",
-  "gender_age_group",
   "body_knitting_pattern",
   "column_break_qisr",
   "body_ply",
   "average_weight",
-  "approximate_delivery_date",
   "brief_style_description__key_features",
   "column_break_huwv",
   "reference_image",
@@ -44,6 +45,8 @@
   "sample_request_quantity",
   "column_break_otaa",
   "available_comments",
+  "section_break_yryk",
+  "job_card_distribution",
   "section_break_smil",
   "requested_time",
   "column_break_gdeg",
@@ -51,19 +54,9 @@
   "column_break_fibv",
   "merchandiser_display",
   "column_break_elhy",
-  "fetch_daily_sample_request",
-  "section_break_yryk",
-  "job_card_distribution"
+  "fetch_daily_sample_request"
  ],
  "fields": [
-  {
-   "allow_in_quick_entry": 1,
-   "fieldname": "merchandiser",
-   "fieldtype": "Link",
-   "hidden": 1,
-   "label": "Merchandiser",
-   "options": "Employee"
-  },
   {
    "collapsible": 1,
    "fieldname": "section_break_hzzd",
@@ -110,6 +103,8 @@
    "fetch_from": "fetch_daily_sample_request.designer",
    "fieldname": "designer",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Designer",
    "options": "Employee"
   },
@@ -271,6 +266,14 @@
    "read_only": 1
   },
   {
+   "allow_in_quick_entry": 1,
+   "fieldname": "merchandiser",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Merchandiser",
+   "options": "Employee"
+  },
+  {
    "fieldname": "column_break_gdeg",
    "fieldtype": "Column Break"
   },
@@ -332,6 +335,11 @@
    "fieldtype": "Table",
    "label": "Job Card | Distribution",
    "options": "Workstation Details"
+  },
+  {
+   "fieldname": "linking_type",
+   "fieldtype": "Data",
+   "label": "Linking Type"
   }
  ],
  "grid_page_length": 50,
@@ -339,7 +347,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-06 21:10:03.363966",
+ "modified": "2025-09-07 00:49:27.048785",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Work Order",

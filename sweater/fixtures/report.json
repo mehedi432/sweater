@@ -658,5 +658,67 @@
    }
   ],
   "timeout": 0
+ },
+ {
+  "add_total_row": 1,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2025-09-07 01:06:56.157789",
+  "module": "Sample",
+  "name": "Sample Work Order Status & KPI Report",
+  "prepared_report": 0,
+  "query": "SELECT\n    swo.name AS \"Sample Work Order:Link/Sample Work Order\",\n    swo.sample_type AS \"Sample Type:Select:150\",\n    swo.buyer AS \"Buyer:Link/Customer:120\",\n    swo.style AS \"Style:Data:150\",\n    swo.designer AS \"Designer:Link/Employee:120\",\n    swo.merchandiser_display AS \"Merchandiser:Data:120\",\n    swo.urgency_priority AS \"Urgency Priority:Select:80\",\n    swo.requested_time AS \"Request Date:Datetime:120\",\n    swo.approximate_delivery_date AS \"Approx. Delivery Date:Date:120\",\n    CASE \n        WHEN swo.docstatus = 0 THEN 'Work In Progress'\n        WHEN swo.docstatus = 1 AND swo.approximate_delivery_date >= CURDATE() THEN 'Submitted On-Time'\n        WHEN swo.docstatus = 1 AND swo.approximate_delivery_date < CURDATE() THEN 'Submitted Late'\n        ELSE 'Cancelled'\n    END AS \"Status:Data:120\",\n    DATEDIFF(CURDATE(), swo.requested_time) AS \"Days Since Request:Int:80\",\n    DATEDIFF(swo.approximate_delivery_date, swo.requested_time) AS \"Planned Lead Time (Days):Int:100\",\n    SUM(IFNULL(mr.quantity,0)) AS \"Total Material Qty:Float:80\",\n    COUNT(DISTINCT srq.name) AS \"Total Sample Qty:Int:80\",\n    GROUP_CONCAT(DISTINCT wc.process_name) AS \"Workstations Assigned:Data:200\",\n    COUNT(DISTINCT sc.name) AS \"Comments Count:Int:80\"\nFROM\n    `tabSample Work Order` swo\nLEFT JOIN\n    `tabMaterial Requirement` mr ON mr.parent = swo.name\nLEFT JOIN\n    `tabSample Request Quantity` srq ON srq.parent = swo.name\nLEFT JOIN\n    `tabWorkstation Details` wc ON wc.parent = swo.name\nLEFT JOIN\n    `tabSample Comments` sc ON sc.parent = swo.name\nWHERE\n    swo.docstatus IN (0,1)\nGROUP BY\n    swo.name\nORDER BY\n    swo.requested_time DESC;\n",
+  "ref_doctype": "Sample Work Order",
+  "reference_report": null,
+  "report_name": "Sample Work Order Status & KPI Report",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Sample Work Order Status & KPI Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Sample Work Order Status & KPI Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   },
+   {
+    "parent": "Sample Work Order Status & KPI Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "Sample Work Order Status & KPI Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
+   },
+   {
+    "parent": "Sample Work Order Status & KPI Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sample Technical Manager"
+   },
+   {
+    "parent": "Sample Work Order Status & KPI Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sample Team Member"
+   }
+  ],
+  "timeout": 0
  }
 ]

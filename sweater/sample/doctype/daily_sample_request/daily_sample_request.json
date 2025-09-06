@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{SS}-{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}-{urgency_priority}",
- "creation": "2025-08-28 22:35:41.323720",
+ "creation": "2025-09-07 00:32:25.376303",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -120,7 +120,7 @@
    "fieldname": "sample_type",
    "fieldtype": "Select",
    "label": "Sample Type",
-   "options": "Proto Sample\nFit Sample\nSize Set Sample\nPhoto Sample\nSalesman Sample (SMS)\nPre-Production Sample (PPS)\nTop of Production (TOP) Sample\nShipment Sample\nCounter Sample\nGold Seal Sample\nWash/Finish Approval Sample\nYarn Dyed Sample\nDevelopment Sample\nSealing Sample"
+   "options": "PROTO SAMPLE\nDEVELOPMENT SAMPLE\nFIT SAMPLE\nSIZE SET SAMPLE\nPHOTO SAMPLE\nSALESMAN SAMPLE (SMS)\nLAB DIP SAMPLE\nSTRIKE-OFF SAMPLE\nHANDLOOM SAMPLE\nYARN DYED SAMPLE\nWASH/FINISH APPROVAL SAMPLE\nPRE-PRODUCTION SAMPLE (PPS)\nSEALING SAMPLE\nTOP OF PRODUCTION (TOP) SAMPLE\nGOLD SEAL SAMPLE\nCOUNTER SAMPLE\nAD SIZE SAMPLE\nSHIPMENT SAMPLE\nPRE-SHIPMENT SAMPLE\nDUPLICATE / ARCHIVE SAMPLE"
   },
   {
    "fieldname": "section_break_bcrp",
@@ -275,7 +275,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-05 23:15:07.364116",
+ "modified": "2025-09-07 00:38:18.477180",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",
