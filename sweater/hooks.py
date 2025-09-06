@@ -241,4 +241,36 @@ app_license = "mit"
 # default_log_clearing_doctypes = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
+# hooks.py
+
+fixtures = [
+    # --- Your Custom Doctypes ---
+    {"doctype": "DocType", "filters": [["name", "in", [
+        "Sample Work Order",
+        "Daily Sample Request",
+        "Sample Request Quantity",
+        "Workstation Details",
+        "Sample Request",
+        "Sample Comments",
+        "Material Requirement"
+    ]]]},
+
+    # --- Custom Fields (if you added extra fields to standard doctypes) ---
+    {"doctype": "Custom Field"},
+
+    # --- Property Setters (if you changed label, length, options, etc.) ---
+    {"doctype": "Property Setter"},
+
+    # --- Workflows ---
+    {"doctype": "Workflow"},
+    {"doctype": "Workflow State"},
+    {"doctype": "Workflow Action"},
+
+    # --- Scripts (if you wrote them from Customize Form UI) ---
+    {"doctype": "Client Script"},
+    {"doctype": "Server Script"},
+
+    # --- Reports ---
+    {"doctype": "Report", "filters": [["is_standard", "=", "No"]]},
+]
 

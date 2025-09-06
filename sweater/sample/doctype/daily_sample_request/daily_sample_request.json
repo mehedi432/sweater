@@ -1,36 +1,53 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}",
+ "autoname": "format:{SS}-{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}-{urgency_priority}",
  "creation": "2025-08-28 22:35:41.323720",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "merchandiser",
-  "section_break_lmpw",
-  "requested_time",
-  "column_break_sczh",
-  "merchandiser_display",
-  "column_break_qisr",
-  "designer",
-  "column_break_jxxy",
-  "buyer",
-  "section_break_dcgz",
-  "style",
-  "column_break_wmcl",
-  "gauge",
-  "column_break_kbov",
-  "knitting_pattern",
-  "column_break_kemp",
+  "section_break_hzzd",
+  "urgency_priority",
+  "column_break_mjju",
   "sample_type",
+  "column_break_obgt",
+  "buyer",
+  "column_break_xifx",
+  "designer",
+  "section_break_lmpw",
+  "style",
+  "pp_sample_size",
+  "season_collection",
+  "rib_knitting_pattern",
+  "column_break_sczh",
+  "gauge",
+  "knitting_time",
+  "gender_age_group",
+  "body_knitting_pattern",
+  "column_break_qisr",
+  "body_ply",
+  "average_weight",
+  "approximate_delivery_date",
+  "brief_style_description__key_features",
+  "column_break_huwv",
+  "reference_image",
+  "technical_file",
+  "target_measurement_chart",
+  "sample_chart",
   "section_break_bcrp",
   "raw_material",
   "section_break_bbky",
   "sample_request_quantity",
-  "section_break_gnzx",
+  "column_break_pxwi",
   "available_comments",
   "section_break_smil",
-  "amended_from"
+  "requested_time",
+  "column_break_gdeg",
+  "amended_from",
+  "column_break_fibv",
+  "merchandiser_display"
  ],
  "fields": [
   {
@@ -80,10 +97,6 @@
    "options": "Customer"
   },
   {
-   "fieldname": "column_break_jxxy",
-   "fieldtype": "Column Break"
-  },
-  {
    "allow_in_quick_entry": 1,
    "fieldname": "style",
    "fieldtype": "Data",
@@ -97,38 +110,17 @@
    "options": "Employee"
   },
   {
-   "fieldname": "section_break_dcgz",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_wmcl",
-   "fieldtype": "Column Break"
-  },
-  {
    "allow_in_quick_entry": 1,
    "fieldname": "gauge",
    "fieldtype": "Data",
    "label": "Gauge"
   },
   {
-   "fieldname": "column_break_kbov",
-   "fieldtype": "Column Break"
-  },
-  {
-   "allow_in_quick_entry": 1,
-   "fieldname": "knitting_pattern",
-   "fieldtype": "Data",
-   "label": "Knitting Pattern"
-  },
-  {
-   "fieldname": "column_break_kemp",
-   "fieldtype": "Column Break"
-  },
-  {
    "allow_in_quick_entry": 1,
    "fieldname": "sample_type",
-   "fieldtype": "Data",
-   "label": "Sample Type"
+   "fieldtype": "Select",
+   "label": "Sample Type",
+   "options": "Proto Sample\nFit Sample\nSize Set Sample\nPhoto Sample\nSalesman Sample (SMS)\nPre-Production Sample (PPS)\nTop of Production (TOP) Sample\nShipment Sample\nCounter Sample\nGold Seal Sample\nWash/Finish Approval Sample\nYarn Dyed Sample\nDevelopment Sample\nSealing Sample"
   },
   {
    "fieldname": "section_break_bcrp",
@@ -152,16 +144,13 @@
    "options": "Sample Request Quantity"
   },
   {
-   "fieldname": "section_break_gnzx",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "available_comments",
    "fieldtype": "Table",
    "label": "Available Comments",
    "options": "Sample Comments"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_lmpw",
    "fieldtype": "Section Break"
   },
@@ -169,13 +158,124 @@
    "fieldname": "merchandiser_display",
    "fieldtype": "Data",
    "label": "Merchandiser "
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_hzzd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_mjju",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_obgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xifx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pp_sample_size",
+   "fieldtype": "Data",
+   "label": "PP Sample Size"
+  },
+  {
+   "fieldname": "knitting_time",
+   "fieldtype": "Data",
+   "label": "Knitting Time"
+  },
+  {
+   "fieldname": "gender_age_group",
+   "fieldtype": "Select",
+   "label": "Gender Age Group",
+   "options": "Mens\nWomens\nKids\nUnisex\nOthers"
+  },
+  {
+   "fieldname": "body_ply",
+   "fieldtype": "Data",
+   "label": "Body Ply"
+  },
+  {
+   "fieldname": "average_weight",
+   "fieldtype": "Data",
+   "label": "Average Weight"
+  },
+  {
+   "fieldname": "season_collection",
+   "fieldtype": "Data",
+   "label": "Season | Collection"
+  },
+  {
+   "fieldname": "column_break_huwv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reference_image",
+   "fieldtype": "Attach Image",
+   "label": "Reference Image"
+  },
+  {
+   "fieldname": "technical_file",
+   "fieldtype": "Attach",
+   "label": "Technical File"
+  },
+  {
+   "fieldname": "target_measurement_chart",
+   "fieldtype": "Attach",
+   "label": "Target Measurement Chart"
+  },
+  {
+   "fieldname": "sample_chart",
+   "fieldtype": "Attach",
+   "label": "Sample Chart"
+  },
+  {
+   "fieldname": "urgency_priority",
+   "fieldtype": "Select",
+   "label": "Urgency Priority",
+   "options": "LOW\nMEDIUM\nHIGH"
+  },
+  {
+   "fieldname": "column_break_gdeg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fibv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approximate_delivery_date",
+   "fieldtype": "Date",
+   "label": "Approximate Delivery Date"
+  },
+  {
+   "fieldname": "rib_knitting_pattern",
+   "fieldtype": "Small Text",
+   "label": "Rib Knitting Pattern"
+  },
+  {
+   "fieldname": "body_knitting_pattern",
+   "fieldtype": "Small Text",
+   "label": "Body Knitting Pattern"
+  },
+  {
+   "fieldname": "brief_style_description__key_features",
+   "fieldtype": "Small Text",
+   "label": "Brief Style Description / Key Features"
+  },
+  {
+   "fieldname": "column_break_pxwi",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
+ "image_field": "reference_image",
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-05 15:54:19.761459",
+ "modified": "2025-09-05 23:15:07.364116",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

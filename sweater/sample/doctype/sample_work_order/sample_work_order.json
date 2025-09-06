@@ -1,0 +1,433 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{SS}-{DD}-{MM}-{YY}-{sample_type}-{buyer}-{style}-{gauge}-{urgency_priority}",
+ "creation": "2025-09-05 23:13:04.825201",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_chvw",
+  "merchandiser",
+  "section_break_hzzd",
+  "urgency_priority",
+  "column_break_mjju",
+  "sample_type",
+  "column_break_obgt",
+  "buyer",
+  "column_break_xifx",
+  "designer",
+  "section_break_lmpw",
+  "style",
+  "pp_sample_size",
+  "season_collection",
+  "rib_knitting_pattern",
+  "column_break_sczh",
+  "gauge",
+  "knitting_time",
+  "gender_age_group",
+  "body_knitting_pattern",
+  "column_break_qisr",
+  "body_ply",
+  "average_weight",
+  "approximate_delivery_date",
+  "brief_style_description__key_features",
+  "column_break_huwv",
+  "reference_image",
+  "technical_file",
+  "target_measurement_chart",
+  "sample_chart",
+  "section_break_bcrp",
+  "raw_material",
+  "section_break_bbky",
+  "sample_request_quantity",
+  "column_break_otaa",
+  "available_comments",
+  "section_break_smil",
+  "requested_time",
+  "column_break_gdeg",
+  "amended_from",
+  "column_break_fibv",
+  "merchandiser_display",
+  "column_break_elhy",
+  "fetch_daily_sample_request",
+  "section_break_yryk",
+  "job_card_distribution"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "merchandiser",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Merchandiser",
+   "options": "Employee"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_hzzd",
+   "fieldtype": "Section Break",
+   "label": "Basic Information "
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.urgency_priority",
+   "fieldname": "urgency_priority",
+   "fieldtype": "Select",
+   "label": "Urgency Priority",
+   "options": "LOW\nMEDIUM\nHIGH"
+  },
+  {
+   "fieldname": "column_break_mjju",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "fetch_daily_sample_request.sample_type",
+   "fieldname": "sample_type",
+   "fieldtype": "Select",
+   "label": "Sample Type",
+   "options": "PROTO SAMPLE\nDEVELOPMENT SAMPLE\nFIT SAMPLE\nSIZE SET SAMPLE\nPHOTO SAMPLE\nSALESMAN SAMPLE (SMS)\nLAB DIP SAMPLE\nSTRIKE-OFF SAMPLE\nHANDLOOM SAMPLE\nYARN DYED SAMPLE\nWASH/FINISH APPROVAL SAMPLE\nPRE-PRODUCTION SAMPLE (PPS)\nSEALING SAMPLE\nTOP OF PRODUCTION (TOP) SAMPLE\nGOLD SEAL SAMPLE\nCOUNTER SAMPLE\nAD SIZE SAMPLE\nSHIPMENT SAMPLE\nPRE-SHIPMENT SAMPLE\nDUPLICATE / ARCHIVE SAMPLE"
+  },
+  {
+   "fieldname": "column_break_obgt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "fetch_daily_sample_request.buyer",
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_xifx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "fetch_daily_sample_request.designer",
+   "fieldname": "designer",
+   "fieldtype": "Link",
+   "label": "Designer",
+   "options": "Employee"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_lmpw",
+   "fieldtype": "Section Break",
+   "label": "Technical Information"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "fetch_daily_sample_request.style",
+   "fieldname": "style",
+   "fieldtype": "Data",
+   "label": "Style"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.pp_sample_size",
+   "fieldname": "pp_sample_size",
+   "fieldtype": "Data",
+   "label": "PP Sample Size"
+  },
+  {
+   "fieldname": "season_collection",
+   "fieldtype": "Data",
+   "label": "Season | Collection"
+  },
+  {
+   "fieldname": "rib_knitting_pattern",
+   "fieldtype": "Small Text",
+   "label": "Rib Knitting Pattern"
+  },
+  {
+   "fieldname": "column_break_sczh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "fetch_daily_sample_request.gauge",
+   "fieldname": "gauge",
+   "fieldtype": "Data",
+   "label": "Gauge"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.knitting_time",
+   "fieldname": "knitting_time",
+   "fieldtype": "Data",
+   "label": "Knitting Time"
+  },
+  {
+   "fieldname": "gender_age_group",
+   "fieldtype": "Select",
+   "label": "Gender Age Group",
+   "options": "Mens\nWomens\nKids\nUnisex\nOthers"
+  },
+  {
+   "fieldname": "body_knitting_pattern",
+   "fieldtype": "Small Text",
+   "label": "Body Knitting Pattern"
+  },
+  {
+   "fieldname": "column_break_qisr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.body_ply",
+   "fieldname": "body_ply",
+   "fieldtype": "Data",
+   "label": "Body Ply"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.average_weight",
+   "fieldname": "average_weight",
+   "fieldtype": "Data",
+   "label": "Average Weight"
+  },
+  {
+   "fieldname": "approximate_delivery_date",
+   "fieldtype": "Date",
+   "label": "Approximate Delivery Date"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.brief_style_description__key_features",
+   "fieldname": "brief_style_description__key_features",
+   "fieldtype": "Small Text",
+   "label": "Brief Style Description / Key Features"
+  },
+  {
+   "fieldname": "column_break_huwv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.reference_image",
+   "fieldname": "reference_image",
+   "fieldtype": "Attach Image",
+   "label": "Reference Image"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.technical_file",
+   "fieldname": "technical_file",
+   "fieldtype": "Attach",
+   "label": "Technical File"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.target_measurement_chart",
+   "fieldname": "target_measurement_chart",
+   "fieldtype": "Attach",
+   "label": "Target Measurement Chart"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.sample_chart",
+   "fieldname": "sample_chart",
+   "fieldtype": "Attach",
+   "label": "Sample Chart"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_bcrp",
+   "fieldtype": "Section Break",
+   "label": "Raw Materials"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "raw_material",
+   "fieldtype": "Table",
+   "label": "Raw Material",
+   "options": "Material Requirement"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_bbky",
+   "fieldtype": "Section Break",
+   "label": "Quantity & Comments"
+  },
+  {
+   "fieldname": "sample_request_quantity",
+   "fieldtype": "Table",
+   "label": "Sample Request Quantity",
+   "options": "Sample Request Quantity"
+  },
+  {
+   "fieldname": "available_comments",
+   "fieldtype": "Table",
+   "label": "Available Comments",
+   "options": "Sample Comments"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_smil",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "default": "Now",
+   "fieldname": "requested_time",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Requested Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_gdeg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Daily Sample Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_fibv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.merchandiser_display",
+   "fieldname": "merchandiser_display",
+   "fieldtype": "Data",
+   "label": "Merchandiser "
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Daily Sample Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_chvw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_otaa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_elhy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fetch_daily_sample_request",
+   "fieldtype": "Link",
+   "label": "Fetch Daily Sample Request",
+   "options": "Daily Sample Request"
+  },
+  {
+   "fieldname": "section_break_yryk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "job_card_distribution",
+   "fieldtype": "Table",
+   "label": "Job Card | Distribution",
+   "options": "Workstation Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "image_field": "reference_image",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-09-06 21:10:03.363966",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Sample Work Order",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Asst. Merchandiser",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "General Manager (Marketing & Merchandising)",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sample Technical Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sample Team Member",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
