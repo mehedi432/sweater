@@ -1,16 +1,16 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-09-10 23:35:38.838205",
+ "creation": "2025-09-11 00:07:27.219379",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "date_time",
+  "date",
   "comments_name",
   "comments_file",
   "column_break_zdip",
-  "column_break_ifen"
+  "column_break_xcem"
  ],
  "fields": [
   {
@@ -28,12 +28,13 @@
    "label": "Comments File"
   },
   {
-   "fieldname": "date_time",
+   "default": "Now",
+   "fieldname": "date",
    "fieldtype": "Datetime",
-   "label": "Date Time"
+   "label": "Date"
   },
   {
-   "fieldname": "column_break_ifen",
+   "fieldname": "column_break_xcem",
    "fieldtype": "Column Break"
   }
  ],
@@ -41,7 +42,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-10 23:51:26.447403",
+ "modified": "2025-09-11 00:08:28.132753",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Comments",
