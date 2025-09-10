@@ -48,6 +48,8 @@ class DailySampleRequest(Document):
                     item_code_parts.append(row.yarn_count.upper())
                 if getattr(row, "item_name", None):
                     item_code_parts.append(row.item_name.upper())
+                if getattr(row, "colour", None):
+                    item_code_parts.append(row.colour.upper())
                 if getattr(row, "quantity", None) and row.category.lower() != "yarn":
                     item_code_parts.append(str(row.quantity))
 
