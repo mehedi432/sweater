@@ -502,5 +502,47 @@
   "status": "Open",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 00:45:39.743488",
+  "name": "ia5f8rghsl",
+  "permitted_roles": [
+   {
+    "parent": "ia5f8rghsl",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680578-12-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 00:45:39.828904",
+  "name": "ia6toji2ju",
+  "permitted_roles": [
+   {
+    "parent": "ia6toji2ju",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680572-12-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
  }
 ]
