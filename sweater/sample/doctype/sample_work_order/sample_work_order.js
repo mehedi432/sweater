@@ -6,6 +6,41 @@
 
 // 	},
 // });
+
+frappe.ui.form.on('Sample Work Order', {
+    onload: function(frm) {
+        // Clear existing child table rows
+        frm.clear_table('job_card_distribution');
+
+        // List of processes to populate
+        let processes = [
+            "Design",
+            "Program",
+            "Knitting",
+            "Knitting Manual",
+            "Linking",
+            "Mending",
+            "Wash",
+            "Print",
+            "Iron",
+            "Sewing",
+            "Zip / Button",
+            "Print",
+            "Finishing"
+        ];
+
+        // Loop through each process and add a row
+        processes.forEach(function(process) {
+            let row = frm.add_child('job_card_distribution');
+            row.process_name = process;   // Auto-fill Process Name
+            row.status = "Pending";        // Optional default value
+        });
+
+        // Refresh the table to show changes
+        frm.refresh_field('job_card_distribution');
+    }
+});
+ 
 frappe.ui.form.on('Sample Work Order', {
     fetch_daily_sample_request: function(frm) {
         if (!frm.doc.fetch_daily_sample_request) return;

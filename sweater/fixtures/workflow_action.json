@@ -508,11 +508,11 @@
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-09-11 00:45:39.743488",
-  "name": "ia5f8rghsl",
+  "modified": "2025-09-11 08:26:20.384861",
+  "name": "07ri9u3tvd",
   "permitted_roles": [
    {
-    "parent": "ia5f8rghsl",
+    "parent": "07ri9u3tvd",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
     "role": "Merchandiser"
@@ -529,11 +529,11 @@
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-09-11 00:45:39.828904",
-  "name": "ia6toji2ju",
+  "modified": "2025-09-11 08:26:20.451206",
+  "name": "07sljjd7ut",
   "permitted_roles": [
    {
-    "parent": "ia6toji2ju",
+    "parent": "07sljjd7ut",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
     "role": "Merchandiser"
@@ -541,6 +541,279 @@
   ],
   "reference_doctype": "Daily Sample Request",
   "reference_name": "MICROTEX-SMI26-680572-12-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 08:26:20.578848",
+  "name": "07t8alurut",
+  "permitted_roles": [
+   {
+    "parent": "07t8alurut",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680570-12-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:09:54.274476",
+  "name": "5ume1qh0t2",
+  "permitted_roles": [
+   {
+    "parent": "5ume1qh0t2",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680578-5-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:09:54.369006",
+  "name": "5unuv1us1s",
+  "permitted_roles": [
+   {
+    "parent": "5unuv1us1s",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680586-7-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:09:54.437154",
+  "name": "5uofif63ce",
+  "permitted_roles": [
+   {
+    "parent": "5uofif63ce",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680568-7-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:09:54.503399",
+  "name": "5upgttimvl",
+  "permitted_roles": [
+   {
+    "parent": "5upgttimvl",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680574-5-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:09:54.626830",
+  "name": "5uq92r2ft3",
+  "permitted_roles": [
+   {
+    "parent": "5uq92r2ft3",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680575-5-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:30:48.202108",
+  "name": "i6immr6n7o",
+  "permitted_roles": [
+   {
+    "parent": "i6immr6n7o",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "DEVELOPMENT SAMPLE-07-09-25-MICROTEX-MK-248 MORLIN-12-LOW",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "WORK IS GOING ON"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:30:50.153268",
+  "name": "i75futvqh7",
+  "permitted_roles": [
+   {
+    "parent": "i75futvqh7",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "DEVELOPMENT SAMPLE-07-09-25-MICROTEX-MK-248 MORLIN-12-LOW",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "DELIVERED TO MERCHANDISER"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "Merchandiser",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:42:38.574361",
+  "name": "p4h1crhlg8",
+  "permitted_roles": [
+   {
+    "parent": "p4h1crhlg8",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "FIT SAMPLE-11-09-25-MICROTEX-SMI26-680575-5-HIGH",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:42:49.262522",
+  "name": "p7sqht3hmu",
+  "permitted_roles": [
+   {
+    "parent": "p7sqht3hmu",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "FIT SAMPLE-11-09-25-MICROTEX-SMI26-680575-5-HIGH",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "WORK IS GOING ON"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:42:50.791981",
+  "name": "p8b88miu0b",
+  "permitted_roles": [
+   {
+    "parent": "p8b88miu0b",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "FIT SAMPLE-11-09-25-MICROTEX-SMI26-680575-5-HIGH",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "DELIVERED TO MERCHANDISER"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:43:05.426812",
+  "name": "pcu5cute8q",
+  "permitted_roles": [
+   {
+    "parent": "pcu5cute8q",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "FIT SAMPLE-11-09-25-MICROTEX-SMI26-680575-5-HIGH",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "Approved"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:43:31.054634",
+  "name": "pkuogmaf3q",
+  "permitted_roles": [
+   {
+    "parent": "pkuogmaf3q",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Sample Work Order",
+  "reference_name": "FIT SAMPLE-11-09-25-MICROTEX-SMI26-680575-5-HIGH-1",
   "status": "Open",
   "user": null,
   "workflow_state": "Draft"
