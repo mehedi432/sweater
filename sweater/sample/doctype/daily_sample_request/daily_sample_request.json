@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{buyer}-{style}-{gauge}-{urgency_priority}-{DD}-{MM}-{YY}",
- "creation": "2025-09-11 08:19:15.690015",
+ "creation": "2025-09-12 00:07:08.128617",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -45,14 +45,14 @@
   "section_break_smil",
   "requested_time",
   "column_break_gdeg",
-  "amended_from",
-  "column_break_fibv",
   "merchandiser_display",
+  "column_break_fibv",
   "over_all_status",
   "section_break_topl",
   "column_break_ajuf",
   "column_break_duwe",
-  "remarks"
+  "remarks",
+  "amended_from"
  ],
  "fields": [
   {
@@ -303,7 +303,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-11 23:58:45.052423",
+ "modified": "2025-09-12 00:24:36.517971",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

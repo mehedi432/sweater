@@ -255,11 +255,29 @@ fixtures = [
         "Material Requirement"
     ]]]},
 
-    # --- Custom Fields (if you added extra fields to standard doctypes) ---
-    {"doctype": "Custom Field"},
+    # --- Custom Fields (including custom fields added to core Material Request) ---
+    {"doctype": "Custom Field", "filters": [["dt", "in", [
+        "Sample Work Order",
+        "Daily Sample Request",
+        "Sample Request Quantity",
+        "Workstation Details",
+        "Sample Request",
+        "Sample Comments",
+        "Material Requirement",
+        "Material Request"  # <-- Added core Material Request custom fields
+    ]]]},
 
     # --- Property Setters (if you changed label, length, options, etc.) ---
-    {"doctype": "Property Setter"},
+    {"doctype": "Property Setter", "filters": [["doc_type", "in", [
+        "Sample Work Order",
+        "Daily Sample Request",
+        "Sample Request Quantity",
+        "Workstation Details",
+        "Sample Request",
+        "Sample Comments",
+        "Material Requirement",
+        "Material Request"  # <-- Include if you changed core fields
+    ]]]},
 
     # --- Workflows ---
     {"doctype": "Workflow"},
