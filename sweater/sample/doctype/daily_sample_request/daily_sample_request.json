@@ -47,7 +47,12 @@
   "column_break_gdeg",
   "amended_from",
   "column_break_fibv",
-  "merchandiser_display"
+  "merchandiser_display",
+  "over_all_status",
+  "section_break_topl",
+  "column_break_ajuf",
+  "column_break_duwe",
+  "remarks"
  ],
  "fields": [
   {
@@ -268,6 +273,29 @@
   {
    "fieldname": "column_break_pxwi",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_topl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_duwe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "over_all_status",
+   "fieldtype": "Select",
+   "label": "Over All Status",
+   "options": "Design\nProgram\nKnitting\nKnitting Manual\nLinking\nMending\nWash\nPrint\nIron\nSewing\nZip / Button\nPrint\nFinishing\nSend to Merchandiser\nSend to buyer\nHave Fit Comments\nHave PP Comments\nPP Meeting Completed\nGo Fo Production\nProduction running\nSend to Buyer"
+  },
+  {
+   "fieldname": "column_break_ajuf",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
@@ -275,7 +303,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-11 23:44:36.109432",
+ "modified": "2025-09-11 23:58:45.052423",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

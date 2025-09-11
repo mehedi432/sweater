@@ -567,8 +567,8 @@
   "workflow_state": "Draft"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2025-09-11 23:09:54.274476",
@@ -583,7 +583,7 @@
   ],
   "reference_doctype": "Daily Sample Request",
   "reference_name": "MICROTEX-SMI26-680578-5-HIGH-11-09-25",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
  },
@@ -817,5 +817,89 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Draft"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:58:57.665375",
+  "name": "2mg4kprov5",
+  "permitted_roles": [
+   {
+    "parent": "2mg4kprov5",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680578-5-HIGH-11-09-25",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "DELIVERED TO SAMPLE DEPT."
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:58:59.390075",
+  "name": "2n27cjcsu9",
+  "permitted_roles": [
+   {
+    "parent": "2n27cjcsu9",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680578-5-HIGH-11-09-25",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "WORK IS GOING ON"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:59:01.795396",
+  "name": "2nq8fugaln",
+  "permitted_roles": [
+   {
+    "parent": "2nq8fugaln",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680578-5-HIGH-11-09-25",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "DELIVERED TO MERCHANDISER"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-09-11 23:59:04.115111",
+  "name": "2ohsfffiem",
+  "permitted_roles": [
+   {
+    "parent": "2ohsfffiem",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-SMI26-680578-5-HIGH-11-09-25",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "WAITING FOR BUYER REVIEW"
  }
 ]

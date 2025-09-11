@@ -25,7 +25,8 @@ class DailySampleRequest(Document):
                 "stock_uom": "Nos",
                 "has_variants": 0,
                 "disabled": 0,
-                "is_sweater": 1
+                "is_sweater": 1,
+                "is_sales_item":1
             })
             item.insert(ignore_permissions=True)
             frappe.db.commit()
