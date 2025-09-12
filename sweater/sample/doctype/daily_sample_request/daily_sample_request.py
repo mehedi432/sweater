@@ -68,7 +68,8 @@ class DailySampleRequest(Document):
                         "item_group": row.category,
                         "description": description,
                         "stock_uom": "Nos",
-                        "is_stock_item": 1
+                        "is_stock_item": 1,
+                        "allow_purchase": 1
                     })
                     new_item.insert(ignore_permissions=True)
                     frappe.db.commit()
