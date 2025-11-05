@@ -1,7 +1,7 @@
 // Copyright (c) 2025, Abdullah Al Mehedi and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Sample Request', {
+frappe.ui.form.on('Detailed Sample Request', {
     onload: function(frm) {
         // অনুরোধের তারিখ স্বয়ংক্রিয়ভাবে সেট করুন
         frm.set_value("request_date", frappe.datetime.now_datetime());
