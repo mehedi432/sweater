@@ -2,8 +2,8 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{buyer}-{style}-{gauge}-{urgency_priority}-{DD}-{MM}-{YY}",
- "creation": "2025-09-12 00:07:08.128617",
+ "autoname": "format:{buyer}-{style}-{gauge}-{urgency_priority}-{DD}-{MM}-{YY}-{}",
+ "creation": "2025-11-06 00:49:52.451473",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -50,8 +50,8 @@
   "over_all_status",
   "section_break_topl",
   "column_break_ajuf",
-  "column_break_duwe",
   "remarks",
+  "column_break_duwe",
   "amended_from"
  ],
  "fields": [
@@ -98,6 +98,8 @@
    "allow_in_quick_entry": 1,
    "fieldname": "buyer",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Buyer",
    "options": "Customer"
   },
@@ -124,6 +126,8 @@
    "allow_in_quick_entry": 1,
    "fieldname": "sample_type",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Sample Type",
    "options": "Proto Sample\nFIT SAMPLE\nSize Set Sample\nPhoto Sample\nSalesman Sample (SMS)\nPre-Production Sample (PPS)\nTop of Production (TOP) Sample\nShipment Sample\nCounter Sample\nGold Seal Sample\nWash/Finish Approval Sample\nYarn Dyed Sample\nDevelopment Sample\nSealing Sample"
   },
@@ -161,8 +165,9 @@
   },
   {
    "fieldname": "merchandiser_display",
-   "fieldtype": "Data",
-   "label": "Merchandiser "
+   "fieldtype": "Link",
+   "label": "Merchandiser ",
+   "options": "Employee"
   },
   {
    "collapsible": 1,
@@ -303,7 +308,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-12 00:24:36.517971",
+ "modified": "2025-11-06 01:12:47.378830",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",
