@@ -26,7 +26,7 @@
   "gender_age_group",
   "body_knitting_pattern",
   "column_break_qisr",
-  "body_ply",
+  "color",
   "average_weight",
   "approximate_delivery_date",
   "brief_style_description__key_features",
@@ -47,6 +47,8 @@
   "merchandiser",
   "column_break_fibv",
   "over_all_status",
+  "column_break_crpj",
+  "order_qty",
   "section_break_topl",
   "column_break_ajuf",
   "remarks",
@@ -74,8 +76,7 @@
    "fieldname": "requested_time",
    "fieldtype": "Datetime",
    "in_list_view": 1,
-   "label": "Requested Time",
-   "read_only": 1
+   "label": "Requested Time"
   },
   {
    "fieldname": "column_break_sczh",
@@ -197,11 +198,6 @@
    "options": "Mens\nWomens\nKids\nUnisex\nOthers"
   },
   {
-   "fieldname": "body_ply",
-   "fieldtype": "Data",
-   "label": "Body Ply"
-  },
-  {
    "fieldname": "average_weight",
    "fieldtype": "Data",
    "label": "Average Weight"
@@ -295,6 +291,20 @@
   {
    "fieldname": "column_break_ajuf",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_crpj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "order_qty",
+   "fieldtype": "Int",
+   "label": "Order Qty"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
   }
  ],
  "grid_page_length": 50,
@@ -302,7 +312,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-08 22:02:45.276702",
+ "modified": "2025-11-08 22:31:25.803446",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",
