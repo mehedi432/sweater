@@ -250,7 +250,6 @@ fixtures = [
         "Daily Sample Request",
         "Sample Request Quantity",
         "Workstation Details",
-        "Sample Request",
         "Sample Comments",
         "Material Requirement"
     ]]]},
@@ -261,7 +260,6 @@ fixtures = [
         "Daily Sample Request",
         "Sample Request Quantity",
         "Workstation Details",
-        "Sample Request",
         "Sample Comments",
         "Material Requirement",
         "Material Request"  # <-- Added core Material Request custom fields
@@ -273,7 +271,6 @@ fixtures = [
         "Daily Sample Request",
         "Sample Request Quantity",
         "Workstation Details",
-        "Sample Request",
         "Sample Comments",
         "Material Requirement",
         "Material Request"  # <-- Include if you changed core fields
