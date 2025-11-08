@@ -3,13 +3,11 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{sample_type}-{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}-{urgency_priority}",
- "creation": "2025-09-11 08:19:15.896732",
+ "creation": "2025-11-06 00:49:52.697714",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_chvw",
-  "merchandiser",
   "section_break_hzzd",
   "urgency_priority",
   "style",
@@ -31,7 +29,7 @@
   "knitting_time",
   "body_knitting_pattern",
   "column_break_qisr",
-  "body_ply",
+  "color",
   "average_weight",
   "brief_style_description__key_features",
   "column_break_huwv",
@@ -50,11 +48,13 @@
   "section_break_smil",
   "requested_time",
   "column_break_gdeg",
-  "amended_from",
+  "order_qty",
   "column_break_fibv",
-  "merchandiser_display",
+  "merchandiser",
   "column_break_elhy",
-  "fetch_daily_sample_request"
+  "fetch_daily_sample_request",
+  "section_break_rurc",
+  "amended_from"
  ],
  "fields": [
   {
@@ -170,12 +170,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "fetch_daily_sample_request.body_ply",
-   "fieldname": "body_ply",
-   "fieldtype": "Data",
-   "label": "Body Ply"
-  },
-  {
    "fetch_from": "fetch_daily_sample_request.average_weight",
    "fieldname": "average_weight",
    "fieldtype": "Data",
@@ -258,7 +252,8 @@
   },
   {
    "allow_in_quick_entry": 1,
-   "default": "Now",
+   "fetch_from": "fetch_daily_sample_request.requested_time",
+   "fetch_if_empty": 1,
    "fieldname": "requested_time",
    "fieldtype": "Datetime",
    "in_list_view": 1,
@@ -267,9 +262,10 @@
   },
   {
    "allow_in_quick_entry": 1,
+   "fetch_from": "fetch_daily_sample_request.merchandiser",
+   "fetch_if_empty": 1,
    "fieldname": "merchandiser",
    "fieldtype": "Link",
-   "hidden": 1,
    "label": "Merchandiser",
    "options": "Employee"
   },
@@ -292,12 +288,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "fetch_daily_sample_request.merchandiser_display",
-   "fieldname": "merchandiser_display",
-   "fieldtype": "Data",
-   "label": "Merchandiser "
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -306,11 +296,6 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "section_break_chvw",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "column_break_otaa",
@@ -340,6 +325,26 @@
    "fieldname": "linking_type",
    "fieldtype": "Data",
    "label": "Linking Type"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.color",
+   "fetch_if_empty": 1,
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_rurc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "fetch_daily_sample_request.order_qty",
+   "fetch_if_empty": 1,
+   "fieldname": "order_qty",
+   "fieldtype": "Data",
+   "label": "Order Quantity",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
@@ -347,7 +352,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-11 23:44:09.321727",
+ "modified": "2025-11-08 22:37:22.200956",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Work Order",
