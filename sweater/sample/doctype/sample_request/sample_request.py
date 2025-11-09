@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import Document
 
-class DetailedSampleRequest(Document):
+class SampleRequest(Document):
     def before_save(self):
         # Step 1: প্রয়োজনীয় ফিল্ড গুলো পূরণ করা হয়েছে কিনা তা যাচাই করা
         if not self.item_category or not self.customer or not self.style:

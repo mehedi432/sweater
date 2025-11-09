@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{buyer}-{style}-{gauge}-{urgency_priority}-{DD}-{MM}-{YY}-{}",
- "creation": "2025-11-06 00:49:52.451473",
+ "creation": "2025-11-08 22:49:03.631598",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -52,7 +52,6 @@
   "section_break_topl",
   "column_break_ajuf",
   "remarks",
-  "column_break_duwe",
   "amended_from"
  ],
  "fields": [
@@ -279,14 +278,10 @@
    "label": "Remarks"
   },
   {
-   "fieldname": "column_break_duwe",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "over_all_status",
    "fieldtype": "Select",
    "label": "Over All Status",
-   "options": "Design\nProgram\nKnitting\nKnitting Manual\nLinking\nMending\nWash\nPrint\nIron\nSewing\nZip / Button\nPrint\nFinishing\nSend to Merchandiser\nSend to buyer\nHave Fit Comments\nHave PP Comments\nPP Meeting Completed\nGo Fo Production\nProduction running\nSend to Buyer"
+   "options": "Design\nProgram\nWaiting For Knitting\nKnitting\nKnitting Manual\nWaiting For Linking\nLinking\nMending\nWash\nPrint\nIron\nSewing\nZip / Button\nPrint\nFinishing\nSend to Merchandiser\nSend to buyer\nHave Fit Comments\nHave PP Comments\nPP Meeting Completed\nGo Fo Production\nProduction running\nSend to Buyer"
   },
   {
    "fieldname": "column_break_ajuf",
@@ -312,7 +307,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-08 22:31:25.803446",
+ "modified": "2025-11-09 08:35:47.914301",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

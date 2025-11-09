@@ -595,7 +595,7 @@
  "modified": "2025-06-25 12:46:36.003118",
  "modified_by": "Administrator",
  "module": "Sample",
- "name": "Detailed Sample Request",
+ "name": "Sample Request",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
