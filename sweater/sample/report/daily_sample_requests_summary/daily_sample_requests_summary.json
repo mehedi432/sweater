@@ -1,0 +1,57 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-11-08 22:49:02.421707",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "default": "PAAYRA DESING",
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "mandatory": 0,
+   "options": "Customer",
+   "wildcard_filter": 0
+  },
+  {
+   "default": "2025-11-09",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "default": "2025-11-09",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "MSFL",
+ "letterhead": null,
+ "modified": "2025-11-09 23:08:57.049056",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Daily Sample Requests Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    dsr.requested_time AS \"Requested On:Datetime:140\",\n    CASE\n        WHEN dsr.reference_image IS NOT NULL AND dsr.reference_image != ''\n        THEN CONCAT('<img src=\"', dsr.reference_image, '\" width=\"80\" />')\n        ELSE ''\n    END AS \"Reference Image:HTML:150\",\n    dsr.name AS \"Sample ID:Link/Daily Sample Request:120\",\n    dsr.buyer AS \"Buyer:Link/Customer:120\",\n    dsr.style AS \"Style Code:Data:100\",\n    dsr.color AS \"Color:Data:100\",\n    dsr.order_qty AS \"Order Quanity:Data:100\",\n    dsr.sample_type AS \"Sample Type:Data:120\",\n    dsr.urgency_priority AS \"Priority:Data:80\",\n    dsr.merchandiser_display AS \"Merchandiser:Data:100\",\n    dsr.designer AS \"Designer:Link/Employee:100\",\n    dsr.gauge AS \"Gauge:Data:80\",\n    dsr.over_all_status AS \"Overall Status:Data:150\",\n    dsr.workflow_state AS \"Workflow Status:Data:120\",\n\n    GROUP_CONCAT(DISTINCT mr.yarn_composition) AS \"Yarn Composition:Data:150\",\n    GROUP_CONCAT(DISTINCT mr.yarn_count) AS \"Yarn Count:Data:150\",\n\n    DATEDIFF(NOW(), dsr.requested_time) AS \"Days Since Request:Int:60\",\n    dsr.knitting_time AS \"Knitting Time (hrs):Float:80\",\n    dsr.approximate_delivery_date AS \"Expected Delivery:Date:120\",\n    dsr.remarks AS \"Remarks:Data:100\"\n\nFROM\n    `tabDaily Sample Request` dsr\nLEFT JOIN\n    `tabMaterial Requirement` mr\nON\n    mr.parent = dsr.name\nWHERE\n    dsr.docstatus < 2\n    AND (%(buyer)s IS NULL OR %(buyer)s = '' OR dsr.buyer = %(buyer)s)\n    AND (%(start_date)s IS NULL OR %(start_date)s = '' OR DATE(dsr.requested_time) >= %(start_date)s)\n    AND (%(end_date)s IS NULL OR %(end_date)s = '' OR DATE(dsr.requested_time) <= %(end_date)s)\nGROUP BY\n    dsr.name\nORDER BY\n    dsr.requested_time DESC;\n",
+ "ref_doctype": "Daily Sample Request",
+ "report_name": "Daily Sample Requests Summary",
+ "report_script": "",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

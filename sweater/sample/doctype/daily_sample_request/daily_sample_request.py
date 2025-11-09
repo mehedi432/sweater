@@ -14,7 +14,7 @@ class DailySampleRequest(Document):
             frappe.throw("Buyer, Style, এবং Gauge ফিল্ডগুলো পূরণ করুন।")
 
         # ------------------ Sweater Item ------------------
-        sweater_code = f"SWEATER - {self.buyer} - {self.style} - {self.gauge} GG".upper()
+        sweater_code = f"SWEATER - {self.buyer} -- {self.color} - {self.gauge} GG".upper()
         if not frappe.db.exists("Item", {"item_code": sweater_code}):
             item = frappe.get_doc({
                 "doctype": "Item",
