@@ -1132,26 +1132,5 @@
   "status": "Open",
   "user": null,
   "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 23:28:29.560568",
-  "name": "637lgg69m0",
-  "permitted_roles": [
-   {
-    "parent": "637lgg69m0",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-102030-7-HIGH-09-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "Draft"
  }
 ]

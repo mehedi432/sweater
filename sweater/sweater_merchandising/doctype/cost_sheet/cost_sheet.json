@@ -1,0 +1,155 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 23:55:42.211824",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "buyer",
+  "season",
+  "date",
+  "ref_no",
+  "style_name",
+  "qty",
+  "section_break_material",
+  "costing_items",
+  "column_break_summary",
+  "total_lc_value",
+  "total_material_cost",
+  "commercial_cost",
+  "factory_cm",
+  "grand_total",
+  "remarks",
+  "section_break_sign",
+  "prepared_by",
+  "checked_by",
+  "approved_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "buyer",
+   "label": "Buyer",
+   "fieldtype": "Link",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "season",
+   "label": "Season",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "date",
+   "label": "Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "ref_no",
+   "label": "Reference No",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "style_name",
+   "label": "Style Name / No",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "qty",
+   "label": "Quantity (pcs)",
+   "fieldtype": "Int"
+  },
+  {
+   "fieldname": "section_break_material",
+   "fieldtype": "Section Break",
+   "label": "Material & Costing Details"
+  },
+  {
+   "fieldname": "costing_items",
+   "label": "Costing Items",
+   "fieldtype": "Table",
+   "options": "Costing Sheet Item"
+  },
+  {
+   "fieldname": "column_break_summary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_lc_value",
+   "label": "Total LC Value",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "total_material_cost",
+   "label": "Total Material Cost",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "commercial_cost",
+   "label": "Commercial Cost",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "factory_cm",
+   "label": "Factory CM",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "grand_total",
+   "label": "Grand Total",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "remarks",
+   "label": "Remarks",
+   "fieldtype": "Small Text"
+  },
+  {
+   "fieldname": "section_break_sign",
+   "fieldtype": "Section Break",
+   "label": "Signatures"
+  },
+  {
+   "fieldname": "prepared_by",
+   "label": "Prepared By",
+   "fieldtype": "Link",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "checked_by",
+   "label": "Checked By",
+   "fieldtype": "Link",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "approved_by",
+   "label": "Approved By",
+   "fieldtype": "Link",
+   "options": "Employee"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-11-09 23:55:42.211824",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Cost Sheet",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

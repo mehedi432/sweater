@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-11-09 23:58:03.748321",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sl_no",
+  "description",
+  "amount",
+  "percent_of_cost",
+  "style_name",
+  "qty_per_pc",
+  "ship_qty_per_doz",
+  "per_doz_cm",
+  "total_amount",
+  "remarks",
+  "category"
+ ],
+ "fields": [
+  {
+   "fieldname": "sl_no",
+   "label": "SL No",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "reqd": 0
+  },
+  {
+   "fieldname": "description",
+   "label": "Description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "label": "Amount ($)",
+   "fieldtype": "Currency",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "percent_of_cost",
+   "label": "% of Cost",
+   "fieldtype": "Percent",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "style_name",
+   "label": "Style Name / No",
+   "fieldtype": "Data",
+   "in_list_view": 0
+  },
+  {
+   "fieldname": "qty_per_pc",
+   "label": "Qty / Pc",
+   "fieldtype": "Float"
+  },
+  {
+   "fieldname": "ship_qty_per_doz",
+   "label": "Ship Qty / Doz",
+   "fieldtype": "Float"
+  },
+  {
+   "fieldname": "per_doz_cm",
+   "label": "Per Doz CM",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "total_amount",
+   "label": "Amount (Total)",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "remarks",
+   "label": "Remarks",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "category",
+   "label": "Category",
+   "fieldtype": "Select",
+   "options": "\nMaterial\nCommercial\nFactory",
+   "in_list_view": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-11-09 23:58:03.748321",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Costing Sheet Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
