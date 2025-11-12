@@ -330,7 +330,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172101BSB-17-4111 tpg-12-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-WC6172101BSB-17-4111 TPG-12-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -351,7 +351,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSB-Grey mealange-12-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-WC6172201BSB-GREY MELANGE-12-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -393,7 +393,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSG-Black-7-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-WC6172201BSG-BLACK-7-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -435,7 +435,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172102CSB-19-4010 TPG/ 17-5735 tpg-7-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC61721101ABJ-19-4010 TPG/ 17-5735 tpg-7-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -487,27 +487,6 @@
   "completed_by_role": "Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-06 00:45:59.702928",
-  "name": "4gd1ivjobt",
-  "permitted_roles": [
-   {
-    "parent": "4gd1ivjobt",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172201CSG-15-2718 tpg-7-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
   "modified": "2025-11-06 00:45:59.744931",
   "name": "4gdj3l9r0a",
   "permitted_roles": [
@@ -519,7 +498,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172201AGJ-15-2718 tpg-7-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC6172201AGJ-15-2718 TPG-7-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -540,7 +519,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172101BSB-17-4111 tpg-12-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-WC6172101BSB-17-4111 TPG-12-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -561,49 +540,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172201AGJ-15-2718 tpg-7-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:52:41.516417",
-  "name": "h3vbmsrpvq",
-  "permitted_roles": [
-   {
-    "parent": "h3vbmsrpvq",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-LO252-7-LOW-09-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:54:28.755159",
-  "name": "i5f8jgno7v",
-  "permitted_roles": [
-   {
-    "parent": "i5f8jgno7v",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-LO252-7-LOW-09-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC6172201AGJ-15-2718 TPG-7-HIGH-06-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -697,27 +634,6 @@
   "completed_by_role": "All",
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.049224",
-  "name": "kd4om630ie",
-  "permitted_roles": [
-   {
-    "parent": "kd4om630ie",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172201CSG-15-2718 tpg-7-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
   "modified": "2025-11-09 22:58:18.106152",
   "name": "kd5dbuhe4q",
   "permitted_roles": [
@@ -756,288 +672,15 @@
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
  },
  {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.177291",
-  "name": "kd5bkg80e6",
-  "permitted_roles": [
-   {
-    "parent": "kd5bkg80e6",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172102CSB-19-4010 TPG/ 17-5735 tpg-7-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.214275",
-  "name": "kd6lvn1rjf",
-  "permitted_roles": [
-   {
-    "parent": "kd6lvn1rjf",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172203BSG-19-4020 TPG-12-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.248845",
-  "name": "kd6r86llpn",
-  "permitted_roles": [
-   {
-    "parent": "kd6r86llpn",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201TGN-11-1001 tpg-12-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.283929",
-  "name": "kd6hpafhur",
-  "permitted_roles": [
-   {
-    "parent": "kd6hpafhur",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSG-Black-7-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.318096",
-  "name": "kd7lv28f5b",
-  "permitted_roles": [
-   {
-    "parent": "kd7lv28f5b",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSB-Grey mealange-12-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:18.353434",
-  "name": "kd7nv964hi",
-  "permitted_roles": [
-   {
-    "parent": "kd7nv964hi",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSB-19-4125 TPG-12-HIGH-06-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
   "completed_by": null,
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:44.965701",
-  "name": "klhe7tjrj6",
+  "modified": "2025-11-11 22:45:09.649881",
+  "name": "46ohi8khfs",
   "permitted_roles": [
    {
-    "parent": "klhe7tjrj6",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-LO252-7-LOW-09-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.066413",
-  "name": "klif8jr5ka",
-  "permitted_roles": [
-   {
-    "parent": "klif8jr5ka",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172201CSG-15-2718 tpg-7-HIGH-06-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.120985",
-  "name": "kljd06optg",
-  "permitted_roles": [
-   {
-    "parent": "kljd06optg",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172201AGJ-15-2718 tpg-7-HIGH-06-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.166253",
-  "name": "kljsf35kja",
-  "permitted_roles": [
-   {
-    "parent": "kljsf35kja",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172102CSG-15-2718 tpg-7-HIGH-06-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.202234",
-  "name": "klk9kghtlq",
-  "permitted_roles": [
-   {
-    "parent": "klk9kghtlq",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172102CSG-11-0601 tpg-7-HIGH-06-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.234147",
-  "name": "klkagset0h",
-  "permitted_roles": [
-   {
-    "parent": "klkagset0h",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-ZC6172102CSB-19-4010 TPG/ 17-5735 tpg-7-HIGH-06-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.263486",
-  "name": "klkkaoal9s",
-  "permitted_roles": [
-   {
-    "parent": "klkkaoal9s",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172203BSG-19-4020 TPG-12-HIGH-06-11-25-{}",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.296480",
-  "name": "klk7afn2in",
-  "permitted_roles": [
-   {
-    "parent": "klk7afn2in",
+    "parent": "46ohi8khfs",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
     "role": "All"
@@ -1054,83 +697,125 @@
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.326379",
-  "name": "kllilltlti",
+  "modified": "2025-11-11 22:54:37.670854",
+  "name": "9o8l25bepl",
   "permitted_roles": [
    {
-    "parent": "kllilltlti",
+    "parent": "9o8l25bepl",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
     "role": "All"
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSG-Black-7-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC6172201AGJ-15-2718 TPG-7-HIGH-06-11-25-{}",
   "status": "Open",
   "user": null,
   "workflow_state": "WORK IS GOING ON"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "Merchandiser",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-11-11 23:09:35.379474",
+  "name": "igp816fnk5",
+  "permitted_roles": [
+   {
+    "parent": "igp816fnk5",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC6172201AGK-7-HIGH-11-11-25-00085",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "Draft"
  },
  {
   "completed_by": null,
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.359922",
-  "name": "kll3spsb2h",
+  "modified": "2025-11-11 23:10:20.705293",
+  "name": "iuvc1vkl0f",
   "permitted_roles": [
    {
-    "parent": "kll3spsb2h",
+    "parent": "iuvc1vkl0f",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
     "role": "All"
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSB-Grey mealange-12-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC6172201AGK-7-HIGH-11-11-25-00085",
   "status": "Open",
   "user": null,
-  "workflow_state": "WORK IS GOING ON"
+  "workflow_state": "DELIVERED TO SAMPLE DEPT."
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "Merchandiser",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-11-11 23:33:07.412987",
+  "name": "0a26or3nva",
+  "permitted_roles": [
+   {
+    "parent": "0a26or3nva",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC6172102AGJ-7-LOW-11-11-25-00086",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "Draft"
  },
  {
   "completed_by": null,
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.391599",
-  "name": "kll36bdo35",
+  "modified": "2025-11-11 23:35:43.075063",
+  "name": "1qmc1fn6fj",
   "permitted_roles": [
    {
-    "parent": "kll36bdo35",
+    "parent": "1qmc1fn6fj",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
     "role": "All"
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172201BSB-19-4125 TPG-12-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC6172102AGJ-7-LOW-11-11-25-00086",
   "status": "Open",
   "user": null,
-  "workflow_state": "WORK IS GOING ON"
+  "workflow_state": "DELIVERED TO SAMPLE DEPT."
  },
  {
   "completed_by": null,
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2025-11-09 22:58:45.423503",
-  "name": "klm4b55kq5",
+  "modified": "2025-11-11 23:36:37.241900",
+  "name": "2bkpl15ut1",
   "permitted_roles": [
    {
-    "parent": "klm4b55kq5",
+    "parent": "2bkpl15ut1",
     "parentfield": "permitted_roles",
     "parenttype": "Workflow Action",
-    "role": "All"
+    "role": "Merchandiser"
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "PAAYRA DESING-WC6172101BSB-17-4111 tpg-12-HIGH-06-11-25-{}",
+  "reference_name": "PAAYRA DESING-ZC6172102AGJ-7-LOW-11-11-25-00087",
   "status": "Open",
   "user": null,
-  "workflow_state": "WORK IS GOING ON"
+  "workflow_state": "Draft"
  }
 ]

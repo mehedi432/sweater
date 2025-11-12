@@ -1,24 +1,29 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:COST SHEET - {date} - {season}-{buyer}-{style}",
  "creation": "2025-11-09 23:55:42.211824",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "buyer",
-  "season",
   "date",
+  "buyer",
+  "column_break_lake",
+  "season",
   "ref_no",
-  "style_name",
+  "column_break_zkqr",
   "qty",
+  "style_name",
   "section_break_material",
   "costing_items",
-  "column_break_summary",
+  "section_break_xqnt",
   "total_lc_value",
-  "total_material_cost",
-  "commercial_cost",
   "factory_cm",
   "grand_total",
+  "column_break_akxp",
+  "commercial_cost",
+  "total_material_cost",
+  "section_break_nmbi",
   "remarks",
   "section_break_sign",
   "prepared_by",
@@ -28,34 +33,34 @@
  "fields": [
   {
    "fieldname": "buyer",
-   "label": "Buyer",
    "fieldtype": "Link",
+   "label": "Buyer",
    "options": "Customer"
   },
   {
    "fieldname": "season",
-   "label": "Season",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Season"
   },
   {
    "fieldname": "date",
-   "label": "Date",
-   "fieldtype": "Date"
+   "fieldtype": "Date",
+   "label": "Date"
   },
   {
    "fieldname": "ref_no",
-   "label": "Reference No",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Reference No"
   },
   {
    "fieldname": "style_name",
-   "label": "Style Name / No",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Style Name / No"
   },
   {
    "fieldname": "qty",
-   "label": "Quantity (pcs)",
-   "fieldtype": "Int"
+   "fieldtype": "Int",
+   "label": "Quantity (pcs)"
   },
   {
    "fieldname": "section_break_material",
@@ -64,43 +69,39 @@
   },
   {
    "fieldname": "costing_items",
-   "label": "Costing Items",
    "fieldtype": "Table",
+   "label": "Costing Items",
    "options": "Costing Sheet Item"
   },
   {
-   "fieldname": "column_break_summary",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "total_lc_value",
-   "label": "Total LC Value",
-   "fieldtype": "Currency"
+   "fieldtype": "Currency",
+   "label": "Total LC Value"
   },
   {
    "fieldname": "total_material_cost",
-   "label": "Total Material Cost",
-   "fieldtype": "Currency"
+   "fieldtype": "Currency",
+   "label": "Total Material Cost"
   },
   {
    "fieldname": "commercial_cost",
-   "label": "Commercial Cost",
-   "fieldtype": "Currency"
+   "fieldtype": "Currency",
+   "label": "Commercial Cost"
   },
   {
    "fieldname": "factory_cm",
-   "label": "Factory CM",
-   "fieldtype": "Currency"
+   "fieldtype": "Currency",
+   "label": "Factory CM"
   },
   {
    "fieldname": "grand_total",
-   "label": "Grand Total",
-   "fieldtype": "Currency"
+   "fieldtype": "Currency",
+   "label": "Grand Total"
   },
   {
    "fieldname": "remarks",
-   "label": "Remarks",
-   "fieldtype": "Small Text"
+   "fieldtype": "Small Text",
+   "label": "Remarks"
   },
   {
    "fieldname": "section_break_sign",
@@ -109,30 +110,51 @@
   },
   {
    "fieldname": "prepared_by",
-   "label": "Prepared By",
    "fieldtype": "Link",
+   "label": "Prepared By",
    "options": "Employee"
   },
   {
    "fieldname": "checked_by",
-   "label": "Checked By",
    "fieldtype": "Link",
+   "label": "Checked By",
    "options": "Employee"
   },
   {
    "fieldname": "approved_by",
-   "label": "Approved By",
    "fieldtype": "Link",
+   "label": "Approved By",
    "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_lake",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zkqr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xqnt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_akxp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nmbi",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-09 23:55:42.211824",
+ "modified": "2025-11-10 23:35:08.392787",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Cost Sheet",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

@@ -17,7 +17,7 @@
    "wildcard_filter": 0
   },
   {
-   "default": "2025-11-09",
+   "default": "2025-01-01",
    "fieldname": "start_date",
    "fieldtype": "Date",
    "label": "Start Date",
@@ -25,7 +25,7 @@
    "wildcard_filter": 0
   },
   {
-   "default": "2025-11-09",
+   "default": "2025-12-31",
    "fieldname": "end_date",
    "fieldtype": "Date",
    "label": "End Date",
@@ -37,7 +37,7 @@
  "is_standard": "Yes",
  "letter_head": "MSFL",
  "letterhead": null,
- "modified": "2025-11-09 23:08:57.049056",
+ "modified": "2025-11-10 23:30:45.125868",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Requests Summary",
