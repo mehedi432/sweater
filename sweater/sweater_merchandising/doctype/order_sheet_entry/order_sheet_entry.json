@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{YY}-{MM}-{DD}-{buyer}-{style_no}-{#####}",
  "creation": "2025-11-18 23:00:38.262228",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -12,7 +13,7 @@
   "fit",
   "column_break_shqa",
   "brand",
-  "style_name",
+  "knitting_time",
   "color",
   "column_break_iwjx",
   "season",
@@ -26,12 +27,16 @@
   "care_label_layout",
   "main_label_layout",
   "sticker_layout",
+  "accessories_pi",
+  "accessories_b2b_lc",
   "column_break_wvno",
   "po_sheet",
   "tech_pack",
   "column_break_soak",
   "lc_copy",
   "yarn_pi",
+  "yarn_ud",
+  "yarn_b2b_lc",
   "section_qty",
   "qty_details",
   "section_yarn",
@@ -101,11 +106,6 @@
    "label": "Style No"
   },
   {
-   "fieldname": "style_name",
-   "fieldtype": "Data",
-   "label": "Style Name"
-  },
-  {
    "fetch_from": "sample_request.gauge",
    "fieldname": "gauge",
    "fieldtype": "Data",
@@ -159,6 +159,7 @@
    "label": "Yarn PI"
   },
   {
+   "fetch_from": "sample_request.technical_file",
    "fieldname": "tech_pack",
    "fieldtype": "Attach",
    "label": "Tech Pack"
@@ -350,15 +351,42 @@
    "fieldname": "sticker_layout",
    "fieldtype": "Attach",
    "label": "Sticker Layout"
+  },
+  {
+   "fieldname": "yarn_ud",
+   "fieldtype": "Attach",
+   "label": "Yarn UD"
+  },
+  {
+   "fieldname": "accessories_pi",
+   "fieldtype": "Attach",
+   "label": "Accessories PI"
+  },
+  {
+   "fieldname": "accessories_b2b_lc",
+   "fieldtype": "Attach",
+   "label": "Accessories B2B Lc"
+  },
+  {
+   "fieldname": "yarn_b2b_lc",
+   "fieldtype": "Attach",
+   "label": "Yarn B2B Lc"
+  },
+  {
+   "fetch_from": "sample_request.knitting_time",
+   "fieldname": "knitting_time",
+   "fieldtype": "Data",
+   "label": "Knitting Time"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-19 00:29:37.836430",
+ "modified": "2025-11-19 01:05:37.516363",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
