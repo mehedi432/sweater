@@ -42,11 +42,11 @@ frappe.ui.form.on("Daily Sample Request", {
                 __("Create")
             );
 
-            // 🔹 3. (Optional) Create Style Development Sheet
+            
             frm.add_custom_button(
-                __("Style Development Sheet"),
+                __("Order Sheet Entry"),
                 function () {
-                    frappe.new_doc("Style Development Sheet", {
+                    frappe.new_doc("Order Sheet Entry", {
                         sample_request: frm.doc.name
                     });
                 },

@@ -27,4 +27,3 @@ function calculate_total(frm, cdt, cdn) {
 
     frm.refresh_field("order_sheet_yarn_detail"); // refresh child table
 }
-
