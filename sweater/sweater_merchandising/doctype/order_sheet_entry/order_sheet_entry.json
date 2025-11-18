@@ -1,55 +1,323 @@
 {
+ "doctype": "DocType",
+ "name": "Order Sheet Entry",
+ "module": "Sweater Merchandising",
+ "custom": 0,
+ "istable": 0,
+ "editable_grid": 1,
+ "track_changes": 1,
+ "track_seen": 1,
+ "is_submittable": 1,
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-11-18 22:32:15.645801",
- "doctype": "DocType",
  "engine": "InnoDB",
+ "row_format": "Dynamic",
  "field_order": [
-  "section_break_7zbo",
+  "section_basic",
+  "buyer",
+  "brand",
+  "season",
+  "order_no",
+  "style_no",
+  "style_name",
+  "gauge",
+  "construction",
+  "fit",
+  "color",
+  "style_image",
+
+  "section_files",
+  "care_label_layout",
+  "po_sheet",
+  "lc_copy",
+  "yarn_pi",
+  "tech_pack",
+  "sample_photo",
+
+  "section_qty",
+  "qty_details",
+
+  "section_yarn",
+  "yarn_details",
+
+  "section_trim",
+  "trim_details",
+
+  "section_commercial",
+  "incoterm",
+  "price",
+  "currency",
+  "payment_term",
+  "lc_open_date",
+  "lc_expiry_date",
+  "hs_code",
+
+  "section_planning",
+  "production_start_date",
+  "production_end_date",
+  "capacity_required",
+  "planning_remarks",
+
+  "section_status",
+  "approval_status",
+  "sample_status",
+  "remarks",
+
   "amended_from"
  ],
+
  "fields": [
   {
-   "fieldname": "section_break_7zbo",
-   "fieldtype": "Section Break"
+   "fieldname": "section_basic",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
   },
   {
-   "fieldname": "amended_from",
+   "fieldname": "buyer",
+   "label": "Buyer",
    "fieldtype": "Link",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "brand",
+   "label": "Brand",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "season",
+   "label": "Season",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "order_no",
+   "label": "Order No",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "style_no",
+   "label": "Style No",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "style_name",
+   "label": "Style Name",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "gauge",
+   "label": "Gauge",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "construction",
+   "label": "Construction",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "fit",
+   "label": "Fit",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "color",
+   "label": "Color",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "style_image",
+   "label": "Style Image",
+   "fieldtype": "Attach Image"
+  },
+
+  {
+   "fieldname": "section_files",
+   "fieldtype": "Section Break",
+   "label": "Attachments"
+  },
+  {
+   "fieldname": "care_label_layout",
+   "label": "Care Label Layout",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "po_sheet",
+   "label": "PO Sheet",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "lc_copy",
+   "label": "LC Copy",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "yarn_pi",
+   "label": "Yarn PI",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "tech_pack",
+   "label": "Tech Pack",
+   "fieldtype": "Attach"
+  },
+  {
+   "fieldname": "sample_photo",
+   "label": "Sample Photo",
+   "fieldtype": "Attach"
+  },
+
+  {
+   "fieldname": "section_qty",
+   "fieldtype": "Section Break",
+   "label": "Quantity Breakdown"
+  },
+  {
+   "fieldname": "qty_details",
+   "label": "Order Qty Details",
+   "fieldtype": "Table",
+   "options": "Order Sheet Qty Detail"
+  },
+
+  {
+   "fieldname": "section_yarn",
+   "fieldtype": "Section Break",
+   "label": "Yarn Details"
+  },
+  {
+   "fieldname": "yarn_details",
+   "label": "Yarn Detail Table",
+   "fieldtype": "Table",
+   "options": "Order Sheet Yarn Detail"
+  },
+
+  {
+   "fieldname": "section_trim",
+   "fieldtype": "Section Break",
+   "label": "Trims & Accessories"
+  },
+  {
+   "fieldname": "trim_details",
+   "label": "Trim Details Table",
+   "fieldtype": "Table",
+   "options": "Order Sheet Trim Detail"
+  },
+
+  {
+   "fieldname": "section_commercial",
+   "fieldtype": "Section Break",
+   "label": "Commercial Information"
+  },
+  {
+   "fieldname": "incoterm",
+   "label": "Incoterm",
+   "fieldtype": "Select",
+   "options": "\nFOB\nCIF\nCFR\nEXW"
+  },
+  {
+   "fieldname": "price",
+   "label": "Price",
+   "fieldtype": "Currency"
+  },
+  {
+   "fieldname": "currency",
+   "label": "Currency",
+   "fieldtype": "Select",
+   "options": "USD\nEUR\nGBP\nBDT"
+  },
+  {
+   "fieldname": "payment_term",
+   "label": "Payment Term",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "lc_open_date",
+   "label": "LC Open Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "lc_expiry_date",
+   "label": "LC Expiry Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "hs_code",
+   "label": "HS Code",
+   "fieldtype": "Data"
+  },
+
+  {
+   "fieldname": "section_planning",
+   "fieldtype": "Section Break",
+   "label": "Planning & Strategy"
+  },
+  {
+   "fieldname": "production_start_date",
+   "label": "Production Start Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "production_end_date",
+   "label": "Production End Date",
+   "fieldtype": "Date"
+  },
+  {
+   "fieldname": "capacity_required",
+   "label": "Capacity Required",
+   "fieldtype": "Float"
+  },
+  {
+   "fieldname": "planning_remarks",
+   "label": "Planning Remarks",
+   "fieldtype": "Small Text"
+  },
+
+  {
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "Status & Remarks"
+  },
+  {
+   "fieldname": "approval_status",
+   "label": "Approval Status",
+   "fieldtype": "Select",
+   "options": "\nPending\nApproved\nRevised"
+  },
+  {
+   "fieldname": "sample_status",
+   "label": "Sample Status",
+   "fieldtype": "Select",
+   "options": "\nProto\nPhoto\nSize Set\nPP Sample\nTOP Sample"
+  },
+  {
+   "fieldname": "remarks",
+   "label": "Remarks",
+   "fieldtype": "Small Text"
+  },
+
+  {
+   "fieldname": "amended_from",
    "label": "Amended From",
-   "no_copy": 1,
+   "fieldtype": "Link",
    "options": "Order Sheet Entry",
-   "print_hide": 1,
+   "no_copy": 1,
    "read_only": 1,
-   "search_index": 1
+   "print_hide": 1
   }
  ],
- "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [],
- "modified": "2025-11-18 22:32:15.645801",
- "modified_by": "Administrator",
- "module": "Sweater Merchandising",
- "name": "Order Sheet Entry",
- "owner": "Administrator",
+
  "permissions": [
   {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
    "create": 1,
    "delete": 1,
+   "submit": 1,
    "email": 1,
    "export": 1,
    "print": 1,
-   "read": 1,
    "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "submit": 1,
-   "write": 1
+   "share": 1
   }
- ],
- "row_format": "Dynamic",
- "sort_field": "modified",
- "sort_order": "DESC",
- "states": []
+ ]
 }
