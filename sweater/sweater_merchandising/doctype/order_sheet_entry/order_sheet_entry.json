@@ -1,71 +1,67 @@
 {
- "doctype": "DocType",
- "name": "Order Sheet Entry",
- "module": "Sweater Merchandising",
- "custom": 0,
- "istable": 0,
- "editable_grid": 1,
- "track_changes": 1,
- "track_seen": 1,
- "is_submittable": 1,
  "actions": [],
  "allow_rename": 1,
+ "creation": "2025-11-18 23:00:38.262228",
+ "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
- "row_format": "Dynamic",
  "field_order": [
   "section_basic",
   "buyer",
-  "brand",
-  "season",
-  "order_no",
   "style_no",
+  "fit",
+  "column_break_shqa",
+  "brand",
   "style_name",
+  "color",
+  "column_break_iwjx",
+  "season",
   "gauge",
   "construction",
-  "fit",
-  "color",
+  "column_break_osmd",
+  "sample_request",
+  "order_no",
   "style_image",
-
   "section_files",
   "care_label_layout",
+  "main_label_layout",
+  "sticker_layout",
+  "column_break_wvno",
   "po_sheet",
+  "tech_pack",
+  "column_break_soak",
   "lc_copy",
   "yarn_pi",
-  "tech_pack",
-  "sample_photo",
-
   "section_qty",
   "qty_details",
-
   "section_yarn",
   "yarn_details",
-
   "section_trim",
   "trim_details",
-
   "section_commercial",
-  "incoterm",
-  "price",
-  "currency",
+  "incometerm",
   "payment_term",
-  "lc_open_date",
-  "lc_expiry_date",
   "hs_code",
-
+  "column_break_vmth",
+  "price",
+  "lc_open_date",
+  "column_break_fgkg",
+  "currency",
+  "lc_expiry_date",
   "section_planning",
   "production_start_date",
+  "column_break_rnkr",
   "production_end_date",
+  "column_break_onun",
   "capacity_required",
+  "section_break_mhuj",
   "planning_remarks",
-
   "section_status",
   "approval_status",
   "sample_status",
   "remarks",
-
   "amended_from"
  ],
-
  "fields": [
   {
    "fieldname": "section_basic",
@@ -73,63 +69,70 @@
    "label": "Basic Information"
   },
   {
+   "fetch_from": "sample_request.buyer",
    "fieldname": "buyer",
-   "label": "Buyer",
    "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Buyer",
    "options": "Customer",
    "reqd": 1
   },
   {
    "fieldname": "brand",
-   "label": "Brand",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Brand"
   },
   {
+   "fetch_from": "sample_request.season_collection",
    "fieldname": "season",
-   "label": "Season",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Season"
   },
   {
+   "fetch_from": "sample_request.order_qty",
    "fieldname": "order_no",
-   "label": "Order No",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Order Qty"
   },
   {
+   "fetch_from": "sample_request.style",
    "fieldname": "style_no",
-   "label": "Style No",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Style No"
   },
   {
    "fieldname": "style_name",
-   "label": "Style Name",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Style Name"
   },
   {
+   "fetch_from": "sample_request.gauge",
    "fieldname": "gauge",
-   "label": "Gauge",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Gauge"
   },
   {
    "fieldname": "construction",
-   "label": "Construction",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Construction"
   },
   {
    "fieldname": "fit",
-   "label": "Fit",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Fit"
   },
   {
+   "fetch_from": "sample_request.color",
    "fieldname": "color",
-   "label": "Color",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Color"
   },
   {
+   "fetch_from": "sample_request.reference_image",
    "fieldname": "style_image",
-   "label": "Style Image",
-   "fieldtype": "Attach Image"
+   "fieldtype": "Attach Image",
+   "label": "Style Image"
   },
-
   {
    "fieldname": "section_files",
    "fieldtype": "Section Break",
@@ -137,35 +140,29 @@
   },
   {
    "fieldname": "care_label_layout",
-   "label": "Care Label Layout",
-   "fieldtype": "Attach"
+   "fieldtype": "Attach",
+   "label": "Care Label Layout"
   },
   {
    "fieldname": "po_sheet",
-   "label": "PO Sheet",
-   "fieldtype": "Attach"
+   "fieldtype": "Attach",
+   "label": "PO Sheet"
   },
   {
    "fieldname": "lc_copy",
-   "label": "LC Copy",
-   "fieldtype": "Attach"
+   "fieldtype": "Attach",
+   "label": "LC Copy"
   },
   {
    "fieldname": "yarn_pi",
-   "label": "Yarn PI",
-   "fieldtype": "Attach"
+   "fieldtype": "Attach",
+   "label": "Yarn PI"
   },
   {
    "fieldname": "tech_pack",
-   "label": "Tech Pack",
-   "fieldtype": "Attach"
+   "fieldtype": "Attach",
+   "label": "Tech Pack"
   },
-  {
-   "fieldname": "sample_photo",
-   "label": "Sample Photo",
-   "fieldtype": "Attach"
-  },
-
   {
    "fieldname": "section_qty",
    "fieldtype": "Section Break",
@@ -173,11 +170,10 @@
   },
   {
    "fieldname": "qty_details",
-   "label": "Order Qty Details",
    "fieldtype": "Table",
+   "label": "Order Qty Details",
    "options": "Order Sheet Qty Detail"
   },
-
   {
    "fieldname": "section_yarn",
    "fieldtype": "Section Break",
@@ -185,11 +181,10 @@
   },
   {
    "fieldname": "yarn_details",
-   "label": "Yarn Detail Table",
    "fieldtype": "Table",
+   "label": "Yarn Detail Table",
    "options": "Order Sheet Yarn Detail"
   },
-
   {
    "fieldname": "section_trim",
    "fieldtype": "Section Break",
@@ -197,54 +192,46 @@
   },
   {
    "fieldname": "trim_details",
-   "label": "Trim Details Table",
    "fieldtype": "Table",
+   "label": "Trim Details Table",
    "options": "Order Sheet Trim Detail"
   },
-
   {
    "fieldname": "section_commercial",
    "fieldtype": "Section Break",
    "label": "Commercial Information"
   },
   {
-   "fieldname": "incoterm",
-   "label": "Incoterm",
-   "fieldtype": "Select",
-   "options": "\nFOB\nCIF\nCFR\nEXW"
-  },
-  {
    "fieldname": "price",
-   "label": "Price",
-   "fieldtype": "Currency"
+   "fieldtype": "Currency",
+   "label": "Price"
   },
   {
    "fieldname": "currency",
-   "label": "Currency",
    "fieldtype": "Select",
+   "label": "Currency",
    "options": "USD\nEUR\nGBP\nBDT"
   },
   {
    "fieldname": "payment_term",
-   "label": "Payment Term",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "Payment Term"
   },
   {
    "fieldname": "lc_open_date",
-   "label": "LC Open Date",
-   "fieldtype": "Date"
+   "fieldtype": "Date",
+   "label": "LC Open Date"
   },
   {
    "fieldname": "lc_expiry_date",
-   "label": "LC Expiry Date",
-   "fieldtype": "Date"
+   "fieldtype": "Date",
+   "label": "LC Expiry Date"
   },
   {
    "fieldname": "hs_code",
-   "label": "HS Code",
-   "fieldtype": "Data"
+   "fieldtype": "Data",
+   "label": "HS Code"
   },
-
   {
    "fieldname": "section_planning",
    "fieldtype": "Section Break",
@@ -252,25 +239,24 @@
   },
   {
    "fieldname": "production_start_date",
-   "label": "Production Start Date",
-   "fieldtype": "Date"
+   "fieldtype": "Date",
+   "label": "Production Start Date"
   },
   {
    "fieldname": "production_end_date",
-   "label": "Production End Date",
-   "fieldtype": "Date"
+   "fieldtype": "Date",
+   "label": "Production End Date"
   },
   {
    "fieldname": "capacity_required",
-   "label": "Capacity Required",
-   "fieldtype": "Float"
+   "fieldtype": "Float",
+   "label": "Capacity Required"
   },
   {
    "fieldname": "planning_remarks",
-   "label": "Planning Remarks",
-   "fieldtype": "Small Text"
+   "fieldtype": "Small Text",
+   "label": "Planning Remarks"
   },
-
   {
    "fieldname": "section_status",
    "fieldtype": "Section Break",
@@ -278,46 +264,121 @@
   },
   {
    "fieldname": "approval_status",
-   "label": "Approval Status",
    "fieldtype": "Select",
+   "label": "Approval Status",
    "options": "\nPending\nApproved\nRevised"
   },
   {
    "fieldname": "sample_status",
-   "label": "Sample Status",
    "fieldtype": "Select",
+   "label": "Sample Status",
    "options": "\nProto\nPhoto\nSize Set\nPP Sample\nTOP Sample"
   },
   {
    "fieldname": "remarks",
-   "label": "Remarks",
-   "fieldtype": "Small Text"
+   "fieldtype": "Small Text",
+   "label": "Remarks"
   },
-
   {
    "fieldname": "amended_from",
-   "label": "Amended From",
    "fieldtype": "Link",
-   "options": "Order Sheet Entry",
+   "label": "Amended From",
    "no_copy": 1,
-   "read_only": 1,
-   "print_hide": 1
+   "options": "Order Sheet Entry",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_shqa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_iwjx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_osmd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wvno",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_soak",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_vmth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fgkg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rnkr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_onun",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_mhuj",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "sample_request",
+   "fieldtype": "Link",
+   "label": "Sample Request",
+   "options": "Daily Sample Request"
+  },
+  {
+   "fieldname": "incometerm",
+   "fieldtype": "Select",
+   "label": "Income Term",
+   "options": "\nFOB\nCM"
+  },
+  {
+   "fieldname": "main_label_layout",
+   "fieldtype": "Attach",
+   "label": "Main Label Layout"
+  },
+  {
+   "fieldname": "sticker_layout",
+   "fieldtype": "Attach",
+   "label": "Sticker Layout"
   }
  ],
-
+ "image_field": "style_image",
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-11-19 00:29:37.836430",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Order Sheet Entry",
+ "owner": "Administrator",
  "permissions": [
   {
-   "role": "System Manager",
-   "read": 1,
-   "write": 1,
    "create": 1,
    "delete": 1,
-   "submit": 1,
    "email": 1,
    "export": 1,
    "print": 1,
+   "read": 1,
    "report": 1,
-   "share": 1
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
   }
- ]
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }

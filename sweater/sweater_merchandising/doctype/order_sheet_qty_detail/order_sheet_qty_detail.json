@@ -10,8 +10,22 @@
  ],
  "fields": [
   {
-   "fieldname": "section_break_rtcp",
-   "fieldtype": "Section Break"
+   "fieldname": "size",
+   "label": "Size",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "color",
+   "label": "Color",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "qty",
+   "label": "Quantity",
+   "fieldtype": "Int",
+   "reqd": 1
   }
  ],
  "grid_page_length": 50,

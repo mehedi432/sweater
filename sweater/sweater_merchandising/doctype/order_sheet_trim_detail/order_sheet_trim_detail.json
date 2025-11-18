@@ -10,8 +10,31 @@
  ],
  "fields": [
   {
-   "fieldname": "section_break_8ofv",
-   "fieldtype": "Section Break"
+   "fieldname": "trim_name",
+   "label": "Trim Name",
+   "fieldtype": "Data",
+   "reqd": 1
+  },
+  {
+   "fieldname": "color",
+   "label": "Color",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "consumption",
+   "label": "Consumption",
+   "fieldtype": "Data"
+  },
+  {
+   "fieldname": "supplier",
+   "label": "Supplier",
+   "fieldtype": "Link",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "remarks",
+   "label": "Remarks",
+   "fieldtype": "Small Text"
   }
  ],
  "grid_page_length": 50,

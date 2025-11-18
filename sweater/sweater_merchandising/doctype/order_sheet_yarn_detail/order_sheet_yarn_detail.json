@@ -6,19 +6,81 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "section_break_onix"
+  "category",
+  "column_break_kope",
+  "yarn_composition",
+  "column_break_fzgi",
+  "size",
+  "section_break_avio",
+  "consumption",
+  "quantity",
+  "wastage",
+  "total_yarn",
+  "uom"
  ],
  "fields": [
   {
-   "fieldname": "section_break_onix",
+   "fieldname": "column_break_fzgi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "section_break_avio",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "default": "YARN",
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Material Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "column_break_kope",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yarn_composition",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Item"
+  },
+  {
+   "fieldname": "consumption",
+   "fieldtype": "Float",
+   "label": "Consumption (per pcs)"
+  },
+  {
+   "fieldname": "wastage",
+   "fieldtype": "Percent",
+   "label": "Wastage (%)"
+  },
+  {
+   "fieldname": "total_yarn",
+   "fieldtype": "Float",
+   "label": "Total Yarn Required"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Data",
+   "label": "Size"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-18 22:56:29.585671",
+ "modified": "2025-11-19 00:44:23.420975",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Yarn Detail",
