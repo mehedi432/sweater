@@ -7915,5 +7915,215 @@
   "status": "Open",
   "user": null,
   "workflow_state": "WAITING FOR BUYER REVIEW"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 09:50:05.700684",
+  "name": "ra9rd2e6a2",
+  "permitted_roles": [
+   {
+    "parent": "ra9rd2e6a2",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "25-12-08-PAAYRA DESING-WC6172101BSB-00259",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 09:51:26.837211",
+  "name": "s3k35jn191",
+  "permitted_roles": [
+   {
+    "parent": "s3k35jn191",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "25-12-08-PAAYRA DESING-WC6172201BSB-00260",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 09:51:41.871510",
+  "name": "s8adakuvcb",
+  "permitted_roles": [
+   {
+    "parent": "s8adakuvcb",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "25-12-08-PAAYRA DESING-WC6172201BSB-00261",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 09:56:04.546626",
+  "name": "uqd6itdemj",
+  "permitted_roles": [
+   {
+    "parent": "uqd6itdemj",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "25-12-08-PAAYRA DESING-WC6172201BSG-00262",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 14:15:40.948275",
+  "name": "mu1okd0t4c",
+  "permitted_roles": [
+   {
+    "parent": "mu1okd0t4c",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-AVNELL LS BUTTON POLO-12-LOW-08-12-25-00263",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 14:30:26.446530",
+  "name": "viog4jd7v1",
+  "permitted_roles": [
+   {
+    "parent": "viog4jd7v1",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-MULL CREW NECK-7-LOW-08-12-25-00264",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 15:46:07.186189",
+  "name": "btnas865em",
+  "permitted_roles": [
+   {
+    "parent": "btnas865em",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-ADALINE-7-LOW-08-12-25-00265",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 16:08:57.315997",
+  "name": "p9tv9dta55",
+  "permitted_roles": [
+   {
+    "parent": "p9tv9dta55",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-LADIES STOCK - JAZZ YARN CHANGED-12-LOW-08-12-25-00266",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 16:22:35.992942",
+  "name": "19n3kp6k72",
+  "permitted_roles": [
+   {
+    "parent": "19n3kp6k72",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-TOPSHOP LIME GREEN WITH SCARF-12-LOW-08-12-25-00267",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2025-12-08 16:25:45.041330",
+  "name": "34q68brefd",
+  "permitted_roles": [
+   {
+    "parent": "34q68brefd",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "MICROTEX-TOPSHOP GREEN CARDI-12-LOW-08-12-25-00268",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
  }
 ]
