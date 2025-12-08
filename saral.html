@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Product Cards with Nested Categories Grid</title>
+<style>
+/* Body and grid background */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(#e0e0e0 1px, transparent 1px),
+    linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+  background-size: 89px 144px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Navbar Styling */
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(rgba(25,118,210,0.7), rgba(25,118,210,0.5)), 
+              url('https://source.unsplash.com/1600x900/?shopping,ecommerce') center/cover no-repeat;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 40px;
+  background: transparent; /* No background at all initially */
+  backdrop-filter: blur(12px); /* Frosted glass effect */
+  box-shadow: none; /* No shadow initially */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+/* When scrolled, apply slight background and shadow */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.15); /* Slightly transparent background when scrolled */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow when scrolled */
+}
+
+/* Navbar logo */
+.navbar-logo a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Navbar links */
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links a {
+  color: #fff; /* White text by default */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect on links */
+.navbar-links a:hover {
+  color: #1976d2; /* Blue color on hover */
+}
+
+/* Hamburger Icon */
+.navbar .hamburger {
+  display: none;
+  cursor: pointer;
+  z-index: 2000;
+}
+
+.navbar .hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* Sidebar Menu (for mobile) */
+.navbar .sidebar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  flex-direction: column;
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.navbar .sidebar.open {
+  transform: translateX(0);
+}
+
+.navbar .sidebar a {
+  padding: 15px;
+  color: #1976d2; /* Blue color for sidebar links */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.navbar .sidebar a:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsive Navbar (for mobile) */
+@media(max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar .hamburger {
+    display: block;
+  }
+}
+
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+}
+
+.hero-button {
+  padding: 15px 30px;
+  background-color: #fff;
+  color: #1976d2;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-3px);
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Scrollable container */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-behavior: smooth;
+  cursor: grab;
+  padding: 20px 40px;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Cards */
+.card {
+  min-width: 250px;
+  flex: 0 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border-radius: 12px 12px 0 0;
+}
+
+.card:hover img {
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.card-price {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #1976d2;
+  margin-bottom: 10px;
+}
+
+.card-button {
+  padding: 8px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.card-button:hover {
+  background-color: #1565c0;
+  transform: translateY(-1px);
+}
+
+/* Categories Section */
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 40px 60px;
+}
+
+.category-card {
+  background-color: #fefefe;
+  border-radius: 12px;
+  padding: 15px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
+}
+
+.category-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #1976d2;
+}
+
+/* Nested grid of products inside category: 2x2 */
+.category-products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 12px;
+}
+
+/* Child product cards inside category with light pastel backgrounds */
+.category-products .card {
+  min-width: auto;
+  height: auto;
+  background-color: #e0f7fa; /* Light teal */
+}
+
+.category-products .card:nth-child(2) { background-color: #fff3e0; } /* Light peach */
+.category-products .card:nth-child(3) { background-color: #e8f5e9; } /* Light green */
+.category-products .card:nth-child(4) { background-color: #e0f7fa; } /* Light teal */
+
+/* Responsive adjustments */
+@media(max-width: 1200px) {
+  .categories-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 600px) {
+  .card { min-width: 200px; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .categories-container {
+    grid-template-columns: 1fr;
+  }
+  .category-products { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-logo">
+    <a href="#">SaralTech</a>
+  </div>
+  <div class="navbar-links" style="margin-right: 100px;">
+    <a href="#home">Home</a>
+    <a href="#featured-products">Featured</a>
+    <a href="#categories">Categories</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</nav>
+
+<!-- Sidebar Menu for Mobile -->
+<div class="sidebar" id="sidebar">
+  <a href="#home" onclick="toggleSidebar()">Home</a>
+  <a href="#featured-products" onclick="toggleSidebar()">Featured</a>
+  <a href="#categories" onclick="toggleSidebar()">Categories</a>
+  <a href="#contact" onclick="toggleSidebar()">Contact</a>
+</div>
+
+
+
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Welcome to SaralTech</h1>
+  <p>Your one-stop shop for amazing products</p>
+  <button class="hero-button">Shop Now</button>
+</section>
+
+<!-- Featured Products Section -->
+<h2 class="section-title">Featured Products</h2>
+<div class="scroll-container" id="scroll-container"></div>
+
+<!-- Categories Section -->
+<h2 class="section-title">Shop by Category</h2>
+<div class="categories-container" id="categories-container"></div>
+
+<script>
+
+// JavaScript to toggle navbar class on scroll
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 0) {
+    navbar.classList.add('scrolled');  // Add 'scrolled' class when scrolled down
+  } else {
+    navbar.classList.remove('scrolled');  // Remove 'scrolled' class when at the top
+  }
+});
+
+// Hamburger Menu Toggle (Sidebar on mobile)
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+
+hamburger.addEventListener('click', function() {
+  sidebar.classList.toggle('open');
+});
+
+function toggleSidebar() {
+  sidebar.classList.toggle('open');
+}
+
+// Featured Products Data
+const products = [
+  { title: "Wireless Headphones", price: "$99", image: "headphones-15600_1920.jpg" },
+  { title: "Smart Watch", price: "$149", image: "smart-8157289.jpg" },
+  { title: "Laptop", price: "$799", image: "acer-aspire-lite-al15-52-intel-core-i3-1215u-8gb-11736252379.webp" },
+  { title: "Running Shoes", price: "$59", image: "888d408e-11e1-49fc-a758-b9585388358e.jpg" },
+  { title: "Backpack", price: "$79", image: "backpacks-2048px.webp" },
+  { title: "Sunglasses", price: "$49", image: "https://source.unsplash.com/400x300/?sunglasses" },
+  { title: "Camera", price: "$399", image: "https://source.unsplash.com/400x300/?camera" },
+  { title: "Gaming Console", price: "$299", image: "https://source.unsplash.com/400x300/?console" },
+  { title: "Smartphone", price: "$699", image: "https://source.unsplash.com/400x300/?smartphone" },
+  { title: "Bluetooth Speaker", price: "$89", image: "https://source.unsplash.com/400x300/?speaker" }
+];
+
+// Render Featured Products
+const container = document.getElementById('scroll-container');
+function createCard(product) {
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.innerHTML = `
+    <img src="${product.image}" alt="${product.title}">
+    <div class="card-body">
+      <div>
+        <h2 class="card-title">${product.title}</h2>
+        <p class="card-price">${product.price}</p>
+      </div>
+      <button class="card-button">Add to Cart</button>
+    </div>
+  `;
+  return card;
+}
+products.forEach(product => container.appendChild(createCard(product)));
+
+// Drag to scroll for featured products
+let isDown = false, startX, scrollLeft;
+container.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - container.offsetLeft; scrollLeft = container.scrollLeft; });
+container.addEventListener('mouseleave', () => { isDown = false; });
+container.addEventListener('mouseup', () => { isDown = false; });
+container.addEventListener('mousemove', (e) => { if(!isDown) return; e.preventDefault(); const x = e.pageX - container.offsetLeft; const walk = (x - startX) * 2; container.scrollLeft = scrollLeft - walk; });
+
+// Categories Data
+const categories = [
+  {
+    title: "Electronics",
+    topProducts: [
+      { title: "Headphones", price: "$99", image: "headphones-15600_1920.jpg" },
+      { title: "Laptop", price: "$799", image: "https://source.unsplash.com/400x300/?laptop" },
+      { title: "Camera", price: "$399", image: "https://source.unsplash.com/400x300/?camera" },
+      { title: "Smartphone", price: "$699", image: "https://source.unsplash.com/400x300/?smartphone" }
+    ]
+  },
+  {
+    title: "Fashion",
+    topProducts: [
+      { title: "Shoes", price: "$59", image: "headphones-924779_960_720.jpg" },
+      { title: "Sunglasses", price: "$49", image: "headphones-924779_960_720.jpg" },
+      { title: "Jackets", price: "$129", image: "headphones-924779_960_720.jpg" },
+      { title: "Bags", price: "$79", image: "headphones-924779_960_720.jpg" }
+    ]
+  },
+  {
+    title: "Home & Kitchen",
+    topProducts: [
+      { title: "Cookware", price: "$39", image: "headphones-924779_960_720.jpg" },
+      { title: "Furniture", price: "$299", image: "https://source.unsplash.com/400x300/?furniture" },
+      { title: "Decor", price: "$59", image: "https://source.unsplash.com/400x300/?decor" },
+      { title: "Lighting", price: "$79", image: "https://source.unsplash.com/400x300/?lamp" }
+    ]
+  },
+  {
+    title: "Sports",
+    topProducts: [
+      { title: "Tennis Racket", price: "$89", image: "https://source.unsplash.com/400x300/?tennis" },
+      { title: "Football", price: "$29", image: "https://source.unsplash.com/400x300/?football" },
+      { title: "Gym Bag", price: "$49", image: "https://source.unsplash.com/400x300/?gym" },
+      { title: "Running Shoes", price: "$59", image: "https://source.unsplash.com/400x300/?running" }
+    ]
+  }
+];
+
+// Render Categories
+const categoriesContainer = document.getElementById('categories-container');
+
+function createCategoryCard(category){
+  const card = document.createElement('div');
+  card.classList.add('category-card');
+
+  // Category title
+  const title = document.createElement('div');
+  title.classList.add('category-title');
+  title.textContent = category.title;
+  card.appendChild(title);
+
+  // Nested product grid 2x2
+  const grid = document.createElement('div');
+  grid.classList.add('category-products');
+  category.topProducts.forEach(product => {
+    grid.appendChild(createCard(product));
+  });
+
+  card.appendChild(grid);
+  return card;
+}
+
+categories.forEach(category => categoriesContainer.appendChild(createCategoryCard(category)));
+</script>
+
+</body>
+</html>
