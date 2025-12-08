@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-04 23:12:24.782855",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "receive_date",
+  "column_break_odte",
+  "shipment_date",
+  "column_break_afpy",
+  "size_ratio",
+  "column_break_juro",
+  "colour",
+  "attach_po_sheet"
+ ],
+ "fields": [
+  {
+   "fieldname": "receive_date",
+   "fieldtype": "Datetime",
+   "label": "Receive Date"
+  },
+  {
+   "fieldname": "column_break_odte",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipment_date",
+   "fieldtype": "Date",
+   "label": "Shipment Date"
+  },
+  {
+   "fieldname": "column_break_afpy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "size_ratio",
+   "fieldtype": "Data",
+   "label": "Size Ratio"
+  },
+  {
+   "fieldname": "column_break_juro",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "colour",
+   "fieldtype": "Data",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "attach_po_sheet",
+   "fieldtype": "Attach",
+   "label": "Attach Po Sheet"
+  }
+ ],
+ "grid_page_length": 80,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-12-04 23:21:31.068769",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Order Sheet PO Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

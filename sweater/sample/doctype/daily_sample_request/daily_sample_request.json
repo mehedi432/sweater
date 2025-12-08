@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{buyer}-{style}-{gauge}-{urgency_priority}-{DD}-{MM}-{YY}-{#####}",
- "creation": "2025-11-19 00:38:24.031808",
+ "creation": "2025-11-19 15:10:51.452865",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -49,6 +49,9 @@
   "over_all_status",
   "column_break_crpj",
   "order_qty",
+  "actual_delivery_date",
+  "section_break_rgtf",
+  "table_zgad",
   "section_break_topl",
   "column_break_ajuf",
   "remarks",
@@ -280,8 +283,10 @@
   {
    "fieldname": "over_all_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Over All Status",
-   "options": "Design\nProgram\nWaiting For Knitting\nKnitting\nKnitting Manual\nWaiting For Linking\nLinking\nMending\nWash\nPrint\nIron\nSewing\nZip / Button\nPrint\nFinishing\nSend to Merchandiser\nSend to buyer\nHave Fit Comments\nHave PP Comments\nPP Meeting Completed\nGo Fo Production\nProduction running\nSend to Buyer"
+   "options": "LAB DIP REQUESTED\nLAB DIP SUBMITTED\nLAB DIP APPROVED\nWAITING FOR SAMPLE YARN\nDESIGN\nPROGRAM\nYARN SHORTAGE\nWAITING FOR KNITTING\nKNITTING\nKNITTING MANUAL\nWAITING FOR LINKING\nLINKING\nWAITING FOR MENDING\nMENDING\nWAITING FOR WASH\nWASH\nWAITING FOR PRINT\nPRINT\nIRON\nSEWING\nZIP / BUTTON\nPRINT\nFINISHING\nSEND TO MERCHANDISER\nSEND TO BUYER\nHAVE FIT COMMENTS\nHAVE PP COMMENTS\nPP MEETING COMPLETED\nGO FOR PRODUCTION\nPRODUCTION RUNNING\nSEND TO BUYER\nCOLOR CONFIRMED | BULK D.O ORDERED"
   },
   {
    "fieldname": "column_break_ajuf",
@@ -300,6 +305,21 @@
    "fieldname": "color",
    "fieldtype": "Data",
    "label": "Color"
+  },
+  {
+   "fieldname": "actual_delivery_date",
+   "fieldtype": "Date",
+   "label": "Actual Delivery Date"
+  },
+  {
+   "fieldname": "section_break_rgtf",
+   "fieldtype": "Section Break",
+   "label": "Daily Tasks"
+  },
+  {
+   "fieldname": "table_zgad",
+   "fieldtype": "Table",
+   "options": "Day to day tasks"
   }
  ],
  "grid_page_length": 50,
@@ -307,7 +327,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-19 01:06:10.421228",
+ "modified": "2025-12-04 22:21:04.241565",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

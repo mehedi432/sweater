@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{sample_type}-{DD}-{MM}-{YY}-{buyer}-{style}-{gauge}-{urgency_priority}",
- "creation": "2025-11-06 00:49:52.697714",
+ "creation": "2025-11-19 15:10:52.255235",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,9 +17,11 @@
   "column_break_obgt",
   "buyer",
   "gender_age_group",
+  "sample_category",
   "column_break_xifx",
   "designer",
   "approximate_delivery_date",
+  "handover_date",
   "section_break_lmpw",
   "pp_sample_size",
   "linking_type",
@@ -80,7 +82,7 @@
    "fieldname": "sample_type",
    "fieldtype": "Select",
    "label": "Sample Type",
-   "options": "PROTO SAMPLE\nDEVELOPMENT SAMPLE\nFIT SAMPLE\nSIZE SET SAMPLE\nPHOTO SAMPLE\nSALESMAN SAMPLE (SMS)\nLAB DIP SAMPLE\nSTRIKE-OFF SAMPLE\nHANDLOOM SAMPLE\nYARN DYED SAMPLE\nWASH/FINISH APPROVAL SAMPLE\nPRE-PRODUCTION SAMPLE (PPS)\nSEALING SAMPLE\nTOP OF PRODUCTION (TOP) SAMPLE\nGOLD SEAL SAMPLE\nCOUNTER SAMPLE\nAD SIZE SAMPLE\nSHIPMENT SAMPLE\nPRE-SHIPMENT SAMPLE\nDUPLICATE / ARCHIVE SAMPLE"
+   "options": "PROTO SAMPLE\nDEVELOPMENT SAMPLE\nFIT SAMPLE\nPRE-PRODUCTION SAMPLE (PPS)\nSIZE SET SAMPLE\nPHOTO SAMPLE\nSALESMAN SAMPLE (SMS)\nLAB DIP SAMPLE\nYARN DYED SAMPLE\nWASH/FINISH APPROVAL SAMPLE\nTOP OF PRODUCTION (TOP) SAMPLE\nCOUNTER SAMPLE\nAD SIZE SAMPLE\nSHIPMENT SAMPLE\nPRE-SHIPMENT SAMPLE"
   },
   {
    "fieldname": "column_break_obgt",
@@ -345,6 +347,17 @@
    "fieldtype": "Data",
    "label": "Order Quantity",
    "read_only": 1
+  },
+  {
+   "fieldname": "handover_date",
+   "fieldtype": "Date",
+   "label": "Handover Date"
+  },
+  {
+   "fieldname": "sample_category",
+   "fieldtype": "Select",
+   "label": "Sample Category",
+   "options": "EASY\nHARD\nEXTRA HARD\nCANT BE DONE"
   }
  ],
  "grid_page_length": 50,
@@ -352,7 +365,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-08 22:37:22.200956",
+ "modified": "2025-11-27 21:29:24.298426",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Work Order",

@@ -1,95 +1,127 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-15 11:42:00.104604",
+ "creation": "2025-11-19 15:10:50.410069",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-    "category",
-    "column_break_kope",
-    "yarn_composition",
-    "column_break_fzgi",
-    "yarn_count",
-    "column_break_hzsv",
-    "quantity",
-    "column_break_lqbx",
-    "uom",
-    "column_break_rnsj",
-    "colour",
-    "section_break_avio",
-    "required_by"
+  "category",
+  "column_break_kope",
+  "yarn_composition",
+  "column_break_fzgi",
+  "colour",
+  "column_break_hzsv",
+  "yarn_count",
+  "column_break_lqbx",
+  "quantity",
+  "column_break_rnsj",
+  "uom",
+  "section_break_avio",
+  "required_by",
+  "column_break_rnzb",
+  "lot_no",
+  "column_break_jedn",
+  "sso_number",
+  "column_break_ahpw",
+  "attach_challan_copy"
  ],
  "fields": [
-    {
-      "fieldname": "column_break_fzgi",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "column_break_hzsv",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "quantity",
-      "fieldtype": "Float",
-      "label": "Quantity"
-     },
-     {
-      "fieldname": "section_break_avio",
-      "fieldtype": "Section Break"
-     },
-     {
-      "fieldname": "uom",
-      "fieldtype": "Link",
-      "label": "UOM",
-      "options": "UOM"
-     },
-     {
-      "fieldname": "required_by",
-      "fieldtype": "Date",
-      "label": "Required By"
-     },
-     {
-      "default": "YARN",
-      "fieldname": "category",
-      "fieldtype": "Link",
-      "label": "Material Group",
-      "options": "Item Group"
-     },
-     {
-      "fieldname": "column_break_kope",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "yarn_composition",
-      "fieldtype": "Data",
-      "label": "Name"
-     },
-     {
-      "fieldname": "yarn_count",
-      "fieldtype": "Data",
-      "label": "Count"
-     },
-     {
-      "fieldname": "column_break_lqbx",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "column_break_rnsj",
-      "fieldtype": "Column Break"
-     },
-     {
-      "fieldname": "colour",
-      "fieldtype": "Data",
-      "label": "Colour"
-     }
-  
+  {
+   "fieldname": "column_break_fzgi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_hzsv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "label": "Quantity"
+  },
+  {
+   "fieldname": "section_break_avio",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "required_by",
+   "fieldtype": "Date",
+   "label": "Required By"
+  },
+  {
+   "default": "YARN",
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Material Group",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "column_break_kope",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yarn_composition",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Data",
+   "label": "Count"
+  },
+  {
+   "fieldname": "column_break_lqbx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rnsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "colour",
+   "fieldtype": "Data",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "column_break_rnzb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lot_no",
+   "fieldtype": "Data",
+   "label": "Lot No"
+  },
+  {
+   "fieldname": "column_break_jedn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sso_number",
+   "fieldtype": "Data",
+   "label": "SSO Number"
+  },
+  {
+   "fieldname": "column_break_ahpw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_challan_copy",
+   "fieldtype": "Attach",
+   "label": "Attach Challan Copy"
+  }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-05-15 11:42:00.104604",
+ "modified": "2025-11-22 11:32:24.235487",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Material Requirement",

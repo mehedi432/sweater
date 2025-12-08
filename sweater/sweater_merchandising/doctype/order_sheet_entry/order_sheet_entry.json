@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{YY}-{MM}-{DD}-{buyer}-{style_no}-{#####}",
  "creation": "2025-11-18 23:00:38.262228",
@@ -10,7 +11,7 @@
   "section_basic",
   "buyer",
   "style_no",
-  "fit",
+  "sample_status",
   "column_break_shqa",
   "brand",
   "knitting_time",
@@ -30,19 +31,48 @@
   "accessories_pi",
   "accessories_b2b_lc",
   "column_break_wvno",
-  "po_sheet",
+  "sales_contact",
   "tech_pack",
+  "po_sheet",
+  "has_multiple_po",
   "column_break_soak",
   "lc_copy",
+  "column_break_bbzq",
   "yarn_pi",
-  "yarn_ud",
   "yarn_b2b_lc",
+  "yarn_ud",
+  "section_break_iuqr",
+  "order_sheet_po_details",
   "section_qty",
   "qty_details",
+  "section_break_bnyk",
+  "column_break_uhxh",
+  "sso_number",
+  "column_break_uaml",
+  "shade_no",
+  "column_break_mbhe",
+  "sample_yarn_challan",
+  "column_break_wduz",
   "section_yarn",
   "yarn_details",
+  "section_break_hnem",
+  "consumption_sheet",
+  "column_break_peby",
+  "sweater_quantity",
+  "column_break_yvlu",
+  "total_required_yarn",
+  "column_break_leyw",
+  "total_yarn_value",
+  "column_break_kpil",
+  "multiple_color",
+  "has_elastic",
+  "section_break_lofs",
+  "multiple_colour_ratio",
+  "section_break_ppgc",
+  "elastic_details",
   "section_trim",
   "trim_details",
+  "total_button_required",
   "section_commercial",
   "incometerm",
   "payment_term",
@@ -59,13 +89,16 @@
   "production_end_date",
   "column_break_onun",
   "capacity_required",
+  "order_sheet_production_section",
+  "table_zskw",
   "section_break_mhuj",
   "planning_remarks",
   "section_status",
   "approval_status",
-  "sample_status",
   "remarks",
-  "amended_from"
+  "amended_from",
+  "section_break_zxsv",
+  "order_sheet_tasks"
  ],
  "fields": [
   {
@@ -78,6 +111,7 @@
    "fieldname": "buyer",
    "fieldtype": "Link",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Buyer",
    "options": "Customer",
    "reqd": 1
@@ -103,6 +137,8 @@
    "fetch_from": "sample_request.style",
    "fieldname": "style_no",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Style No"
   },
   {
@@ -112,14 +148,10 @@
    "label": "Gauge"
   },
   {
+   "fetch_from": "sample_request.body_knitting_pattern",
    "fieldname": "construction",
    "fieldtype": "Data",
    "label": "Construction"
-  },
-  {
-   "fieldname": "fit",
-   "fieldtype": "Data",
-   "label": "Fit"
   },
   {
    "fetch_from": "sample_request.color",
@@ -178,6 +210,7 @@
   {
    "fieldname": "section_yarn",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Yarn Details"
   },
   {
@@ -189,6 +222,7 @@
   {
    "fieldname": "section_trim",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Trims & Accessories"
   },
   {
@@ -270,10 +304,10 @@
    "options": "\nPending\nApproved\nRevised"
   },
   {
+   "fetch_from": "sample_request.over_all_status",
    "fieldname": "sample_status",
-   "fieldtype": "Select",
-   "label": "Sample Status",
-   "options": "\nProto\nPhoto\nSize Set\nPP Sample\nTOP Sample"
+   "fieldtype": "Data",
+   "label": "Sample Status"
   },
   {
    "fieldname": "remarks",
@@ -374,15 +408,184 @@
   },
   {
    "fetch_from": "sample_request.knitting_time",
+   "fetch_if_empty": 1,
    "fieldname": "knitting_time",
    "fieldtype": "Data",
    "label": "Knitting Time"
+  },
+  {
+   "fieldname": "consumption_sheet",
+   "fieldtype": "Attach",
+   "label": "CONSUMPTION SHEET"
+  },
+  {
+   "fieldname": "column_break_bbzq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_hnem",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "column_break_yvlu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_required_yarn",
+   "fieldtype": "Data",
+   "label": "Total Required yarn",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_leyw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_yarn_value",
+   "fieldtype": "Data",
+   "label": "Total Yarn Value"
+  },
+  {
+   "fieldname": "section_break_bnyk",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "column_break_uaml",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sso_number",
+   "fieldtype": "Data",
+   "label": "SSO Number"
+  },
+  {
+   "fieldname": "column_break_wduz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sample_yarn_challan",
+   "fieldtype": "Attach",
+   "label": "Sample Yarn Challan"
+  },
+  {
+   "fieldname": "column_break_peby",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sweater_quantity",
+   "fieldtype": "Int",
+   "label": "Sweater Quantity"
+  },
+  {
+   "fieldname": "column_break_mbhe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shade_no",
+   "fieldtype": "Data",
+   "label": "Shade No"
+  },
+  {
+   "default": "0",
+   "fieldname": "multiple_color",
+   "fieldtype": "Check",
+   "label": "Multiple Color"
+  },
+  {
+   "depends_on": "multiple_color",
+   "fieldname": "section_break_lofs",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "multiple_colour_ratio",
+   "fieldtype": "Table",
+   "label": "Multiple Colour Ratio",
+   "options": "Multiple Colour Ratio"
+  },
+  {
+   "fieldname": "column_break_kpil",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_elastic",
+   "fieldtype": "Check",
+   "label": "Has Elastic"
+  },
+  {
+   "fieldname": "section_break_ppgc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "has_elastic",
+   "fieldname": "elastic_details",
+   "fieldtype": "Table",
+   "label": "Elastic Details",
+   "options": "Elastic Details"
+  },
+  {
+   "fieldname": "total_button_required",
+   "fieldtype": "Data",
+   "label": "Total Button Required"
+  },
+  {
+   "fieldname": "sales_contact",
+   "fieldtype": "Attach",
+   "label": "Sales Contact"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_multiple_po",
+   "fieldtype": "Check",
+   "label": "Has Multiple PO"
+  },
+  {
+   "depends_on": "has_multiple_po",
+   "fieldname": "order_sheet_po_details",
+   "fieldtype": "Table",
+   "label": "Order Sheet PO Details",
+   "options": "Order Sheet PO Details"
+  },
+  {
+   "fieldname": "section_break_iuqr",
+   "fieldtype": "Section Break",
+   "label": "PO Entry"
+  },
+  {
+   "fieldname": "section_break_zxsv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "order_sheet_tasks",
+   "fieldtype": "Table",
+   "label": "Daily Order Sheet Tasks",
+   "options": "Order Sheet Tasks"
+  },
+  {
+   "fieldname": "column_break_uhxh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "order_sheet_production_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Order Sheet Production"
+  },
+  {
+   "fieldname": "table_zskw",
+   "fieldtype": "Table",
+   "options": "Order Sheet Production"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-19 01:05:37.516363",
+ "modified": "2025-12-05 00:30:02.632395",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
@@ -401,6 +604,27 @@
    "share": 1,
    "submit": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Asst. Merchandiser",
+   "share": 1
   }
  ],
  "row_format": "Dynamic",

@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-04 22:16:26.389463",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "column_break_efrg",
+  "task",
+  "column_break_bvpd",
+  "resoulation",
+  "section_break_rqlh",
+  "completed_by",
+  "column_break_knog",
+  "attach_reference",
+  "column_break_unos",
+  "proof_copy"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date",
+   "options": "Now"
+  },
+  {
+   "fieldname": "column_break_efrg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "task",
+   "fieldtype": "Small Text",
+   "label": "Task"
+  },
+  {
+   "fieldname": "column_break_bvpd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "resoulation",
+   "fieldtype": "Long Text",
+   "label": "Resoulation"
+  },
+  {
+   "fieldname": "section_break_rqlh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "completed_by",
+   "fieldtype": "Link",
+   "label": "Completed By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_knog",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_reference",
+   "fieldtype": "Attach",
+   "label": "Attach Reference"
+  },
+  {
+   "fieldname": "column_break_unos",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "proof_copy",
+   "fieldtype": "Attach",
+   "label": "Proof Copy"
+  }
+ ],
+ "grid_page_length": 100,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-12-04 23:08:29.753153",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Day to day tasks",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

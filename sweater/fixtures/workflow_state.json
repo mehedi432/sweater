@@ -3,6 +3,33 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
+  "modified": "2025-09-11 22:56:24.325906",
+  "name": "PP MEETING DONE",
+  "style": "",
+  "workflow_state_name": "PP MEETING DONE"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-09-11 22:56:50.894834",
+  "name": "GO FOR PRODUCTION",
+  "style": "",
+  "workflow_state_name": "GO FOR PRODUCTION"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-09-11 22:57:18.729832",
+  "name": "RECTIFY THE ERRORS & GO FOR PRODUCTION",
+  "style": "",
+  "workflow_state_name": "RECTIFY THE ERRORS & GO FOR PRODUCTION"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
   "modified": "2025-09-05 22:17:43.935418",
   "name": "DELIVERED TO SAMPLE DEPT.",
   "style": "Primary",
@@ -56,24 +83,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-02-22 12:37:15.252240",
-  "name": "Delivered",
-  "style": "",
-  "workflow_state_name": "Delivered"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
-  "modified": "2025-02-22 23:18:39.419047",
-  "name": "Waiting For Review",
-  "style": "",
-  "workflow_state_name": "Waiting For Review"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
   "icon": "remove",
   "modified": "2024-08-25 11:40:49.526985",
   "name": "Rejected",
@@ -93,15 +102,6 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-02-22 12:36:45.589732",
-  "name": "Work In Progress",
-  "style": "",
-  "workflow_state_name": "Work In Progress"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow State",
-  "icon": "",
   "modified": "2025-01-27 10:08:00.045888",
   "name": "Draft",
   "style": "",
@@ -115,5 +115,86 @@
   "name": "Approved",
   "style": "Success",
   "workflow_state_name": "Approved"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:00:30.019608",
+  "name": "WAITING FOR REVIEW",
+  "style": "",
+  "workflow_state_name": "WAITING FOR REVIEW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:02:45.676611",
+  "name": "REVIEW ACCEPTED",
+  "style": "",
+  "workflow_state_name": "REVIEW ACCEPTED"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:08:29.132406",
+  "name": "SEND FOR REVIEW",
+  "style": "",
+  "workflow_state_name": "SEND FOR REVIEW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:15:35.623958",
+  "name": "BUYER WANTS REVISE PP SAMPLE",
+  "style": "",
+  "workflow_state_name": "BUYER WANTS REVISE PP SAMPLE"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:15:55.126165",
+  "name": "PP SAMPLE APPROVED",
+  "style": "",
+  "workflow_state_name": "PP SAMPLE APPROVED"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:16:25.648122",
+  "name": "SIZE SET SAMPLE RUNNING",
+  "style": "",
+  "workflow_state_name": "SIZE SET SAMPLE RUNNING"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:17:57.781005",
+  "name": "PRODUCTION RUNNING",
+  "style": "",
+  "workflow_state_name": "PRODUCTION RUNNING"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:46:39.601729",
+  "name": "WAITING FOR FINAL INSPECTION",
+  "style": "",
+  "workflow_state_name": "WAITING FOR FINAL INSPECTION"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2025-11-20 00:47:11.644211",
+  "name": "WAITING FOR SHIPMENT",
+  "style": "",
+  "workflow_state_name": "WAITING FOR SHIPMENT"
  }
 ]

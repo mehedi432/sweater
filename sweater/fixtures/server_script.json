@@ -1,1 +1,21 @@
-[]
+[
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "enable_rate_limit": 0,
+  "event_frequency": "All",
+  "modified": "2025-07-03 19:09:39.182217",
+  "module": null,
+  "name": "Test",
+  "rate_limit_count": 5,
+  "rate_limit_seconds": 86400,
+  "reference_doctype": "Employee Checkin",
+  "script": "if not doc.log_type:\n    if doc.time.hour < 12:\n        doc.log_type = 'IN'\n    else:\n        doc.log_type = 'OUT'\n",
+  "script_type": "DocType Event"
+ }
+]

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-05-15 11:48:36.901394",
+ "creation": "2025-11-19 15:10:50.605050",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -38,9 +38,8 @@
   },
   {
    "fieldname": "size",
-   "fieldtype": "Select",
-   "label": "Size",
-   "options": "S\nM\nL\nXL\nXXL\nXXXL"
+   "fieldtype": "Data",
+   "label": "Size"
   },
   {
    "fieldname": "section_break_lbnw",
@@ -65,7 +64,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-05-15 11:48:36.901394",
+ "modified": "2025-11-22 12:24:26.794005",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Request Quantity",

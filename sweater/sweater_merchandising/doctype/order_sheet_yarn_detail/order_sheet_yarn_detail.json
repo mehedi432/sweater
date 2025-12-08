@@ -6,23 +6,20 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "category",
-  "column_break_kope",
   "yarn_composition",
-  "column_break_fzgi",
+  "column_break_kope",
   "size",
   "section_break_avio",
   "consumption",
   "quantity",
   "wastage",
   "total_yarn",
-  "uom"
+  "uom",
+  "price",
+  "yarn_pantone_number",
+  "do_number"
  ],
  "fields": [
-  {
-   "fieldname": "column_break_fzgi",
-   "fieldtype": "Column Break"
-  },
   {
    "fieldname": "quantity",
    "fieldtype": "Float",
@@ -33,17 +30,11 @@
    "fieldtype": "Section Break"
   },
   {
+   "default": "Pound",
    "fieldname": "uom",
    "fieldtype": "Link",
    "label": "UOM",
    "options": "UOM"
-  },
-  {
-   "default": "YARN",
-   "fieldname": "category",
-   "fieldtype": "Link",
-   "label": "Material Group",
-   "options": "Item Group"
   },
   {
    "fieldname": "column_break_kope",
@@ -74,13 +65,28 @@
    "fieldname": "size",
    "fieldtype": "Data",
    "label": "Size"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Float",
+   "label": "Price"
+  },
+  {
+   "fieldname": "do_number",
+   "fieldtype": "Data",
+   "label": "DO Number"
+  },
+  {
+   "fieldname": "yarn_pantone_number",
+   "fieldtype": "Data",
+   "label": "Yarn Pantone Number"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-19 00:44:23.420975",
+ "modified": "2025-12-04 23:53:50.806393",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Yarn Detail",
