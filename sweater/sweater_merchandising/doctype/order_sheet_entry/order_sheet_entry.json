@@ -4,10 +4,12 @@
  "allow_rename": 1,
  "autoname": "format:{YY}-{MM}-{DD}-{buyer}-{style_no}-{#####}",
  "creation": "2025-11-18 23:00:38.262228",
+ "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "sweater_details_tab",
   "section_basic",
   "buyer",
   "style_no",
@@ -22,8 +24,12 @@
   "construction",
   "column_break_osmd",
   "sample_request",
-  "order_no",
+  "order_qty",
   "style_image",
+  "section_break_iuqr",
+  "order_sheet_po_details",
+  "section_qty",
+  "qty_details",
   "section_files",
   "care_label_layout",
   "main_label_layout",
@@ -41,20 +47,33 @@
   "yarn_pi",
   "yarn_b2b_lc",
   "yarn_ud",
-  "section_break_iuqr",
-  "order_sheet_po_details",
-  "section_qty",
-  "qty_details",
+  "yarn_do_file",
+  "section_break_lofs",
+  "multiple_colour_ratio",
+  "section_trim",
+  "trim_details",
+  "total_button_required",
+  "section_status",
+  "approval_status",
+  "remarks",
+  "amended_from",
+  "section_break_zxsv",
+  "order_sheet_tasks",
+  "yarn_information_tab",
   "section_break_bnyk",
   "column_break_uhxh",
-  "sso_number",
+  "sdo_number",
   "column_break_uaml",
-  "shade_no",
+  "sso_number",
   "column_break_mbhe",
-  "sample_yarn_challan",
+  "shade_no",
   "column_break_wduz",
-  "section_yarn",
+  "sample_yarn_challan",
+  "yarn_inventory_report",
+  "section_break_vrre",
   "yarn_details",
+  "section_break_ppgc",
+  "elastic_details",
   "section_break_hnem",
   "consumption_sheet",
   "column_break_peby",
@@ -66,13 +85,20 @@
   "column_break_kpil",
   "multiple_color",
   "has_elastic",
-  "section_break_lofs",
-  "multiple_colour_ratio",
-  "section_break_ppgc",
-  "elastic_details",
-  "section_trim",
-  "trim_details",
-  "total_button_required",
+  "planning_or_strategy_tab",
+  "section_planning",
+  "production_start_date",
+  "column_break_rnkr",
+  "production_end_date",
+  "column_break_onun",
+  "capacity_required",
+  "column_break_czzw",
+  "production_status",
+  "order_sheet_production_section",
+  "table_zskw",
+  "section_break_mhuj",
+  "planning_remarks",
+  "financial_information_tab",
   "section_commercial",
   "incometerm",
   "payment_term",
@@ -83,22 +109,8 @@
   "column_break_fgkg",
   "currency",
   "lc_expiry_date",
-  "section_planning",
-  "production_start_date",
-  "column_break_rnkr",
-  "production_end_date",
-  "column_break_onun",
-  "capacity_required",
-  "order_sheet_production_section",
-  "table_zskw",
-  "section_break_mhuj",
-  "planning_remarks",
-  "section_status",
-  "approval_status",
-  "remarks",
-  "amended_from",
-  "section_break_zxsv",
-  "order_sheet_tasks"
+  "section_break_hmzt",
+  "back_to_back_number"
  ],
  "fields": [
   {
@@ -126,12 +138,6 @@
    "fieldname": "season",
    "fieldtype": "Data",
    "label": "Season"
-  },
-  {
-   "fetch_from": "sample_request.order_qty",
-   "fieldname": "order_no",
-   "fieldtype": "Data",
-   "label": "Order Qty"
   },
   {
    "fetch_from": "sample_request.style",
@@ -166,8 +172,10 @@
    "label": "Style Image"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_files",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Attachments"
   },
   {
@@ -197,6 +205,7 @@
    "label": "Tech Pack"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_qty",
    "fieldtype": "Section Break",
    "label": "Quantity Breakdown"
@@ -208,18 +217,13 @@
    "options": "Order Sheet Qty Detail"
   },
   {
-   "fieldname": "section_yarn",
-   "fieldtype": "Section Break",
-   "hide_border": 1,
-   "label": "Yarn Details"
-  },
-  {
    "fieldname": "yarn_details",
    "fieldtype": "Table",
    "label": "Yarn Detail Table",
    "options": "Order Sheet Yarn Detail"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_trim",
    "fieldtype": "Section Break",
    "hide_border": 1,
@@ -301,7 +305,7 @@
    "fieldname": "approval_status",
    "fieldtype": "Select",
    "label": "Approval Status",
-   "options": "\nPending\nApproved\nRevised"
+   "options": "Draft\nPending\nApproved\nRevised"
   },
   {
    "fetch_from": "sample_request.over_all_status",
@@ -494,10 +498,12 @@
    "label": "Multiple Color"
   },
   {
+   "collapsible": 1,
    "depends_on": "multiple_color",
    "fieldname": "section_break_lofs",
    "fieldtype": "Section Break",
-   "hide_border": 1
+   "hide_border": 1,
+   "label": "Multiple Colour Ratio"
   },
   {
    "fieldname": "multiple_colour_ratio",
@@ -550,11 +556,13 @@
    "options": "Order Sheet PO Details"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_iuqr",
    "fieldtype": "Section Break",
    "label": "PO Entry"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_zxsv",
    "fieldtype": "Section Break"
   },
@@ -580,12 +588,76 @@
    "fieldname": "table_zskw",
    "fieldtype": "Table",
    "options": "Order Sheet Production"
+  },
+  {
+   "fieldname": "yarn_do_file",
+   "fieldtype": "Attach",
+   "label": "Yarn DO File"
+  },
+  {
+   "fieldname": "sdo_number",
+   "fieldtype": "Data",
+   "label": "SDO Number"
+  },
+  {
+   "fieldname": "financial_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Financial Information"
+  },
+  {
+   "fieldname": "back_to_back_number",
+   "fieldtype": "Data",
+   "label": "Back To Back Number"
+  },
+  {
+   "fieldname": "sweater_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sweater Details"
+  },
+  {
+   "fieldname": "yarn_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Yarn Information"
+  },
+  {
+   "fieldname": "section_break_vrre",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_hmzt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "planning_or_strategy_tab",
+   "fieldtype": "Tab Break",
+   "label": "Planning or Strategy"
+  },
+  {
+   "fieldname": "column_break_czzw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "production_status",
+   "fieldtype": "Select",
+   "label": "Production Status",
+   "options": "\nWaiting For Knitting\nRunning\nYarn Shortage\nAccessories Shortage\nYarn Problem\nAccessories Problem"
+  },
+  {
+   "fieldname": "yarn_inventory_report",
+   "fieldtype": "Attach",
+   "label": "Yarn Inventory report"
+  },
+  {
+   "fetch_from": "sample_request.order_qty",
+   "fieldname": "order_qty",
+   "fieldtype": "Data",
+   "label": "Order Qty"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-05 00:30:02.632395",
+ "modified": "2026-01-24 21:57:19.883428",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
@@ -628,6 +700,7 @@
   }
  ],
  "row_format": "Dynamic",
+ "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],

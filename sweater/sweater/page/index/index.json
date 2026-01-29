@@ -1,0 +1,23 @@
+{
+ "content": null,
+ "creation": "2026-01-04 21:16:44.530697",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-01-04 21:16:44.530697",
+ "modified_by": "Administrator",
+ "module": "Sweater",
+ "name": "index",
+ "owner": "Administrator",
+ "page_name": "index",
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Welcome to meek sweater & fashions ltd"
+}

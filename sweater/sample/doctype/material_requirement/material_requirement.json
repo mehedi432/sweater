@@ -24,7 +24,9 @@
   "column_break_jedn",
   "sso_number",
   "column_break_ahpw",
-  "attach_challan_copy"
+  "attach_challan_copy",
+  "section_break_gizo",
+  "remarks"
  ],
  "fields": [
   {
@@ -115,13 +117,22 @@
    "fieldname": "attach_challan_copy",
    "fieldtype": "Attach",
    "label": "Attach Challan Copy"
+  },
+  {
+   "fieldname": "section_break_gizo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-22 11:32:24.235487",
+ "modified": "2026-01-24 23:48:48.725690",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Material Requirement",

@@ -48,9 +48,9 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-09-05 22:02:31.186828",
+  "modified": "2026-01-04 21:09:40.485086",
   "name": "WAITING FOR BUYER REVIEW",
-  "style": "",
+  "style": "Primary",
   "workflow_state_name": "WAITING FOR BUYER REVIEW"
  },
  {
@@ -66,9 +66,9 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-09-05 22:04:28.034790",
+  "modified": "2026-01-04 21:09:28.720063",
   "name": "DELIVERED TO BUYER",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "DELIVERED TO BUYER"
  },
  {
@@ -138,9 +138,9 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-11-20 00:08:29.132406",
+  "modified": "2026-01-25 00:16:05.927985",
   "name": "SEND FOR REVIEW",
-  "style": "",
+  "style": "Info",
   "workflow_state_name": "SEND FOR REVIEW"
  },
  {
@@ -183,18 +183,18 @@
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-11-20 00:46:39.601729",
+  "modified": "2026-01-04 21:09:57.897168",
   "name": "WAITING FOR FINAL INSPECTION",
-  "style": "",
+  "style": "Success",
   "workflow_state_name": "WAITING FOR FINAL INSPECTION"
  },
  {
   "docstatus": 0,
   "doctype": "Workflow State",
   "icon": "",
-  "modified": "2025-11-20 00:47:11.644211",
+  "modified": "2026-01-04 21:09:48.889501",
   "name": "WAITING FOR SHIPMENT",
-  "style": "",
+  "style": "Warning",
   "workflow_state_name": "WAITING FOR SHIPMENT"
  }
 ]

@@ -7,6 +7,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "sweater_details_tab",
   "section_break_hzzd",
   "urgency_priority",
   "column_break_mjju",
@@ -35,11 +36,9 @@
   "technical_file",
   "target_measurement_chart",
   "sample_chart",
-  "section_break_bcrp",
-  "raw_material",
   "section_break_bbky",
   "sample_request_quantity",
-  "column_break_pxwi",
+  "section_break_iebi",
   "available_comments",
   "section_break_smil",
   "requested_time",
@@ -50,12 +49,25 @@
   "column_break_crpj",
   "order_qty",
   "actual_delivery_date",
-  "section_break_rgtf",
-  "table_zgad",
   "section_break_topl",
   "column_break_ajuf",
   "remarks",
-  "amended_from"
+  "amended_from",
+  "column_break_dwcg",
+  "comments",
+  "yarn_information_tab",
+  "sdo_number",
+  "column_break_kpyr",
+  "sso_number",
+  "column_break_eats",
+  "shade",
+  "column_break_dtqt",
+  "sample_yarn_challan",
+  "section_break_bcrp",
+  "raw_material",
+  "daily_tasks_tab",
+  "section_break_rgtf",
+  "table_zgad"
  ],
  "fields": [
   {
@@ -132,7 +144,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Sample Type",
-   "options": "PROTO SAMPLE\nDEVELOPMENT SAMPLE\nFIT SAMPLE\nSIZE SET SAMPLE\nPHOTO SAMPLE\nSALESMAN SAMPLE (SMS)\nLAB DIP SAMPLE\nSTRIKE-OFF SAMPLE\nHANDLOOM SAMPLE\nYARN DYED SAMPLE\nWASH/FINISH APPROVAL SAMPLE\nPRE-PRODUCTION SAMPLE (PPS)\nSEALING SAMPLE\nTOP OF PRODUCTION (TOP) SAMPLE\nGOLD SEAL SAMPLE\nCOUNTER SAMPLE\nAD SIZE SAMPLE\nSHIPMENT SAMPLE\nPRE-SHIPMENT SAMPLE\nDUPLICATE / ARCHIVE SAMPLE"
+   "options": "DEVELOPMENT SAMPLE\nFIT SAMPLE\nSIZE SET SAMPLE\nPHOTO SAMPLE\nSALESMAN SAMPLE (SMS)\nYARN DYED SAMPLE\nWASH/FINISH APPROVAL SAMPLE\nPRE-PRODUCTION SAMPLE (PPS)\nTOP OF PRODUCTION (TOP) SAMPLE\nCOUNTER SAMPLE\nSHIPMENT SAMPLE\nDUPLICATE / ARCHIVE SAMPLE"
   },
   {
    "fieldname": "section_break_bcrp",
@@ -250,7 +262,7 @@
   {
    "fieldname": "approximate_delivery_date",
    "fieldtype": "Date",
-   "label": "Approximate Delivery Date"
+   "label": "Sample Delivery Date"
   },
   {
    "fieldname": "rib_knitting_pattern",
@@ -265,11 +277,7 @@
   {
    "fieldname": "brief_style_description__key_features",
    "fieldtype": "Small Text",
-   "label": "Brief Style Description / Key Features"
-  },
-  {
-   "fieldname": "column_break_pxwi",
-   "fieldtype": "Column Break"
+   "label": "Brief Style Description"
   },
   {
    "fieldname": "section_break_topl",
@@ -277,7 +285,7 @@
   },
   {
    "fieldname": "remarks",
-   "fieldtype": "Small Text",
+   "fieldtype": "Long Text",
    "label": "Remarks"
   },
   {
@@ -309,7 +317,7 @@
   {
    "fieldname": "actual_delivery_date",
    "fieldtype": "Date",
-   "label": "Actual Delivery Date"
+   "label": "Actual Shipment Date"
   },
   {
    "fieldname": "section_break_rgtf",
@@ -320,6 +328,66 @@
    "fieldname": "table_zgad",
    "fieldtype": "Table",
    "options": "Day to day tasks"
+  },
+  {
+   "fieldname": "column_break_dwcg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Long Text",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "sweater_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sweater Details"
+  },
+  {
+   "fieldname": "yarn_information_tab",
+   "fieldtype": "Tab Break",
+   "label": "Yarn Information"
+  },
+  {
+   "fieldname": "section_break_iebi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sdo_number",
+   "fieldtype": "Data",
+   "label": "SDO Number"
+  },
+  {
+   "fieldname": "column_break_kpyr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sso_number",
+   "fieldtype": "Data",
+   "label": "SSO Number"
+  },
+  {
+   "fieldname": "column_break_eats",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shade",
+   "fieldtype": "Data",
+   "label": "Shade"
+  },
+  {
+   "fieldname": "column_break_dtqt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sample_yarn_challan",
+   "fieldtype": "Attach",
+   "label": "Sample Yarn Challan"
+  },
+  {
+   "fieldname": "daily_tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Daily Tasks"
   }
  ],
  "grid_page_length": 50,
@@ -327,7 +395,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-04 22:21:04.241565",
+ "modified": "2026-01-28 21:17:41.835544",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",
