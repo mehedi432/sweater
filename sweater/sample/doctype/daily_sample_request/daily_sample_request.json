@@ -34,10 +34,14 @@
   "column_break_huwv",
   "over_all_status",
   "production_status",
+  "order_status",
   "reference_image",
   "technical_file",
   "target_measurement_chart",
+  "attachments_section",
   "sample_chart",
+  "column_break_juoj",
+  "program_file",
   "section_break_bbky",
   "sample_request_quantity",
   "section_break_iebi",
@@ -47,8 +51,8 @@
   "column_break_gdeg",
   "merchandiser",
   "column_break_fibv",
-  "column_break_crpj",
   "order_qty",
+  "column_break_crpj",
   "actual_delivery_date",
   "section_break_topl",
   "column_break_ajuf",
@@ -199,7 +203,7 @@
   {
    "fieldname": "pp_sample_size",
    "fieldtype": "Data",
-   "label": "PP Sample Size"
+   "label": "Size Range"
   },
   {
    "fieldname": "knitting_time",
@@ -220,6 +224,7 @@
   {
    "fieldname": "season_collection",
    "fieldtype": "Data",
+   "in_standard_filter": 1,
    "label": "Season | Collection"
   },
   {
@@ -395,6 +400,28 @@
    "fieldtype": "Select",
    "label": "Production Status",
    "options": "LAB DIP REQUESTED\nLAB DIP SUBMITTED\nLAB DIP APPROVED\nWAITING FOR SAMPLE YARN\nPROGRAM\nYARN SHORTAGE\nWAITING FOR KNITTING\nKNITTING\nKNITTING MANUAL\nWAITING FOR LINKING\nLINKING\nWAITING FOR MENDING\nMENDING\nWAITING FOR WASH\nWASH\nWAITING FOR PRINT\nPRINT\nIRON\nSEWING\nZIP / BUTTON\nPRINT\nFINISHING"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Attachments "
+  },
+  {
+   "fieldname": "column_break_juoj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "program_file",
+   "fieldtype": "Attach",
+   "label": "Program File"
+  },
+  {
+   "fieldname": "order_status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Order Status",
+   "options": "\nDEVELOPMENT / SMS\nCONFIRMED\nCANCELLED"
   }
  ],
  "grid_page_length": 50,
@@ -402,7 +429,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-30 13:18:15.986553",
+ "modified": "2026-02-02 12:05:23.246471",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

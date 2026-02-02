@@ -9472,48 +9472,6 @@
  },
  {
   "completed_by": "Administrator",
-  "completed_by_role": "Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-19 11:11:00.263713",
-  "name": "o7ar87hu3h",
-  "permitted_roles": [
-   {
-    "parent": "o7ar87hu3h",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-AW26OG119-7-MEDIUM-19-01-26-00298",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-21 06:33:05.834008",
-  "name": "csid36cklm",
-  "permitted_roles": [
-   {
-    "parent": "csid36cklm",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-AW26OG119-7-MEDIUM-19-01-26-00298",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
   "completed_by_role": "All",
   "docstatus": 0,
   "doctype": "Workflow Action",
@@ -9933,69 +9891,6 @@
   "workflow_state": "Approved"
  },
  {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-25 00:07:56.071430",
-  "name": "q6od46dmil",
-  "permitted_roles": [
-   {
-    "parent": "q6od46dmil",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-AW26OG119-7-MEDIUM-19-01-26-00298",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-25 00:07:57.641274",
-  "name": "q78vpkfeeu",
-  "permitted_roles": [
-   {
-    "parent": "q78vpkfeeu",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-AW26OG119-7-MEDIUM-19-01-26-00298",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO MERCHANDISER"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-25 00:08:00.487038",
-  "name": "q84gmrlv8c",
-  "permitted_roles": [
-   {
-    "parent": "q84gmrlv8c",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-AW26OG119-7-MEDIUM-19-01-26-00298",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO BUYER"
- },
- {
   "completed_by": null,
   "completed_by_role": null,
   "docstatus": 0,
@@ -10078,27 +9973,6 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Draft"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-28 11:30:06.747027",
-  "name": "d5j4thl38o",
-  "permitted_roles": [
-   {
-    "parent": "d5j4thl38o",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "PEPCO-AW26OG119-7-MEDIUM-19-01-26-00298",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WAITING FOR BUYER REVIEW"
  },
  {
   "completed_by": null,
@@ -10960,5 +10834,68 @@
   "status": "Open",
   "user": null,
   "workflow_state": "SEND FOR REVIEW"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "Merchandiser",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-02 10:17:17.540547",
+  "name": "t87ithc9k6",
+  "permitted_roles": [
+   {
+    "parent": "t87ithc9k6",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "OLYMPIA INTERNATIONAL-JAKUB CREW NECK-7-MEDIUM-02-02-26-00339",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-02 11:16:09.313284",
+  "name": "vnttn253ud",
+  "permitted_roles": [
+   {
+    "parent": "vnttn253ud",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "OLYMPIA INTERNATIONAL-JAKUB CREW NECK-7-MEDIUM-02-02-26-00339",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "DELIVERED TO SAMPLE DEPT."
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-02 12:16:38.539540",
+  "name": "3615uihlf3",
+  "permitted_roles": [
+   {
+    "parent": "3615uihlf3",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC6172102MBN-7-HIGH-02-02-26-00344",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
  }
 ]
