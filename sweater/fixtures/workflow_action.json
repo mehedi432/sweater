@@ -3235,27 +3235,6 @@
  },
  {
   "completed_by": "Administrator",
-  "completed_by_role": "Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-14 00:23:19.479258",
-  "name": "l7a9hidepq",
-  "permitted_roles": [
-   {
-    "parent": "l7a9hidepq",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
   "completed_by_role": "All",
   "docstatus": 0,
   "doctype": "Workflow Action",
@@ -3376,27 +3355,6 @@
   ],
   "reference_doctype": "Daily Sample Request",
   "reference_name": "MICROTEX-PATRICK CARDIGAN-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO SAMPLE DEPT."
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-14 00:51:08.933732",
-  "name": "5h19481kig",
-  "permitted_roles": [
-   {
-    "parent": "5h19481kig",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
   "status": "Completed",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -6679,216 +6637,6 @@
  },
  {
   "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:17.697865",
-  "name": "fk9qfm323i",
-  "permitted_roles": [
-   {
-    "parent": "fk9qfm323i",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:19.171667",
-  "name": "fknjn0j497",
-  "permitted_roles": [
-   {
-    "parent": "fknjn0j497",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO MERCHANDISER"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:20.465339",
-  "name": "fl40f441gm",
-  "permitted_roles": [
-   {
-    "parent": "fl40f441gm",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO BUYER"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:21.891272",
-  "name": "fli7von1qh",
-  "permitted_roles": [
-   {
-    "parent": "fli7von1qh",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "WAITING FOR BUYER REVIEW"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:23.412762",
-  "name": "fm2uf58ug9",
-  "permitted_roles": [
-   {
-    "parent": "fm2uf58ug9",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "SIZE SET SAMPLE RUNNING"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:24.841258",
-  "name": "fmghff57hb",
-  "permitted_roles": [
-   {
-    "parent": "fmghff57hb",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "PP MEETING DONE"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:26.793973",
-  "name": "fn4l8qbn7q",
-  "permitted_roles": [
-   {
-    "parent": "fn4l8qbn7q",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "PRODUCTION RUNNING"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:28.779999",
-  "name": "fnnvsnd572",
-  "permitted_roles": [
-   {
-    "parent": "fnnvsnd572",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "WAITING FOR FINAL INSPECTION"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:30.244228",
-  "name": "fo6v469qr5",
-  "permitted_roles": [
-   {
-    "parent": "fo6v469qr5",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "WAITING FOR SHIPMENT"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-25 17:29:31.833247",
-  "name": "fommtukk5l",
-  "permitted_roles": [
-   {
-    "parent": "fommtukk5l",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-NICOLL CREW NECK-7-HIGH-14-11-25-{}",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Approved"
- },
- {
-  "completed_by": "Administrator",
   "completed_by_role": "Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
@@ -9240,8 +8988,8 @@
   "workflow_state": "SIZE SET SAMPLE RUNNING"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-04 21:12:55.877216",
@@ -9256,7 +9004,7 @@
   ],
   "reference_doctype": "Daily Sample Request",
   "reference_name": "PAAYRA DESING-ZC3172101PUJ-7-HIGH-03-01-26-00296",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
  },
@@ -10773,8 +10521,8 @@
   "workflow_state": "Draft"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "Asst. Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-29 15:26:05.998355",
@@ -10789,13 +10537,13 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-29-MICROTEX-SHARP 1/2 ZIP -00324",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "Asst. Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-29 15:26:24.729767",
@@ -10810,13 +10558,13 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00325",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "Asst. Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-29 15:27:32.420917",
@@ -10831,7 +10579,7 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00326",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
  },
@@ -10855,5 +10603,362 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Approved"
+ },
+ {
+  "completed_by": "Administrator",
+  "completed_by_role": "All",
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 09:43:05.285400",
+  "name": "hmsdbglleo",
+  "permitted_roles": [
+   {
+    "parent": "hmsdbglleo",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC3172101PUJ-7-HIGH-03-01-26-00296",
+  "status": "Completed",
+  "user": null,
+  "workflow_state": "WORK IS GOING ON"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 09:43:08.546057",
+  "name": "hntk4thhqs",
+  "permitted_roles": [
+   {
+    "parent": "hntk4thhqs",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "All"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC3172101PUJ-7-HIGH-03-01-26-00296",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "DELIVERED TO MERCHANDISER"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 12:35:31.004650",
+  "name": "mnu6uj9opv",
+  "permitted_roles": [
+   {
+    "parent": "mnu6uj9opv",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC6172201FGJ-7-HIGH-31-01-26-00327",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 14:17:30.546786",
+  "name": "ig9git1e03",
+  "permitted_roles": [
+   {
+    "parent": "ig9git1e03",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-ZC6172201FGK-7-HIGH-31-01-26-00328",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:13:30.976249",
+  "name": "mfd57jsmm2",
+  "permitted_roles": [
+   {
+    "parent": "mfd57jsmm2",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172202EJB-12-MEDIUM-31-01-26-00329",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:21:28.852927",
+  "name": "r4ove5s5fh",
+  "permitted_roles": [
+   {
+    "parent": "r4ove5s5fh",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172101BK2-12-MEDIUM-31-01-26-00330",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:27:07.738724",
+  "name": "uelibk00bl",
+  "permitted_roles": [
+   {
+    "parent": "uelibk00bl",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172201EBB-12-MEDIUM-31-01-26-00331",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:34:42.097833",
+  "name": "2slslvsp85",
+  "permitted_roles": [
+   {
+    "parent": "2slslvsp85",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172202EJG-12-MEDIUM-31-01-26-00332",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:41:06.192606",
+  "name": "6kliuhvgan",
+  "permitted_roles": [
+   {
+    "parent": "6kliuhvgan",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172201GN1-7-MEDIUM-31-01-26-00333",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:47:11.562499",
+  "name": "a6rtteofsl",
+  "permitted_roles": [
+   {
+    "parent": "a6rtteofsl",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172102EJB-12-MEDIUM-31-01-26-00334",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 16:59:02.199560",
+  "name": "h4uvjbl12e",
+  "permitted_roles": [
+   {
+    "parent": "h4uvjbl12e",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172202BK1-12-MEDIUM-31-01-26-00335",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 17:02:16.218699",
+  "name": "j1ic3ot72g",
+  "permitted_roles": [
+   {
+    "parent": "j1ic3ot72g",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172202BJ1-12-MEDIUM-31-01-26-00336",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 17:38:48.029731",
+  "name": "8egu90stpc",
+  "permitted_roles": [
+   {
+    "parent": "8egu90stpc",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172101BJ2-7-MEDIUM-31-01-26-00337",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 17:43:30.686542",
+  "name": "b6qma7004t",
+  "permitted_roles": [
+   {
+    "parent": "b6qma7004t",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PAAYRA DESING-WC7172101BK4-7-MEDIUM-31-01-26-00338",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 20:46:59.117305",
+  "name": "mmvdpup0t1",
+  "permitted_roles": [
+   {
+    "parent": "mmvdpup0t1",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-01-29-MICROTEX-SHARP 1/2 ZIP -00324",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "SEND FOR REVIEW"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 20:47:10.758739",
+  "name": "mqjs37mbjq",
+  "permitted_roles": [
+   {
+    "parent": "mqjs37mbjq",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00325",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "SEND FOR REVIEW"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-01-31 20:47:17.101962",
+  "name": "msjtdsip31",
+  "permitted_roles": [
+   {
+    "parent": "msjtdsip31",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00326",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "SEND FOR REVIEW"
  }
 ]

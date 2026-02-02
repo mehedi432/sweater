@@ -32,6 +32,8 @@
   "approximate_delivery_date",
   "brief_style_description__key_features",
   "column_break_huwv",
+  "over_all_status",
+  "production_status",
   "reference_image",
   "technical_file",
   "target_measurement_chart",
@@ -45,7 +47,6 @@
   "column_break_gdeg",
   "merchandiser",
   "column_break_fibv",
-  "over_all_status",
   "column_break_crpj",
   "order_qty",
   "actual_delivery_date",
@@ -294,7 +295,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Over All Status",
-   "options": "LAB DIP REQUESTED\nLAB DIP SUBMITTED\nLAB DIP APPROVED\nWAITING FOR SAMPLE YARN\nDESIGN\nPROGRAM\nYARN SHORTAGE\nWAITING FOR KNITTING\nKNITTING\nKNITTING MANUAL\nWAITING FOR LINKING\nLINKING\nWAITING FOR MENDING\nMENDING\nWAITING FOR WASH\nWASH\nWAITING FOR PRINT\nPRINT\nIRON\nSEWING\nZIP / BUTTON\nPRINT\nFINISHING\nSEND TO MERCHANDISER\nSEND TO BUYER\nHAVE FIT COMMENTS\nHAVE PP COMMENTS\nPP MEETING COMPLETED\nGO FOR PRODUCTION\nPRODUCTION RUNNING\nSEND TO BUYER\nCOLOR CONFIRMED | BULK D.O ORDERED"
+   "options": "DESIGN\nSEND TO MERCHANDISER\nSEND TO BUYER\nHAVE FIT COMMENTS\nHAVE PP COMMENTS\nPP MEETING COMPLETED\nGO FOR PRODUCTION\nPRODUCTION RUNNING\nSEND TO BUYER\nCOLOR CONFIRMED | BULK D.O ORDERED"
   },
   {
    "fieldname": "column_break_ajuf",
@@ -388,6 +389,12 @@
    "fieldname": "daily_tasks_tab",
    "fieldtype": "Tab Break",
    "label": "Daily Tasks"
+  },
+  {
+   "fieldname": "production_status",
+   "fieldtype": "Select",
+   "label": "Production Status",
+   "options": "LAB DIP REQUESTED\nLAB DIP SUBMITTED\nLAB DIP APPROVED\nWAITING FOR SAMPLE YARN\nPROGRAM\nYARN SHORTAGE\nWAITING FOR KNITTING\nKNITTING\nKNITTING MANUAL\nWAITING FOR LINKING\nLINKING\nWAITING FOR MENDING\nMENDING\nWAITING FOR WASH\nWASH\nWAITING FOR PRINT\nPRINT\nIRON\nSEWING\nZIP / BUTTON\nPRINT\nFINISHING"
   }
  ],
  "grid_page_length": 50,
@@ -395,7 +402,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-28 21:17:41.835544",
+ "modified": "2026-01-30 13:18:15.986553",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",
