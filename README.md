@@ -1,42 +1,149 @@
-### Sweater
+# Sweater ERP
 
-Sweater Factory erp for meek sweater & fashions ltd.
+### Meek Sweater & Fashions Ltd.
 
-### Installation
+A custom ERPNext application built for **sweater manufacturing
+factories**, covering merchandising, sampling, production workflows, and
+factory-specific ERP customizations.
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
+Built on **ERPNext v15 / Frappe v15**.
 
-```bash
-cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app sweater
+------------------------------------------------------------------------
+
+## 📌 System Requirements
+
+-   Ubuntu 20.04 / 22.04 (Recommended)
+-   Python 3.10+
+-   Node.js 18+
+-   Yarn
+-   Redis
+-   MariaDB / MySQL
+-   Frappe Bench (Latest)
+
+------------------------------------------------------------------------
+
+## 🚀 ERPNext v15 Installation Guide
+
+### 1️⃣ Initialize Frappe Bench
+
+``` bash
+bench init --frappe-branch version-15 frappe-bench
 ```
 
-### Contributing
+Bench directory path:
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+``` text
+/home/[frappe-user]/frappe-bench
+```
 
-```bash
+------------------------------------------------------------------------
+
+### 2️⃣ Go to Frappe Bench Directory
+
+``` bash
+cd frappe-bench
+```
+
+------------------------------------------------------------------------
+
+### 3️⃣ Fix User Directory Permissions
+
+``` bash
+chmod -R o+rx /home/[frappe-user]/
+```
+
+------------------------------------------------------------------------
+
+### 4️⃣ Create a New Site
+
+``` bash
+bench new-site site1.local
+```
+
+------------------------------------------------------------------------
+
+## 📦 Download Required Apps
+
+### Payments App (Required)
+
+``` bash
+bench get-app payments
+```
+
+### ERPNext v15
+
+``` bash
+bench get-app --branch version-15 erpnext
+```
+
+### HRMS App (Optional)
+
+``` bash
+bench get-app hrms
+```
+
+Verify:
+
+``` bash
+bench version --format table
+```
+
+------------------------------------------------------------------------
+
+## ⚙️ Install Apps
+
+``` bash
+bench --site site1.local install-app erpnext
+bench --site site1.local install-app hrms
+```
+
+------------------------------------------------------------------------
+
+## 🔄 Restore Existing Database (Optional)
+
+``` bash
+bench --site newsite.com restore \
+sites/newsite.com/private/backups/your-database.sql.gz \
+--force
+```
+
+Then:
+
+``` bash
+bench --site newsite.com migrate
+bench restart
+```
+
+------------------------------------------------------------------------
+
+## 🧵 Sweater App Installation
+
+``` bash
+bench get-app $URL_OF_THIS_REPO --branch develop
+bench --site site1.local install-app sweater
+```
+
+------------------------------------------------------------------------
+
+## 🧪 Development & Contribution
+
+### Pre-commit
+
+``` bash
 cd apps/sweater
 pre-commit install
 ```
 
-Pre-commit is configured to use the following tools for checking and formatting your code:
+Tools used: - ruff - eslint - prettier - pyupgrade
 
-- ruff
-- eslint
-- prettier
-- pyupgrade
+------------------------------------------------------------------------
 
-### CI
+## 🤖 CI
 
-This app can use GitHub Actions for CI. The following workflows are configured:
+GitHub Actions: - CI (tests on develop) - Linters (Semgrep, pip-audit)
 
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
+------------------------------------------------------------------------
 
+## 📜 License
 
-### License
-
-mit
-# sweater
+MIT License

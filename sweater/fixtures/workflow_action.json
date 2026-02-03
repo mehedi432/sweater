@@ -9051,8 +9051,8 @@
   "workflow_state": "SEND FOR REVIEW"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "General Manager (Marketing & Merchandising)",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-07 10:54:04.882851",
@@ -9067,7 +9067,7 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "25-12-08-PAAYRA DESING-WC6172201BSB-00261",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "WAITING FOR REVIEW"
  },
@@ -10897,5 +10897,26 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-02 20:26:50.535383",
+  "name": "2d9h7u8v49",
+  "permitted_roles": [
+   {
+    "parent": "2d9h7u8v49",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "General Manager (Marketing & Merchandising)"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "25-12-08-PAAYRA DESING-WC6172201BSB-00261",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "REVIEW ACCEPTED"
  }
 ]
