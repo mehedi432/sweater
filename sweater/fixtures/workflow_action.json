@@ -4809,69 +4809,6 @@
   "workflow_state": "WAITING FOR BUYER REVIEW"
  },
  {
-  "completed_by": "merchandising9@meeksweater.com",
-  "completed_by_role": "Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-16 23:35:55.243012",
-  "name": "smgvtar6t1",
-  "permitted_roles": [
-   {
-    "parent": "smgvtar6t1",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Sample Work Order",
-  "reference_name": "PRE-PRODUCTION SAMPLE (PPS)-16-11-25-PAAYRA DESING-WC6172201BSG-9-HIGH",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "merchandising9@meeksweater.com",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-16 23:38:19.009354",
-  "name": "u3efot1t2b",
-  "permitted_roles": [
-   {
-    "parent": "u3efot1t2b",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Sample Work Order",
-  "reference_name": "PRE-PRODUCTION SAMPLE (PPS)-16-11-25-PAAYRA DESING-WC6172201BSG-9-HIGH",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-11-16 23:38:21.972258",
-  "name": "u4b1fi80l0",
-  "permitted_roles": [
-   {
-    "parent": "u4b1fi80l0",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Sample Work Order",
-  "reference_name": "PRE-PRODUCTION SAMPLE (PPS)-16-11-25-PAAYRA DESING-WC6172201BSG-9-HIGH",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "DELIVERED TO MERCHANDISER"
- },
- {
   "completed_by": "Administrator",
   "completed_by_role": "All",
   "docstatus": 0,
@@ -7813,27 +7750,6 @@
  },
  {
   "completed_by": "Administrator",
-  "completed_by_role": "Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-12-14 09:42:33.684866",
-  "name": "td0q0lit1h",
-  "permitted_roles": [
-   {
-    "parent": "td0q0lit1h",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Sample Work Order",
-  "reference_name": "PRE-PRODUCTION SAMPLE (PPS)-14-12-25-PEPCO-AW26PG1090-SL-7-HIGH",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
   "completed_by_role": "All",
   "docstatus": 0,
   "doctype": "Workflow Action",
@@ -7999,48 +7915,6 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Approved"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "All",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-12-14 09:49:49.902434",
-  "name": "1lbt5uq3lf",
-  "permitted_roles": [
-   {
-    "parent": "1lbt5uq3lf",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Sample Work Order",
-  "reference_name": "PRE-PRODUCTION SAMPLE (PPS)-16-11-25-PAAYRA DESING-WC6172201BSG-9-HIGH",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Approved"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2025-12-14 10:01:57.566585",
-  "name": "8onpdirel3",
-  "permitted_roles": [
-   {
-    "parent": "8onpdirel3",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "All"
-   }
-  ],
-  "reference_doctype": "Sample Work Order",
-  "reference_name": "PRE-PRODUCTION SAMPLE (PPS)-14-12-25-PEPCO-AW26PG1090-SL-7-HIGH",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "WORK IS GOING ON"
  },
  {
   "completed_by": "Administrator",
@@ -10011,7 +9885,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-GABRIEL 1/2 ZIP -7-HIGH-29-01-26-00317",
+  "reference_name": "MICROTEX-PINE CREW NECK -7-HIGH-29-01-26-00317",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -10032,7 +9906,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-GABRIEL CREW NECK -7-HIGH-29-01-26-00318",
+  "reference_name": "MICROTEX-GABRIEL 1/4 ZIP - REPEAT -7-HIGH-29-01-26-00318",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -10263,7 +10137,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-GABRIEL 1/2 ZIP -7-HIGH-29-01-26-00317",
+  "reference_name": "MICROTEX-PINE CREW NECK -7-HIGH-29-01-26-00317",
   "status": "Open",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -10284,7 +10158,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-GABRIEL CREW NECK -7-HIGH-29-01-26-00318",
+  "reference_name": "MICROTEX-GABRIEL 1/4 ZIP - REPEAT -7-HIGH-29-01-26-00318",
   "status": "Open",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -10918,5 +10792,110 @@
   "status": "Open",
   "user": null,
   "workflow_state": "REVIEW ACCEPTED"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-07 09:53:56.228473",
+  "name": "aaa5s6v3an",
+  "permitted_roles": [
+   {
+    "parent": "aaa5s6v3an",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Daily Sample Request",
+  "reference_name": "PEPCO-AW26PG1221-SL-12-HIGH-07-02-26-00345",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-07 18:17:59.584567",
+  "name": "hlb3uh137d",
+  "permitted_roles": [
+   {
+    "parent": "hlb3uh137d",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-07-PEPCO-AS26PG1221-SL-00348",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-07 23:18:02.211446",
+  "name": "1f6nam9qv8",
+  "permitted_roles": [
+   {
+    "parent": "1f6nam9qv8",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-07-PEPCO-AW26OG119-00349",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-08 12:47:17.365640",
+  "name": "rklvf7os1v",
+  "permitted_roles": [
+   {
+    "parent": "rklvf7os1v",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-08-PAAYRA DESING-ZC6172102AGJ-00350",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-08 12:47:43.010326",
+  "name": "rsmh8uca8f",
+  "permitted_roles": [
+   {
+    "parent": "rsmh8uca8f",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-08-PAAYRA DESING-ZC6172102AGJ-00351",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
  }
 ]

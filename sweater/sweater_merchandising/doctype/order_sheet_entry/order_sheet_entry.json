@@ -30,6 +30,8 @@
   "order_sheet_po_details",
   "section_qty",
   "qty_details",
+  "section_break_lwap",
+  "attachment",
   "section_files",
   "care_label_layout",
   "main_label_layout",
@@ -50,15 +52,29 @@
   "yarn_do_file",
   "section_break_lofs",
   "multiple_colour_ratio",
-  "section_trim",
-  "trim_details",
-  "total_button_required",
   "section_status",
   "approval_status",
   "remarks",
   "amended_from",
-  "section_break_zxsv",
-  "order_sheet_tasks",
+  "bookings_tab",
+  "trims_accessories_section",
+  "button",
+  "sewing_thread",
+  "column_break_mmik",
+  "main_label",
+  "cartoon",
+  "column_break_bhdu",
+  "care_label",
+  "column_break_tmyg",
+  "zipper",
+  "column_break_vnzc",
+  "poly_blister",
+  "section_trim",
+  "trim_details",
+  "total_button_required",
+  "sewing_thread_section",
+  "sewing_thread_booking",
+  "total_sewing_thred_required",
   "yarn_information_tab",
   "section_break_bnyk",
   "column_break_uhxh",
@@ -110,7 +126,10 @@
   "currency",
   "lc_expiry_date",
   "section_break_hmzt",
-  "back_to_back_number"
+  "back_to_back_number",
+  "daily_tasks_tab",
+  "section_break_zxsv",
+  "order_sheet_tasks"
  ],
  "fields": [
   {
@@ -224,15 +243,16 @@
   },
   {
    "collapsible": 1,
+   "depends_on": "button",
    "fieldname": "section_trim",
    "fieldtype": "Section Break",
    "hide_border": 1,
-   "label": "Trims & Accessories"
+   "label": "Button Booking"
   },
   {
    "fieldname": "trim_details",
    "fieldtype": "Table",
-   "label": "Trim Details Table",
+   "label": "Button Booking",
    "options": "Order Sheet Trim Detail"
   },
   {
@@ -556,7 +576,6 @@
    "options": "Order Sheet PO Details"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_break_iuqr",
    "fieldtype": "Section Break",
    "label": "PO Entry"
@@ -587,6 +606,7 @@
   {
    "fieldname": "table_zskw",
    "fieldtype": "Table",
+   "label": "Production Entry",
    "options": "Order Sheet Production"
   },
   {
@@ -652,12 +672,111 @@
    "fieldname": "order_qty",
    "fieldtype": "Data",
    "label": "Order Qty"
+  },
+  {
+   "fieldname": "daily_tasks_tab",
+   "fieldtype": "Tab Break",
+   "label": "Daily Tasks"
+  },
+  {
+   "fieldname": "section_break_lwap",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Table",
+   "label": "Attachment",
+   "options": "Attachment Details"
+  },
+  {
+   "default": "0",
+   "fieldname": "button",
+   "fieldtype": "Check",
+   "label": "Button"
+  },
+  {
+   "default": "0",
+   "fieldname": "main_label",
+   "fieldtype": "Check",
+   "label": "Main Label"
+  },
+  {
+   "default": "0",
+   "fieldname": "care_label",
+   "fieldtype": "Check",
+   "label": "Care Label"
+  },
+  {
+   "default": "0",
+   "fieldname": "zipper",
+   "fieldtype": "Check",
+   "label": "Zipper"
+  },
+  {
+   "fieldname": "trims_accessories_section",
+   "fieldtype": "Section Break",
+   "label": "Trims Accessories"
+  },
+  {
+   "fieldname": "column_break_mmik",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bhdu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_tmyg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bookings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Bookings"
+  },
+  {
+   "fieldname": "column_break_vnzc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "poly_blister",
+   "fieldtype": "Check",
+   "label": "Poly Blister"
+  },
+  {
+   "default": "0",
+   "fieldname": "cartoon",
+   "fieldtype": "Check",
+   "label": "Cartoon"
+  },
+  {
+   "default": "0",
+   "fieldname": "sewing_thread",
+   "fieldtype": "Check",
+   "label": "Sewing Thread"
+  },
+  {
+   "fieldname": "sewing_thread_section",
+   "fieldtype": "Section Break",
+   "label": "Sewing Thread"
+  },
+  {
+   "fieldname": "sewing_thread_booking",
+   "fieldtype": "Table",
+   "label": "Sewing Thread Booking",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "total_sewing_thred_required",
+   "fieldtype": "Float",
+   "label": "Total Sewing Thred Required"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-01-24 21:57:19.883428",
+ "modified": "2026-02-08 22:07:46.829589",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
@@ -697,6 +816,18 @@
    "report": 1,
    "role": "Asst. Merchandiser",
    "share": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "General Manager (Marketing & Merchandising)",
+   "share": 1,
+   "submit": 1,
+   "write": 1
   }
  ],
  "row_format": "Dynamic",
