@@ -16,6 +16,8 @@
   "buyer",
   "column_break_xifx",
   "designer",
+  "column_break_zxdg",
+  "over_all_status",
   "section_break_lmpw",
   "style",
   "pp_sample_size",
@@ -28,13 +30,13 @@
   "body_knitting_pattern",
   "column_break_qisr",
   "color",
-  "average_weight",
+  "sample_weight",
   "approximate_delivery_date",
   "brief_style_description__key_features",
   "column_break_huwv",
-  "over_all_status",
   "production_status",
   "order_status",
+  "average_weight",
   "reference_image",
   "technical_file",
   "target_measurement_chart",
@@ -68,9 +70,12 @@
   "shade",
   "column_break_dtqt",
   "sample_yarn_challan",
+  "section_break_xkos",
+  "yarn_location",
   "section_break_bcrp",
   "raw_material",
   "daily_tasks_tab",
+  "contact_address",
   "section_break_rgtf",
   "table_zgad"
  ],
@@ -399,7 +404,7 @@
    "fieldname": "production_status",
    "fieldtype": "Select",
    "label": "Production Status",
-   "options": "LAB DIP REQUESTED\nLAB DIP SUBMITTED\nLAB DIP APPROVED\nWAITING FOR SAMPLE YARN\nPROGRAM\nYARN SHORTAGE\nWAITING FOR KNITTING\nKNITTING\nKNITTING MANUAL\nWAITING FOR LINKING\nLINKING\nWAITING FOR MENDING\nMENDING\nWAITING FOR WASH\nWASH\nWAITING FOR PRINT\nPRINT\nIRON\nSEWING\nZIP / BUTTON\nPRINT\nFINISHING"
+   "options": "LAB DIP REQUESTED\nLAB DIP SUBMITTED\nLAB DIP APPROVED\nWAITING FOR SAMPLE YARN\nPROGRAM\nYARN SHORTAGE\nWAITING FOR KNITTING\nKNITTING\nKNITTING MANUAL\nWAITING FOR LINKING\nLINKING\nWAITING FOR MENDING\nMENDING\nWAITING FOR WASH\nWASH\nWAITING FOR PRINT\nPRINT\nIRON\nSEWING\nZIP / BUTTON\nPRINT\nFINISHING\nCOMPLETED"
   },
   {
    "collapsible": 1,
@@ -422,6 +427,31 @@
    "in_standard_filter": 1,
    "label": "Order Status",
    "options": "\nDEVELOPMENT / SMS\nCONFIRMED\nCANCELLED"
+  },
+  {
+   "fieldname": "section_break_xkos",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "yarn_location",
+   "fieldtype": "Link",
+   "label": "Yarn Location",
+   "options": "Location"
+  },
+  {
+   "fieldname": "column_break_zxdg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sample_weight",
+   "fieldtype": "Float",
+   "label": "Sample Weight"
+  },
+  {
+   "fieldname": "contact_address",
+   "fieldtype": "Link",
+   "label": "Contact Address",
+   "options": "Contact"
   }
  ],
  "grid_page_length": 50,
@@ -429,7 +459,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-02 12:05:23.246471",
+ "modified": "2026-02-10 13:07:16.055646",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Daily Sample Request",

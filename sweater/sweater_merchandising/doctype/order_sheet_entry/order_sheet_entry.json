@@ -30,26 +30,6 @@
   "order_sheet_po_details",
   "section_qty",
   "qty_details",
-  "section_break_lwap",
-  "attachment",
-  "section_files",
-  "care_label_layout",
-  "main_label_layout",
-  "sticker_layout",
-  "accessories_pi",
-  "accessories_b2b_lc",
-  "column_break_wvno",
-  "sales_contact",
-  "tech_pack",
-  "po_sheet",
-  "has_multiple_po",
-  "column_break_soak",
-  "lc_copy",
-  "column_break_bbzq",
-  "yarn_pi",
-  "yarn_b2b_lc",
-  "yarn_ud",
-  "yarn_do_file",
   "section_break_lofs",
   "multiple_colour_ratio",
   "section_status",
@@ -59,16 +39,26 @@
   "bookings_tab",
   "trims_accessories_section",
   "button",
+  "zipper",
   "sewing_thread",
+  "cl_with_price_sticker",
   "column_break_mmik",
   "main_label",
-  "cartoon",
-  "column_break_bhdu",
   "care_label",
-  "column_break_tmyg",
-  "zipper",
+  "cl_without_price_sticker",
   "column_break_vnzc",
-  "poly_blister",
+  "hand_tag",
+  "price_tag",
+  "additional_tag",
+  "check_cgxx",
+  "column_break_bhdu",
+  "blister",
+  "poly",
+  "cartoon",
+  "column_break_tmyg",
+  "gum_tape",
+  "gum_tape_red",
+  "gum_tape_green",
   "section_trim",
   "trim_details",
   "total_button_required",
@@ -86,21 +76,21 @@
   "column_break_wduz",
   "sample_yarn_challan",
   "yarn_inventory_report",
-  "section_break_vrre",
-  "yarn_details",
-  "section_break_ppgc",
-  "elastic_details",
   "section_break_hnem",
   "consumption_sheet",
   "column_break_peby",
   "sweater_quantity",
   "column_break_yvlu",
-  "total_required_yarn",
-  "column_break_leyw",
   "total_yarn_value",
-  "column_break_kpil",
+  "column_break_leyw",
   "multiple_color",
+  "column_break_kpil",
   "has_elastic",
+  "section_break_vrre",
+  "yarn_details",
+  "total_required_yarn",
+  "section_break_ppgc",
+  "elastic_details",
   "planning_or_strategy_tab",
   "section_planning",
   "production_start_date",
@@ -129,7 +119,27 @@
   "back_to_back_number",
   "daily_tasks_tab",
   "section_break_zxsv",
-  "order_sheet_tasks"
+  "order_sheet_tasks",
+  "attachments_tab",
+  "attachment",
+  "section_files",
+  "care_label_layout",
+  "main_label_layout",
+  "sticker_layout",
+  "accessories_pi",
+  "accessories_b2b_lc",
+  "column_break_wvno",
+  "sales_contact",
+  "tech_pack",
+  "po_sheet",
+  "has_multiple_po",
+  "column_break_soak",
+  "lc_copy",
+  "column_break_bbzq",
+  "yarn_pi",
+  "yarn_b2b_lc",
+  "yarn_ud",
+  "yarn_do_file"
  ],
  "fields": [
   {
@@ -191,7 +201,6 @@
    "label": "Style Image"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_files",
    "fieldtype": "Section Break",
    "hide_border": 1,
@@ -224,7 +233,6 @@
    "label": "Tech Pack"
   },
   {
-   "collapsible": 1,
    "fieldname": "section_qty",
    "fieldtype": "Section Break",
    "label": "Quantity Breakdown"
@@ -679,10 +687,6 @@
    "label": "Daily Tasks"
   },
   {
-   "fieldname": "section_break_lwap",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "attachment",
    "fieldtype": "Table",
    "label": "Attachment",
@@ -715,6 +719,7 @@
   {
    "fieldname": "trims_accessories_section",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Trims Accessories"
   },
   {
@@ -737,12 +742,6 @@
   {
    "fieldname": "column_break_vnzc",
    "fieldtype": "Column Break"
-  },
-  {
-   "default": "0",
-   "fieldname": "poly_blister",
-   "fieldtype": "Check",
-   "label": "Poly Blister"
   },
   {
    "default": "0",
@@ -771,12 +770,82 @@
    "fieldname": "total_sewing_thred_required",
    "fieldtype": "Float",
    "label": "Total Sewing Thred Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "poly",
+   "fieldtype": "Check",
+   "label": "Poly"
+  },
+  {
+   "default": "0",
+   "fieldname": "blister",
+   "fieldtype": "Check",
+   "label": "Blister"
+  },
+  {
+   "fieldname": "attachments_tab",
+   "fieldtype": "Tab Break",
+   "label": "Attachments"
+  },
+  {
+   "default": "0",
+   "fieldname": "hand_tag",
+   "fieldtype": "Check",
+   "label": "Hand Tag"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_tag",
+   "fieldtype": "Check",
+   "label": "Price tag"
+  },
+  {
+   "default": "0",
+   "fieldname": "additional_tag",
+   "fieldtype": "Check",
+   "label": "Additional Tag"
+  },
+  {
+   "default": "0",
+   "fieldname": "gum_tape",
+   "fieldtype": "Check",
+   "label": "Gum Tape"
+  },
+  {
+   "default": "0",
+   "fieldname": "gum_tape_red",
+   "fieldtype": "Check",
+   "label": "Gum Tape (Red)"
+  },
+  {
+   "default": "0",
+   "fieldname": "gum_tape_green",
+   "fieldtype": "Check",
+   "label": "Gum Tape (Green)"
+  },
+  {
+   "default": "0",
+   "fieldname": "cl_with_price_sticker",
+   "fieldtype": "Check",
+   "label": "C/L with price sticker"
+  },
+  {
+   "default": "0",
+   "fieldname": "cl_without_price_sticker",
+   "fieldtype": "Check",
+   "label": "C/L Without Price Sticker"
+  },
+  {
+   "default": "0",
+   "fieldname": "check_cgxx",
+   "fieldtype": "Check"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-08 22:07:46.829589",
+ "modified": "2026-02-11 00:37:09.044127",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",

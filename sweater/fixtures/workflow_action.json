@@ -9660,8 +9660,8 @@
   "workflow_state": "Draft"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-24 22:13:43.028395",
@@ -9676,7 +9676,7 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-24-PAAYRA DESING-ZC3172203BSG-00312",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "SEND FOR REVIEW"
  },
@@ -9927,7 +9927,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-SHARP 1/2 ZIP -5-HIGH-29-01-26-00319",
+  "reference_name": "MICROTEX-SHARPE 1/2 ZIP -5-HIGH-29-01-26-00319",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -9969,7 +9969,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-PATRICK CARDIGAN-7-HIGH-29-01-26-00321",
+  "reference_name": "MICROTEX-PATTON (PATRICK) CARDIGAN-7-HIGH-29-01-26-00321",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -10179,7 +10179,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-SHARP 1/2 ZIP -5-HIGH-29-01-26-00319",
+  "reference_name": "MICROTEX-SHARPE 1/2 ZIP -5-HIGH-29-01-26-00319",
   "status": "Open",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -10221,7 +10221,7 @@
    }
   ],
   "reference_doctype": "Daily Sample Request",
-  "reference_name": "MICROTEX-PATRICK CARDIGAN-7-HIGH-29-01-26-00321",
+  "reference_name": "MICROTEX-PATTON (PATRICK) CARDIGAN-7-HIGH-29-01-26-00321",
   "status": "Open",
   "user": null,
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
@@ -10897,5 +10897,26 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-11 00:53:01.092748",
+  "name": "sc3odvkbjv",
+  "permitted_roles": [
+   {
+    "parent": "sc3odvkbjv",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "General Manager (Marketing & Merchandising)"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-01-24-PAAYRA DESING-ZC3172203BSG-00312",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "WAITING FOR REVIEW"
  }
 ]
