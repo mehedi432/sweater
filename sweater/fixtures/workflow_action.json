@@ -10231,27 +10231,6 @@
   "completed_by_role": null,
   "docstatus": 0,
   "doctype": "Workflow Action",
-  "modified": "2026-01-29 15:25:23.195871",
-  "name": "2p0e02pe8d",
-  "permitted_roles": [
-   {
-    "parent": "2p0e02pe8d",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Asst. Merchandiser"
-   }
-  ],
-  "reference_doctype": "Order Sheet Entry",
-  "reference_name": "26-01-29-MICROTEX-PATRICK CARDIGAN-00322",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
   "modified": "2026-01-29 15:25:40.601559",
   "name": "2ueb1f286u",
   "permitted_roles": [
@@ -10285,48 +10264,6 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-29-MICROTEX-SHARP 1/2 ZIP -00324",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "Asst. Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-29 15:26:24.729767",
-  "name": "3c7ek774iu",
-  "permitted_roles": [
-   {
-    "parent": "3c7ek774iu",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Asst. Merchandiser"
-   }
-  ],
-  "reference_doctype": "Order Sheet Entry",
-  "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00325",
-  "status": "Completed",
-  "user": null,
-  "workflow_state": "Draft"
- },
- {
-  "completed_by": "Administrator",
-  "completed_by_role": "Asst. Merchandiser",
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-29 15:27:32.420917",
-  "name": "41csjusvi9",
-  "permitted_roles": [
-   {
-    "parent": "41csjusvi9",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Asst. Merchandiser"
-   }
-  ],
-  "reference_doctype": "Order Sheet Entry",
-  "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00326",
   "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
@@ -10668,48 +10605,6 @@
   "workflow_state": "SEND FOR REVIEW"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-31 20:47:10.758739",
-  "name": "mqjs37mbjq",
-  "permitted_roles": [
-   {
-    "parent": "mqjs37mbjq",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Order Sheet Entry",
-  "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00325",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "SEND FOR REVIEW"
- },
- {
-  "completed_by": null,
-  "completed_by_role": null,
-  "docstatus": 0,
-  "doctype": "Workflow Action",
-  "modified": "2026-01-31 20:47:17.101962",
-  "name": "msjtdsip31",
-  "permitted_roles": [
-   {
-    "parent": "msjtdsip31",
-    "parentfield": "permitted_roles",
-    "parenttype": "Workflow Action",
-    "role": "Merchandiser"
-   }
-  ],
-  "reference_doctype": "Order Sheet Entry",
-  "reference_name": "26-01-29-MICROTEX-GABRIEL CREW NECK -00326",
-  "status": "Open",
-  "user": null,
-  "workflow_state": "SEND FOR REVIEW"
- },
- {
   "completed_by": "Administrator",
   "completed_by_role": "Merchandiser",
   "docstatus": 0,
@@ -10939,5 +10834,68 @@
   "status": "Open",
   "user": null,
   "workflow_state": "SEND FOR REVIEW"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-11 21:25:07.065267",
+  "name": "e9um8ecorn",
+  "permitted_roles": [
+   {
+    "parent": "e9um8ecorn",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-11-MICROTEX-PINE CREW NECK-00352",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-11 21:26:19.209727",
+  "name": "f0ggvis4pk",
+  "permitted_roles": [
+   {
+    "parent": "f0ggvis4pk",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-11-MICROTEX-GABRIEL 1/4 ZIP - REPEAT-00353",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-11 21:26:58.129052",
+  "name": "fcl40k6v8a",
+  "permitted_roles": [
+   {
+    "parent": "fcl40k6v8a",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-02-11-MICROTEX-PATTON (PATRICK) CARDIGAN-00354",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "Draft"
  }
 ]

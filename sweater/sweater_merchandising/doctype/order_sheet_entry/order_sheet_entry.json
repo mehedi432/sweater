@@ -30,43 +30,15 @@
   "order_sheet_po_details",
   "section_qty",
   "qty_details",
-  "section_status",
+  "section_break_vdxo",
+  "column_break_kkjx",
+  "column_break_mshf",
+  "current_status",
+  "column_break_lzpz",
   "approval_status",
+  "section_status",
   "remarks",
   "amended_from",
-  "bookings_tab",
-  "trims_accessories_section",
-  "button",
-  "zipper",
-  "sewing_thread",
-  "column_break_mmik",
-  "main_label",
-  "main_label_with_size",
-  "cl_with_barcode",
-  "care_label_without_care_label",
-  "care_label_",
-  "column_break_vnzc",
-  "hand_tag",
-  "hang_tag_string",
-  "price_tag",
-  "price_tag_with_barcode",
-  "additional_tag",
-  "column_break_bhdu",
-  "poly",
-  "blister",
-  "cartoon",
-  "column_break_tmyg",
-  "gum_tape",
-  "gum_tape_red",
-  "gum_tape_green",
-  "section_trim",
-  "trim_details",
-  "total_button_required",
-  "zipper_booking_section",
-  "zipper_booking",
-  "sewing_thread_section",
-  "sewing_thread_booking",
-  "total_sewing_thred_required",
   "yarn_information_tab",
   "section_break_bnyk",
   "column_break_uhxh",
@@ -96,6 +68,71 @@
   "section_break_ppgc",
   "elastic_details",
   "total_elastic_required",
+  "bookings_tab",
+  "trims_accessories_section",
+  "button",
+  "button_poly",
+  "zipper",
+  "sewing_thread",
+  "column_break_mmik",
+  "main_label",
+  "main_label_with_size",
+  "cl_with_barcode",
+  "care_label_without_barcode",
+  "column_break_vnzc",
+  "price_tag",
+  "price_tag_sticker",
+  "hand_tag",
+  "hang_tag_string",
+  "additional_tag",
+  "column_break_bhdu",
+  "poly",
+  "blister",
+  "cartoon",
+  "cartoon_sticker",
+  "column_break_tmyg",
+  "gum_tape",
+  "gum_tape_red",
+  "gum_tape_green",
+  "section_trim",
+  "trim_details",
+  "total_button_required",
+  "zipper_booking_section",
+  "zipper_booking",
+  "total_zipper_required",
+  "sewing_thread_section",
+  "sewing_thread_booking",
+  "total_sewing_thred_required",
+  "main_label_booking",
+  "main_label_details",
+  "total_main_label_required",
+  "section_break_dodq",
+  "main_label_with_size_details",
+  "total_main_label_with_size_required",
+  "care_label_with_barcode_section",
+  "care_label_with_barcode",
+  "section_break_iido",
+  "care_label_wo_barcode",
+  "price_tag_booking",
+  "price_tag_quantity",
+  "price_tag_sticker_booking_section",
+  "price_tag_sticker_quantity",
+  "hand_tag_booking_section",
+  "hand_tag_details",
+  "hand_tag_string_booking_section",
+  "hand_tag_string_details",
+  "additional_tag_booking_section",
+  "additional_tag_details",
+  "poly_booking_section",
+  "poly_details",
+  "blister_booking_section",
+  "blister_details",
+  "cartoon_booking_section",
+  "cartoon_details",
+  "cartoon_sticker_booking_section",
+  "cartoon_sticker_details",
+  "gum_tape_booking_section",
+  "gum_tape_details",
   "planning_or_strategy_tab",
   "section_planning",
   "production_start_date",
@@ -260,7 +297,6 @@
    "depends_on": "button",
    "fieldname": "section_trim",
    "fieldtype": "Section Break",
-   "hide_border": 1,
    "label": "Button Booking"
   },
   {
@@ -707,7 +743,7 @@
    "default": "0",
    "fieldname": "main_label",
    "fieldtype": "Check",
-   "label": "MAIN LABEL WITHOUT SIZE"
+   "label": "MAIN LABEL"
   },
   {
    "default": "0",
@@ -797,12 +833,6 @@
   },
   {
    "default": "0",
-   "fieldname": "price_tag",
-   "fieldtype": "Check",
-   "label": "PRICE TAG WITHOUT BARCODE "
-  },
-  {
-   "default": "0",
    "fieldname": "additional_tag",
    "fieldtype": "Check",
    "label": "ADDITIONAL TAG"
@@ -827,21 +857,9 @@
   },
   {
    "default": "0",
-   "fieldname": "price_tag_with_barcode",
-   "fieldtype": "Check",
-   "label": "PRICE TAG WITH BARCODE "
-  },
-  {
-   "default": "0",
    "fieldname": "cl_with_barcode",
    "fieldtype": "Check",
    "label": "C/L WITH BARCODE"
-  },
-  {
-   "default": "0",
-   "fieldname": "care_label_",
-   "fieldtype": "Check",
-   "label": "CARE LABEL"
   },
   {
    "default": "0",
@@ -871,22 +889,265 @@
    "label": "MAIN LABEL WITH SIZE"
   },
   {
-   "default": "0",
-   "fieldname": "care_label_without_care_label",
-   "fieldtype": "Check",
-   "label": "C/L WITHOUT BARCODE"
-  },
-  {
    "fieldname": "zipper_booking",
    "fieldtype": "Table",
    "label": "Zipper Booking",
    "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "section_break_vdxo",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_kkjx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_mshf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lzpz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "main_label_with_size",
+   "fieldname": "section_break_dodq",
+   "fieldtype": "Section Break",
+   "label": "Main Label With Size"
+  },
+  {
+   "fieldname": "current_status",
+   "fieldtype": "Select",
+   "label": "Current Status",
+   "options": "SAMPLING\nPRODUCTION RUNNING\nPACKING LIST COMPLETED\nWAITING FOR INSPECTION\nWAITING FOR SHIPMENT\nSTOCK LOT\nSHIPPED OUT"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "cl_with_barcode",
+   "fieldname": "care_label_with_barcode_section",
+   "fieldtype": "Section Break",
+   "label": "Care Label With Barcode"
+  },
+  {
+   "fieldname": "care_label_with_barcode",
+   "fieldtype": "Table",
+   "label": "Care Label With Barcode",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "care_label_without_barcode",
+   "fieldname": "section_break_iido",
+   "fieldtype": "Section Break",
+   "label": "Care Label Without Barcode"
+  },
+  {
+   "fieldname": "care_label_wo_barcode",
+   "fieldtype": "Table",
+   "label": "Care Label W/O Barcode ",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "default": "0",
+   "fieldname": "care_label_without_barcode",
+   "fieldtype": "Check",
+   "label": "C/L WITHOUT BARCODE"
+  },
+  {
+   "default": "0",
+   "fieldname": "cartoon_sticker",
+   "fieldtype": "Check",
+   "label": "CARTOON STICKER"
+  },
+  {
+   "default": "0",
+   "fieldname": "button_poly",
+   "fieldtype": "Check",
+   "label": "BUTTON POLY"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_tag",
+   "fieldtype": "Check",
+   "label": "PRICE TAG"
+  },
+  {
+   "default": "0",
+   "fieldname": "price_tag_sticker",
+   "fieldtype": "Check",
+   "label": "PRICE TAG STICKER "
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "price_tag",
+   "fieldname": "price_tag_booking",
+   "fieldtype": "Section Break",
+   "label": "Price Tag Booking"
+  },
+  {
+   "fieldname": "price_tag_quantity",
+   "fieldtype": "Table",
+   "label": "Price Tag Quantity",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "price_tag_sticker",
+   "fieldname": "price_tag_sticker_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Price Tag Sticker Booking"
+  },
+  {
+   "fieldname": "price_tag_sticker_quantity",
+   "fieldtype": "Table",
+   "label": "Price Tag Sticker Quantity",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "hand_tag",
+   "fieldname": "hand_tag_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Hand Tag Booking"
+  },
+  {
+   "fieldname": "hand_tag_details",
+   "fieldtype": "Table",
+   "label": "Hand Tag Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "hang_tag_string",
+   "fieldname": "hand_tag_string_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Hand Tag String Booking"
+  },
+  {
+   "fieldname": "hand_tag_string_details",
+   "fieldtype": "Table",
+   "label": "Hand tag String Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "main_label",
+   "fieldname": "main_label_booking",
+   "fieldtype": "Section Break",
+   "label": "Main Label Booking"
+  },
+  {
+   "fieldname": "main_label_details",
+   "fieldtype": "Table",
+   "label": "Main Label Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "main_label_with_size_details",
+   "fieldtype": "Table",
+   "label": "Main Label With Size Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "additional_tag",
+   "fieldname": "additional_tag_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Additional Tag Booking"
+  },
+  {
+   "fieldname": "additional_tag_details",
+   "fieldtype": "Table",
+   "label": "Additional Tag Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "poly",
+   "fieldname": "poly_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Poly Booking"
+  },
+  {
+   "fieldname": "poly_details",
+   "fieldtype": "Table",
+   "label": "Poly Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "blister",
+   "fieldname": "blister_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Blister Booking"
+  },
+  {
+   "fieldname": "blister_details",
+   "fieldtype": "Table",
+   "label": "Blister Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "cartoon",
+   "fieldname": "cartoon_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Cartoon Booking"
+  },
+  {
+   "fieldname": "cartoon_details",
+   "fieldtype": "Table",
+   "label": "Cartoon Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "cartoon_sticker",
+   "fieldname": "cartoon_sticker_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Cartoon Sticker Booking"
+  },
+  {
+   "fieldname": "cartoon_sticker_details",
+   "fieldtype": "Table",
+   "label": "Cartoon Sticker Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "gum_tape",
+   "fieldname": "gum_tape_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Gum Tape Booking"
+  },
+  {
+   "fieldname": "gum_tape_details",
+   "fieldtype": "Table",
+   "label": "Gum Tape Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "total_zipper_required",
+   "fieldtype": "Float",
+   "label": "Total Zipper Required"
+  },
+  {
+   "fieldname": "total_main_label_required",
+   "fieldtype": "Float",
+   "label": "Total Main Label Required"
+  },
+  {
+   "fieldname": "total_main_label_with_size_required",
+   "fieldtype": "Float",
+   "label": "Total Main Label With Size Required"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-11 13:50:25.491418",
+ "modified": "2026-02-12 00:46:55.202704",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
