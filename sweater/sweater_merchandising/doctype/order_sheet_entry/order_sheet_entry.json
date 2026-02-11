@@ -30,8 +30,6 @@
   "order_sheet_po_details",
   "section_qty",
   "qty_details",
-  "section_break_lofs",
-  "multiple_colour_ratio",
   "section_status",
   "approval_status",
   "remarks",
@@ -41,19 +39,21 @@
   "button",
   "zipper",
   "sewing_thread",
-  "cl_with_price_sticker",
   "column_break_mmik",
   "main_label",
-  "care_label",
-  "cl_without_price_sticker",
+  "main_label_with_size",
+  "cl_with_barcode",
+  "care_label_without_care_label",
+  "care_label_",
   "column_break_vnzc",
   "hand_tag",
+  "hang_tag_string",
   "price_tag",
+  "price_tag_with_barcode",
   "additional_tag",
-  "check_cgxx",
   "column_break_bhdu",
-  "blister",
   "poly",
+  "blister",
   "cartoon",
   "column_break_tmyg",
   "gum_tape",
@@ -62,6 +62,8 @@
   "section_trim",
   "trim_details",
   "total_button_required",
+  "zipper_booking_section",
+  "zipper_booking",
   "sewing_thread_section",
   "sewing_thread_booking",
   "total_sewing_thred_required",
@@ -84,13 +86,16 @@
   "total_yarn_value",
   "column_break_leyw",
   "multiple_color",
-  "column_break_kpil",
+  "column_break_ugsx",
   "has_elastic",
   "section_break_vrre",
   "yarn_details",
   "total_required_yarn",
+  "section_break_lofs",
+  "multiple_colour_ratio",
   "section_break_ppgc",
   "elastic_details",
+  "total_elastic_required",
   "planning_or_strategy_tab",
   "section_planning",
   "production_start_date",
@@ -251,6 +256,7 @@
   },
   {
    "collapsible": 1,
+   "collapsible_depends_on": "button",
    "depends_on": "button",
    "fieldname": "section_trim",
    "fieldtype": "Section Break",
@@ -540,18 +546,16 @@
    "options": "Multiple Colour Ratio"
   },
   {
-   "fieldname": "column_break_kpil",
-   "fieldtype": "Column Break"
-  },
-  {
    "default": "0",
    "fieldname": "has_elastic",
    "fieldtype": "Check",
-   "label": "Has Elastic"
+   "label": "ELASTIC"
   },
   {
+   "collapsible": 1,
    "fieldname": "section_break_ppgc",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Elastic Booking"
   },
   {
    "depends_on": "has_elastic",
@@ -649,7 +653,8 @@
   },
   {
    "fieldname": "section_break_vrre",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "label": "Yarn Details"
   },
   {
    "fieldname": "section_break_hmzt",
@@ -696,25 +701,19 @@
    "default": "0",
    "fieldname": "button",
    "fieldtype": "Check",
-   "label": "Button"
+   "label": "BUTTON"
   },
   {
    "default": "0",
    "fieldname": "main_label",
    "fieldtype": "Check",
-   "label": "Main Label"
-  },
-  {
-   "default": "0",
-   "fieldname": "care_label",
-   "fieldtype": "Check",
-   "label": "Care Label"
+   "label": "MAIN LABEL WITHOUT SIZE"
   },
   {
    "default": "0",
    "fieldname": "zipper",
    "fieldtype": "Check",
-   "label": "Zipper"
+   "label": "ZIPPER"
   },
   {
    "fieldname": "trims_accessories_section",
@@ -747,18 +746,20 @@
    "default": "0",
    "fieldname": "cartoon",
    "fieldtype": "Check",
-   "label": "Cartoon"
+   "label": "CARTOON"
   },
   {
    "default": "0",
    "fieldname": "sewing_thread",
    "fieldtype": "Check",
-   "label": "Sewing Thread"
+   "label": "SEWING THREAD"
   },
   {
+   "collapsible": 1,
+   "depends_on": "sewing_thread",
    "fieldname": "sewing_thread_section",
    "fieldtype": "Section Break",
-   "label": "Sewing Thread"
+   "label": "Sewing Thread Booking"
   },
   {
    "fieldname": "sewing_thread_booking",
@@ -775,13 +776,13 @@
    "default": "0",
    "fieldname": "poly",
    "fieldtype": "Check",
-   "label": "Poly"
+   "label": "POLY"
   },
   {
    "default": "0",
    "fieldname": "blister",
    "fieldtype": "Check",
-   "label": "Blister"
+   "label": "BLISTER"
   },
   {
    "fieldname": "attachments_tab",
@@ -792,60 +793,100 @@
    "default": "0",
    "fieldname": "hand_tag",
    "fieldtype": "Check",
-   "label": "Hand Tag"
+   "label": "HAND TAG"
   },
   {
    "default": "0",
    "fieldname": "price_tag",
    "fieldtype": "Check",
-   "label": "Price tag"
+   "label": "PRICE TAG WITHOUT BARCODE "
   },
   {
    "default": "0",
    "fieldname": "additional_tag",
    "fieldtype": "Check",
-   "label": "Additional Tag"
+   "label": "ADDITIONAL TAG"
   },
   {
    "default": "0",
    "fieldname": "gum_tape",
    "fieldtype": "Check",
-   "label": "Gum Tape"
+   "label": "GUM TAPE"
   },
   {
    "default": "0",
    "fieldname": "gum_tape_red",
    "fieldtype": "Check",
-   "label": "Gum Tape (Red)"
+   "label": "GUM TAPE (RED)"
   },
   {
    "default": "0",
    "fieldname": "gum_tape_green",
    "fieldtype": "Check",
-   "label": "Gum Tape (Green)"
+   "label": "GUM TAPE (GREEN)"
   },
   {
    "default": "0",
-   "fieldname": "cl_with_price_sticker",
+   "fieldname": "price_tag_with_barcode",
    "fieldtype": "Check",
-   "label": "C/L with price sticker"
+   "label": "PRICE TAG WITH BARCODE "
   },
   {
    "default": "0",
-   "fieldname": "cl_without_price_sticker",
+   "fieldname": "cl_with_barcode",
    "fieldtype": "Check",
-   "label": "C/L Without Price Sticker"
+   "label": "C/L WITH BARCODE"
   },
   {
    "default": "0",
-   "fieldname": "check_cgxx",
-   "fieldtype": "Check"
+   "fieldname": "care_label_",
+   "fieldtype": "Check",
+   "label": "CARE LABEL"
+  },
+  {
+   "default": "0",
+   "fieldname": "hang_tag_string",
+   "fieldtype": "Check",
+   "label": "HANG TAG STRING "
+  },
+  {
+   "fieldname": "total_elastic_required",
+   "fieldtype": "Data",
+   "label": "Total Elastic Required"
+  },
+  {
+   "fieldname": "column_break_ugsx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "zipper_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Zipper Booking"
+  },
+  {
+   "default": "0",
+   "fieldname": "main_label_with_size",
+   "fieldtype": "Check",
+   "label": "MAIN LABEL WITH SIZE"
+  },
+  {
+   "default": "0",
+   "fieldname": "care_label_without_care_label",
+   "fieldtype": "Check",
+   "label": "C/L WITHOUT BARCODE"
+  },
+  {
+   "fieldname": "zipper_booking",
+   "fieldtype": "Table",
+   "label": "Zipper Booking",
+   "options": "Order Sheet Trim Detail"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-11 00:37:09.044127",
+ "modified": "2026-02-11 13:50:25.491418",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",

@@ -9786,8 +9786,8 @@
   "workflow_state": "DELIVERED TO SAMPLE DEPT."
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "Administrator",
+  "completed_by_role": "Asst. Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-01-25 00:17:24.987632",
@@ -9802,7 +9802,7 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-25-PAAYRA DESING-ZC3172101PUJ-00313",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "Draft"
  },
@@ -10918,5 +10918,26 @@
   "status": "Open",
   "user": null,
   "workflow_state": "WAITING FOR REVIEW"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-11 14:52:32.179640",
+  "name": "89164vt5si",
+  "permitted_roles": [
+   {
+    "parent": "89164vt5si",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "Merchandiser"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-01-25-PAAYRA DESING-ZC3172101PUJ-00313",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "SEND FOR REVIEW"
  }
 ]

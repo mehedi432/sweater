@@ -22,8 +22,7 @@
    "fieldname": "trim_name",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Trim Name",
-   "reqd": 1
+   "label": "Trim Name"
   },
   {
    "fieldname": "consumption",
@@ -77,7 +76,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-19 01:35:31.992066",
+ "modified": "2026-02-11 14:47:06.031560",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Trim Detail",
