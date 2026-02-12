@@ -59,18 +59,15 @@
   "column_break_leyw",
   "multiple_color",
   "column_break_ugsx",
-  "has_elastic",
   "section_break_vrre",
   "yarn_details",
   "total_required_yarn",
   "section_break_lofs",
   "multiple_colour_ratio",
-  "section_break_ppgc",
-  "elastic_details",
-  "total_elastic_required",
   "bookings_tab",
   "trims_accessories_section",
   "button",
+  "elastic",
   "button_poly",
   "zipper",
   "sewing_thread",
@@ -94,9 +91,15 @@
   "gum_tape",
   "gum_tape_red",
   "gum_tape_green",
+  "section_break_ppgc",
+  "elastic_details",
+  "total_elastic_required",
   "section_trim",
   "trim_details",
   "total_button_required",
+  "button_poly_booking_section",
+  "button_poly_details",
+  "total_button_poly_required",
   "zipper_booking_section",
   "zipper_booking",
   "total_zipper_required",
@@ -154,6 +157,7 @@
   "column_break_vmth",
   "price",
   "lc_open_date",
+  "lc_number",
   "column_break_fgkg",
   "currency",
   "lc_expiry_date",
@@ -225,7 +229,7 @@
    "label": "Gauge"
   },
   {
-   "fetch_from": "sample_request.body_knitting_pattern",
+   "fetch_from": "sample_request.brief_style_description__key_features",
    "fieldname": "construction",
    "fieldtype": "Data",
    "label": "Construction"
@@ -582,23 +586,17 @@
    "options": "Multiple Colour Ratio"
   },
   {
-   "default": "0",
-   "fieldname": "has_elastic",
-   "fieldtype": "Check",
-   "label": "ELASTIC"
-  },
-  {
    "collapsible": 1,
+   "depends_on": "elastic",
    "fieldname": "section_break_ppgc",
    "fieldtype": "Section Break",
    "label": "Elastic Booking"
   },
   {
-   "depends_on": "has_elastic",
    "fieldname": "elastic_details",
    "fieldtype": "Table",
    "label": "Elastic Details",
-   "options": "Elastic Details"
+   "options": "Order Sheet Trim Detail"
   },
   {
    "fieldname": "total_button_required",
@@ -878,6 +876,7 @@
   },
   {
    "collapsible": 1,
+   "depends_on": "zipper",
    "fieldname": "zipper_booking_section",
    "fieldtype": "Section Break",
    "label": "Zipper Booking"
@@ -1142,12 +1141,40 @@
    "fieldname": "total_main_label_with_size_required",
    "fieldtype": "Float",
    "label": "Total Main Label With Size Required"
+  },
+  {
+   "default": "0",
+   "fieldname": "elastic",
+   "fieldtype": "Check",
+   "label": "ELASTIC"
+  },
+  {
+   "depends_on": "button_poly",
+   "fieldname": "button_poly_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Button Poly Booking"
+  },
+  {
+   "fieldname": "button_poly_details",
+   "fieldtype": "Table",
+   "label": "Button Poly Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "total_button_poly_required",
+   "fieldtype": "Data",
+   "label": "Total Button Poly Required"
+  },
+  {
+   "fieldname": "lc_number",
+   "fieldtype": "Data",
+   "label": "L/C Number"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-12 00:46:55.202704",
+ "modified": "2026-02-12 21:42:53.359279",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",

@@ -10815,8 +10815,8 @@
   "workflow_state": "WAITING FOR REVIEW"
  },
  {
-  "completed_by": null,
-  "completed_by_role": null,
+  "completed_by": "merchandising12@meeksweater.com",
+  "completed_by_role": "Merchandiser",
   "docstatus": 0,
   "doctype": "Workflow Action",
   "modified": "2026-02-11 14:52:32.179640",
@@ -10831,7 +10831,7 @@
   ],
   "reference_doctype": "Order Sheet Entry",
   "reference_name": "26-01-25-PAAYRA DESING-ZC3172101PUJ-00313",
-  "status": "Open",
+  "status": "Completed",
   "user": null,
   "workflow_state": "SEND FOR REVIEW"
  },
@@ -10897,5 +10897,26 @@
   "status": "Open",
   "user": null,
   "workflow_state": "Draft"
+ },
+ {
+  "completed_by": null,
+  "completed_by_role": null,
+  "docstatus": 0,
+  "doctype": "Workflow Action",
+  "modified": "2026-02-12 01:36:21.301686",
+  "name": "1glqp1aq1f",
+  "permitted_roles": [
+   {
+    "parent": "1glqp1aq1f",
+    "parentfield": "permitted_roles",
+    "parenttype": "Workflow Action",
+    "role": "General Manager (Marketing & Merchandising)"
+   }
+  ],
+  "reference_doctype": "Order Sheet Entry",
+  "reference_name": "26-01-25-PAAYRA DESING-ZC3172101PUJ-00313",
+  "status": "Open",
+  "user": null,
+  "workflow_state": "WAITING FOR REVIEW"
  }
 ]
