@@ -114,8 +114,10 @@
   "total_main_label_with_size_required",
   "care_label_with_barcode_section",
   "care_label_with_barcode",
+  "total_care_label_with_barcode_required",
   "section_break_iido",
   "care_label_wo_barcode",
+  "total_care_label_wo_barcode_required",
   "price_tag_booking",
   "price_tag_quantity",
   "price_tag_sticker_booking_section",
@@ -124,8 +126,10 @@
   "hand_tag_details",
   "hand_tag_string_booking_section",
   "hand_tag_string_details",
+  "total_hand_tag_string_required",
   "additional_tag_booking_section",
   "additional_tag_details",
+  "total_additional_tag_required",
   "poly_booking_section",
   "poly_details",
   "blister_booking_section",
@@ -134,6 +138,7 @@
   "cartoon_details",
   "cartoon_sticker_booking_section",
   "cartoon_sticker_details",
+  "total_cartoon_sticker_required",
   "gum_tape_booking_section",
   "gum_tape_details",
   "planning_or_strategy_tab",
@@ -206,12 +211,16 @@
   {
    "fieldname": "brand",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Brand"
   },
   {
    "fetch_from": "sample_request.season_collection",
    "fieldname": "season",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Season"
   },
   {
@@ -226,6 +235,8 @@
    "fetch_from": "sample_request.gauge",
    "fieldname": "gauge",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Gauge"
   },
   {
@@ -378,6 +389,8 @@
   {
    "fieldname": "approval_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Approval Status",
    "options": "Draft\nPending\nApproved\nRevised"
   },
@@ -919,6 +932,8 @@
   {
    "fieldname": "current_status",
    "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Current Status",
    "options": "SAMPLING\nPRODUCTION RUNNING\nPACKING LIST COMPLETED\nWAITING FOR INSPECTION\nWAITING FOR SHIPMENT\nSTOCK LOT\nSHIPPED OUT"
   },
@@ -1169,12 +1184,40 @@
    "fieldname": "lc_number",
    "fieldtype": "Data",
    "label": "L/C Number"
+  },
+  {
+   "fieldname": "total_care_label_with_barcode_required",
+   "fieldtype": "Data",
+   "label": "TOTAL CARE LABEL WITH BARCODE REQUIRED"
+  },
+  {
+   "fieldname": "total_care_label_wo_barcode_required",
+   "fieldtype": "Data",
+   "label": "Total Care Label W/O Barcode Required"
+  },
+  {
+   "fieldname": "total_hand_tag_string_required",
+   "fieldtype": "Float",
+   "label": "Total Hand Tag String Required",
+   "precision": "2"
+  },
+  {
+   "fieldname": "total_additional_tag_required",
+   "fieldtype": "Float",
+   "label": "Total Additional Tag Required",
+   "precision": "2"
+  },
+  {
+   "fieldname": "total_cartoon_sticker_required",
+   "fieldtype": "Float",
+   "label": "Total Cartoon Sticker Required",
+   "precision": "2"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-12 21:42:53.359279",
+ "modified": "2026-02-13 01:23:41.259689",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
