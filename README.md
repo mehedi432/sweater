@@ -99,6 +99,17 @@ bench --site site1.local install-app hrms
 
 ------------------------------------------------------------------------
 
+## ⚙️ Install Specific Version Apps
+
+``` bash
+bench switch-to-branch version-15 frappe
+bench switch-to-branch version-15 erpnext
+bench switch-to-branch version-15 hrms
+```
+
+------------------------------------------------------------------------
+
+
 ## 🔄 Restore Existing Database (Optional)
 
 ``` bash
