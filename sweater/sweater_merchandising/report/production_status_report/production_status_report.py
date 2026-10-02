@@ -1,6 +1,7 @@
 import frappe
 from frappe import _
-from frappe.utils import escape_html, flt, formatdate, getdate, today
+from frappe.utils import escape_html, flt, formatdate, today
+
 
 def norm_gauge(g):
 	"""'12gg', '12 GG', '12Gg' -> '12GG'; '5, 7 gg' -> '5,7GG'. Blank -> 'N/A'."""
@@ -13,19 +14,27 @@ def norm_gauge(g):
 GROUP_ORDER = ["Green", "Red", "None"]
 GROUP_COLORS = {"Green": "#0a8043", "Red": "#c8102e", "None": "#5f6b7a"}
 
-INK = "#0a0a0a"      # text
-GRID = "#0a0a0a"     # grid lines
-HEAD_BG = "#ffffff"  # header band (black & white)
-SOFT = "#f2f2f2"     # total rows
-FONT = "font-family:'Inter','SF Pro Display','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12.5px;color:" + INK + ";line-height:1.3;"
+INK = "#0a0a0a"
+GRID = "#0a0a0a"
+HEAD_BG = "#ffffff"
+SOFT = "#f2f2f2"
+FONT = (
+	"font-family:'Inter','SF Pro Display','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif;"
+	"font-size:13px;color:" + INK + ";line-height:1.3;"
+)
 PRINT = "-webkit-print-color-adjust:exact;print-color-adjust:exact;"
 TD = (
-	FONT + PRINT + "border:1px solid " + GRID + ";padding:0 4px;text-align:center;"
+	FONT + PRINT + "border:1px solid " + GRID + ";padding:0 5px;text-align:center;"
 	"vertical-align:middle;background:#fff;word-wrap:break-word;font-variant-numeric:tabular-nums;"
 )
-ROW_H = 36    # px, each schedule row
-TOTAL_H = 28  # px, each total row
-HEAD_H = 48   # px, column header row
+
+NOWRAP = "white-space:nowrap;padding:0 10px;"   # keep style / date / qty on one line
+SHRINK = "width:1%;"                              # column shrinks to its content; Remarks takes the rest
+
+ROW_H = 38      # px, schedule row when a style has 2+ ex-factory dates
+TOTAL_H = 30    # px, total row (only for styles with 2+ dates)
+SINGLE_H = 64   # px, a style with ONE ex-factory date (no total row)
+HEAD_H = 52     # px, column header row
 
 
 def execute(filters=None):
@@ -49,13 +58,43 @@ def get_columns():
 	]
 
 
+_osv_cache = {}
+
+
+def osv_value(doc, fieldname):
+	"""Value from the linked Order Sheet Entry (fallback when the stored field is blank)."""
+	key = (doc.order_sheet_entry, fieldname)
+	if key not in _osv_cache:
+		val = ""
+		try:
+			if doc.order_sheet_entry and frappe.get_meta("Order Sheet Entry").has_field(fieldname):
+				val = frappe.db.get_value("Order Sheet Entry", doc.order_sheet_entry, fieldname) or ""
+		except Exception:
+			val = ""
+		_osv_cache[key] = val
+	return _osv_cache[key]
+
+
+def doc_value(doc, fieldname):
+	return (doc.get(fieldname) or osv_value(doc, fieldname) or "").strip()
+
+
 def get_docs(filters):
-	f = {"report_date": filters.get("report_date") or today()}
-	for key in ("buyer", "season"):
-		if filters.get(key):
-			f[key] = filters[key]
-	names = frappe.get_all("Production Status", filters=f, order_by="creation asc", pluck="name")
+	_osv_cache.clear()
+	names = frappe.get_all(
+		"Production Status",
+		filters={"report_date": filters.get("report_date") or today()},
+		order_by="creation asc",
+		pluck="name",
+	)
 	docs = [frappe.get_doc("Production Status", n) for n in names]
+
+	# Buyer / Season: case-insensitive "contains" match, falls back to the Order Sheet Entry value
+	for key in ("buyer", "season"):
+		wanted = (filters.get(key) or "").strip().lower()
+		if wanted:
+			docs = [d for d in docs if wanted in doc_value(d, key).lower()]
+
 	docs.sort(key=lambda d: GROUP_ORDER.index(d.row_group) if d.row_group in GROUP_ORDER else 99)
 	return docs
 
@@ -96,10 +135,10 @@ def multiline(v):
 def diag_cell(top, bottom, height, bg="#fff", line=INK, color=INK, extra="", **attrs):
 	a = " ".join(f'{k}="{v}"' for k, v in attrs.items())
 	return (
-		f'<td {a} style="{TD}padding:0;vertical-align:top;background:{bg};color:{color};{extra}">'
+		f'<td {a} style="{TD}padding:0;vertical-align:top;min-width:170px;width:14%;background:{bg};color:{color};{extra}">'
 		f'<div class="ps-diag-box" data-line="{line}" style="position:relative;height:{height}px;width:100%;">'
-		f'<div style="position:absolute;z-index:2;top:5px;left:6px;text-align:left;">{top}</div>'
-		f'<div style="position:absolute;z-index:2;bottom:5px;right:6px;text-align:right;font-weight:700;">{bottom}</div>'
+		f'<div style="position:absolute;z-index:2;top:6px;left:8px;text-align:left;">{top}</div>'
+		f'<div style="position:absolute;z-index:2;bottom:6px;right:8px;text-align:right;font-weight:700;">{bottom}</div>'
 		f'</div></td>'
 	)
 
@@ -108,35 +147,36 @@ def render_sheet(docs, filters):
 	if not docs:
 		return '<p style="padding:20px">No Production Status records found for these filters.</p>'
 
-	buyer = filters.get("buyer") or docs[0].buyer or ""
-	season = filters.get("season") or docs[0].season or ""
+	buyer = doc_value(docs[0], "buyer") or (filters.get("buyer") or "")
+	season = doc_value(docs[0], "season") or (filters.get("season") or "")
 	title = " - ".join(x for x in (buyer.upper(), season.upper()) if x)
 	date_txt = formatdate(filters.get("report_date") or today(), "dd-MMM-yy")
 
-	widths = [4, 8, 5.5, 8, 8.5, 9, 8, 11, 38]
 	out = ['<div class="ps-sheet" style="overflow-x:auto">']
 	out.append(
-		f'<table style="border-collapse:collapse;width:100%;table-layout:fixed;border:1px solid {GRID};{FONT}">'
+		f'<table style="border-collapse:collapse;width:100%;table-layout:auto;border:1px solid {GRID};{FONT}">'
 	)
-	out.append("<colgroup>" + "".join(f'<col style="width:{w}%">' for w in widths) + "</colgroup>")
 
-	# title band
 	out.append(
-		'<tr style="height:52px">'
-		+ td(e(title), "font-size:21px;font-weight:800;letter-spacing:3px;", colspan="8")
-		+ td(e(date_txt), "font-size:13px;font-weight:700;letter-spacing:.5px;")
+		'<tr style="height:56px">'
+		+ td(e(title), "font-size:24px;font-weight:800;letter-spacing:3px;", colspan="8")
+		+ td(e(date_txt), "font-size:15px;font-weight:700;letter-spacing:.5px;white-space:nowrap;")
 		+ "</tr>"
 	)
 
-	# column header band
-	h = f"background:{HEAD_BG};color:{INK};font-weight:800;font-size:10px;letter-spacing:0.2px;text-transform:uppercase;border-bottom:2px solid {GRID};"
+	h = (
+		f"background:{HEAD_BG};color:{INK};font-weight:800;font-size:12px;letter-spacing:.6px;"
+		f"text-transform:uppercase;border-bottom:2px solid {GRID};"
+	)
 	out.append(
 		f'<tr style="height:{HEAD_H}px">'
-		+ td("SL<br>No", h) + td("Style", h) + td("GG", h) + td("Qty", h)
-		+ td("Ex-Fty<br>Date", h) + td("Yarn<br>Status", h) + td("PPS", h)
+		+ td("SL<br>No", h + NOWRAP + SHRINK) + td("Style", h + NOWRAP + SHRINK) + td("GG", h + NOWRAP + SHRINK)
+		+ td("Qty", h + NOWRAP + SHRINK) + td("Ex-Fty<br>Date", h + NOWRAP + SHRINK)
+		+ td("Yarn<br>Status", h + SHRINK + "min-width:95px;") + td("PPS", h + SHRINK + "min-width:80px;")
 		+ diag_cell("KNITTING", "LINKING", HEAD_H - 2, bg=HEAD_BG, line=INK, color=INK,
-			extra="font-size:8px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;border-bottom:2px solid " + GRID + ";")
-		+ td("Remarks", h)
+			extra="font-size:11px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;"
+			"border-bottom:2px solid " + GRID + ";")
+		+ td("Remarks", h + "font-size:14px;min-width:260px;")
 		+ "</tr>"
 	)
 
@@ -150,62 +190,66 @@ def render_sheet(docs, filters):
 			if current_group != "None":
 				color = GROUP_COLORS.get(current_group, "#5f6b7a")
 				out.append(
-					f'<tr style="height:26px"><td colspan="9" style="{TD}background:{color};color:#fff;'
-					f'font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:3px;">{e(current_group)}</td></tr>'
+					f'<tr style="height:28px"><td colspan="9" style="{TD}background:{color};color:#fff;'
+					f'font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:4px;">{e(current_group)}</td></tr>'
 				)
 		sl += 1
 		rows = list(d.schedules) or [frappe._dict()]
-		span = len(rows) + 1
+		multi = len(rows) > 1                      # 2+ ex-factory dates -> show a total row
+		row_h = ROW_H if multi else SINGLE_H
+		span = len(rows) + 1 if multi else 1
 		total = sum(flt(r.get("qty")) for r in rows) or flt(d.total_order_qty)
 		g = norm_gauge(d.gauge)
 		gauge_totals[g] = gauge_totals.get(g, 0) + total
 		grand_total += total
+		box_h = len(rows) * row_h + (TOTAL_H if multi else 0) - 2
 
 		for j, s in enumerate(rows):
-			tr = f'<tr style="height:{ROW_H}px">'
+			tr = f'<tr style="height:{row_h}px">'
 			if j == 0:
-				tr += td(sl, "font-weight:600;", rowspan=span)
-				tr += td(e(d.style_name), "font-size:9px;font-weight:800;letter-spacing:0.6px;", rowspan=span)
-				tr += td(e(d.gauge), "font-size:9px;", rowspan=span)
-			tr += td(f"{int(flt(s.get('qty'))):,}" if s.get("qty") else "")
-			tr += td(formatdate(s.get("ex_factory_date"), "dd.MM.yy") if s.get("ex_factory_date") else "")
+				tr += td(sl, "font-weight:600;font-size:14px;" + NOWRAP, rowspan=span)
+				tr += td(e(d.style_name), "font-size:15px;font-weight:800;letter-spacing:.6px;" + NOWRAP, rowspan=span)
+				tr += td(e(d.gauge), "font-size:12px;" + NOWRAP, rowspan=span)
+			qty_txt = f"{int(flt(s.get('qty'))):,}" if s.get("qty") else ""
+			tr += td(qty_txt, "font-size:14px;" + NOWRAP + ("" if multi else "font-weight:700;"))
+			tr += td(formatdate(s.get("ex_factory_date"), "dd.MM.yy") if s.get("ex_factory_date") else "", "font-size:13px;" + NOWRAP)
 			if j == 0:
-				tr += td(multiline(d.yarn_status), "font-size:9px;font-weight:600;", rowspan=span)
-				tr += td(multiline(d.pps_status), "font-size:9px;font-weight:600;", rowspan=span)
+				tr += td(multiline(d.yarn_status), "font-size:12px;font-weight:600;", rowspan=span)
+				tr += td(multiline(d.pps_status), "font-size:12px;font-weight:600;", rowspan=span)
 				if d.knitting or d.linking:
-					tr += diag_cell(multiline(d.knitting), multiline(d.linking),
-						len(rows) * ROW_H + TOTAL_H - 2, rowspan=span)
+					tr += diag_cell(multiline(d.knitting), multiline(d.linking), box_h,
+						extra="font-size:14px;", rowspan=span)
 				else:
 					tr += td("", rowspan=span)
 				tr += td(
 					'<span class="ps-remarks">' + multiline(d.remarks) + "</span>",
-					"text-align:left;font-size:9px;vertical-align:top;padding:6px 8px;line-height:1.4;",
+					"text-align:left;font-size:12.5px;vertical-align:top;padding:7px 10px;line-height:1.45;",
 					rowspan=span,
 				)
 			tr += "</tr>"
 			out.append(tr)
-		out.append(
-			f'<tr style="height:{TOTAL_H}px">'
-			+ td(f"{int(total):,}", "font-weight:700;font-size:11x;background:#f2f2f2;")
-			+ td("", "background:#f2f2f2;")
-			+ "</tr>"
-		)
+		if multi:  # total row only when there is more than one ex-factory date
+			out.append(
+				f'<tr style="height:{TOTAL_H}px">'
+				+ td(f"{int(total):,}", "font-weight:800;font-size:14px;white-space:nowrap;background:" + SOFT + ";")
+				+ td("", "background:" + SOFT + ";")
+				+ "</tr>"
+			)
 
-	# gauge summary + grand total, aligned to the Style / GG / Qty columns
 	out.append('<tr><td colspan="9" style="border:0;height:12px;padding:0;background:#fff"></td></tr>')
 	for g, qty in sorted(gauge_totals.items()):
 		out.append(
-			'<tr style="height:28px"><td style="border:0;background:#fff"></td>'
-			+ td(e(g), "font-weight:800;background:" + SOFT + ";", colspan="2")
-			+ td(f"{int(qty):,}", "font-weight:800;font-size:11px;")
-			+ td("PCS", "font-weight:700;font-size:11px;letter-spacing:1px;")
+			'<tr style="height:30px"><td style="border:0;background:#fff"></td>'
+			+ td(e(g), "font-weight:800;font-size:13px;white-space:nowrap;background:" + SOFT + ";", colspan="2")
+			+ td(f"{int(qty):,}", "font-weight:800;font-size:14px;white-space:nowrap;")
+			+ td("PCS", "font-weight:700;font-size:12px;letter-spacing:1px;")
 			+ '<td colspan="4" style="border:0;background:#fff"></td></tr>'
 		)
 	out.append(
-		'<tr style="height:34px"><td style="border:0;background:#fff"></td>'
-		+ td("GRAND TOTAL", "font-weight:800;letter-spacing:1px;background:#fff;color:#0a0a0a;border:1px solid #0a0a0a;", colspan="2")
-		+ td(f"{int(grand_total):,}", "font-weight:800;font-size:8px;border:1px solid #0a0a0a;")
-		+ td("PCS", "font-weight:700;font-size:10px;letter-spacing:1px;border:1px solid #0a0a0a;")
+		'<tr style="height:36px"><td style="border:0;background:#fff"></td>'
+		+ td("GRAND TOTAL", "white-space:nowrap;font-size:12px;font-weight:800;letter-spacing:1px;border:2px solid #0a0a0a;", colspan="2")
+		+ td(f"{int(grand_total):,}", "font-weight:800;font-size:15px;border:2px solid #0a0a0a;")
+		+ td("PCS", "font-weight:700;font-size:12px;letter-spacing:1px;border:2px solid #0a0a0a;")
 		+ '<td colspan="4" style="border:0;background:#fff"></td></tr>'
 	)
 	out.append("</table></div>")

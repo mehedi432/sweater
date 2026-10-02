@@ -27,6 +27,7 @@
   "order_qty",
   "knit_qty",
   "shipped_qty",
+  "version",
   "column_break_iwjx",
   "season",
   "linking_time",
@@ -148,8 +149,8 @@
   "section_break_egta",
   "column_break_mrum",
   "elastic_booking_date",
-  "elastic_description",
   "elastic_supplier",
+  "elastic_description",
   "elastic_details",
   "total_elastic_required",
   "zipper_booking_section",
@@ -164,7 +165,6 @@
   "button_poly_description",
   "button_poly_details",
   "total_button_poly_required",
-  "column_break_cwyn",
   "sewing_thread_section",
   "sewing_thread_booking_date",
   "sewing_thread_supplier",
@@ -181,8 +181,8 @@
   "embroidery_send_date",
   "section_break_fsfu",
   "hanger_loop_booking_date",
-  "hanger_loop_description",
   "hanger_loop_supplier",
+  "hanger_loop_description",
   "hanger_loop_booking",
   "total_hanger_loop_required",
   "main_label_booking",
@@ -708,7 +708,6 @@
   },
   {
    "bold": 1,
-   "collapsible": 1,
    "fieldname": "order_sheet_production_section",
    "fieldtype": "Section Break",
    "hide_border": 1,
@@ -1334,7 +1333,7 @@
   },
   {
    "fieldname": "button_description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Button Description"
   },
   {
@@ -1372,7 +1371,7 @@
   },
   {
    "fieldname": "embroidery_remarks",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Embroidery Remarks "
   },
   {
@@ -1432,7 +1431,7 @@
   },
   {
    "fieldname": "elastic_description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Elastic Description"
   },
   {
@@ -1454,7 +1453,7 @@
   },
   {
    "fieldname": "button_poly_description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Button Poly Description "
   },
   {
@@ -1470,7 +1469,7 @@
   },
   {
    "fieldname": "sewing_thread_description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Sewing Thread Description "
   },
   {
@@ -1502,7 +1501,7 @@
   },
   {
    "fieldname": "zipper_description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Zipper Description "
   },
   {
@@ -1707,7 +1706,7 @@
   },
   {
    "fieldname": "hanger_loop_description",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "label": "Hanger Loop Description"
   },
   {
@@ -1846,10 +1845,6 @@
   },
   {
    "fieldname": "column_break_mrum",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_cwyn",
    "fieldtype": "Column Break"
   },
   {
@@ -2153,12 +2148,18 @@
    "fieldname": "ex_factory_date",
    "fieldtype": "Date",
    "label": "Ex Factory Date"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Select",
+   "label": "Version",
+   "options": "V1\nV2\nV3\nV4\nV5"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-10-02 18:07:17.872289",
+ "modified": "2026-10-03 01:54:41.360001",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
