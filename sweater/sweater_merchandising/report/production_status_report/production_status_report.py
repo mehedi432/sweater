@@ -36,15 +36,15 @@ def execute(filters=None):
 
 def get_columns():
 	return [
-		{"label": _("SL"), "fieldname": "sl", "fieldtype": "Int", "width": 50},
+		{"label": _("SL"), "fieldname": "sl", "fieldtype": "Int", "width": 89},
 		{"label": _("Style"), "fieldname": "style", "fieldtype": "Data", "width": 120},
 		{"label": _("GG"), "fieldname": "gauge", "fieldtype": "Data", "width": 70},
 		{"label": _("Qty"), "fieldname": "qty", "fieldtype": "Int", "width": 90},
 		{"label": _("Ex-Fty Date"), "fieldname": "ex_factory_date", "fieldtype": "Date", "width": 100},
 		{"label": _("Yarn Status"), "fieldname": "yarn_status", "fieldtype": "Data", "width": 120},
 		{"label": _("PPS"), "fieldname": "pps_status", "fieldtype": "Data", "width": 100},
-		{"label": _("Knitting"), "fieldname": "knitting", "fieldtype": "Data", "width": 90},
-		{"label": _("Linking"), "fieldname": "linking", "fieldtype": "Data", "width": 90},
+		{"label": _("Knitting"), "fieldname": "knitting", "fieldtype": "Data", "width": 200},
+		{"label": _("Linking"), "fieldname": "linking", "fieldtype": "Data", "width": 200},
 		{"label": _("Remarks"), "fieldname": "remarks", "fieldtype": "Data", "width": 300},
 	]
 
@@ -116,26 +116,26 @@ def render_sheet(docs, filters):
 	widths = [4, 8, 5.5, 8, 8.5, 9, 8, 11, 38]
 	out = ['<div class="ps-sheet" style="overflow-x:auto">']
 	out.append(
-		f'<table style="border-collapse:collapse;width:100%;table-layout:fixed;border:2px solid {GRID};{FONT}">'
+		f'<table style="border-collapse:collapse;width:100%;table-layout:fixed;border:1px solid {GRID};{FONT}">'
 	)
 	out.append("<colgroup>" + "".join(f'<col style="width:{w}%">' for w in widths) + "</colgroup>")
 
 	# title band
 	out.append(
 		'<tr style="height:52px">'
-		+ td(e(title), "font-size:22px;font-weight:800;letter-spacing:3px;", colspan="8")
+		+ td(e(title), "font-size:21px;font-weight:800;letter-spacing:3px;", colspan="8")
 		+ td(e(date_txt), "font-size:13px;font-weight:700;letter-spacing:.5px;")
 		+ "</tr>"
 	)
 
 	# column header band
-	h = f"background:{HEAD_BG};color:{INK};font-weight:800;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;border-bottom:2px solid {GRID};"
+	h = f"background:{HEAD_BG};color:{INK};font-weight:800;font-size:10px;letter-spacing:0.2px;text-transform:uppercase;border-bottom:2px solid {GRID};"
 	out.append(
 		f'<tr style="height:{HEAD_H}px">'
 		+ td("SL<br>No", h) + td("Style", h) + td("GG", h) + td("Qty", h)
 		+ td("Ex-Fty<br>Date", h) + td("Yarn<br>Status", h) + td("PPS", h)
 		+ diag_cell("KNITTING", "LINKING", HEAD_H - 2, bg=HEAD_BG, line=INK, color=INK,
-			extra="font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;border-bottom:2px solid " + GRID + ";")
+			extra="font-size:8px;font-weight:500;letter-spacing:0.2px;text-transform:uppercase;border-bottom:2px solid " + GRID + ";")
 		+ td("Remarks", h)
 		+ "</tr>"
 	)
@@ -151,7 +151,7 @@ def render_sheet(docs, filters):
 				color = GROUP_COLORS.get(current_group, "#5f6b7a")
 				out.append(
 					f'<tr style="height:26px"><td colspan="9" style="{TD}background:{color};color:#fff;'
-					f'font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:3px;">{e(current_group)}</td></tr>'
+					f'font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:3px;">{e(current_group)}</td></tr>'
 				)
 		sl += 1
 		rows = list(d.schedules) or [frappe._dict()]
@@ -165,13 +165,13 @@ def render_sheet(docs, filters):
 			tr = f'<tr style="height:{ROW_H}px">'
 			if j == 0:
 				tr += td(sl, "font-weight:600;", rowspan=span)
-				tr += td(e(d.style_name), "font-size:15px;font-weight:800;letter-spacing:.6px;", rowspan=span)
-				tr += td(e(d.gauge), "font-size:12px;", rowspan=span)
+				tr += td(e(d.style_name), "font-size:9px;font-weight:800;letter-spacing:0.6px;", rowspan=span)
+				tr += td(e(d.gauge), "font-size:9px;", rowspan=span)
 			tr += td(f"{int(flt(s.get('qty'))):,}" if s.get("qty") else "")
 			tr += td(formatdate(s.get("ex_factory_date"), "dd.MM.yy") if s.get("ex_factory_date") else "")
 			if j == 0:
-				tr += td(multiline(d.yarn_status), "font-size:11px;font-weight:600;", rowspan=span)
-				tr += td(multiline(d.pps_status), "font-size:11px;font-weight:600;", rowspan=span)
+				tr += td(multiline(d.yarn_status), "font-size:9px;font-weight:600;", rowspan=span)
+				tr += td(multiline(d.pps_status), "font-size:9px;font-weight:600;", rowspan=span)
 				if d.knitting or d.linking:
 					tr += diag_cell(multiline(d.knitting), multiline(d.linking),
 						len(rows) * ROW_H + TOTAL_H - 2, rowspan=span)
@@ -179,14 +179,14 @@ def render_sheet(docs, filters):
 					tr += td("", rowspan=span)
 				tr += td(
 					'<span class="ps-remarks">' + multiline(d.remarks) + "</span>",
-					"text-align:left;font-size:11.5px;vertical-align:top;padding:6px 8px;line-height:1.4;",
+					"text-align:left;font-size:9px;vertical-align:top;padding:6px 8px;line-height:1.4;",
 					rowspan=span,
 				)
 			tr += "</tr>"
 			out.append(tr)
 		out.append(
 			f'<tr style="height:{TOTAL_H}px">'
-			+ td(f"{int(total):,}", "font-weight:700;font-size:13px;background:#f2f2f2;")
+			+ td(f"{int(total):,}", "font-weight:700;font-size:11x;background:#f2f2f2;")
 			+ td("", "background:#f2f2f2;")
 			+ "</tr>"
 		)
@@ -197,15 +197,15 @@ def render_sheet(docs, filters):
 		out.append(
 			'<tr style="height:28px"><td style="border:0;background:#fff"></td>'
 			+ td(e(g), "font-weight:800;background:" + SOFT + ";", colspan="2")
-			+ td(f"{int(qty):,}", "font-weight:800;font-size:13px;")
+			+ td(f"{int(qty):,}", "font-weight:800;font-size:11px;")
 			+ td("PCS", "font-weight:700;font-size:11px;letter-spacing:1px;")
 			+ '<td colspan="4" style="border:0;background:#fff"></td></tr>'
 		)
 	out.append(
-		'<tr style="height:32px"><td style="border:0;background:#fff"></td>'
-		+ td("GRAND TOTAL", "font-weight:800;letter-spacing:1px;background:#0a0a0a;color:#fff;border:1px solid #0a0a0a;", colspan="2")
-		+ td(f"{int(grand_total):,}", "font-weight:800;font-size:14px;border:2px solid #0a0a0a;")
-		+ td("PCS", "font-weight:700;font-size:11px;letter-spacing:1px;border:2px solid #0a0a0a;")
+		'<tr style="height:34px"><td style="border:0;background:#fff"></td>'
+		+ td("GRAND TOTAL", "font-weight:800;letter-spacing:1px;background:#fff;color:#0a0a0a;border:1px solid #0a0a0a;", colspan="2")
+		+ td(f"{int(grand_total):,}", "font-weight:800;font-size:8px;border:1px solid #0a0a0a;")
+		+ td("PCS", "font-weight:700;font-size:10px;letter-spacing:1px;border:1px solid #0a0a0a;")
 		+ '<td colspan="4" style="border:0;background:#fff"></td></tr>'
 	)
 	out.append("</table></div>")

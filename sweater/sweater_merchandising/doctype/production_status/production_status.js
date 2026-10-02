@@ -43,7 +43,6 @@ frappe.ui.form.on("Production Status", {
 
         calculate_total_order_qty(frm);
         add_report_group_indicator(frm);
-        add_report_buttons(frm);
 
         setTimeout(function () {
             style_production_form(frm);

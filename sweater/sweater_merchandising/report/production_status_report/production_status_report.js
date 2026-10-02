@@ -23,9 +23,9 @@ frappe.query_reports["Production Status Report"] = {
 // label + remarks text opacity for every printed copy
 // show:false = remarks left completely blank (planning writes by hand)
 const PS_COPIES = {
-	md: { label: "MD COPY", opacity: 0.6, show: true },
+	md: { label: "MD COPY", opacity: 0.06, show: true },
 	planning: { label: "PLANNING COPY", opacity: 1, show: false },
-	merchant: { label: "MERCHANT COPY", opacity: 0.6, show: true },
+	merchant: { label: "MERCHANT COPY", opacity: 0.06, show: true },
 };
 
 // crisp vector diagonal (bottom-left -> top-right) inside every Knitting/Linking cell
@@ -43,7 +43,7 @@ function draw_diagonals(root) {
 		ln.setAttribute("x1", "0"); ln.setAttribute("y1", "100");
 		ln.setAttribute("x2", "100"); ln.setAttribute("y2", "0");
 		ln.setAttribute("stroke", box.dataset.line || "#0a0a0a");
-		ln.setAttribute("stroke-width", "1.3");
+		ln.setAttribute("stroke-width", "1");
 		ln.setAttribute("vector-effect", "non-scaling-stroke");
 		ln.setAttribute("shape-rendering", "geometricPrecision");
 		svg.appendChild(ln);

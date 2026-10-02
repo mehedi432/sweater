@@ -4,6 +4,7 @@ frappe.listview_settings["Production Status"] = {
         "buyer",
         "season",
         "gauge",
+        "time",
         "total_order_qty",
         "report_date",
         "row_group"
@@ -66,22 +67,4 @@ frappe.listview_settings["Production Status"] = {
             `;
         }
     },
-
-    onload(listview) {
-        listview.page.add_inner_button(
-            __("Production Report"),
-            function () {
-                frappe.route_options = {
-                    report_date:
-                        frappe.datetime.get_today()
-                };
-
-                frappe.set_route(
-                    "query-report",
-                    "PRODUCTION STATUS REPORT"
-                );
-            },
-            __("Reports")
-        );
-    }
 };
