@@ -1,0 +1,782 @@
+{% macro fmt(v) -%}{{ "{:,}".format((v or 0)|int) }}{%- endmacro %} {% macro f1(v) -%}{{
+"{:,.1f}".format(v or 0) }}{%- endmacro %}
+
+<div class="mr">
+	<style>
+		@page {
+			size: A4 landscape;
+			margin: 7mm 7mm 10mm 7mm;
+		}
+		.mr {
+			width: 100%;
+			color: #5b5f6b;
+			background: #fff;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 8px;
+			line-height: 1.3;
+			text-transform: uppercase;
+		}
+		.mr * {
+			box-sizing: border-box;
+		}
+		.mr table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed;
+			margin: 0;
+		}
+		.mr .lh {
+			margin: 0 0 7px;
+			text-transform: none;
+		}
+		.mr .title-area {
+			text-align: center;
+			margin: 0 0 8px;
+		}
+		.mr .main-title {
+			display: inline-block;
+			min-width: 430px;
+			padding: 6px 32px;
+			border-top: 2px solid #6b707d;
+			border-bottom: 2px solid #6b707d;
+			color: #4a4e5a;
+			font-size: 15px;
+			font-weight: 900;
+			letter-spacing: 3.5px;
+		}
+		.mr .caption {
+			margin-top: 5px;
+			color: #8a8e99;
+			font-size: 7px;
+			font-weight: 800;
+			letter-spacing: 1.8px;
+		}
+
+		.mr .assump {
+			border: 1.3px solid #8a8e99;
+			background: #f3f4f6;
+			margin: 0 0 7px;
+		}
+		.mr .assump td {
+			padding: 6px 6px;
+			text-align: center;
+			border-right: 0.7px solid #c9ccd3;
+			vertical-align: middle;
+		}
+		.mr .assump td:last-child {
+			border-right: 0;
+		}
+		.mr .al {
+			display: block;
+			color: #8a8e99;
+			font-size: 5.6px;
+			font-weight: 900;
+			letter-spacing: 0.9px;
+			margin-bottom: 3px;
+		}
+		.mr .av {
+			display: block;
+			color: #4a4e5a;
+			font-size: 9px;
+			font-weight: 900;
+		}
+
+		.mr .kpi {
+			margin: 0 0 8px;
+			border-collapse: separate;
+			border-spacing: 4px 0;
+			width: 100%;
+		}
+		.mr .kpi td {
+			border: 1.3px solid #8a8e99;
+			background: #fff;
+			padding: 8px 4px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.mr .kpi td.dark {
+			background: #6b707d;
+			border-color: #6b707d;
+		}
+		.mr .kpi td.alert {
+			border-color: #a33a3a;
+		}
+		.mr .kl {
+			display: block;
+			color: #8a8e99;
+			font-size: 5.6px;
+			font-weight: 900;
+			letter-spacing: 1px;
+			margin-bottom: 5px;
+		}
+		.mr .kv {
+			display: block;
+			color: #4a4e5a;
+			font-size: 18px;
+			font-weight: 900;
+			line-height: 1;
+		}
+		.mr .ks {
+			display: block;
+			color: #8a8e99;
+			font-size: 5.4px;
+			font-weight: 800;
+			letter-spacing: 0.6px;
+			margin-top: 4px;
+		}
+		.mr .dark .kl,
+		.mr .dark .ks {
+			color: #e1e3e8;
+		}
+		.mr .dark .kv {
+			color: #fff;
+		}
+		.mr .alert .kv {
+			color: #a33a3a;
+		}
+
+		.mr .ins {
+			border: 1.3px solid #8a8e99;
+			background: #fafafb;
+			padding: 7px 10px;
+			margin: 0 0 8px;
+		}
+		.mr .ins-h {
+			color: #4a4e5a;
+			font-size: 7.5px;
+			font-weight: 900;
+			letter-spacing: 1.4px;
+			margin-bottom: 4px;
+		}
+		.mr .ins-i {
+			color: #5b5f6b;
+			font-size: 7px;
+			font-weight: 700;
+			letter-spacing: 0.3px;
+			line-height: 1.6;
+			padding-left: 10px;
+			text-indent: -10px;
+		}
+		.mr .ins-i:before {
+			content: "\25AA\00a0";
+			color: #8a8e99;
+		}
+
+		.mr .sh {
+			margin-top: 9px;
+			padding: 6px 9px;
+			border: 1.3px solid #8a8e99;
+			border-bottom: 0;
+			color: #4a4e5a;
+			background: #e6e8ec;
+			font-size: 8px;
+			font-weight: 900;
+			letter-spacing: 1.3px;
+		}
+		.mr .sh.gapbar {
+			background: #f4e4e4;
+			color: #a33a3a;
+			border-color: #a33a3a;
+		}
+		.mr .chart-box {
+			border: 1.3px solid #8a8e99;
+			border-top: 0;
+			padding: 6px 10px;
+			background: #fff;
+		}
+		.mr .chart-note {
+			text-align: center;
+			color: #8a8e99;
+			font-size: 5.8px;
+			font-weight: 800;
+			letter-spacing: 0.8px;
+			padding-top: 2px;
+		}
+
+		.mr .grid {
+			border: 1.3px solid #8a8e99;
+		}
+		.mr .grid th {
+			height: 26px;
+			padding: 4px 3px;
+			border: 1px solid #8a8e99;
+			background: #f3f4f6;
+			color: #4a4e5a;
+			font-size: 6.2px;
+			font-weight: 900;
+			letter-spacing: 0.4px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.mr .grid td {
+			height: 22px;
+			padding: 3px 4px;
+			border: 0.7px solid #c9ccd3;
+			color: #5b5f6b;
+			font-size: 7.2px;
+			font-weight: 700;
+			text-align: center;
+			vertical-align: middle;
+			word-break: break-word;
+		}
+		.mr .grid td.l {
+			text-align: left;
+			font-weight: 900;
+			color: #4a4e5a;
+		}
+		.mr .grid td.imp {
+			background: #f3f4f6;
+			color: #4a4e5a;
+			font-weight: 900;
+		}
+		.mr .grid tr.zebra td {
+			background: #fafafb;
+		}
+		.mr .grid tr.zebra td.imp {
+			background: #eff0f3;
+		}
+		.mr .grid tr.total td {
+			background: #d5d8de;
+			border-top: 3px double #6b707d;
+			color: #4a4e5a;
+			font-size: 8px;
+			font-weight: 900;
+			height: 26px;
+		}
+		.mr .grid tr.late td {
+			background: #f7eaea;
+		}
+		.mr .grid.gap {
+			border-color: #a33a3a;
+		}
+		.mr .grid.gap th {
+			background: #f9eeee;
+			border-color: #c99;
+		}
+		.mr .ok {
+			color: #3f7d58;
+			font-weight: 900;
+		}
+		.mr .warn {
+			color: #9a7a2c;
+			font-weight: 900;
+		}
+		.mr .bad {
+			color: #a33a3a;
+			font-weight: 900;
+		}
+		.mr .tag {
+			display: inline-block;
+			margin: 1px 2px;
+			padding: 2px 5px;
+			border: 0.7px solid #c99;
+			background: #f9eeee;
+			color: #a33a3a;
+			font-size: 6px;
+			font-weight: 900;
+		}
+		.mr .bar {
+			background: #e1e3e8;
+			height: 5px;
+			width: 100%;
+		}
+		.mr .bar i {
+			display: block;
+			height: 5px;
+			background: #6b707d;
+		}
+		.mr .pct {
+			font-size: 6px;
+			font-weight: 900;
+			color: #4a4e5a;
+		}
+		.mr td.h0 {
+			background: #fff;
+			color: #b5b8c1;
+		}
+		.mr td.h1 {
+			background: #eef0f3;
+		}
+		.mr td.h2 {
+			background: #dfe2e8;
+		}
+		.mr td.h3 {
+			background: #c9ced8;
+			color: #3c404b;
+		}
+		.mr td.h4 {
+			background: #aeb4c2;
+			color: #2f323c;
+			font-weight: 900;
+		}
+
+		.mr .method {
+			margin-top: 8px;
+			padding: 6px 9px;
+			border: 0.7px solid #c9ccd3;
+			background: #f3f4f6;
+			color: #8a8e99;
+			font-size: 6.1px;
+			font-weight: 700;
+			letter-spacing: 0.4px;
+			line-height: 1.6;
+		}
+		.mr .method b {
+			color: #4a4e5a;
+		}
+		.mr .sig {
+			margin-top: 30px;
+		}
+		.mr .sig td {
+			width: 25%;
+			padding: 0 22px;
+			text-align: center;
+			vertical-align: bottom;
+		}
+		.mr .sl {
+			border-top: 1.3px solid #8a8e99;
+			padding-top: 7px;
+			color: #4a4e5a;
+			font-size: 8px;
+			font-weight: 900;
+			letter-spacing: 0.7px;
+		}
+		.mr .foot {
+			margin-top: 12px;
+			padding-top: 5px;
+			border-top: 0.7px solid #c9ccd3;
+			text-align: center;
+			color: #a4a8b2;
+			font-size: 5.8px;
+			letter-spacing: 1.4px;
+			font-weight: 700;
+		}
+
+		@media print {
+			.mr .assump,
+			.mr .kpi,
+			.mr .sig,
+			.mr .method,
+			.mr .ins {
+				page-break-inside: avoid;
+			}
+			.mr .grid thead {
+				display: table-header-group;
+			}
+			.mr tr {
+				page-break-inside: avoid;
+			}
+		}
+	</style>
+
+	{% if letter_head %}
+	<div class="lh">{{ letter_head }}</div>
+	{% endif %}
+
+	<div class="title-area">
+		<div class="main-title">Machine Distribution &amp; TnA Plan</div>
+		<div class="caption">
+			Shipment-Driven Scheduling · Machine Allocation · Manpower Forecast · Proposed TnA
+		</div>
+	</div>
+
+	<table class="assump">
+		<tr>
+			<td><span class="al">Plan From</span><span class="av">{{ p_from }}</span></td>
+			<td><span class="al">Shipments Up To</span><span class="av">{{ p_to }}</span></td>
+			<td>
+				<span class="al">Knit End Before Shipment</span
+				><span class="av">{{ lead }} days</span>
+			</td>
+			<td>
+				<span class="al">Machine Min / Day</span><span class="av">{{ fmt(cap) }}</span>
+			</td>
+			<td><span class="al">Efficiency</span><span class="av">{{ eff|round(1) }}%</span></td>
+			<td>
+				<span class="al">Workers / Machine</span><span class="av">{{ wpm|round(2) }}</span>
+			</td>
+			<td>
+				<span class="al">Installed</span
+				><span class="av">{{ installed if installed else "Auto" }}</span>
+			</td>
+			<td>
+				<span class="al">Prepared</span
+				><span class="av" style="font-size: 6.6px">{{ now }}</span>
+			</td>
+		</tr>
+	</table>
+
+	<table class="kpi">
+		<tr>
+			<td>
+				<span class="kl">Orders Scheduled</span><span class="kv">{{ orders|length }}</span
+				><span class="ks">{{ fmt(total_qty) }} pieces</span>
+			</td>
+			<td>
+				<span class="kl">Required Time</span><span class="kv">{{ fmt(total_hours) }}</span
+				><span class="ks">Machine hours</span>
+			</td>
+			<td class="dark">
+				<span class="kl">Machines For On-Time</span><span class="kv">{{ n_min }}</span
+				><span class="ks">Minimum to ship all</span>
+			</td>
+			<td class="dark">
+				<span class="kl">Peak Manpower</span><span class="kv">{{ fmt(peak_mp) }}</span
+				><span class="ks">Peak {{ peak_m }} machines</span>
+			</td>
+			<td class="{{ 'alert' if n_late }}">
+				<span class="kl">Late Orders</span><span class="kv">{{ n_late }}</span
+				><span class="ks">{{ n_tight }} tight · on {{ n_plan }} machines</span>
+			</td>
+			<td>
+				<span class="kl">Utilization</span><span class="kv">{{ util }}%</span
+				><span class="ks">Of {{ n_plan }} machines</span>
+			</td>
+			<td>
+				<span class="kl">Last Knitting Close</span
+				><span class="kv" style="font-size: 12px">{{ last_close }}</span
+				><span class="ks">Proposed</span>
+			</td>
+		</tr>
+	</table>
+
+	<div class="ins">
+		<div class="ins-h">Planning Insights</div>
+		{% for t in insights %}
+		<div class="ins-i">{{ t }}</div>
+		{% endfor %}
+	</div>
+
+	{% if gaps %}
+	<div class="sh gapbar">Data Gaps · Not Scheduled Until Completed ({{ gaps|length }})</div>
+	<table class="grid gap">
+		<thead>
+			<tr>
+				<th style="width: 18%">Order</th>
+				<th style="width: 11%">Buyer</th>
+				<th style="width: 11%">Style</th>
+				<th style="width: 8%">Order Qty</th>
+				<th style="width: 7%">Min / Pc</th>
+				<th style="width: 9%">Machine Hours</th>
+				<th style="width: 9%">Shipment</th>
+				<th style="width: 27%">What Is Missing</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for g in gaps %}
+			<tr class="{{ 'zebra' if loop.index is even else '' }}">
+				<td class="l">{{ g.order }}</td>
+				<td>{{ g.buyer or "-" }}</td>
+				<td>{{ g.style or "-" }}</td>
+				<td>{% if g.qty %}{{ fmt(g.qty) }}{% else %}-{% endif %}</td>
+				<td>{% if g.knit_time %}{{ f1(g.knit_time) }}{% else %}-{% endif %}</td>
+				<td class="imp">{% if g.hours %}{{ fmt(g.hours) }}{% else %}-{% endif %}</td>
+				<td>{{ g.ship_s or "-" }}</td>
+				<td>{% for i in g.issues %}<span class="tag">{{ i }}</span>{% endfor %}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% endif %} {% if gantt %}
+	<div class="sh">Production Timeline · Proposed Knitting vs Latest Allowed Close</div>
+	<div class="chart-box">
+		<svg
+			viewBox="0 0 {{ gantt.W }} {{ gantt.H }}"
+			width="100%"
+			xmlns="http://www.w3.org/2000/svg"
+			font-family="Arial,Helvetica,sans-serif"
+		>
+			{% for t in gantt.ticks %}
+			<line
+				x1="{{ t.x }}"
+				y1="14"
+				x2="{{ t.x }}"
+				y2="{{ gantt.H }}"
+				stroke="#e1e3e8"
+				stroke-width="0.8"
+			/>
+			<text
+				x="{{ t.x }}"
+				y="10"
+				text-anchor="middle"
+				font-size="7.5"
+				font-weight="700"
+				fill="#8a8e99"
+			>
+				{{ t.label }}
+			</text>
+			{% endfor %} {% for r in gantt.rows %}
+			<text x="4" y="{{ r.ty }}" font-size="7.5" font-weight="700" fill="#5b5f6b">
+				{{ r.label }}
+			</text>
+			{% if r.w %}
+			<rect
+				x="{{ r.x }}"
+				y="{{ r.y }}"
+				width="{{ r.w }}"
+				height="8"
+				rx="1.5"
+				fill="{{ '#a33a3a' if r.late else '#8a8e99' }}"
+			/>
+			{% endif %}
+			<line
+				x1="{{ r.sx }}"
+				y1="{{ r.cy - 5 }}"
+				x2="{{ r.sx }}"
+				y2="{{ r.cy + 5 }}"
+				stroke="#a4a8b2"
+				stroke-width="1"
+			/>
+			<polygon points="{{ r.dpts }}" fill="#4a4e5a" />
+			{% endfor %}
+		</svg>
+		<div class="chart-note">
+			Bar = proposed knitting window (red if late) · ◆ latest knitting close · | shipment
+			date{% if gantt.more %} · showing first rows, {{ gantt.more }} more in the table{%
+			endif %}
+		</div>
+	</div>
+	{% endif %} {% if chart %}
+	<div class="sh">Weekly Machine Load vs Machines in Plan ({{ n_plan }})</div>
+	<div class="chart-box">
+		<svg
+			viewBox="0 0 {{ chart.W }} {{ chart.H }}"
+			width="100%"
+			xmlns="http://www.w3.org/2000/svg"
+			font-family="Arial,Helvetica,sans-serif"
+		>
+			<line
+				x1="0"
+				y1="{{ chart.base }}"
+				x2="{{ chart.W }}"
+				y2="{{ chart.base }}"
+				stroke="#8a8e99"
+				stroke-width="1.2"
+			/>
+			{% for b in chart.bars %}
+			<rect
+				x="{{ b.x }}"
+				y="{{ b.y }}"
+				width="{{ b.w }}"
+				height="{{ b.h }}"
+				fill="#8a8e99"
+			/>
+			<text
+				x="{{ b.cx }}"
+				y="{{ b.y - 3 }}"
+				text-anchor="middle"
+				font-size="9"
+				font-weight="700"
+				fill="#4a4e5a"
+			>
+				{{ b.val }}
+			</text>
+			{% if loop.index0 % chart.step == 0 %}
+			<text
+				x="{{ b.cx }}"
+				y="{{ chart.ly }}"
+				text-anchor="middle"
+				font-size="8"
+				font-weight="700"
+				fill="#8a8e99"
+			>
+				{{ b.label }}
+			</text>
+			{% endif %} {% endfor %} {% if chart.line_y %}
+			<line
+				x1="0"
+				y1="{{ chart.line_y }}"
+				x2="{{ chart.W }}"
+				y2="{{ chart.line_y }}"
+				stroke="#4a4e5a"
+				stroke-width="1.2"
+				stroke-dasharray="6 4"
+			/>
+			<text
+				x="{{ chart.W - 4 }}"
+				y="{{ chart.line_y - 3 }}"
+				text-anchor="end"
+				font-size="8"
+				font-weight="700"
+				fill="#4a4e5a"
+			>
+				MACHINES IN PLAN {{ n_plan }}
+			</text>
+			{% endif %}
+		</svg>
+		<div class="chart-note">Bars show the busiest day of each week (Saturday to Friday)</div>
+	</div>
+
+	<div class="sh">Weekly Distribution Summary</div>
+	<table class="grid">
+		<thead>
+			<tr>
+				<th style="width: 19%">Week</th>
+				<th style="width: 8%">Working Days</th>
+				<th style="width: 9%">Active Orders</th>
+				<th style="width: 10%">Peak Machines</th>
+				<th style="width: 10%">Avg Machines</th>
+				<th style="width: 10%">Utilization</th>
+				<th style="width: 11%">Manpower</th>
+				<th style="width: 11%">Machine Hours</th>
+				<th style="width: 12%">Free Machines</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for w in weeks %}
+			<tr class="{{ 'zebra' if loop.index is even else '' }}">
+				<td class="l">{{ w.label }}</td>
+				<td>{{ w.days }}</td>
+				<td>{{ w.orders }}</td>
+				<td class="imp">{{ w.machines }}</td>
+				<td>{{ f1(w.avg) }}</td>
+				<td>
+					<div class="bar"><i style="width:{{ [w.util, 100]|min }}%"></i></div>
+					<span class="pct">{{ w.util }}%</span>
+				</td>
+				<td class="imp">{{ fmt(w.manpower) }}</td>
+				<td>{{ fmt(w.hours) }}</td>
+				<td>{{ w.free }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% endif %} {% for ch in matrix %}
+	<div class="sh">
+		Machine Distribution by Order and Week{% if matrix|length > 1 %} · Part {{ loop.index }}{%
+		endif %} (peak machines per week)
+	</div>
+	<table class="grid">
+		<thead>
+			<tr>
+				<th style="width: 17%">Order</th>
+				{% for w in ch.weeks %}
+				<th>{{ w }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for r in ch.rows %}
+			<tr>
+				<td class="l">{{ r.order }}</td>
+				{% for c in r.cells %}
+				<td class="h{{ c.t }}">{{ c.v if c.v else "-" }}</td>
+				{% endfor %}
+			</tr>
+			{% endfor %}
+			<tr class="total">
+				<td style="text-align: left">Machines Used</td>
+				{% for c in ch.totals %}
+				<td>{{ c }}</td>
+				{% endfor %}
+			</tr>
+		</tbody>
+	</table>
+	{% endfor %} {% if orders %}
+	<div class="sh">Proposed TnA Plan · Knitting Dates Driven by Shipment</div>
+	<table class="grid">
+		<thead>
+			<tr>
+				<th style="width: 13%">Order</th>
+				<th style="width: 7%">Buyer</th>
+				<th style="width: 6%">Qty</th>
+				<th style="width: 6%">Machine Hours</th>
+				<th style="width: 7%">Yarn In-House</th>
+				<th style="width: 7%">Proposed Start</th>
+				<th style="width: 7%">Proposed Close</th>
+				<th style="width: 7%">Latest Close</th>
+				<th style="width: 7%">Shipment</th>
+				<th style="width: 5%">Slack</th>
+				<th style="width: 5%">Machines</th>
+				<th style="width: 5%">Manpower</th>
+				<th style="width: 7%">Current TnA Close</th>
+				<th style="width: 9%">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for o in orders %}
+			<tr class="{{ 'late' if o.late else ('zebra' if loop.index is even else '') }}">
+				<td class="l">{{ o.order }}</td>
+				<td>{{ o.buyer or "-" }}</td>
+				<td>{{ fmt(o.qty) }}</td>
+				<td>{{ fmt(o.hours) }}</td>
+				<td>{{ o.yarn_s }}</td>
+				<td class="imp">{{ o.start_s or "-" }}</td>
+				<td class="imp">{{ o.close_s or "-" }}</td>
+				<td>{{ o.deadline_s }}</td>
+				<td>{{ o.ship_s }}</td>
+				<td>{% if o.slack is not none %}{{ o.slack }}{% else %}-{% endif %}</td>
+				<td class="imp">{{ o.machines }}</td>
+				<td class="imp">{{ fmt(o.manpower) }}</td>
+				<td>
+					{{ o.cur_close_s or "-" }}{% if o.shift is not none and o.shift != 0 %}<br /><span
+						class="{{ 'bad' if o.shift > 0 else 'ok' }}"
+						>{{ '+' if o.shift > 0 else '' }}{{ o.shift }}d</span
+					>{% endif %}
+				</td>
+				<td><span class="{{ o.cls }}">{{ o.status }}</span></td>
+			</tr>
+			{% endfor %}
+			<tr class="total">
+				<td colspan="2" style="text-align: left">Total</td>
+				<td>{{ fmt(total_qty) }}</td>
+				<td>{{ fmt(total_hours) }}</td>
+				<td colspan="6">Last close {{ last_close }}</td>
+				<td>{{ n_plan }}</td>
+				<td>{{ fmt(peak_mp) }}</td>
+				<td colspan="2">{{ n_late }} late</td>
+			</tr>
+		</tbody>
+	</table>
+	{% endif %} {% if scenarios %}
+	<div class="sh">Capacity Scenarios · What If We Run N Machines</div>
+	<table class="grid">
+		<thead>
+			<tr>
+				<th style="width: 16%">Machines</th>
+				<th style="width: 16%">Manpower</th>
+				<th style="width: 16%">Late Orders</th>
+				<th style="width: 16%">Max Delay (days)</th>
+				<th style="width: 16%">Last Knitting Close</th>
+				<th style="width: 20%">Note</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for s in scenarios %}
+			<tr class="{{ 'late' if s.late else ('zebra' if loop.index is even else '') }}">
+				<td class="imp">{{ s.machines }}</td>
+				<td>{{ fmt(s.manpower) }}</td>
+				<td>
+					{% if s.late %}<span class="bad">{{ s.late }}</span>{% else %}<span class="ok"
+						>0</span
+					>{% endif %}
+				</td>
+				<td>{{ s.delay or "-" }}</td>
+				<td>{{ s.finish }}</td>
+				<td>{{ s.note }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+
+	<div class="method">
+		<b>Method:</b> Latest knitting close = shipment date minus {{ lead }} days (moved back if
+		it falls on Friday). Earliest start = TnA yarn in-house date, or the plan start. Orders are
+		scheduled by earliest deadline, day by day, sharing the machines (Friday off); one machine
+		delivers {{ fmt(cap) }} min × {{ eff|round(1) }}% = {{ fmt(cap * eff / 100) }} effective
+		minutes per day. Machines For On-Time is the smallest machine count at which every order
+		closes on or before its latest knitting close. Manpower = machines × {{ wpm|round(2) }}
+		workers. Orders with missing data are excluded until completed.
+	</div>
+
+	<table class="sig">
+		<tr>
+			<td><div class="sl">Planning Manager</div></td>
+			<td><div class="sl">Knitting In-Charge</div></td>
+			<td><div class="sl">Production Manager</div></td>
+			<td><div class="sl">Managing Director</div></td>
+		</tr>
+	</table>
+	<div class="foot">System generated plan · prepared by {{ user }} · {{ now }}</div>
+</div>

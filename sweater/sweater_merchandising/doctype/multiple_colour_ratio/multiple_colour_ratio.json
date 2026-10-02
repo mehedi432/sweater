@@ -39,8 +39,9 @@
   },
   {
    "fieldname": "total_qty",
-   "fieldtype": "Data",
-   "label": "Total Qty"
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "precision": "2"
   },
   {
    "fieldname": "colour_details",
@@ -52,7 +53,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-23 12:05:15.489623",
+ "modified": "2026-08-16 01:21:24.661077",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Multiple Colour Ratio",

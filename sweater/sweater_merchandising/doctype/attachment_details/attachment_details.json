@@ -6,10 +6,13 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "name1",
+  "date",
   "column_break_rwhc",
+  "name1",
+  "column_break_ugtk",
   "reference",
-  "column_break_ugtk"
+  "column_break_zjia",
+  "version"
  ],
  "fields": [
   {
@@ -29,13 +32,28 @@
   {
    "fieldname": "column_break_ugtk",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_zjia",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Data",
+   "label": "Version"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-07 23:34:11.338262",
+ "modified": "2026-07-09 22:57:26.277047",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Attachment Details",

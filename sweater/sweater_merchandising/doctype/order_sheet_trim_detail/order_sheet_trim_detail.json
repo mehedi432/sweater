@@ -6,8 +6,10 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "order_sheet_link",
   "trim_name",
   "size",
+  "color",
   "quantity",
   "consumption",
   "wastage",
@@ -15,7 +17,8 @@
   "supplier",
   "attach_file",
   "status",
-  "remarks"
+  "remarks",
+  "uom"
  ],
  "fields": [
   {
@@ -70,13 +73,32 @@
    "fieldtype": "Select",
    "label": "Status",
    "options": "PENDING\nBOOKED\nRECEIVED"
+  },
+  {
+   "fieldname": "order_sheet_link",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "ORDER SHEET LINK",
+   "options": "Order Sheet Qty Detail"
+  },
+  {
+   "fetch_from": "order_sheet_link.color",
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "Color"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-02-11 23:10:41.114823",
+ "modified": "2026-07-16 09:40:12.307859",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Trim Detail",

@@ -196,5 +196,50 @@
   "name": "WAITING FOR SHIPMENT",
   "style": "Warning",
   "workflow_state_name": "WAITING FOR SHIPMENT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-02 23:39:53.068085",
+  "name": "Pending Department Approval",
+  "style": "",
+  "workflow_state_name": "Pending Department Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-02 23:40:12.742811",
+  "name": "Pending Budget Approval",
+  "style": "",
+  "workflow_state_name": "Pending Budget Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-02 23:40:30.533580",
+  "name": "Pending Commercial Approval",
+  "style": "",
+  "workflow_state_name": "Pending Commercial Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-03 01:15:26.276025",
+  "name": "Pending GM Approval",
+  "style": "Primary",
+  "workflow_state_name": "Pending GM Approval"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow State",
+  "icon": "",
+  "modified": "2026-07-02 23:45:30.668421",
+  "name": "General Manager",
+  "style": "",
+  "workflow_state_name": "General Manager"
  }
 ]

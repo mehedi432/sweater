@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-02-26 22:20:08.663192",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "request_date",
+  "column_break_dhmx",
+  "request_reference",
+  "column_break_jazn",
+  "receive_date",
+  "column_break_zppq",
+  "buyer_send_date",
+  "column_break_ckro",
+  "buyer_comments_date",
+  "column_break_ofet",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "columns": 3,
+   "fieldname": "request_date",
+   "fieldtype": "Date",
+   "label": "Request Date",
+   "options": "Now"
+  },
+  {
+   "fieldname": "column_break_dhmx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receive_date",
+   "fieldtype": "Date",
+   "label": "Receive Date"
+  },
+  {
+   "fieldname": "column_break_ckro",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_jazn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "buyer_send_date",
+   "fieldtype": "Date",
+   "label": "Buyer Send Date"
+  },
+  {
+   "fieldname": "column_break_zppq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "buyer_comments_date",
+   "fieldtype": "Date",
+   "label": "Buyer Comments Date"
+  },
+  {
+   "fieldname": "request_reference",
+   "fieldtype": "Attach",
+   "label": "Request Reference"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_ofet",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-11 00:15:40.776436",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Daily Sample Request Lab Dip",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

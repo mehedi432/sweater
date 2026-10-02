@@ -1,0 +1,153 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{ticket_category}-{ticket_for}-{travel_date}-{return_date}-{DD}-{MM}-{YY}-{#####}",
+ "creation": "2026-07-23 20:37:19.349691",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "ticket_for",
+  "travel_ticket_used",
+  "return_ticket_used",
+  "column_break_epcl",
+  "costing",
+  "travel_date",
+  "ticket_price",
+  "column_break_dary",
+  "ticket_category",
+  "return_date",
+  "ticket_number",
+  "column_break_rbfk",
+  "has_transit",
+  "transit_location",
+  "transit_time",
+  "section_break_ebsc",
+  "tickets_management_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "tickets_management_details",
+   "fieldtype": "Table",
+   "label": "Tickets Management Details",
+   "options": "AIR TICKETS MANAGEMENT DETAILS"
+  },
+  {
+   "fieldname": "ticket_for",
+   "fieldtype": "Data",
+   "label": "Ticket For"
+  },
+  {
+   "fieldname": "column_break_epcl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "costing",
+   "fieldtype": "Select",
+   "label": "Costing",
+   "options": "PERSONAL\nOFFICIAL"
+  },
+  {
+   "fieldname": "section_break_ebsc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_dary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_transit",
+   "fieldtype": "Check",
+   "label": "Has Transit"
+  },
+  {
+   "depends_on": "has_transit",
+   "fieldname": "transit_location",
+   "fieldtype": "Data",
+   "label": "Transit Location"
+  },
+  {
+   "fieldname": "transit_time",
+   "fieldtype": "Data",
+   "label": "Transit Time"
+  },
+  {
+   "fieldname": "ticket_category",
+   "fieldtype": "Select",
+   "label": "Ticket Category",
+   "options": "BUSINESS\nECONOMIC"
+  },
+  {
+   "fieldname": "column_break_rbfk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "travel_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Travel Date"
+  },
+  {
+   "fieldname": "return_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Return Date"
+  },
+  {
+   "fieldname": "travel_ticket_used",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Travel Ticket Used",
+   "options": "YES\nNO"
+  },
+  {
+   "fieldname": "return_ticket_used",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Return Ticket Used",
+   "options": "YES\nNO"
+  },
+  {
+   "fieldname": "ticket_price",
+   "fieldtype": "Int",
+   "label": "Ticket Price"
+  },
+  {
+   "fieldname": "ticket_number",
+   "fieldtype": "Data",
+   "label": "Ticket Number"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-25 18:52:01.081630",
+ "modified_by": "Administrator",
+ "module": "Sweater",
+ "name": "AIR TICKET MANAGEMENT",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

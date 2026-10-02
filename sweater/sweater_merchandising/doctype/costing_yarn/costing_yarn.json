@@ -1,0 +1,87 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-06-23 01:25:13.513673",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "yarn_type",
+  "composition",
+  "color",
+  "net_weight_gm",
+  "wastage",
+  "gross_weight",
+  "consumption_kg",
+  "yarn_rate_lb",
+  "yarn_rate_kg",
+  "yarn_cost"
+ ],
+ "fields": [
+  {
+   "fieldname": "yarn_type",
+   "fieldtype": "Data",
+   "label": "Yarn Type"
+  },
+  {
+   "fieldname": "composition",
+   "fieldtype": "Data",
+   "label": "Composition"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Data",
+   "label": "color"
+  },
+  {
+   "fieldname": "net_weight_gm",
+   "fieldtype": "Float",
+   "label": "Net Weight (gm)"
+  },
+  {
+   "fieldname": "consumption_kg",
+   "fieldtype": "Float",
+   "label": "Consumption (kg)"
+  },
+  {
+   "fieldname": "yarn_rate_lb",
+   "fieldtype": "Currency",
+   "label": "Yarn Rate ($/lb)"
+  },
+  {
+   "fieldname": "yarn_rate_kg",
+   "fieldtype": "Currency",
+   "label": "Yarn Rate ($/kg)"
+  },
+  {
+   "fieldname": "yarn_cost",
+   "fieldtype": "Currency",
+   "label": "Yarn Cost"
+  },
+  {
+   "fieldname": "gross_weight",
+   "fieldtype": "Float",
+   "label": "Gross Weight (%)"
+  },
+  {
+   "fieldname": "wastage",
+   "fieldtype": "Percent",
+   "label": "Wastage (%)"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-06-26 23:29:21.572125",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Costing Yarn",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-07-25 17:46:32.770618",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "column_break_lnlk",
+  "attach_tickets",
+  "column_break_btpn",
+  "attach_invoice",
+  "column_break_tqtl",
+  "attach_payments",
+  "column_break_eemd",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "Now",
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_lnlk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_btpn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_payments",
+   "fieldtype": "Attach",
+   "label": "Attach Payments"
+  },
+  {
+   "fieldname": "column_break_tqtl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "attach_tickets",
+   "fieldtype": "Attach",
+   "label": "Attach Tickets"
+  },
+  {
+   "fieldname": "attach_invoice",
+   "fieldtype": "Attach",
+   "label": "Attach Invoice"
+  },
+  {
+   "fieldname": "column_break_eemd",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-25 18:24:49.825060",
+ "modified_by": "Administrator",
+ "module": "Sweater",
+ "name": "AIR TICKETS MANAGEMENT DETAILS",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,54 @@
+{
+ "based_on": "",
+ "chart_name": "Merchandising Follow Up",
+ "chart_type": "Report",
+ "creation": "2026-07-17 22:43:00.394695",
+ "currency": "BDT",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "document_type": "",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 0,
+ "is_standard": 1,
+ "modified": "2026-07-17 22:43:22.562507",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Merchandising Follow Up",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "parent_document_type": "",
+ "report_name": "Daily follow up short 2",
+ "roles": [],
+ "show_values_over_chart": 0,
+ "source": "",
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "value_based_on": "",
+ "x_field": "current_stage",
+ "y_axis": [
+  {
+   "y_field": "high_risk"
+  },
+  {
+   "y_field": "days_left"
+  },
+  {
+   "y_field": "days_since_update"
+  },
+  {
+   "y_field": "pending"
+  },
+  {
+   "y_field": "overdue"
+  },
+  {
+   "y_field": "due_today"
+  }
+ ]
+}

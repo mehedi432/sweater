@@ -1,0 +1,72 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-07-21 00:35:13.400997",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "yarn",
+  "dyeing_information",
+  "ssosdo_number",
+  "yarn_qty",
+  "attach_challan",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "Now",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "yarn",
+   "fieldtype": "Link",
+   "label": "Yarn",
+   "options": "Item"
+  },
+  {
+   "fieldname": "dyeing_information",
+   "fieldtype": "Link",
+   "label": "Dyeing Information",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "attach_challan",
+   "fieldtype": "Attach",
+   "label": "Attach Copy"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "yarn_qty",
+   "fieldtype": "Float",
+   "label": "Yarn Qty"
+  },
+  {
+   "fieldname": "ssosdo_number",
+   "fieldtype": "Data",
+   "label": "SSO/SDO Number"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-08 10:06:37.640249",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Order Sheet Yarn Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

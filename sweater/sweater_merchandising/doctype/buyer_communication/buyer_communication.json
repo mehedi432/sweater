@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-07-17 13:59:04.479573",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "date",
+  "communication_type",
+  "subject",
+  "summary",
+  "buyer_response",
+  "next_follow_up_date",
+  "response_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "communication_type",
+   "fieldtype": "Select",
+   "label": "Communication Type ",
+   "options": "Email\nPhone Call\nWhatsApp\nMeeting\nVideo Call\nWeChat"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "label": "Subject "
+  },
+  {
+   "fieldname": "summary",
+   "fieldtype": "Small Text",
+   "label": "Summary "
+  },
+  {
+   "fieldname": "buyer_response",
+   "fieldtype": "Small Text",
+   "label": "Buyer Response "
+  },
+  {
+   "fieldname": "next_follow_up_date",
+   "fieldtype": "Date",
+   "label": "Next Follow Up Date "
+  },
+  {
+   "fieldname": "response_status",
+   "fieldtype": "Select",
+   "label": "Response Status",
+   "options": "Awaiting Reply\nBuyer Replied\nClosed"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-17 21:01:34.811747",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Buyer Communication",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

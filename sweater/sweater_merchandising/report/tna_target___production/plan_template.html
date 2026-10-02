@@ -1,0 +1,638 @@
+{% macro fmt(v) -%}{{ "{:,}".format((v or 0)|int) }}{%- endmacro %} {% macro dash(v) -%}{{ v if v
+else "-" }}{%- endmacro %}
+
+<div class="production-plan-report">
+	<style>
+		@page {
+			size: A4 landscape;
+			margin: 7mm 7mm 10mm 7mm;
+		}
+		.production-plan-report {
+			--black: #151515;
+			--charcoal: #303033;
+			--grey-dark: #626267;
+			--grey-light: #ebebec;
+			--grey-soft: #f6f6f7;
+			--grey-deep: #dcdcdf;
+			--main-border: 1.3px solid #202020;
+			--light-border: 0.7px solid #c8c8cb;
+			width: 100%;
+			color: var(--charcoal);
+			background: #fff;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 8px;
+			line-height: 1.3;
+			text-transform: uppercase;
+		}
+		.production-plan-report * {
+			box-sizing: border-box;
+		}
+		.production-plan-report table {
+			width: 100%;
+			border-collapse: collapse;
+			table-layout: fixed;
+			margin: 0;
+		}
+		.production-plan-report .letterhead-area {
+			margin: 0 0 7px;
+			text-transform: none;
+		}
+		.production-plan-report .warn-box {
+			margin: 0 0 6px;
+			padding: 5px 9px;
+			border: 1px dashed #b00;
+			color: #b00;
+			font-size: 7px;
+			font-weight: 800;
+		}
+		.production-plan-report .title-area {
+			margin: 0 0 8px;
+			text-align: center;
+		}
+		.production-plan-report .main-title {
+			display: inline-block;
+			min-width: 430px;
+			padding: 6px 32px;
+			border-top: 2px solid var(--black);
+			border-bottom: 2px solid var(--black);
+			color: var(--black);
+			font-size: 15px;
+			font-weight: 900;
+			letter-spacing: 3.5px;
+		}
+		.production-plan-report .title-caption {
+			margin-top: 5px;
+			color: var(--grey-dark);
+			font-size: 7px;
+			font-weight: 800;
+			letter-spacing: 1.8px;
+		}
+
+		.production-plan-report .information-board {
+			border: var(--main-border);
+			margin: 0 0 6px;
+		}
+		.production-plan-report .information-board td {
+			height: 42px;
+			padding: 7px 9px;
+			border-right: var(--main-border);
+			border-bottom: var(--main-border);
+			vertical-align: middle;
+		}
+		.production-plan-report .information-board td:last-child {
+			border-right: 0;
+		}
+		.production-plan-report .information-board tr:last-child td {
+			border-bottom: 0;
+		}
+		.production-plan-report .info-label {
+			display: block;
+			margin-bottom: 4px;
+			color: var(--grey-dark);
+			font-size: 6.5px;
+			font-weight: 900;
+			letter-spacing: 1.2px;
+		}
+		.production-plan-report .info-value {
+			display: block;
+			min-height: 12px;
+			color: var(--black);
+			font-size: 9.5px;
+			font-weight: 900;
+			line-height: 1.2;
+			word-break: break-word;
+		}
+		.production-plan-report .order-qty-box {
+			background: var(--grey-light);
+			text-align: center;
+		}
+		.production-plan-report .order-qty-number {
+			display: block;
+			color: var(--black);
+			font-size: 19px;
+			font-weight: 900;
+			line-height: 1;
+		}
+		.production-plan-report .order-qty-unit {
+			display: block;
+			margin-top: 3px;
+			color: var(--grey-dark);
+			font-size: 6px;
+			font-weight: 900;
+			letter-spacing: 1.3px;
+		}
+
+		.production-plan-report .reference-strip {
+			border: var(--main-border);
+			margin: 0 0 8px;
+			background: var(--grey-soft);
+		}
+		.production-plan-report .reference-strip td {
+			height: 27px;
+			padding: 5px 7px;
+			border-right: var(--light-border);
+			text-align: center;
+			vertical-align: middle;
+		}
+		.production-plan-report .reference-strip td:last-child {
+			border-right: 0;
+		}
+		.production-plan-report .reference-label {
+			margin-right: 4px;
+			color: var(--grey-dark);
+			font-size: 6px;
+			font-weight: 900;
+			letter-spacing: 0.8px;
+		}
+		.production-plan-report .reference-value {
+			color: var(--black);
+			font-size: 8px;
+			font-weight: 900;
+		}
+
+		.production-plan-report .calculation-legend {
+			margin: 0 0 6px;
+			padding: 5px 9px;
+			border: var(--main-border);
+			color: var(--grey-dark);
+			font-size: 6.5px;
+			font-weight: 800;
+			letter-spacing: 0.5px;
+			text-align: center;
+		}
+		.production-plan-report .calculation-legend strong {
+			color: var(--black);
+			font-weight: 900;
+		}
+
+		.production-plan-report .production-table {
+			border: var(--main-border);
+		}
+		.production-plan-report .production-table th {
+			height: 29px;
+			padding: 4px 2px;
+			border: var(--main-border);
+			color: var(--black);
+			background: var(--grey-light);
+			font-size: 7.5px;
+			font-weight: 900;
+			letter-spacing: 0.4px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.production-plan-report .production-table td {
+			height: 34px;
+			padding: 3px;
+			border: var(--light-border);
+			color: var(--charcoal);
+			background: #fff;
+			font-size: 7px;
+			font-weight: 700;
+			text-align: center;
+			vertical-align: middle;
+		}
+		.production-plan-report .date-column {
+			width: 12%;
+			color: var(--black);
+			font-weight: 900;
+		}
+		.production-plan-report .date-value {
+			display: block;
+			color: var(--black);
+			font-size: 8px;
+			font-weight: 900;
+			line-height: 1.15;
+			letter-spacing: 0.25px;
+		}
+		.production-plan-report .day-name {
+			display: block;
+			margin-top: 3px;
+			color: var(--grey-dark);
+			font-size: 5.8px;
+			font-weight: 900;
+			line-height: 1.1;
+			letter-spacing: 0.8px;
+		}
+		.production-plan-report .friday-row .day-name {
+			color: var(--black);
+		}
+		.production-plan-report .order-quantity-row td {
+			height: 25px;
+			border-top: var(--main-border);
+			border-bottom: var(--main-border);
+			color: var(--black);
+			background: var(--grey-soft);
+			font-size: 8px;
+			font-weight: 900;
+		}
+		.production-plan-report .daily-cell-active {
+			background: #fafafa !important;
+			color: var(--black);
+		}
+		.production-plan-report .cell-line {
+			display: block;
+			white-space: nowrap;
+			line-height: 1.3;
+		}
+		.production-plan-report .cell-caption {
+			color: var(--grey-dark);
+			font-size: 5.7px;
+			font-weight: 900;
+			letter-spacing: 0.3px;
+		}
+		.production-plan-report .today-number {
+			color: var(--black);
+			font-size: 8px;
+			font-weight: 900;
+		}
+		.production-plan-report .cumulative-number {
+			color: var(--charcoal);
+			font-size: 7px;
+			font-weight: 900;
+		}
+		.production-plan-report .previous-number {
+			color: var(--grey-dark);
+			font-size: 6.5px;
+			font-weight: 800;
+		}
+		.production-plan-report .week-number {
+			color: var(--black);
+			font-size: 8px;
+			font-weight: 900;
+		}
+		.production-plan-report .empty-value {
+			color: #aaaaad;
+			font-size: 8px;
+			font-weight: 700;
+		}
+		.production-plan-report .friday-row td {
+			height: 42px;
+			border-top: var(--main-border);
+			border-bottom: var(--main-border);
+			color: var(--black);
+			background: var(--grey-light);
+			font-weight: 900;
+		}
+		.production-plan-report .weekly-subtitle {
+			display: block;
+			margin-top: 3px;
+			color: var(--grey-dark);
+			font-size: 5.3px;
+			font-weight: 900;
+			line-height: 1.1;
+			letter-spacing: 0.5px;
+		}
+		.production-plan-report .final-block-row td {
+			height: 35px;
+			border: var(--main-border);
+			color: var(--black);
+			background: var(--grey-deep);
+			font-weight: 900;
+		}
+		.production-plan-report .grand-total-row td {
+			height: 30px;
+			border: var(--main-border);
+			border-top: 3px double var(--black);
+			color: var(--black);
+			background: var(--grey-light);
+			font-size: 9px;
+			font-weight: 900;
+		}
+		.production-plan-report .completion-text {
+			display: block;
+			margin-top: 2px;
+			color: var(--grey-dark);
+			font-size: 5.5px;
+			font-weight: 900;
+			letter-spacing: 0.5px;
+		}
+
+		.production-plan-report .summary-heading {
+			margin-top: 9px;
+			padding: 6px 9px;
+			border: var(--main-border);
+			border-bottom: 0;
+			color: var(--black);
+			background: var(--grey-light);
+			font-size: 8px;
+			font-weight: 900;
+			letter-spacing: 1.3px;
+		}
+		.production-plan-report .summary-table {
+			border: var(--main-border);
+		}
+		.production-plan-report .summary-table th {
+			height: 24px;
+			padding: 4px;
+			border: var(--main-border);
+			color: var(--black);
+			background: var(--grey-soft);
+			font-size: 6.5px;
+			font-weight: 900;
+			letter-spacing: 0.4px;
+			text-align: center;
+		}
+		.production-plan-report .summary-table td {
+			height: 22px;
+			padding: 4px 5px;
+			border: var(--light-border);
+			color: var(--charcoal);
+			font-size: 7.5px;
+			font-weight: 700;
+			text-align: center;
+		}
+		.production-plan-report .summary-table .section-name {
+			color: var(--black);
+			font-weight: 900;
+			text-align: left;
+		}
+		.production-plan-report .summary-table .important-value {
+			color: var(--black);
+			background: var(--grey-soft);
+			font-weight: 900;
+		}
+		.production-plan-report .no-plan-row td {
+			color: var(--grey-dark);
+			font-style: italic;
+		}
+
+		.production-plan-report .signature-area {
+			margin-top: 40px;
+		}
+		.production-plan-report .signature-area td {
+			width: 33.33%;
+			padding: 0 25px;
+			text-align: center;
+			vertical-align: bottom;
+		}
+		.production-plan-report .signature-line {
+			padding-top: 7px;
+			border-top: var(--main-border);
+			color: var(--black);
+			font-size: 8px;
+			font-weight: 900;
+			letter-spacing: 0.7px;
+		}
+
+		@media print {
+			.production-plan-report .no-print {
+				display: none;
+			}
+			.production-plan-report .information-board,
+			.production-plan-report .reference-strip,
+			.production-plan-report .calculation-legend,
+			.production-plan-report .summary-heading,
+			.production-plan-report .summary-table,
+			.production-plan-report .signature-area {
+				page-break-inside: avoid;
+			}
+			.production-plan-report .production-table thead {
+				display: table-header-group;
+			}
+			.production-plan-report tr {
+				page-break-inside: avoid;
+			}
+		}
+	</style>
+
+	{% if letter_head %}
+	<div class="letterhead-area">{{ letter_head }}</div>
+	{% endif %} {% if warnings %}
+	<div class="warn-box no-print">{{ warnings|join("<br />") }}</div>
+	{% endif %}
+
+	<div class="title-area">
+		<div class="main-title">Daily &amp; Weekly Production Plan</div>
+		<div class="title-caption">
+			Daily Output · Previous Balance · Weekly Output · Cumulative Completion
+		</div>
+	</div>
+
+	<table class="information-board">
+		<colgroup>
+			<col style="width: 25%" />
+			<col style="width: 25%" />
+			<col style="width: 25%" />
+			<col style="width: 25%" />
+		</colgroup>
+		<tr>
+			<td>
+				<span class="info-label">Buyer</span
+				><span class="info-value">{{ dash(info.buyer) }}</span>
+			</td>
+			<td>
+				<span class="info-label">Style Number</span
+				><span class="info-value">{{ dash(info.style) }}</span>
+			</td>
+			<td>
+				<span class="info-label">PO Number</span
+				><span class="info-value">{{ dash(info.po) }}</span>
+			</td>
+			<td rowspan="2" class="order-qty-box">
+				<span class="info-label">Order Quantity</span>
+				<span class="order-qty-number">{{ fmt(Q) }}</span>
+				<span class="order-qty-unit">Pieces</span>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<span class="info-label">Colour</span
+				><span class="info-value">{{ dash(info.colour) }}</span>
+			</td>
+			<td>
+				<span class="info-label">Gauge</span
+				><span class="info-value">{{ dash(info.gauge) }}</span>
+			</td>
+			<td>
+				<span class="info-label">Shipment Date</span
+				><span class="info-value">{{ dash(info.ship) }}</span>
+			</td>
+		</tr>
+	</table>
+
+	<table class="reference-strip">
+		<colgroup>
+			<col style="width: 25%" />
+			<col style="width: 25%" />
+			<col style="width: 25%" />
+			<col style="width: 25%" />
+		</colgroup>
+		<tr>
+			<td>
+				<span class="reference-label">Order Reference</span
+				><span class="reference-value">{{ dash(info.order_ref) }}</span>
+			</td>
+			<td>
+				<span class="reference-label">Yarn In-House</span
+				><span class="reference-value">{{ dash(info.yarn) }}</span>
+			</td>
+			<td>
+				<span class="reference-label">Season</span
+				><span class="reference-value">{{ dash(info.season) }}</span>
+			</td>
+			<td>
+				<span class="reference-label">Merchandiser</span
+				><span class="reference-value">{{ dash(info.merch) }}</span>
+			</td>
+		</tr>
+	</table>
+
+	<div class="calculation-legend">
+		<strong>PREV.</strong> = Previous cumulative quantity &nbsp;|&nbsp;
+		<strong>TODAY</strong> = Current date quantity &nbsp;|&nbsp; <strong>CUM.</strong> =
+		Previous cumulative + today quantity &nbsp;|&nbsp; <strong>WEEK</strong> = Current weekly
+		quantity
+	</div>
+
+	<table class="production-table">
+		<thead>
+			<tr>
+				<th class="date-column">Production Date</th>
+				{% for s in sections %}
+				<th>{{ s }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="order-quantity-row">
+				<td>Order Qty</td>
+				{% for s in sections %}
+				<td>{% if has[s] %}{{ fmt(Q) }}{% else %}-{% endif %}</td>
+				{% endfor %}
+			</tr>
+
+			{% for r in rows %} {% set fri = (r.kind == "friday") %}
+			<tr class="{% if fri %}friday-row{% endif %}">
+				<td class="date-column">
+					<span class="date-value">{{ r.date }}</span>
+					<span class="day-name">{{ r.dayname }}</span>
+					{% if fri %}<span class="weekly-subtitle">Weekly Summary</span>{% endif %}
+				</td>
+				{% for s in sections %} {% set c = r.cells[s] %} {% if fri %}
+				<td>
+					{% if c %}
+					<span class="cell-line"
+						><span class="cell-caption">Prev. Week:</span>
+						<span class="previous-number">{{ fmt(c.prev) }}</span></span
+					>
+					<span class="cell-line"
+						><span class="cell-caption">Week:</span>
+						<span class="week-number">{{ fmt(c.qty) }}</span></span
+					>
+					<span class="cell-line"
+						><span class="cell-caption">Cum.:</span>
+						<span class="cumulative-number">{{ fmt(c.cum) }}</span></span
+					>
+					{% else %}<span class="empty-value">-</span>{% endif %}
+				</td>
+				{% else %}
+				<td class="daily-cell{% if c %} daily-cell-active{% endif %}">
+					{% if c %}
+					<span class="cell-line"
+						><span class="cell-caption">Prev.:</span>
+						<span class="previous-number">{{ fmt(c.prev) }}</span></span
+					>
+					<span class="cell-line"
+						><span class="cell-caption">Today:</span>
+						<span class="today-number">{{ fmt(c.qty) }}</span></span
+					>
+					<span class="cell-line"
+						><span class="cell-caption">Cum.:</span>
+						<span class="cumulative-number">{{ fmt(c.cum) }}</span></span
+					>
+					{% else %}<span class="empty-value">-</span>{% endif %}
+				</td>
+				{% endif %} {% endfor %}
+			</tr>
+			{% endfor %}
+
+			<tr class="final-block-row">
+				<td>
+					<span class="date-value">Final Block</span
+					><span class="weekly-subtitle">Last Weekly Balance</span>
+				</td>
+				{% for s in sections %} {% set c = final_cells[s] %}
+				<td>
+					{% if c %}
+					<span class="cell-line"
+						><span class="cell-caption">Prev. Week:</span>
+						<span class="previous-number">{{ fmt(c.prev) }}</span></span
+					>
+					<span class="cell-line"
+						><span class="cell-caption">Final Week:</span>
+						<span class="week-number">{{ fmt(c.qty) }}</span></span
+					>
+					<span class="cell-line"
+						><span class="cell-caption">Cum.:</span>
+						<span class="cumulative-number">{{ fmt(c.cum) }}</span></span
+					>
+					{% else %}<span class="empty-value">-</span>{% endif %}
+				</td>
+				{% endfor %}
+			</tr>
+
+			<tr class="grand-total-row">
+				<td>Grand Total</td>
+				{% for s in sections %} {% set t = totals[s] %}
+				<td>
+					{% if t %} {{ fmt(t.run) }}
+					<span class="completion-text"
+						>{% if t.done %}Order Completed{% else %}Balance: {{ fmt(t.balance) }}{%
+						endif %}</span
+					>
+					{% else %}-{% endif %}
+				</td>
+				{% endfor %}
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="summary-heading">Section Planning &amp; Completion Intelligence</div>
+	<table class="summary-table">
+		<thead>
+			<tr>
+				<th style="width: 17%">Production Section</th>
+				<th style="width: 14%">Start Date</th>
+				<th style="width: 14%">Close Date</th>
+				<th style="width: 11%">Working Days</th>
+				<th style="width: 13%">Base Daily Qty</th>
+				<th style="width: 10%">Extra Qty Days</th>
+				<th style="width: 11%">Final Total</th>
+				<th style="width: 10%">Balance</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for x in summary_rows %} {% if x.plan %}
+			<tr>
+				<td class="section-name">{{ x.name }}</td>
+				<td>{{ x.start }}</td>
+				<td>{{ x.close }}</td>
+				<td>{{ x.workdays }}</td>
+				<td>{{ fmt(x.base) }}</td>
+				<td>{{ fmt(x.rem) }}</td>
+				<td class="important-value">{{ fmt(x.final) }}</td>
+				<td class="important-value">{{ fmt(x.balance) }}</td>
+			</tr>
+			{% else %}
+			<tr class="no-plan-row">
+				<td class="section-name">{{ x.name }}</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>TnA Missing</td>
+			</tr>
+			{% endif %} {% endfor %}
+		</tbody>
+	</table>
+
+	<table class="signature-area">
+		<tr>
+			<td><div class="signature-line">A.P.M. Linking</div></td>
+			<td><div class="signature-line">A.P.M. Finishing</div></td>
+			<td><div class="signature-line">Production Manager</div></td>
+		</tr>
+	</table>
+</div>

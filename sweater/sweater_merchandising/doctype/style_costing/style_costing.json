@@ -1,0 +1,294 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:COST-{costing_no}-{product_type}",
+ "creation": "2026-06-23 01:11:24.161641",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_dxbx",
+  "costing_no",
+  "order_qty",
+  "column_break_nuux",
+  "buyer",
+  "currency",
+  "column_break_bjyf",
+  "style_no",
+  "product_type",
+  "column_break_nbba",
+  "season",
+  "gauge",
+  "amended_from",
+  "yarn_costing_section_section",
+  "table_qhiz",
+  "trims_costing_section_section",
+  "table_frlo",
+  "manufacturing_cost_section_section",
+  "table_fxhi",
+  "section_break_xuya",
+  "overhead_method",
+  "column_break_gskz",
+  "overhead_percentage",
+  "column_break_lwtg",
+  "overhead_fixed_amount",
+  "column_break_asms",
+  "overhead_amount",
+  "section_break_oxni",
+  "commercial_cost",
+  "column_break_ohhf",
+  "target_profit",
+  "cost_summary_section",
+  "material_cost",
+  "column_break_gzud",
+  "manufacturing_cost",
+  "column_break_fjxf",
+  "overhead_cost",
+  "profit_amount",
+  "column_break_dzvb",
+  "total_commercial_cost",
+  "fob_price"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_dxbx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Style Costing",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "costing_no",
+   "fieldtype": "Link",
+   "label": "Costing No",
+   "options": "Daily Sample Request"
+  },
+  {
+   "fetch_from": "costing_no.buyer",
+   "fieldname": "buyer",
+   "fieldtype": "Data",
+   "label": "Buyer"
+  },
+  {
+   "fetch_from": "costing_no.style",
+   "fieldname": "style_no",
+   "fieldtype": "Data",
+   "label": "Style No"
+  },
+  {
+   "fetch_from": "costing_no.season_collection",
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "Season"
+  },
+  {
+   "fieldname": "product_type",
+   "fieldtype": "Select",
+   "label": "Product Type",
+   "options": "CARDIGAN\nPULLOVER"
+  },
+  {
+   "fetch_from": "costing_no.gauge",
+   "fieldname": "gauge",
+   "fieldtype": "Select",
+   "label": "Gauge"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Select",
+   "label": "Currency",
+   "options": "USD\nBDT"
+  },
+  {
+   "fetch_from": "costing_no.order_qty",
+   "fieldname": "order_qty",
+   "fieldtype": "Float",
+   "label": "Order Qty"
+  },
+  {
+   "fieldname": "yarn_costing_section_section",
+   "fieldtype": "Section Break",
+   "label": "Yarn Costing Section"
+  },
+  {
+   "fieldname": "table_qhiz",
+   "fieldtype": "Table",
+   "options": "Costing Yarn"
+  },
+  {
+   "fieldname": "trims_costing_section_section",
+   "fieldtype": "Section Break",
+   "label": "Trims Costing Section"
+  },
+  {
+   "fieldname": "table_frlo",
+   "fieldtype": "Table",
+   "options": "Costing Trims"
+  },
+  {
+   "fieldname": "manufacturing_cost_section_section",
+   "fieldtype": "Section Break",
+   "label": "Manufacturing Cost Section"
+  },
+  {
+   "fieldname": "table_fxhi",
+   "fieldtype": "Table",
+   "options": "Costing Process"
+  },
+  {
+   "fieldname": "section_break_xuya",
+   "fieldtype": "Section Break",
+   "label": "Overhead Section"
+  },
+  {
+   "fieldname": "column_break_gskz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "commercial_cost",
+   "fieldtype": "Percent",
+   "label": "Commercial Cost (%)"
+  },
+  {
+   "fieldname": "overhead_percentage",
+   "fieldtype": "Percent",
+   "label": "Overhead Percentage"
+  },
+  {
+   "fieldname": "column_break_lwtg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overhead_fixed_amount",
+   "fieldtype": "Currency",
+   "label": "Overhead Fixed Amount"
+  },
+  {
+   "fieldname": "column_break_asms",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overhead_amount",
+   "fieldtype": "Currency",
+   "label": "Overhead Amount"
+  },
+  {
+   "fieldname": "section_break_oxni",
+   "fieldtype": "Section Break",
+   "label": "Commercial & Profit"
+  },
+  {
+   "fieldname": "column_break_ohhf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_profit",
+   "fieldtype": "Percent",
+   "label": "Target Profit %"
+  },
+  {
+   "fieldname": "cost_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Cost Summary"
+  },
+  {
+   "fieldname": "material_cost",
+   "fieldtype": "Currency",
+   "label": "Material Cost"
+  },
+  {
+   "fieldname": "column_break_gzud",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturing_cost",
+   "fieldtype": "Currency",
+   "label": "Manufacturing Cost"
+  },
+  {
+   "fieldname": "column_break_fjxf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overhead_cost",
+   "fieldtype": "Currency",
+   "label": "Overhead Cost"
+  },
+  {
+   "fieldname": "column_break_dzvb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_commercial_cost",
+   "fieldtype": "Currency",
+   "label": "Total Commercial Cost"
+  },
+  {
+   "fieldname": "profit_amount",
+   "fieldtype": "Currency",
+   "label": "Profit Amount"
+  },
+  {
+   "fieldname": "fob_price",
+   "fieldtype": "Currency",
+   "label": "FOB Price"
+  },
+  {
+   "fieldname": "column_break_nuux",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bjyf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_nbba",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overhead_method",
+   "fieldtype": "Select",
+   "label": "Overhead Method",
+   "options": "Fixed\nPercentage"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-26 23:36:57.347306",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Style Costing",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

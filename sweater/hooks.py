@@ -8,18 +8,18 @@ app_license = "mit"
 # Apps
 # ------------------
 
-# required_apps = []
+required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "sweater",
-# 		"logo": "/assets/sweater/logo.png",
-# 		"title": "Sweater",
-# 		"route": "/sweater",
-# 		"has_permission": "sweater.api.permission.has_app_permission"
-# 	}
-# ]
+add_to_apps_screen = [
+	{
+		"name": "sweater",
+		"logo": "/assets/sweater/logo.png",
+		"title": "Sweater",
+		"route": "/sweater",
+		"has_permission": "sweater.api.permission.has_app_permission"
+	}
+]
 
 # Includes in <head>
 # ------------------

@@ -1,0 +1,57 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-03-04 21:28:28.013492",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "default": "PEPCO",
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "BUYER",
+   "mandatory": 0,
+   "options": "Customer",
+   "wildcard_filter": 0
+  },
+  {
+   "default": "AW26",
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "SEASON",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "MSFL",
+ "letterhead": null,
+ "modified": "2026-03-04 21:28:28.013492",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Daily Order Sheet Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    ose.creation AS \"Created On:Datetime:150\",\n\n    /* Style Image */\n    CASE\n        WHEN ose.style_image IS NOT NULL\n             AND ose.style_image != ''\n        THEN CONCAT('<img src=\"', ose.style_image, '\" width=\"70\" />')\n        ELSE ''\n    END AS \"Style Image:HTML:120\",\n\n    ose.name AS \"Order Sheet:Link/Order Sheet Entry:150\",\n    ose.production_factory AS \"Factory:Data:100\",\n    ose.buyer AS \"Buyer:Link/Customer:120\",\n    ose.style_name AS \"Style:Data:150\",\n    ose.season AS \"Season:Data:100\",\n    ose.color AS \"Color:Data:100\",\n    ose.gauge AS \"Gauge:Data:80\",\n    ose.construction AS \"Construction:Data:150\",\n    ose.order_qty AS \"Order Qty:Int:100\",\n\n    DATE_FORMAT(ose.shipment_date, '%%d-%%m-%%Y')\n        AS \"Shipment Date:Data:120\",\n\n    /* Yarn Aggregation */\n    GROUP_CONCAT(DISTINCT yd.yarn_composition)\n        AS \"Yarn Composition:Data:200\",\n\n    GROUP_CONCAT(DISTINCT yd.yarn_count)\n        AS \"Yarn Count:Data:120\",\n\n    /* Production Summary */\n    IFNULL(SUM(op.knit), 0) AS \"Knit:Int:80\",\n    IFNULL(SUM(op.link), 0) AS \"Link:Int:80\",\n    IFNULL(SUM(op.mending), 0) AS \"Mend:Int:80\",\n    IFNULL(SUM(op.wash), 0) AS \"Wash:Int:80\",\n    IFNULL(SUM(op.poly), 0) AS \"Poly:Int:80\",\n\n    /* Production Balance */\n    (ose.order_qty - IFNULL(SUM(op.poly), 0))\n        AS \"Balance:Int:100\",\n\n    /* Yarn DO Status */\n    CASE \n        WHEN COUNT(\n            CASE \n                WHEN yd.do_number IS NOT NULL \n                     AND yd.do_number != ''\n                THEN 1\n            END\n        ) > 0\n        THEN 'In House'\n        ELSE 'Waiting'\n    END AS \"Yarn Status:Data:100\",\n\n    /* Aging */\n    DATEDIFF(NOW(), ose.creation)\n        AS \"Days Since Created:Int:120\",\n\n    DATEDIFF(NOW(), ose.shipment_date)\n        AS \"Days to Shipment:Int:120\"\n\nFROM\n    `tabOrder Sheet Entry` ose\n\nLEFT JOIN\n    `tabOrder Sheet Yarn Detail` yd\n        ON yd.parent = ose.name\n\nLEFT JOIN\n    `tabOrder Sheet Production` op\n        ON op.parent = ose.name\n\nWHERE\n    ose.docstatus < 2\n\n    /* Buyer Filter */\n    AND (\n        IFNULL(%(buyer)s, '') = ''\n        OR ose.buyer = %(buyer)s\n    )\n\n    /* Factory Filter */\n    AND (\n        IFNULL(%(factory)s, '') = ''\n        OR ose.production_factory = %(factory)s\n    )\n\n    /* Start Date Filter */\n    AND (\n        IFNULL(%(start_date)s, '') = ''\n        OR DATE(ose.creation) >= %(start_date)s\n    )\n\n    /* End Date Filter */\n    AND (\n        IFNULL(%(end_date)s, '') = ''\n        OR DATE(ose.creation) <= %(end_date)s\n    )\n\nGROUP BY\n    ose.name,\n    ose.creation,\n    ose.style_image,\n    ose.production_factory,\n    ose.buyer,\n    ose.style_name,\n    ose.season,\n    ose.color,\n    ose.gauge,\n    ose.construction,\n    ose.order_qty,\n    ose.shipment_date\n\nORDER BY\n    ose.shipment_date ASC,\n    ose.creation DESC;",
+ "ref_doctype": "Order Sheet Entry",
+ "report_name": "Daily Order Sheet Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Merchandiser"
+  },
+  {
+   "role": "Asst. Merchandiser"
+  },
+  {
+   "role": "General Manager (Marketing & Merchandising)"
+  }
+ ],
+ "timeout": 0
+}

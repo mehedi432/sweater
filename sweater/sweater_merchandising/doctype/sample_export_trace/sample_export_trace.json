@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: {courier_name}-{buyer}-{style}-{courier_no}-{#####}",
+ "creation": "2026-07-31 05:02:22.287909",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_t61h",
+  "date",
+  "column_break_jfnv",
+  "buyer",
+  "column_break_rtyh",
+  "style",
+  "column_break_smhe",
+  "item_details",
+  "column_break_ujmz",
+  "qty_kg",
+  "column_break_ldzr",
+  "volume_wt_kg",
+  "section_break_pbfk",
+  "country",
+  "column_break_yexw",
+  "courier_name",
+  "column_break_sris",
+  "courier_no",
+  "column_break_tpvu",
+  "amountvalue",
+  "column_break_qttd",
+  "remarks",
+  "section_break_iezj",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_t61h",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sample Export Trace",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "column_break_jfnv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Buyer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_rtyh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "style",
+   "fieldtype": "Data",
+   "label": "Style"
+  },
+  {
+   "fieldname": "column_break_smhe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "item_details",
+   "fieldtype": "Data",
+   "label": "Item Details"
+  },
+  {
+   "fieldname": "section_break_iezj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_pbfk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "qty_kg",
+   "fieldtype": "Float",
+   "label": "Qty (Kg)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_yexw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "volume_wt_kg",
+   "fieldtype": "Data",
+   "label": "Volume Wt (Kg)"
+  },
+  {
+   "fieldname": "column_break_sris",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "column_break_tpvu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "courier_name",
+   "fieldtype": "Data",
+   "label": "Courier Name"
+  },
+  {
+   "fieldname": "courier_no",
+   "fieldtype": "Data",
+   "label": "Courier No"
+  },
+  {
+   "fieldname": "amountvalue",
+   "fieldtype": "Data",
+   "label": "Amount/Value"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_ujmz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ldzr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qttd",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-07-31 05:24:31.144633",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Sample Export Trace",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

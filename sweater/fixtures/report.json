@@ -543,11 +543,11 @@
   "javascript": null,
   "json": null,
   "letter_head": "MSFL",
-  "modified": "2025-08-28 23:04:36.922842",
+  "modified": "2026-05-19 07:12:42.216714",
   "module": "Sample",
   "name": "Raw Material Requirement (Child Table Join)",
   "prepared_report": 0,
-  "query": "SELECT\n    dsr.name AS \"Request ID:Link/Daily Sample Request:150\",\n    dsr.buyer AS \"Buyer:Link/Customer:150\",\n    dsr.style AS \"Style:Data:150\",\n    mr.item_code AS \"Material:Link/Item:150\",\n    mr.category AS \"Category:Data:120\",\n    mr.qty AS \"Required Qty:Float:120\",\n    mr.uom AS \"UOM:Link/UOM:80\"\nFROM\n    `tabDaily Sample Request` dsr\nJOIN\n    `tabMaterial Requirement` mr\nON\n    mr.parent = dsr.name\nORDER BY dsr.requested_time DESC;\n",
+  "query": "SELECT\n    dsr.name AS \"Daily Sample Request:Link/Daily Sample Request:180\",\n    rm.category AS \"Material Group:Data:120\",\n    rm.yarn_composition AS \"Name:Data:250\",\n    rm.colour AS \"Colour:Data:120\",\n    \n    rm.yarn_count AS \"Count:Data:100\",\n    rm.quantity AS \"Quantity:Float:100\",\n    rm.uom AS \"UOM:Data:80\",\n    rm.required_by AS \"Required By:Date:100\",\n    rm.lot_no AS \"Lot No:Data:120\",\n    rm.sso_number AS \"SSO Number:Data:120\",\n    rm.attach_challan_copy AS \"Challan:Attach:150\",\n    rm.remarks AS \"Remarks:Small Text:300\"\n\nFROM\n    `tabDaily Sample Request` dsr\n\nLEFT JOIN\n    `tabMaterial Requirement` rm\nON\n    rm.parent = dsr.name\n\nWHERE\n    dsr.docstatus < 2\n\nORDER BY\n    dsr.creation DESC,\n    rm.idx ASC",
   "ref_doctype": "Daily Sample Request",
   "reference_report": null,
   "report_name": "Raw Material Requirement (Child Table Join)",
@@ -685,6 +685,431 @@
     "parentfield": "roles",
     "parenttype": "Report",
     "role": "Sample Team Member"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 1,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-03-07 00:32:16.330120",
+  "module": "Sweater Merchandising",
+  "name": "ORDER PRODUCTION STATUS",
+  "prepared_report": 0,
+  "query": "SELECT \n    /* Image Thumbnail */\n    CONCAT('<img src=\"', ose.style_image, '\" style=\"height: 40px; width: 40px; object-fit: contain;\">') AS \"Image:Html:60\",\n    \n    /* Header Info */\n    ose.name AS \"Order ID:Link/Order Sheet Entry:120\",\n    ose.buyer AS \"Buyer:Link/Customer:100\",\n    ose.style_name AS \"Style:Data:120\",\n    ose.season AS \"Season:Data:80\",\n    ose.gauge AS \"GG:Data:40\",\n    ose.status AS \"Production Status:Data:40\",\n    \n    /* Order Quantities - SUM ensures the footer knows how to total this */\n    SUM(ose.order_qty) AS \"Target Qty:Int:100\",\n    \n    /* Aggregated Production Data */\n    IFNULL(SUM(op.knit), 0) AS \"Knitted:Int:80\",\n    IFNULL(SUM(op.poly), 0) AS \"Packed:Int:80\",\n    \n    /* Calculation: Balance to Pack */\n    (SUM(ose.order_qty) - IFNULL(SUM(op.poly), 0)) AS \"Balance:Int:100\",\n    \n    /* Production Percentage */\n    ROUND((IFNULL(SUM(op.poly), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Done %%:Percent:80\",\n    \n    /* Dates */\n    DATE_FORMAT(MAX(ose.production_start_date), '%%d-%%m-%%y') AS \"Start:Date:90\",\n    DATE_FORMAT(MAX(ose.shipment_date), '%%d-%%m-%%y') AS \"T-Ship:Date:90\",\n    \n    /* Yarn Status */\n    MAX(CASE \n        WHEN yarn_agg.total_lines IS NULL THEN 'No Yarn'\n        WHEN yarn_agg.ready_lines = yarn_agg.total_lines THEN 'Fully In-House'\n        ELSE 'Partial/Waiting'\n    END) AS \"Yarn Status:Data:120\",\n\n    ose.production_status AS \"Overall Status:Data:100\"\n\nFROM \n    `tabOrder Sheet Entry` ose\n\nLEFT JOIN \n    `tabOrder Sheet Production` op ON op.parent = ose.name\n\nLEFT JOIN (\n    SELECT \n        parent, \n        COUNT(*) as total_lines,\n        SUM(CASE WHEN do_number IS NOT NULL AND do_number != '' THEN 1 ELSE 0 END) as ready_lines\n    FROM `tabOrder Sheet Yarn Detail`\n    GROUP BY parent\n) AS yarn_agg ON yarn_agg.parent = ose.name\n\nWHERE \n    ose.docstatus < 2\n\nGROUP BY \n    ose.name, ose.buyer, ose.style_name, ose.season, ose.gauge, ose.production_status\n\nORDER BY \n    ose.shipment_date ASC;",
+  "ref_doctype": "Order Sheet Entry",
+  "reference_report": null,
+  "report_name": "ORDER PRODUCTION STATUS",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "ORDER PRODUCTION STATUS",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "ORDER PRODUCTION STATUS",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
+   },
+   {
+    "parent": "ORDER PRODUCTION STATUS",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "ORDER PRODUCTION STATUS",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-03-07 00:09:20.920854",
+  "module": "Sweater Merchandising",
+  "name": "ORDER SHEET PREMIUM",
+  "prepared_report": 0,
+  "query": "SELECT\n    /* ═══════════════════════════════════════════════\n       1. STYLE IDENTIFICATION\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"display:flex;align-items:center;gap:10px;padding:4px 0\">',\n            '<div style=\"position:relative;flex-shrink:0\">',\n                '<img src=\"', IFNULL(ose.style_image, ''), '\" style=\"height:48px;width:48px;border-radius:6px;border:1.5px solid #1a1a2e;object-fit:contain;background:#f8f8f8\">',\n                '<span style=\"position:absolute;bottom:-3px;right:-3px;background:#1a1a2e;color:#fff;font-size:8px;padding:1px 3px;border-radius:3px;font-weight:700\">',\n                    IFNULL(ose.gauge, ''), 'GG',\n                '</span>',\n            '</div>',\n            '<div>',\n                '<b style=\"font-size:12.5px;color:#0d0d1a;letter-spacing:-0.2px;display:block\">', IFNULL(ose.style_name, ''), '</b>',\n                '<span style=\"font-size:10px;color:#444;display:block;margin-top:1px\">',\n                    '<span style=\"background:#eef2ff;color:#3730a3;padding:1px 5px;border-radius:3px;font-weight:600\">', IFNULL(ose.buyer, ''), '</span>',\n                    ' &nbsp;', IFNULL(ose.brand, ''),\n                '</span>',\n                '<span style=\"font-size:9.5px;color:#888;margin-top:2px;display:block\">', IFNULL(ose.style_name, ''), ' &nbsp;|&nbsp; ', IFNULL(ose.season, ''), '</span>',\n            '</div>',\n        '</div>'\n    ) AS \"Style:Html:260\",\n\n    /* ═══════════════════════════════════════════════\n       2. ORDER CORE METRICS\n    ═══════════════════════════════════════════════ */\n    ose.order_qty                                                AS \"Order Qty:Int:85\",\n    CONCAT(\n        LPAD(DAY(ose.shipment_date), 2, '0'), '-',\n        ELT(MONTH(ose.shipment_date), 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'), '-',\n        RIGHT(YEAR(ose.shipment_date), 2)\n    )                                                                AS \"Ship Date:Data:90\",\n    DATEDIFF(ose.shipment_date, CURDATE())                       AS \"Days Left:Int:75\",\n    ose.price                                                    AS \"FOB:Currency:70\",\n\n    /* ═══════════════════════════════════════════════\n       3. PRODUCTION FLOW\n       NOTE: bar width uses px (0-100px container)\n       so zero CSS percent signs exist anywhere\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"font-size:10px;line-height:1.8\">',\n\n        '<div style=\"display:flex;align-items:center;gap:6px;margin-bottom:3px\">',\n            '<span style=\"width:32px;color:#555;font-size:9px;font-weight:700\">KNIT</span>',\n            '<div style=\"flex:1;background:#e8e8e8;border-radius:3px;height:7px;overflow:hidden\">',\n                '<div style=\"width:', LEAST(ROUND(IFNULL(prod.total_knit, 0) / NULLIF(ose.order_qty, 0) * 100), 100), 'px;max-width:100px;height:7px;background:linear-gradient(90deg,#1d4ed8,#3b82f6);border-radius:3px\"></div>',\n            '</div>',\n            '<span style=\"width:40px;text-align:right;font-weight:700;color:#1d4ed8;font-size:10px;font-family:monospace\">', FORMAT(IFNULL(prod.total_knit, 0), 0), '</span>',\n        '</div>',\n\n        '<div style=\"display:flex;align-items:center;gap:6px;margin-bottom:3px\">',\n            '<span style=\"width:32px;color:#555;font-size:9px;font-weight:700\">LINK</span>',\n            '<div style=\"flex:1;background:#e8e8e8;border-radius:3px;height:7px;overflow:hidden\">',\n                '<div style=\"width:', LEAST(ROUND(IFNULL(prod.total_link, 0) / NULLIF(ose.order_qty, 0) * 100), 100), 'px;max-width:100px;height:7px;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:3px\"></div>',\n            '</div>',\n            '<span style=\"width:40px;text-align:right;font-weight:700;color:#7c3aed;font-size:10px;font-family:monospace\">', FORMAT(IFNULL(prod.total_link, 0), 0), '</span>',\n        '</div>',\n\n        '<div style=\"display:flex;align-items:center;gap:6px;margin-bottom:3px\">',\n            '<span style=\"width:32px;color:#555;font-size:9px;font-weight:700\">MEND</span>',\n            '<div style=\"flex:1;background:#e8e8e8;border-radius:3px;height:7px;overflow:hidden\">',\n                '<div style=\"width:', LEAST(ROUND(IFNULL(prod.total_mending, 0) / NULLIF(ose.order_qty, 0) * 100), 100), 'px;max-width:100px;height:7px;background:linear-gradient(90deg,#d97706,#fbbf24);border-radius:3px\"></div>',\n            '</div>',\n            '<span style=\"width:40px;text-align:right;font-weight:700;color:#d97706;font-size:10px;font-family:monospace\">', FORMAT(IFNULL(prod.total_mending, 0), 0), '</span>',\n        '</div>',\n\n        '<div style=\"display:flex;align-items:center;gap:6px;margin-bottom:3px\">',\n            '<span style=\"width:32px;color:#555;font-size:9px;font-weight:700\">WASH</span>',\n            '<div style=\"flex:1;background:#e8e8e8;border-radius:3px;height:7px;overflow:hidden\">',\n                '<div style=\"width:', LEAST(ROUND(IFNULL(prod.total_wash, 0) / NULLIF(ose.order_qty, 0) * 100), 100), 'px;max-width:100px;height:7px;background:linear-gradient(90deg,#0891b2,#22d3ee);border-radius:3px\"></div>',\n            '</div>',\n            '<span style=\"width:40px;text-align:right;font-weight:700;color:#0891b2;font-size:10px;font-family:monospace\">', FORMAT(IFNULL(prod.total_wash, 0), 0), '</span>',\n        '</div>',\n\n        '<div style=\"display:flex;align-items:center;gap:6px\">',\n            '<span style=\"width:32px;color:#555;font-size:9px;font-weight:700\">PACK</span>',\n            '<div style=\"flex:1;background:#e8e8e8;border-radius:3px;height:7px;overflow:hidden\">',\n                '<div style=\"width:', LEAST(ROUND(IFNULL(prod.total_poly, 0) / NULLIF(ose.order_qty, 0) * 100), 100), 'px;max-width:100px;height:7px;background:linear-gradient(90deg,#059669,#34d399);border-radius:3px\"></div>',\n            '</div>',\n            '<span style=\"width:40px;text-align:right;font-weight:700;color:#059669;font-size:10px;font-family:monospace\">', FORMAT(IFNULL(prod.total_poly, 0), 0), '</span>',\n        '</div>',\n\n        '</div>'\n    ) AS \"Production Flow:Html:230\",\n\n    /* ═══════════════════════════════════════════════\n       4. COMPLETION BADGE\n       NOTE: literal percent sign uses CHAR(37) — zero pct signs in this file\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"text-align:center;padding:2px\">',\n        '<div style=\"font-size:22px;font-weight:800;font-family:monospace;color:',\n            CASE\n                WHEN IFNULL(prod.total_poly, 0) >= ose.order_qty THEN '#059669'\n                WHEN ROUND(IFNULL(prod.total_poly, 0) / NULLIF(ose.order_qty, 0) * 100) >= 50 THEN '#d97706'\n                ELSE '#dc2626'\n            END,\n        ';line-height:1\">',\n            ROUND(LEAST(IFNULL(prod.total_poly, 0) / NULLIF(ose.order_qty, 0) * 100, 100)),\n            CHAR(37),\n        '</div>',\n        '<div style=\"font-size:8.5px;color:#94a3b8;font-weight:700;letter-spacing:0.8px;margin-top:2px\">PACKED</div>',\n        '</div>'\n    ) AS \"Complete:Html:65\",\n\n    /* ═══════════════════════════════════════════════\n       5. DAILY PRODUCTION ENTRIES\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"font-size:9.5px;max-height:120px;overflow-y:auto\">',\n        '<table style=\"width:100px;min-width:100px;border-collapse:collapse;table-layout:auto\">',\n        '<thead><tr style=\"background:#f1f5f9\">',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#64748b;font-weight:700;text-align:center\">DATE</th>',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#1d4ed8;font-weight:700;text-align:right\">KNT</th>',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#7c3aed;font-weight:700;text-align:right\">LNK</th>',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#d97706;font-weight:700;text-align:right\">MND</th>',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#0891b2;font-weight:700;text-align:right\">WSH</th>',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#059669;font-weight:700;text-align:right\">PCK</th>',\n            '<th style=\"padding:2px 4px;font-size:8px;color:#be185d;font-weight:700;text-align:right\">SPD</th>',\n        '</tr></thead>',\n        '<tbody>',\n        IFNULL(\n            daily.entry_rows,\n            '<tr><td colspan=\"7\" style=\"text-align:center;color:#94a3b8;padding:6px;font-size:9px\">No entries yet</td></tr>'\n        ),\n        '</tbody>',\n        '</table>',\n        '</div>'\n    ) AS \"Daily Entries:Html:400\",\n\n    /* ═══════════════════════════════════════════════\n       6. MACHINE INTELLIGENCE\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"font-size:10px;line-height:2\">',\n            '<div><b style=\"color:#374151\">Factory:</b> <span style=\"color:#1d4ed8;font-weight:600\">', IFNULL(ose.production_factory, '&mdash;'), '</span></div>',\n            '<div><b style=\"color:#374151\">M/C Type:</b> ', IFNULL(ose.machine_type, '&mdash;'), '</div>',\n            '<div><b style=\"color:#374151\">M/C Req:</b> <span style=\"background:#fef3c7;padding:0 5px;border-radius:3px;font-weight:700\">', IFNULL(ose.machine_required, '&mdash;'), ' units</span></div>',\n            '<div><b style=\"color:#374151\">Avg Speed:</b> <span style=\"color:#7c3aed;font-weight:700\">', IFNULL(ROUND(daily.avg_speed, 0), '&mdash;'), ' RPM</span></div>',\n        '</div>'\n    ) AS \"Machine Info:Html:150\",\n\n    /* ═══════════════════════════════════════════════\n       7. YARN STATUS\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"text-align:center;padding:4px\">',\n        '<div style=\"display:inline-block;padding:3px 10px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:0.5px;',\n            CASE\n                WHEN yrn.ready_lines = yrn.total_lines AND yrn.total_lines > 0\n                    THEN 'background:#d1fae5;color:#065f46;border:1px solid #6ee7b7'\n                WHEN yrn.ready_lines > 0\n                    THEN 'background:#fef3c7;color:#92400e;border:1px solid #fcd34d'\n                ELSE\n                    'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5'\n            END,\n        '\">',\n            CASE\n                WHEN yrn.ready_lines = yrn.total_lines AND yrn.total_lines > 0 THEN '&#10003; READY'\n                WHEN yrn.ready_lines > 0                                         THEN '&#9889; PARTIAL'\n                ELSE                                                                   '&#9203; WAITING'\n            END,\n        '</div>',\n        '<div style=\"font-size:9px;color:#888;margin-top:3px\">',\n            IFNULL(yrn.ready_lines, 0), '/', IFNULL(yrn.total_lines, 0),\n            ' lines &nbsp;|&nbsp; Req: ', ROUND(IFNULL(ose.total_required_yarn, 0), 2), ' kg',\n        '</div>',\n        '</div>'\n    ) AS \"Yarn:Html:125\",\n\n    /* ═══════════════════════════════════════════════\n       8. ADMIN BLOCK\n    ═══════════════════════════════════════════════ */\n    CONCAT(\n        '<div style=\"font-size:9.5px;line-height:2\">',\n            '<div><b>Status:</b> <span style=\"font-weight:600;color:#1d4ed8\">', IFNULL(ose.production_status, '&mdash;'), '</span></div>',\n            '<div><b>L/C:</b> ', IFNULL(ose.lc_number, '&mdash;'), '</div>',\n            '<div><b>SDO:</b> ', IFNULL(ose.sdo_number, '&mdash;'), '</div>',\n        '</div>'\n    ) AS \"Admin:Html:120\",\n\n    ose.remarks AS \"Remarks:Data:150\"\n\nFROM `tabOrder Sheet Entry` ose\n\n/* ── JOIN 1: AGGREGATE PRODUCTION TOTALS ── */\nLEFT JOIN (\n    SELECT\n        parent,\n        SUM(knit)    AS total_knit,\n        SUM(link)    AS total_link,\n        SUM(mending) AS total_mending,\n        SUM(wash)    AS total_wash,\n        SUM(poly)    AS total_poly\n    FROM `tabOrder Sheet Production`\n    GROUP BY parent\n) AS prod ON prod.parent = ose.name\n\n/* ── JOIN 2: YARN READINESS ── */\nLEFT JOIN (\n    SELECT\n        parent,\n        COUNT(*) AS total_lines,\n        SUM(CASE WHEN do_number IS NOT NULL AND do_number != '' THEN 1 ELSE 0 END) AS ready_lines\n    FROM `tabOrder Sheet Yarn Detail`\n    GROUP BY parent\n) AS yrn ON yrn.parent = ose.name\n\n/* ── JOIN 3: DAILY ENTRIES HTML + AVG SPEED ── */\nLEFT JOIN (\n    SELECT\n        parent,\n        AVG(machine_speed) AS avg_speed,\n        GROUP_CONCAT(\n            CONCAT(\n                '<tr style=\"border-bottom:1px solid #f1f5f9\">',\n                    '<td style=\"padding:2px 4px;text-align:center;white-space:nowrap;color:#374151\">',\n                        LPAD(DAY(`date`), 2, '0'), ' ', ELT(MONTH(`date`), 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'),\n                    '</td>',\n                    '<td style=\"padding:2px 4px;text-align:right;color:#1d4ed8;font-weight:700\">', IFNULL(FORMAT(knit,    0), '&mdash;'), '</td>',\n                    '<td style=\"padding:2px 4px;text-align:right;color:#7c3aed;font-weight:700\">', IFNULL(FORMAT(link,    0), '&mdash;'), '</td>',\n                    '<td style=\"padding:2px 4px;text-align:right;color:#d97706;font-weight:700\">', IFNULL(FORMAT(mending, 0), '&mdash;'), '</td>',\n                    '<td style=\"padding:2px 4px;text-align:right;color:#0891b2;font-weight:700\">', IFNULL(FORMAT(wash,    0), '&mdash;'), '</td>',\n                    '<td style=\"padding:2px 4px;text-align:right;color:#059669;font-weight:700\">', IFNULL(FORMAT(poly,    0), '&mdash;'), '</td>',\n                    '<td style=\"padding:2px 4px;text-align:right;color:#be185d;font-weight:700\">', IFNULL(machine_speed,      '&mdash;'), '</td>',\n                '</tr>',\n                IF(\n                    remarks IS NOT NULL AND remarks != '',\n                    CONCAT(\n                        '<tr><td colspan=\"7\" style=\"padding:1px 8px 3px;font-size:8px;color:#94a3b8;font-style:italic\">&#8627; ',\n                        remarks,\n                        '</td></tr>'\n                    ),\n                    ''\n                )\n            )\n            ORDER BY `date` ASC\n            SEPARATOR ''\n        ) AS entry_rows\n    FROM `tabOrder Sheet Production`\n    GROUP BY parent\n) AS daily ON daily.parent = ose.name\n\nWHERE\n    ose.docstatus < 2\n\nORDER BY\n    ose.shipment_date ASC",
+  "ref_doctype": "Order Sheet Entry",
+  "reference_report": null,
+  "report_name": "ORDER SHEET PREMIUM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "ORDER SHEET PREMIUM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "ORDER SHEET PREMIUM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
+   },
+   {
+    "parent": "ORDER SHEET PREMIUM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "ORDER SHEET PREMIUM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-03-06 23:58:22.114053",
+  "module": "Sweater Merchandising",
+  "name": "ORDER SHEET PREMIUM - ONE",
+  "prepared_report": 0,
+  "query": "SELECT\n    /* Image Thumbnail */\n    CONCAT('<img src=\"', ose.style_image, '\" style=\"height: 40px; width: 40px; object-fit: contain;\">') AS \"Image:Html:60\",\n    \n    /* Header Info */\n    ose.name AS \"Order ID:Link/Order Sheet Entry:120\",\n    ose.buyer AS \"Buyer:Link/Customer:100\",\n    ose.style_name AS \"Style:Data:120\",\n    ose.season AS \"Season:Data:80\",\n    ose.gauge AS \"GG:Data:40\",\n\n    /* Order Quantities */\n    SUM(ose.order_qty) AS \"Target Qty:Int:100\",\n\n    /* Aggregated Production Data (Quantities) */\n    IFNULL(SUM(op.knit), 0)      AS \"Knitted:Int:80\",\n    IFNULL(SUM(op.link), 0)      AS \"Link:Int:80\",\n    IFNULL(SUM(op.mending), 0)   AS \"Mending:Int:90\",\n    IFNULL(SUM(op.poly), 0)      AS \"Packed:Int:80\",\n    IFNULL(SUM(op.wash), 0)      AS \"Wash:Int:80\",\n\n    /* Balance to Pack */\n    (SUM(ose.order_qty) - IFNULL(SUM(op.poly), 0)) AS \"Balance:Int:100\",\n\n    /* Overall Packed % */\n    ROUND((IFNULL(SUM(op.poly), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Done %%:Percent:80\",\n\n    /* Stage % (against Target) */\n    ROUND((IFNULL(SUM(op.knit), 0)     / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Knit %%:Percent:80\",\n    ROUND((IFNULL(SUM(op.link), 0)     / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Link %%:Percent:80\",\n    ROUND((IFNULL(SUM(op.mending), 0)  / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Mending %%:Percent:90\",\n    ROUND((IFNULL(SUM(op.poly), 0)     / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Poly %%:Percent:80\",\n    ROUND((IFNULL(SUM(op.wash), 0)     / NULLIF(SUM(ose.order_qty), 0)) * 100, 2) AS \"Wash %%:Percent:80\",\n\n    /* Timeline % (Start → T-Ship). If dates missing/invalid, treat as 100%. */\n    ROUND(\n        CASE \n            WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                 OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n            THEN 100\n            ELSE LEAST(100, GREATEST(0, \n                (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                 / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100))\n        END\n    , 2) AS \"Timeline %%:Percent:90\",\n\n    /* RAG for each stage (HTML pill comparing Stage % vs Timeline %) */\n    /* Knit RAG */\n    CONCAT(\n        '<span title=\"Knit vs Timeline\" ',\n        'style=\"padding:2px 8px;border-radius:12px;color:#fff;background-color:',\n        CASE \n            WHEN ( (IFNULL(SUM(op.knit), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 + 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) + 5\n                     END\n                 )\n            THEN '#2e7d32' /* green */\n            WHEN ( (IFNULL(SUM(op.knit), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 - 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) - 5\n                     END\n                 )\n            THEN '#f9a825' /* yellow */\n            ELSE '#c62828' /* red */\n        END,\n        ';\">Knit</span>'\n    ) AS \"Knit RAG:Html:80\",\n\n    /* Link RAG */\n    CONCAT(\n        '<span title=\"Link vs Timeline\" ',\n        'style=\"padding:2px 8px;border-radius:12px;color:#fff;background-color:',\n        CASE \n            WHEN ( (IFNULL(SUM(op.link), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 + 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) + 5\n                     END\n                 )\n            THEN '#2e7d32'\n            WHEN ( (IFNULL(SUM(op.link), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 - 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) - 5\n                     END\n                 )\n            THEN '#f9a825'\n            ELSE '#c62828'\n        END,\n        ';\">Link</span>'\n    ) AS \"Link RAG:Html:80\",\n\n    /* Mending RAG */\n    CONCAT(\n        '<span title=\"Mending vs Timeline\" ',\n        'style=\"padding:2px 8px;border-radius:12px;color:#fff;background-color:',\n        CASE \n            WHEN ( (IFNULL(SUM(op.mending), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 + 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) + 5\n                     END\n                 )\n            THEN '#2e7d32'\n            WHEN ( (IFNULL(SUM(op.mending), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 - 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) - 5\n                     END\n                 )\n            THEN '#f9a825'\n            ELSE '#c62828'\n        END,\n        ';\">Mending</span>'\n    ) AS \"Mending RAG:Html:95\",\n\n    /* Poly RAG */\n    CONCAT(\n        '<span title=\"Poly vs Timeline\" ',\n        'style=\"padding:2px 8px;border-radius:12px;color:#fff;background-color:',\n        CASE \n            WHEN ( (IFNULL(SUM(op.poly), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 + 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) + 5\n                     END\n                 )\n            THEN '#2e7d32'\n            WHEN ( (IFNULL(SUM(op.poly), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 - 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) - 5\n                     END\n                 )\n            THEN '#f9a825'\n            ELSE '#c62828'\n        END,\n        ';\">Poly</span>'\n    ) AS \"Poly RAG:Html:85\",\n\n    /* Wash RAG */\n    CONCAT(\n        '<span title=\"Wash vs Timeline\" ',\n        'style=\"padding:2px 8px;border-radius:12px;color:#fff;background-color:',\n        CASE \n            WHEN ( (IFNULL(SUM(op.wash), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 + 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) + 5\n                     END\n                 )\n            THEN '#2e7d32'\n            WHEN ( (IFNULL(SUM(op.wash), 0) / NULLIF(SUM(ose.order_qty), 0)) * 100 ) \n                 >= (\n                     CASE \n                         WHEN MAX(ose.production_start_date) IS NULL OR MAX(ose.shipment_date) IS NULL \n                              OR DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)) <= 0\n                         THEN 100 - 5\n                         ELSE LEAST(100, GREATEST(0, \n                             (DATEDIFF(CURDATE(), MAX(ose.production_start_date)) \n                              / NULLIF(DATEDIFF(MAX(ose.shipment_date), MAX(ose.production_start_date)), 0)) * 100)) - 5\n                     END\n                 )\n            THEN '#f9a825'\n            ELSE '#c62828'\n        END,\n        ';\">Wash</span>'\n    ) AS \"Wash RAG:Html:85\",\n\n    /* Dates (note the double % in format strings) */\n    DATE_FORMAT(MAX(ose.production_start_date), '%%d-%%m-%%y') AS \"Start:Date:90\",\n    DATE_FORMAT(MAX(ose.shipment_date), '%%d-%%m-%%y') AS \"T-Ship:Date:90\",\n\n    /* Yarn Status */\n    MAX(CASE \n        WHEN yarn_agg.total_lines IS NULL THEN 'No Yarn'\n        WHEN yarn_agg.ready_lines = yarn_agg.total_lines THEN 'Fully In-House'\n        ELSE 'Partial/Waiting'\n    END) AS \"Yarn Status:Data:120\",\n\n    /* Production Entry (count + link) */\n    COUNT(DISTINCT op.name) AS \"Prod Entries:Int:90\",\n    CONCAT(\n        '/app/order-sheet-production?view=List&filters=',\n        '%%5B',\n            '%%5B',\n                '%%22Order%%20Sheet%%20Production%%22',\n                '%%2C',\n                '%%22parent%%22',\n                '%%2C',\n                '%%22%%3D%%22',\n                '%%2C',\n                '%%22', ose.name, '%%22',\n            '%%5D',\n        '%%5D'\n    ) AS \"Production Entry:Html:180\",\n\n    /* Overall Status */\n    ose.production_status AS \"Overall Status:Data:100\"\n\nFROM \n    `tabOrder Sheet Entry` ose\n\nLEFT JOIN \n    `tabOrder Sheet Production` op ON op.parent = ose.name\n\nLEFT JOIN (\n    SELECT \n        parent, \n        COUNT(*) as total_lines,\n        SUM(CASE WHEN do_number IS NOT NULL AND do_number != '' THEN 1 ELSE 0 END) as ready_lines\n    FROM `tabOrder Sheet Yarn Detail`\n    GROUP BY parent\n) AS yarn_agg ON yarn_agg.parent = ose.name\n\nWHERE \n    ose.docstatus < 2\n\nGROUP BY \n    ose.name, ose.buyer, ose.style_name, ose.season, ose.gauge, ose.production_status\n\nORDER BY \n    ose.shipment_date ASC;",
+  "ref_doctype": "Order Sheet Entry",
+  "reference_report": null,
+  "report_name": "ORDER SHEET PREMIUM - ONE",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "ORDER SHEET PREMIUM - ONE",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "ORDER SHEET PREMIUM - ONE",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
+   },
+   {
+    "parent": "ORDER SHEET PREMIUM - ONE",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "ORDER SHEET PREMIUM - ONE",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 1,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [
+   {
+    "default": "",
+    "fieldname": "start_date",
+    "fieldtype": "Date",
+    "label": "Start Date",
+    "mandatory": 0,
+    "options": "Now",
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   },
+   {
+    "default": "",
+    "fieldname": "end_date",
+    "fieldtype": "Date",
+    "label": "End Date",
+    "mandatory": 0,
+    "options": "Now",
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "filters",
+    "parenttype": "Report",
+    "wildcard_filter": 0
+   }
+  ],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-05-15 12:21:22.902491",
+  "module": "Sample",
+  "name": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+  "prepared_report": 0,
+  "query": "SELECT\n    COALESCE(dsr.buyer, '') AS \"Buyer:Link/Customer:150\",\n    COALESCE(dsr.season_collection, '') AS \"Season:Data:120\",\n\n    ss.daily_sample_request AS \"Sample Id:Link/Daily Sample Request:Data:150\",\n    ss.sample_name AS \"Sample Type:Data:120\",\n    ss.send_date AS \"Send Date:Date:120\",\n    ss.qty AS \"Qty:Int:100\",\n    ss.gatepass_no AS \"Gatepass:Data:120\",\n    ss.remarks AS \"Remarks:Small Text:200\",\n\n    CASE\n        WHEN dsr.name IS NULL THEN\n            CONCAT(\n                '<span style=\"color:red;font-weight:bold\">',\n                ss.parent,\n                ' (MISSING)'\n                '</span>'\n            )\n        ELSE\n            CONCAT(\n                '<a href=\"/app/daily-sample-request/',\n                ss.parent,\n                '\" target=\"_blank\">',\n                ss.parent,\n                '</a>'\n            )\n    END AS \"Parent ID:HTML:180\"\n\nFROM\n    `tabSample Status` ss\n\nLEFT JOIN\n    `tabDaily Sample Request` dsr\n    ON ss.parent = dsr.name\n\nWHERE\n    ss.send_date IS NOT NULL",
+  "ref_doctype": "Daily Sample Request",
+  "reference_report": null,
+  "report_name": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   },
+   {
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sample Technical Manager"
+   },
+   {
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sample Team Member"
+   },
+   {
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "MANAGEMENT REPORT (Aggregated) - DAILY SAMPLE REQUEST QTY",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-05-15 13:52:50.255502",
+  "module": "Sweater Merchandising",
+  "name": "Order Sheet Entry Recap",
+  "prepared_report": 0,
+  "query": "SELECT\n    UPPER(ose.buyer)      AS buyer,\n    UPPER(ose.style_name) AS style_name,\n    ose.name              AS order_id,\n    ose.order_qty,\n    ose.status            AS production_status,\n    ose.sample_status,\n    ose.shipment_date,\n    ose.order_receive_date,\n    ose.production_factory,\n    ose.gauge,\n    ose.construction,\n    ose.machine_type,\n    ose.has_multiple_po,\n    ose.remarks,\n\n    CASE\n        WHEN ose.style_image IS NOT NULL AND ose.style_image != ''\n        THEN CONCAT('<img src=\"', ose.style_image, '\" style=\"height:50px;width:50px;object-fit:cover;border-radius:5px;\">')\n        ELSE ''\n    END AS style_image_url,\n\n    CASE\n        WHEN ose.sample_request IS NOT NULL AND ose.sample_request != ''\n        THEN CONCAT('<a href=\"/app/daily-sample-request/', ose.sample_request, '\" target=\"_blank\" style=\"color:#185FA5;font-weight:500;\">',ose.sample_request,'</a>')\n        ELSE ''\n    END AS sample_request,\n\n    -- Trim quantities from child table (grouped by trim_name)\n    SUM(CASE WHEN td.trim_name = 'Button'                  THEN td.quantity ELSE 0 END) AS qty_button,\n    SUM(CASE WHEN td.trim_name = 'Elastic'                 THEN td.quantity ELSE 0 END) AS qty_elastic,\n    SUM(CASE WHEN td.trim_name = 'Button Poly'             THEN td.quantity ELSE 0 END) AS qty_button_poly,\n    SUM(CASE WHEN td.trim_name = 'Zipper'                  THEN td.quantity ELSE 0 END) AS qty_zipper,\n    SUM(CASE WHEN td.trim_name = 'Sewing Thread'           THEN td.quantity ELSE 0 END) AS qty_sewing_thread,\n    SUM(CASE WHEN td.trim_name = 'Main Label'              THEN td.quantity ELSE 0 END) AS qty_main_label,\n    SUM(CASE WHEN td.trim_name = 'Main Label With Size'    THEN td.quantity ELSE 0 END) AS qty_main_label_size,\n    SUM(CASE WHEN td.trim_name = 'Care Label With Barcode' THEN td.quantity ELSE 0 END) AS qty_cl_barcode,\n    SUM(CASE WHEN td.trim_name = 'Care Label Without Barcode' THEN td.quantity ELSE 0 END) AS qty_cl_no_barcode,\n    SUM(CASE WHEN td.trim_name = 'Price Tag'               THEN td.quantity ELSE 0 END) AS qty_price_tag,\n    SUM(CASE WHEN td.trim_name = 'Price Tag Sticker'       THEN td.quantity ELSE 0 END) AS qty_price_tag_sticker,\n    SUM(CASE WHEN td.trim_name = 'Hand Tag'                THEN td.quantity ELSE 0 END) AS qty_hand_tag,\n    SUM(CASE WHEN td.trim_name = 'Hang Tag String'         THEN td.quantity ELSE 0 END) AS qty_hang_tag_string,\n    SUM(CASE WHEN td.trim_name = 'Additional Tag'          THEN td.quantity ELSE 0 END) AS qty_additional_tag,\n    SUM(CASE WHEN td.trim_name = 'East Tag'                THEN td.quantity ELSE 0 END) AS qty_east_tag,\n    SUM(CASE WHEN td.trim_name = 'West Tag'                THEN td.quantity ELSE 0 END) AS qty_west_tag,\n    SUM(CASE WHEN td.trim_name = 'Poly'                    THEN td.quantity ELSE 0 END) AS qty_poly,\n    SUM(CASE WHEN td.trim_name = 'Blister'                 THEN td.quantity ELSE 0 END) AS qty_blister,\n    SUM(CASE WHEN td.trim_name = 'Cartoon'                 THEN td.quantity ELSE 0 END) AS qty_cartoon,\n    SUM(CASE WHEN td.trim_name = 'Cartoon Sticker'         THEN td.quantity ELSE 0 END) AS qty_cartoon_sticker,\n    SUM(CASE WHEN td.trim_name = 'Gum Tape'                THEN td.quantity ELSE 0 END) AS qty_gum_tape,\n    SUM(CASE WHEN td.trim_name = 'Gum Tape Red'            THEN td.quantity ELSE 0 END) AS qty_gum_tape_red,\n    SUM(CASE WHEN td.trim_name = 'Gum Tape Green'          THEN td.quantity ELSE 0 END) AS qty_gum_tape_green,\n\n    -- Trim status (booked/pending) from status field\n    MAX(CASE WHEN td.trim_name = 'Button'       THEN td.status END) AS status_button,\n    MAX(CASE WHEN td.trim_name = 'Zipper'       THEN td.status END) AS status_zipper,\n    MAX(CASE WHEN td.trim_name = 'Main Label'   THEN td.status END) AS status_main_label,\n    MAX(CASE WHEN td.trim_name = 'Sewing Thread' THEN td.status END) AS status_sewing_thread,\n    MAX(CASE WHEN td.trim_name = 'Poly'         THEN td.status END) AS status_poly,\n    MAX(CASE WHEN td.trim_name = 'Cartoon'      THEN td.status END) AS status_cartoon,\n\n    -- Embroidery\n    ose.embroidery_factory,\n    ose.embroidery_remarks,\n    ose.embroidery_send_date,\n\n    -- PO summary\n    COUNT(DISTINCT po.name)                                              AS po_count,\n    GROUP_CONCAT(DISTINCT po.colour ORDER BY po.colour SEPARATOR ', ')   AS po_colours,\n    SUM(po.quantity)                                                      AS po_total_qty,\n    MIN(po.shipment_date)                                                AS earliest_shipment,\n    MAX(po.shipment_date)                                                AS latest_shipment\n\nFROM `tabOrder Sheet Entry` ose\n\nLEFT JOIN `tabOrder Sheet Trim Detail` td\n    ON td.parent = ose.name AND td.parenttype = 'Order Sheet Entry'\n\nLEFT JOIN `tabOrder Sheet PO Details` po\n    ON po.parent = ose.name AND po.parenttype = 'Order Sheet Entry'\n\nWHERE\n    ose.docstatus < 2\n    -- AND ose.buyer = 'ZARA HOME'\n    -- AND ose.status = 'PRODUCTION RUNNING'\n    -- AND ose.shipment_date BETWEEN '2025-01-01' AND '2025-12-31'\n\nGROUP BY\n    ose.name\n\nORDER BY\n    ose.buyer ASC,\n    ose.shipment_date ASC",
+  "ref_doctype": "Order Sheet Entry",
+  "reference_report": null,
+  "report_name": "Order Sheet Entry Recap",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Order Sheet Entry Recap",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Order Sheet Entry Recap",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
+   },
+   {
+    "parent": "Order Sheet Entry Recap",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "Order Sheet Entry Recap",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-07-15 00:33:00.279011",
+  "module": "Sweater Merchandising",
+  "name": "Daily follow up short",
+  "prepared_report": 0,
+  "query": "SELECT\n    mf.name AS \"Follow Up:Link/Merchandising Daily Follow-up:180\",\n    mf.follow_up_date AS \"Date:Date:90\",\n    mf.buyer AS \"Buyer:Data:120\",\n    mf.style AS \"Style:Data:150\",\n    mf.order_sheet AS \"Order Sheet:Link/Order Sheet Entry:180\",\n    mf.current_state AS \"Current Stage:Data:120\",\n    mf.overall_priority AS \"Priority:Data:90\",\n    mf.overall_risk AS \"Overall Risk:Data:120\",\n\n    COUNT(pa.name) AS \"Total Activities:Int:70\",\n\n    SUM(CASE\n        WHEN LOWER(IFNULL(pa.status,''))='open' THEN 1\n        ELSE 0\n    END) AS \"Open:Int:60\",\n\n    SUM(CASE\n        WHEN LOWER(IFNULL(pa.status,''))='closed' THEN 1\n        ELSE 0\n    END) AS \"Closed:Int:60\",\n\n    SUM(CASE\n        WHEN pa.deadline < CURDATE()\n         AND LOWER(IFNULL(pa.status,'')) <> 'closed'\n        THEN 1\n        ELSE 0\n    END) AS \"Overdue:Int:70\",\n\n    SUM(CASE\n        WHEN UPPER(IFNULL(pa.risk,''))='HIGH'\n         AND LOWER(IFNULL(pa.status,'')) <> 'closed'\n        THEN 1\n        ELSE 0\n    END) AS \"High Risk:Int:70\",\n\n    MIN(CASE\n        WHEN LOWER(IFNULL(pa.status,'')) <> 'closed'\n        THEN pa.deadline\n    END) AS \"Next Deadline:Date:100\",\n\n    GROUP_CONCAT(\n        CASE\n            WHEN LOWER(IFNULL(pa.status,'')) <> 'closed'\n            THEN CONCAT(\n                IFNULL(pa.activity,''),\n                ' → ',\n                IFNULL(pa.next_action,'')\n            )\n        END\n        ORDER BY pa.deadline\n        SEPARATOR '\\n'\n    ) AS \"Pending Summary:Long Text:700\",\n\n    CASE\n        WHEN SUM(CASE\n            WHEN pa.deadline < CURDATE()\n             AND LOWER(IFNULL(pa.status,'')) <> 'closed'\n            THEN 1 ELSE 0 END) > 0\n            THEN '🔴 OVERDUE'\n\n        WHEN SUM(CASE\n            WHEN UPPER(IFNULL(pa.risk,''))='HIGH'\n             AND LOWER(IFNULL(pa.status,'')) <> 'closed'\n            THEN 1 ELSE 0 END) > 0\n            THEN '🟠 HIGH RISK'\n\n        WHEN SUM(CASE\n            WHEN LOWER(IFNULL(pa.status,''))='open'\n            THEN 1 ELSE 0 END) > 0\n            THEN '🟡 FOLLOW UP'\n\n        ELSE '🟢 COMPLETED'\n    END AS \"Status:Data:120\"\n\nFROM `tabMerchandising Daily Follow-up` mf\n\nLEFT JOIN `tabPending Activities` pa\n    ON pa.parent = mf.name\n\nGROUP BY\n    mf.name,\n    mf.follow_up_date,\n    mf.buyer,\n    mf.style,\n    mf.order_sheet,\n    mf.current_state,\n    mf.overall_priority,\n    mf.overall_risk\n\nORDER BY\n    SUM(CASE\n        WHEN pa.deadline < CURDATE()\n         AND LOWER(IFNULL(pa.status,'')) <> 'closed'\n        THEN 1 ELSE 0 END) DESC,\n\n    SUM(CASE\n        WHEN UPPER(IFNULL(pa.risk,''))='HIGH'\n         AND LOWER(IFNULL(pa.status,'')) <> 'closed'\n        THEN 1 ELSE 0 END) DESC,\n\n    MIN(CASE\n        WHEN LOWER(IFNULL(pa.status,'')) <> 'closed'\n        THEN pa.deadline\n    END),\n\n    mf.buyer,\n    mf.style;",
+  "ref_doctype": "Merchandising Daily Follow-up",
+  "reference_report": null,
+  "report_name": "Daily follow up short",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Daily follow up short",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Daily follow up short",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-07-15 09:29:05.996979",
+  "module": "Sweater Merchandising",
+  "name": "Daily follow up short 2",
+  "prepared_report": 0,
+  "query": "SELECT\r\n    mf.name AS \"Follow Up\",\r\n    mf.follow_up_date AS \"Date\",\r\n    mf.buyer AS \"Buyer\",\r\n    mf.style AS \"Style\",\r\n    mf.current_state AS \"Current Stage\",\r\n\r\n    mf.overall_priority AS \"Order Priority\",\r\n    mf.overall_risk AS \"Overall Risk\",\r\n\r\n    SUM(\r\n        CASE\r\n            WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN 1\r\n            ELSE 0\r\n        END\r\n    ) AS \"Pending\",\r\n\r\n    SUM(\r\n        CASE\r\n            WHEN pa.deadline < CURDATE()\r\n            AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN 1\r\n            ELSE 0\r\n        END\r\n    ) AS \"Overdue\",\r\n\r\n    SUM(\r\n        CASE\r\n            WHEN DATE(pa.deadline) = CURDATE()\r\n            AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN 1\r\n            ELSE 0\r\n        END\r\n    ) AS \"Due Today\",\r\n\r\n    SUM(\r\n        CASE\r\n            WHEN UPPER(IFNULL(pa.risk,'')) = 'HIGH'\r\n            AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN 1\r\n            ELSE 0\r\n        END\r\n    ) AS \"High Risk\",\r\n\r\n    MIN(\r\n        CASE\r\n            WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN pa.deadline\r\n        END\r\n    ) AS \"Nearest Deadline\",\r\n\r\n    DATEDIFF(\r\n        MIN(\r\n            CASE\r\n                WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN pa.deadline\r\n            END\r\n        ),\r\n        CURDATE()\r\n    ) AS \"Days Left\",\r\n\r\n    SUBSTRING_INDEX(\r\n        GROUP_CONCAT(\r\n            CASE\r\n                WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN pa.activity\r\n            END\r\n            ORDER BY pa.deadline ASC\r\n            SEPARATOR '||'\r\n        ),\r\n        '||',\r\n        1\r\n    ) AS \"Next Activity\",\r\n\r\n    SUBSTRING_INDEX(\r\n        GROUP_CONCAT(\r\n            CASE\r\n                WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN IFNULL(pa.next_action,'')\r\n            END\r\n            ORDER BY pa.deadline ASC\r\n            SEPARATOR '||'\r\n        ),\r\n        '||',\r\n        1\r\n    ) AS \"Next Action\",\r\n\r\n    GROUP_CONCAT(\r\n        CASE\r\n            WHEN DATE(pa.deadline) = CURDATE()\r\n            AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN CONCAT(\r\n                pa.activity,\r\n                ' -> ',\r\n                IFNULL(pa.next_action,'')\r\n            )\r\n        END\r\n        SEPARATOR ' | '\r\n    ) AS \"Today's Tasks\",\r\n\r\n    GROUP_CONCAT(\r\n        CASE\r\n            WHEN pa.deadline <= DATE_ADD(CURDATE(), INTERVAL 3 DAY)\r\n            AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN CONCAT(\r\n                DATE(pa.deadline),\r\n                ' - ',\r\n                pa.activity\r\n            )\r\n        END\r\n        SEPARATOR ' | '\r\n    ) AS \"Critical Tasks\",\r\n\r\n    DATEDIFF(\r\n        CURDATE(),\r\n        DATE(mf.modified)\r\n    ) AS \"Days Since Update\",\r\n\r\n    CASE\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN pa.deadline < CURDATE()\r\n                AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) > 0\r\n        THEN 'P1-OVERDUE'\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN UPPER(IFNULL(pa.risk,''))='HIGH'\r\n                AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) > 0\r\n        THEN 'P2-HIGH RISK'\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN DATE(pa.deadline)=CURDATE()\r\n                AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) > 0\r\n        THEN 'P3-DUE TODAY'\r\n\r\n        WHEN MIN(\r\n            CASE\r\n                WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN pa.deadline\r\n            END\r\n        ) <= DATE_ADD(CURDATE(), INTERVAL 3 DAY)\r\n        THEN 'P4-URGENT'\r\n\r\n        ELSE 'P5-NORMAL'\r\n\r\n    END AS \"Priority Level\",\r\n\r\n    CASE\r\n\r\n        WHEN MIN(\r\n            CASE\r\n                WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN pa.deadline\r\n            END\r\n        ) IS NULL\r\n        THEN 'COMPLETED'\r\n\r\n        WHEN DATEDIFF(\r\n            MIN(\r\n                CASE\r\n                    WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                    THEN pa.deadline\r\n                END\r\n            ),\r\n            CURDATE()\r\n        ) < 0\r\n        THEN 'OVERDUE'\r\n\r\n        WHEN DATEDIFF(\r\n            MIN(\r\n                CASE\r\n                    WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                    THEN pa.deadline\r\n                END\r\n            ),\r\n            CURDATE()\r\n        ) <= 3\r\n        THEN 'URGENT'\r\n\r\n        WHEN DATEDIFF(\r\n            MIN(\r\n                CASE\r\n                    WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                    THEN pa.deadline\r\n                END\r\n            ),\r\n            CURDATE()\r\n        ) <= 7\r\n        THEN 'THIS WEEK'\r\n\r\n        ELSE 'ON TRACK'\r\n\r\n    END AS \"Status\"\r\n\r\nFROM `tabMerchandising Daily Follow-up` mf\r\n\r\nLEFT JOIN `tabPending Activities` pa\r\n    ON pa.parent = mf.name\r\n\r\nGROUP BY\r\n    mf.name\r\n\r\nORDER BY\r\n\r\n    CASE\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) = 0\r\n        THEN 99\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN pa.deadline < CURDATE()\r\n                AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) > 0\r\n        THEN 1\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN DATE(pa.deadline)=CURDATE()\r\n                AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) > 0\r\n        THEN 2\r\n\r\n        WHEN SUM(\r\n            CASE\r\n                WHEN UPPER(IFNULL(pa.risk,''))='HIGH'\r\n                AND LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n                THEN 1\r\n                ELSE 0\r\n            END\r\n        ) > 0\r\n        THEN 3\r\n\r\n        ELSE 4\r\n\r\n    END,\r\n\r\n    MIN(\r\n        CASE\r\n            WHEN LOWER(IFNULL(pa.status,'')) NOT IN ('closed','completed')\r\n            THEN pa.deadline\r\n        END\r\n    ) ASC,\r\n\r\n    mf.buyer ASC,\r\n    mf.style ASC;",
+  "ref_doctype": "Merchandising Daily Follow-up",
+  "reference_report": null,
+  "report_name": "Daily follow up short 2",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Daily follow up short 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Daily follow up short 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   }
+  ],
+  "timeout": 0
+ },
+ {
+  "add_total_row": 0,
+  "add_translate_data": 0,
+  "columns": [],
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "filters": [],
+  "is_standard": "No",
+  "javascript": null,
+  "json": null,
+  "letter_head": "MSFL",
+  "modified": "2026-07-24 01:32:45.348045",
+  "module": "Sample",
+  "name": "DAILY SAMPLE REQ+UEST 1",
+  "prepared_report": 0,
+  "query": "SELECT\n    dsr.name                                    AS \"Request No:Link/Daily Sample Request:180\",\n    dsr.style                                   AS \"Style:Data:120\",\n    dsr.buyer                                   AS \"Buyer:Link/Customer:150\",\n    dsr.merchandiser                            AS \"Merchandiser:Link/Employee:140\",\n    dsr.designer                                AS \"Designer:Link/Employee:140\",\n    dsr.season_collection                       AS \"Season:Data:120\",\n    dsr.sample_type                             AS \"Sample Type:Data:180\",\n    dsr.version                                 AS \"Version:Data:70\",\n    dsr.order_status                            AS \"Order Status:Data:120\",\n    dsr.production_status                       AS \"Sample Status:Data:180\",\n    dsr.over_all_status                         AS \"Overall Status:Data:180\",\n    dsr.urgency_priority                        AS \"Priority:Data:80\",\n    dsr.gauge                                   AS \"Gauge:Data:80\",\n    dsr.color                                   AS \"Color:Data:100\",\n    dsr.pp_sample_size                          AS \"Size:Data:100\",\n    dsr.gender_age_group                        AS \"Gender:Data:100\",\n    dsr.sample_weight                           AS \"Sample Wt:Float:90\",\n    dsr.average_weight                          AS \"Avg Wt:Float:90\",\n    dsr.knitting_time                           AS \"Knitting Time:Data:120\",\n    dsr.requested_time                          AS \"Requested On:Datetime:150\",\n    dsr.required_by                             AS \"Required By:Datetime:150\",\n\n    mr.idx                                      AS \"RM Row:Int:50\",\n    mr.item                                     AS \"Raw Material:Link/Item:220\"\n\nFROM `tabDaily Sample Request` dsr\n\nLEFT JOIN `tabMaterial Requirement` mr\n       ON mr.parent = dsr.name\n\nWHERE dsr.docstatus < 2\n\nORDER BY\n    dsr.required_by ASC,\n    dsr.style ASC,\n    mr.idx ASC;",
+  "ref_doctype": "Daily Sample Request",
+  "reference_report": null,
+  "report_name": "DAILY SAMPLE REQ+UEST 1",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "DAILY SAMPLE REQ+UEST 1",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Asst. Merchandiser"
+   },
+   {
+    "parent": "DAILY SAMPLE REQ+UEST 1",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sample Technical Manager"
+   },
+   {
+    "parent": "DAILY SAMPLE REQ+UEST 1",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Merchandiser"
+   },
+   {
+    "parent": "DAILY SAMPLE REQ+UEST 1",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sample Team Member"
+   },
+   {
+    "parent": "DAILY SAMPLE REQ+UEST 1",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "DAILY SAMPLE REQ+UEST 1",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "General Manager (Marketing & Merchandising)"
    }
   ],
   "timeout": 0

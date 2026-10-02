@@ -1,0 +1,115 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:{production_date}-DAILY PRODUCTION REPORT-{shift}-{#####}",
+ "creation": "2026-05-11 23:35:05.902481",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_bbgd",
+  "production_date",
+  "column_break_gknq",
+  "shift",
+  "column_break_daiz",
+  "production_line",
+  "section_break_bvsw",
+  "daily_production_details",
+  "remarks",
+  "section_break_itqh",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Daily Production Report",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "production_date",
+   "fieldtype": "Datetime",
+   "label": "Production Date"
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Select",
+   "label": "Shift",
+   "options": "DAY\nNIGHT"
+  },
+  {
+   "fieldname": "section_break_bbgd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "production_line",
+   "fieldtype": "Data",
+   "label": "Production Line"
+  },
+  {
+   "fieldname": "column_break_gknq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_daiz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_bvsw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "section_break_itqh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "daily_production_details",
+   "fieldtype": "Table",
+   "label": "Daily Production Details ",
+   "options": "Daily Production Details"
+  }
+ ],
+ "grid_page_length": 50,
+ "hide_toolbar": 1,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-07-15 01:24:10.228134",
+ "modified_by": "Administrator",
+ "module": "Sweater",
+ "name": "Daily Production Report",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

@@ -1,0 +1,185 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:MS0-{buyer}-{sales_contact_no}-{shipment_date}-{#####}",
+ "creation": "2026-03-17 06:24:17.953360",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uukk",
+  "sales_contact_no",
+  "sales_contact_value",
+  "column_break_uvve",
+  "yarn_pi_value",
+  "yarn_supplier",
+  "column_break_ajjf",
+  "accessories_pi_value",
+  "shipment_date",
+  "column_break_awpv",
+  "buyer",
+  "section_break_wbla",
+  "link_jllb",
+  "amended_from",
+  "attachments_section",
+  "table_rrks"
+ ],
+ "fields": [
+  {
+   "fieldname": "link_jllb",
+   "fieldtype": "Table",
+   "options": "Order Sheet Master Details"
+  },
+  {
+   "fieldname": "section_break_uukk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_uvve",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ajjf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_contact_value",
+   "fieldtype": "Float",
+   "label": "Sales Contact Value"
+  },
+  {
+   "fieldname": "yarn_pi_value",
+   "fieldtype": "Float",
+   "label": "Yarn P/I Value"
+  },
+  {
+   "fieldname": "column_break_awpv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_wbla",
+   "fieldtype": "Section Break",
+   "label": "Order Sheet Entry"
+  },
+  {
+   "fieldname": "accessories_pi_value",
+   "fieldtype": "Float",
+   "label": "Accessories P/I Value"
+  },
+  {
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Buyer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "yarn_supplier",
+   "fieldtype": "Link",
+   "label": "Yarn Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "sales_contact_no",
+   "fieldtype": "Data",
+   "label": "Sales Contact No. / Lc No"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Necessary Attachments"
+  },
+  {
+   "fieldname": "table_rrks",
+   "fieldtype": "Table",
+   "options": "Order Sheet Master Attach"
+  },
+  {
+   "fieldname": "shipment_date",
+   "fieldtype": "Date",
+   "in_filter": 1,
+   "label": "Shipment Date"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Order Sheet Master Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-03 01:30:43.133098",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Order Sheet Master Entry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "General Manager (Marketing & Merchandising)",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Asst. Merchandiser",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

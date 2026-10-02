@@ -2,9 +2,9 @@
  "actions": [],
  "allow_import": 1,
  "allow_rename": 1,
- "autoname": "format:{YY}-{MM}-{DD}-{buyer}-{style_no}-{#####}",
+ "autoname": "format:{buyer}-{style_name}-{color}-{YY}-{MM}-{DD}-{#####}",
  "creation": "2025-11-18 23:00:38.262228",
- "default_view": "List",
+ "default_view": "Image",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -12,67 +12,106 @@
   "sweater_details_tab",
   "section_basic",
   "buyer",
-  "style_no",
+  "style_name",
   "sample_status",
+  "shipment_date",
+  "ex_factory_date",
+  "days_remaining",
+  "company",
+  "has_multiple_po",
+  "po_number",
   "column_break_shqa",
   "brand",
   "knitting_time",
   "color",
+  "order_qty",
+  "knit_qty",
+  "shipped_qty",
   "column_break_iwjx",
   "season",
-  "gauge",
+  "linking_time",
   "construction",
+  "order_receive_date",
+  "approval_status",
+  "status",
   "column_break_osmd",
   "sample_request",
-  "order_qty",
+  "gauge",
+  "sample_weight",
+  "average_weight",
+  "contact_weight",
+  "machine_type",
+  "production_factory",
   "style_image",
+  "dummy_front_image",
+  "dummy_side_image",
+  "pre_production_comments",
   "section_break_iuqr",
   "order_sheet_po_details",
+  "total_po_qty",
+  "final_comments_section",
+  "available_comments",
   "section_qty",
   "qty_details",
-  "section_break_vdxo",
-  "column_break_kkjx",
-  "column_break_mshf",
-  "current_status",
-  "column_break_lzpz",
-  "approval_status",
   "section_status",
   "remarks",
+  "special_notes",
   "amended_from",
   "yarn_information_tab",
   "section_break_bnyk",
   "column_break_uhxh",
   "sdo_number",
+  "multiple_color",
   "column_break_uaml",
   "sso_number",
   "column_break_mbhe",
   "shade_no",
   "column_break_wduz",
+  "consumption_sheet",
   "sample_yarn_challan",
+  "column_break_degj",
   "yarn_inventory_report",
   "section_break_hnem",
-  "consumption_sheet",
-  "column_break_peby",
-  "sweater_quantity",
-  "column_break_yvlu",
   "total_yarn_value",
-  "column_break_leyw",
-  "multiple_color",
-  "column_break_ugsx",
+  "column_break_peby",
+  "size_set_weight",
+  "column_break_yvlu",
+  "sweater_quantity",
   "section_break_vrre",
   "yarn_details",
+  "section_break_ylbh",
   "total_required_yarn",
+  "column_break_bcgu",
+  "total_receive_yarn",
+  "column_break_kprk",
+  "total_balance_yarn",
+  "section_break_uluv",
+  "order_sheet_yarn_details",
   "section_break_lofs",
   "multiple_colour_ratio",
   "bookings_tab",
+  "pepco",
+  "column_break_ptjj",
+  "microtex",
+  "column_break_vamm",
+  "paayra",
+  "column_break_gqrh",
+  "srg",
+  "column_break_fjrj",
+  "america_today",
+  "column_break_vkvf",
+  "ms_mode",
   "trims_accessories_section",
   "button",
   "elastic",
   "button_poly",
   "zipper",
   "sewing_thread",
+  "hanger_loop",
+  "embroidery",
   "column_break_mmik",
   "main_label",
+  "size_label",
   "main_label_with_size",
   "cl_with_barcode",
   "care_label_without_barcode",
@@ -81,82 +120,179 @@
   "price_tag_sticker",
   "hand_tag",
   "hang_tag_string",
+  "east_tag",
+  "west_tag",
   "additional_tag",
+  "viscose_tag",
+  "viscose_sticker",
   "column_break_bhdu",
   "poly",
   "blister",
+  "blister_sticker",
   "cartoon",
   "cartoon_sticker",
+  "silika_gel",
+  "cartoon_top_bottom",
   "column_break_tmyg",
+  "tissue",
+  "tag_pin",
   "gum_tape",
   "gum_tape_red",
   "gum_tape_green",
-  "section_break_ppgc",
-  "elastic_details",
-  "total_elastic_required",
   "section_trim",
+  "button_booking_date",
+  "button_supplier",
+  "button_description",
   "trim_details",
   "total_button_required",
-  "button_poly_booking_section",
-  "button_poly_details",
-  "total_button_poly_required",
+  "section_break_egta",
+  "column_break_mrum",
+  "elastic_booking_date",
+  "elastic_description",
+  "elastic_supplier",
+  "elastic_details",
+  "total_elastic_required",
   "zipper_booking_section",
+  "zipper_booking_date",
+  "zipper_supplier",
+  "zipper_description",
   "zipper_booking",
   "total_zipper_required",
+  "button_poly_booking_section",
+  "button_poly_booking_date",
+  "button_poly_supplier",
+  "button_poly_description",
+  "button_poly_details",
+  "total_button_poly_required",
+  "column_break_cwyn",
   "sewing_thread_section",
+  "sewing_thread_booking_date",
+  "sewing_thread_supplier",
+  "sewing_thread_description",
   "sewing_thread_booking",
   "total_sewing_thred_required",
+  "embroidery_section",
+  "rate",
+  "column_break_gugj",
+  "embroidery_remarks",
+  "column_break_rymr",
+  "embroidery_factory",
+  "column_break_hckv",
+  "embroidery_send_date",
+  "section_break_fsfu",
+  "hanger_loop_booking_date",
+  "hanger_loop_description",
+  "hanger_loop_supplier",
+  "hanger_loop_booking",
+  "total_hanger_loop_required",
   "main_label_booking",
+  "main_label_booking_date",
+  "main_label_supplier",
+  "main_label_description",
   "main_label_details",
   "total_main_label_required",
   "section_break_dodq",
+  "main_label_with_size_booking_date",
+  "main_with_size_label_supplier",
+  "main_with_size_label_description",
   "main_label_with_size_details",
   "total_main_label_with_size_required",
   "care_label_with_barcode_section",
+  "care_label_with_barcode_booking_date",
+  "care_label_with_barcode_supplier",
+  "main_with_size_care_label_description",
   "care_label_with_barcode",
   "total_care_label_with_barcode_required",
   "section_break_iido",
+  "care_label_wo_barcode_booking_date",
+  "care_label_wo_barcode_supplier",
+  "care_label_wo_barcode_description",
   "care_label_wo_barcode",
   "total_care_label_wo_barcode_required",
-  "price_tag_booking",
-  "price_tag_quantity",
-  "price_tag_sticker_booking_section",
-  "price_tag_sticker_quantity",
   "hand_tag_booking_section",
+  "hand_tag_booking_date",
+  "hand_tag_supplier",
+  "hand_tag_description",
   "hand_tag_details",
   "hand_tag_string_booking_section",
+  "hand_tag_string_booking_date",
+  "hand_tag_string_supplier",
+  "hand_tag_string_description",
   "hand_tag_string_details",
   "total_hand_tag_string_required",
+  "tag_pin_booking_section",
+  "tag_pin_booking_date",
+  "tag_pin_supplier",
+  "tag_pin_description",
+  "tag_pin_booking",
+  "total_tag_pin_required",
+  "price_tag_booking",
+  "price_tag_booking_date",
+  "price_tag_supplier",
+  "price_tag_supplier_details",
+  "price_tag_details",
+  "total_price_tag_required",
+  "price_tag_sticker_booking_section",
+  "price_tag_sticker_booking_date",
+  "price_tag_sticker_supplier",
+  "price_tag_sticker_details",
+  "price_tag_sticker_quantity",
+  "total_price_tag_sticker_required",
   "additional_tag_booking_section",
+  "additional_tag_booking_date",
+  "additional_tag_supplier",
+  "additional_tag_description",
   "additional_tag_details",
   "total_additional_tag_required",
   "poly_booking_section",
+  "poly_booking_date",
+  "poly_supplier",
+  "poly_description",
   "poly_details",
+  "total_poly_required",
+  "viscose_tag_booking_section",
+  "viscose_tag_details",
+  "viscose_sticker_booking_section",
+  "table_kxfh",
   "blister_booking_section",
+  "blister_booking_date",
+  "blister_supplier",
+  "blister_description",
   "blister_details",
   "cartoon_booking_section",
+  "cartoon_booking_date",
   "cartoon_details",
   "cartoon_sticker_booking_section",
+  "cartoon_sticker_booking_date",
+  "cartoon_sticker_supplier",
+  "cartoon_sticker_description",
   "cartoon_sticker_details",
   "total_cartoon_sticker_required",
   "gum_tape_booking_section",
   "gum_tape_details",
+  "tissue_booking_section",
+  "tissue_booking_date",
+  "tissue_description",
+  "tissue_booking",
   "planning_or_strategy_tab",
   "section_planning",
   "production_start_date",
+  "machine_required",
   "column_break_rnkr",
   "production_end_date",
   "column_break_onun",
   "capacity_required",
   "column_break_czzw",
   "production_status",
+  "sample_status_section",
+  "table_gkmo",
   "order_sheet_production_section",
   "table_zskw",
   "section_break_mhuj",
   "planning_remarks",
   "financial_information_tab",
   "section_commercial",
-  "incometerm",
+  "income_term",
   "payment_term",
   "hs_code",
   "column_break_vmth",
@@ -166,47 +302,43 @@
   "column_break_fgkg",
   "currency",
   "lc_expiry_date",
-  "section_break_hmzt",
   "back_to_back_number",
-  "daily_tasks_tab",
-  "section_break_zxsv",
-  "order_sheet_tasks",
+  "section_break_gbuw",
+  "finalcial_attachments",
+  "section_break_fgku",
+  "shipment_details_gatepass",
   "attachments_tab",
-  "attachment",
-  "section_files",
-  "care_label_layout",
-  "main_label_layout",
-  "sticker_layout",
-  "accessories_pi",
-  "accessories_b2b_lc",
-  "column_break_wvno",
+  "section_break_ozyz",
   "sales_contact",
-  "tech_pack",
   "po_sheet",
-  "has_multiple_po",
-  "column_break_soak",
-  "lc_copy",
-  "column_break_bbzq",
   "yarn_pi",
   "yarn_b2b_lc",
   "yarn_ud",
-  "yarn_do_file"
+  "yarn_do_file",
+  "column_break_rsip",
+  "master_lc_copy",
+  "accessories_pi",
+  "accessories_b2b_lc",
+  "linking_yarn_pi",
+  "linking_yarn_b2b_lc",
+  "tech_pack",
+  "section_break_xaja",
+  "accessories_details",
+  "section_break_plma",
+  "attachment",
+  "tna",
+  "sweater_merchandising_tna_activity_section",
+  "table_rrsh",
+  "section_break_tbbm",
+  "production_tna",
+  "section_break_annf",
+  "pending_activities"
  ],
  "fields": [
   {
    "fieldname": "section_basic",
    "fieldtype": "Section Break",
    "label": "Basic Information"
-  },
-  {
-   "fetch_from": "sample_request.buyer",
-   "fieldname": "buyer",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Buyer",
-   "options": "Customer",
-   "reqd": 1
   },
   {
    "fieldname": "brand",
@@ -224,14 +356,6 @@
    "label": "Season"
   },
   {
-   "fetch_from": "sample_request.style",
-   "fieldname": "style_no",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Style No"
-  },
-  {
    "fetch_from": "sample_request.gauge",
    "fieldname": "gauge",
    "fieldtype": "Data",
@@ -240,7 +364,6 @@
    "label": "Gauge"
   },
   {
-   "fetch_from": "sample_request.brief_style_description__key_features",
    "fieldname": "construction",
    "fieldtype": "Data",
    "label": "Construction"
@@ -253,30 +376,15 @@
   },
   {
    "fetch_from": "sample_request.reference_image",
+   "fetch_if_empty": 1,
    "fieldname": "style_image",
    "fieldtype": "Attach Image",
    "label": "Style Image"
   },
   {
-   "fieldname": "section_files",
-   "fieldtype": "Section Break",
-   "hide_border": 1,
-   "label": "Attachments"
-  },
-  {
-   "fieldname": "care_label_layout",
-   "fieldtype": "Attach",
-   "label": "Care Label Layout"
-  },
-  {
    "fieldname": "po_sheet",
    "fieldtype": "Attach",
    "label": "PO Sheet"
-  },
-  {
-   "fieldname": "lc_copy",
-   "fieldtype": "Attach",
-   "label": "LC Copy"
   },
   {
    "fieldname": "yarn_pi",
@@ -303,7 +411,7 @@
   {
    "fieldname": "yarn_details",
    "fieldtype": "Table",
-   "label": "Yarn Detail Table",
+   "label": "Yarn Detail",
    "options": "Order Sheet Yarn Detail"
   },
   {
@@ -391,8 +499,8 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Approval Status",
-   "options": "Draft\nPending\nApproved\nRevised"
+   "label": "MD Sir Approval",
+   "options": "DRAFT\nPENDING\nTNA REQUIRED\nCOST SHEET REQUIRED\nAPPROVED"
   },
   {
    "fetch_from": "sample_request.over_all_status",
@@ -427,14 +535,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_wvno",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_soak",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_vmth",
    "fieldtype": "Column Break"
   },
@@ -460,22 +560,6 @@
    "fieldtype": "Link",
    "label": "Sample Request",
    "options": "Daily Sample Request"
-  },
-  {
-   "fieldname": "incometerm",
-   "fieldtype": "Select",
-   "label": "Income Term",
-   "options": "\nFOB\nCM"
-  },
-  {
-   "fieldname": "main_label_layout",
-   "fieldtype": "Attach",
-   "label": "Main Label Layout"
-  },
-  {
-   "fieldname": "sticker_layout",
-   "fieldtype": "Attach",
-   "label": "Sticker Layout"
   },
   {
    "fieldname": "yarn_ud",
@@ -510,10 +594,6 @@
    "label": "CONSUMPTION SHEET"
   },
   {
-   "fieldname": "column_break_bbzq",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "section_break_hnem",
    "fieldtype": "Section Break",
    "hide_border": 1
@@ -527,10 +607,6 @@
    "fieldtype": "Data",
    "label": "Total Required yarn",
    "precision": "2"
-  },
-  {
-   "fieldname": "column_break_leyw",
-   "fieldtype": "Column Break"
   },
   {
    "fieldname": "total_yarn_value",
@@ -565,11 +641,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "sweater_quantity",
-   "fieldtype": "Int",
-   "label": "Sweater Quantity"
-  },
-  {
    "fieldname": "column_break_mbhe",
    "fieldtype": "Column Break"
   },
@@ -585,11 +656,9 @@
    "label": "Multiple Color"
   },
   {
-   "collapsible": 1,
    "depends_on": "multiple_color",
    "fieldname": "section_break_lofs",
    "fieldtype": "Section Break",
-   "hide_border": 1,
    "label": "Multiple Colour Ratio"
   },
   {
@@ -597,13 +666,6 @@
    "fieldtype": "Table",
    "label": "Multiple Colour Ratio",
    "options": "Multiple Colour Ratio"
-  },
-  {
-   "collapsible": 1,
-   "depends_on": "elastic",
-   "fieldname": "section_break_ppgc",
-   "fieldtype": "Section Break",
-   "label": "Elastic Booking"
   },
   {
    "fieldname": "elastic_details",
@@ -625,6 +687,7 @@
    "default": "0",
    "fieldname": "has_multiple_po",
    "fieldtype": "Check",
+   "in_preview": 1,
    "label": "Has Multiple PO"
   },
   {
@@ -638,17 +701,6 @@
    "fieldname": "section_break_iuqr",
    "fieldtype": "Section Break",
    "label": "PO Entry"
-  },
-  {
-   "collapsible": 1,
-   "fieldname": "section_break_zxsv",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "order_sheet_tasks",
-   "fieldtype": "Table",
-   "label": "Daily Order Sheet Tasks",
-   "options": "Order Sheet Tasks"
   },
   {
    "fieldname": "column_break_uhxh",
@@ -704,10 +756,6 @@
    "label": "Yarn Details"
   },
   {
-   "fieldname": "section_break_hmzt",
-   "fieldtype": "Section Break"
-  },
-  {
    "fieldname": "planning_or_strategy_tab",
    "fieldtype": "Tab Break",
    "label": "Planning or Strategy"
@@ -729,14 +777,10 @@
   },
   {
    "fetch_from": "sample_request.order_qty",
+   "fetch_if_empty": 1,
    "fieldname": "order_qty",
    "fieldtype": "Data",
    "label": "Order Qty"
-  },
-  {
-   "fieldname": "daily_tasks_tab",
-   "fieldtype": "Tab Break",
-   "label": "Daily Tasks"
   },
   {
    "fieldname": "attachment",
@@ -746,6 +790,7 @@
   },
   {
    "default": "0",
+   "depends_on": "PEPCO",
    "fieldname": "button",
    "fieldtype": "Check",
    "label": "BUTTON"
@@ -765,7 +810,6 @@
   {
    "fieldname": "trims_accessories_section",
    "fieldtype": "Section Break",
-   "hide_border": 1,
    "label": "Trims Accessories"
   },
   {
@@ -783,7 +827,8 @@
   {
    "fieldname": "bookings_tab",
    "fieldtype": "Tab Break",
-   "label": "Bookings"
+   "label": "Bookings",
+   "show_dashboard": 1
   },
   {
    "fieldname": "column_break_vnzc",
@@ -844,6 +889,7 @@
   },
   {
    "default": "0",
+   "depends_on": "pepco",
    "fieldname": "additional_tag",
    "fieldtype": "Check",
    "label": "ADDITIONAL TAG"
@@ -862,12 +908,14 @@
   },
   {
    "default": "0",
+   "depends_on": "paayra",
    "fieldname": "gum_tape_green",
    "fieldtype": "Check",
    "label": "GUM TAPE (GREEN)"
   },
   {
    "default": "0",
+   "depends_on": "paayra",
    "fieldname": "cl_with_barcode",
    "fieldtype": "Check",
    "label": "C/L WITH BARCODE"
@@ -882,10 +930,6 @@
    "fieldname": "total_elastic_required",
    "fieldtype": "Data",
    "label": "Total Elastic Required"
-  },
-  {
-   "fieldname": "column_break_ugsx",
-   "fieldtype": "Column Break"
   },
   {
    "collapsible": 1,
@@ -907,35 +951,11 @@
    "options": "Order Sheet Trim Detail"
   },
   {
-   "fieldname": "section_break_vdxo",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_kkjx",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_mshf",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_lzpz",
-   "fieldtype": "Column Break"
-  },
-  {
    "collapsible": 1,
    "depends_on": "main_label_with_size",
    "fieldname": "section_break_dodq",
    "fieldtype": "Section Break",
    "label": "Main Label With Size"
-  },
-  {
-   "fieldname": "current_status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "in_standard_filter": 1,
-   "label": "Current Status",
-   "options": "SAMPLING\nPRODUCTION RUNNING\nPACKING LIST COMPLETED\nWAITING FOR INSPECTION\nWAITING FOR SHIPMENT\nSTOCK LOT\nSHIPPED OUT"
   },
   {
    "collapsible": 1,
@@ -955,7 +975,7 @@
    "depends_on": "care_label_without_barcode",
    "fieldname": "section_break_iido",
    "fieldtype": "Section Break",
-   "label": "Care Label Without Barcode"
+   "label": "Care Label"
   },
   {
    "fieldname": "care_label_wo_barcode",
@@ -967,7 +987,7 @@
    "default": "0",
    "fieldname": "care_label_without_barcode",
    "fieldtype": "Check",
-   "label": "C/L WITHOUT BARCODE"
+   "label": "CARE LABEL"
   },
   {
    "default": "0",
@@ -989,6 +1009,7 @@
   },
   {
    "default": "0",
+   "depends_on": "paayra",
    "fieldname": "price_tag_sticker",
    "fieldtype": "Check",
    "label": "PRICE TAG STICKER "
@@ -999,12 +1020,6 @@
    "fieldname": "price_tag_booking",
    "fieldtype": "Section Break",
    "label": "Price Tag Booking"
-  },
-  {
-   "fieldname": "price_tag_quantity",
-   "fieldtype": "Table",
-   "label": "Price Tag Quantity",
-   "options": "Order Sheet Trim Detail"
   },
   {
    "collapsible": 1,
@@ -1164,6 +1179,7 @@
    "label": "ELASTIC"
   },
   {
+   "collapsible": 1,
    "depends_on": "button_poly",
    "fieldname": "button_poly_booking_section",
    "fieldtype": "Section Break",
@@ -1212,16 +1228,941 @@
    "fieldtype": "Float",
    "label": "Total Cartoon Sticker Required",
    "precision": "2"
+  },
+  {
+   "fieldname": "order_receive_date",
+   "fieldtype": "Date",
+   "label": "Order Receive Date",
+   "options": "Now"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Select",
+   "label": "Machine Type",
+   "options": "SHIMA\nCHIXING"
+  },
+  {
+   "fieldname": "production_factory",
+   "fieldtype": "Select",
+   "label": "Production Factory",
+   "options": "\nBD JACQUARD\nMR\nMSL\nMSFL"
+  },
+  {
+   "fetch_from": "sample_request.style",
+   "fieldname": "style_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Style Name"
+  },
+  {
+   "default": "Now",
+   "fieldname": "shipment_date",
+   "fieldtype": "Date",
+   "label": "Actual Shipment Date"
+  },
+  {
+   "fetch_from": "sample_request.buyer",
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Buyer",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Production Status",
+   "options": "\nSAMPLING\nWAITING FOR YARN\nPRODUCTION RUNNING\nPACKING LIST COMPLETED\nWAITING FOR INSPECTION\nWAITING FOR SHIPMENT\nSTOCK LOT\nSHIPPED OUT"
+  },
+  {
+   "fieldname": "machine_required",
+   "fieldtype": "Data",
+   "label": "Machine Required"
+  },
+  {
+   "fieldname": "sample_status_section",
+   "fieldtype": "Section Break",
+   "label": "Sample Status"
+  },
+  {
+   "fieldname": "table_gkmo",
+   "fieldtype": "Table",
+   "options": "Sample Status"
+  },
+  {
+   "fieldname": "final_comments_section",
+   "fieldtype": "Section Break",
+   "hide_border": 1,
+   "label": "Final Comments"
+  },
+  {
+   "fetch_from": "sample_request.pp_comments",
+   "fieldname": "pre_production_comments",
+   "fieldtype": "Attach",
+   "hidden": 1,
+   "label": "Pre Production Comments"
+  },
+  {
+   "fetch_from": "sample_request.sample_weight",
+   "fetch_if_empty": 1,
+   "fieldname": "sample_weight",
+   "fieldtype": "Data",
+   "label": "Sample Weight"
+  },
+  {
+   "fetch_from": "sample_request.average_weight",
+   "fetch_if_empty": 1,
+   "fieldname": "average_weight",
+   "fieldtype": "Data",
+   "label": "Average Weight"
+  },
+  {
+   "fetch_from": "sample_request.contact_weight",
+   "fieldname": "contact_weight",
+   "fieldtype": "Data",
+   "label": "Contact Weight"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_plma",
+   "fieldtype": "Section Break",
+   "label": "General Attachments"
+  },
+  {
+   "fieldname": "button_description",
+   "fieldtype": "Data",
+   "label": "Button Description"
+  },
+  {
+   "fieldname": "button_supplier",
+   "fieldtype": "Link",
+   "label": "Button Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "linking_yarn_pi",
+   "fieldtype": "Attach",
+   "label": "Linking Yarn PI"
+  },
+  {
+   "default": "0",
+   "fieldname": "embroidery",
+   "fieldtype": "Check",
+   "label": "EMBROIDERY "
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "embroidery",
+   "fieldname": "embroidery_section",
+   "fieldtype": "Section Break",
+   "label": "Embroidery "
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Data",
+   "label": "Embriodery Rate"
+  },
+  {
+   "fieldname": "column_break_gugj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "embroidery_remarks",
+   "fieldtype": "Data",
+   "label": "Embroidery Remarks "
+  },
+  {
+   "fieldname": "column_break_rymr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "embroidery_factory",
+   "fieldtype": "Link",
+   "label": "Embroidery Factory",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "column_break_hckv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "embroidery_send_date",
+   "fieldtype": "Date",
+   "label": "Embroidery Send Date"
+  },
+  {
+   "default": "0",
+   "depends_on": "paayra",
+   "fieldname": "east_tag",
+   "fieldtype": "Check",
+   "label": "EAST TAG"
+  },
+  {
+   "default": "0",
+   "depends_on": "paayra",
+   "fieldname": "west_tag",
+   "fieldtype": "Check",
+   "label": "WEST TAG"
+  },
+  {
+   "fieldname": "income_term",
+   "fieldtype": "Select",
+   "label": "Income Term",
+   "options": "\nFOB\nCM"
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "button_booking_date",
+   "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Button Booking Date",
+   "options": "Now"
+  },
+  {
+   "fieldname": "elastic_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Elastic Booking Date"
+  },
+  {
+   "fieldname": "elastic_description",
+   "fieldtype": "Data",
+   "label": "Elastic Description"
+  },
+  {
+   "fieldname": "elastic_supplier",
+   "fieldtype": "Link",
+   "label": "Elastic Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "button_poly_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Button Poly Booking Date"
+  },
+  {
+   "fieldname": "button_poly_supplier",
+   "fieldtype": "Link",
+   "label": "Button Poly Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "button_poly_description",
+   "fieldtype": "Data",
+   "label": "Button Poly Description "
+  },
+  {
+   "fieldname": "sewing_thread_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Sewing Thread Booking Date"
+  },
+  {
+   "fieldname": "sewing_thread_supplier",
+   "fieldtype": "Link",
+   "label": "Sewing Thread Supplier ",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "sewing_thread_description",
+   "fieldtype": "Data",
+   "label": "Sewing Thread Description "
+  },
+  {
+   "fieldname": "main_label_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Main Label Booking Date"
+  },
+  {
+   "fieldname": "main_label_supplier",
+   "fieldtype": "Link",
+   "label": "Main Label Supplier ",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "main_label_description",
+   "fieldtype": "Data",
+   "label": "Main Label Description "
+  },
+  {
+   "fieldname": "zipper_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Zipper Booking Date"
+  },
+  {
+   "fieldname": "zipper_supplier",
+   "fieldtype": "Link",
+   "label": "Zipper Supplier ",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "zipper_description",
+   "fieldtype": "Data",
+   "label": "Zipper Description "
+  },
+  {
+   "fieldname": "main_label_with_size_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Main Label With Size Booking Date "
+  },
+  {
+   "fieldname": "main_with_size_label_supplier",
+   "fieldtype": "Link",
+   "label": "Main with Size Label Supplier ",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "main_with_size_label_description",
+   "fieldtype": "Data",
+   "label": "Main With Size Label Description "
+  },
+  {
+   "fieldname": "care_label_with_barcode_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Care Label With Barcode Booking Date "
+  },
+  {
+   "fieldname": "care_label_with_barcode_supplier",
+   "fieldtype": "Link",
+   "label": "Care Label With Barcode Supplier ",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "main_with_size_care_label_description",
+   "fieldtype": "Data",
+   "label": "Main with Size Care. label Description "
+  },
+  {
+   "fieldname": "poly_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Poly Booking Date "
+  },
+  {
+   "fieldname": "poly_supplier",
+   "fieldtype": "Link",
+   "label": "Poly Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "poly_description",
+   "fieldtype": "Data",
+   "label": "Poly Description "
+  },
+  {
+   "fieldname": "blister_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Blister Booking Date "
+  },
+  {
+   "fieldname": "blister_supplier",
+   "fieldtype": "Link",
+   "label": "Blister Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "blister_description",
+   "fieldtype": "Data",
+   "label": "Blister Description "
+  },
+  {
+   "fieldname": "available_comments",
+   "fieldtype": "Table",
+   "label": "AVAILABLE COMMENTS",
+   "options": "Sample Comments"
+  },
+  {
+   "fieldname": "dummy_front_image",
+   "fieldtype": "Attach",
+   "label": "Dummy Front Image"
+  },
+  {
+   "fieldname": "dummy_side_image",
+   "fieldtype": "Attach",
+   "label": "Dummy Side Image"
+  },
+  {
+   "fieldname": "tna",
+   "fieldtype": "Tab Break",
+   "label": "T & A"
+  },
+  {
+   "fieldname": "sweater_merchandising_tna_activity_section",
+   "fieldtype": "Section Break",
+   "label": "SWEATER MERCHANDISING TnA ACTIVITY"
+  },
+  {
+   "fieldname": "table_rrsh",
+   "fieldtype": "Table",
+   "label": "Merchandising TnA",
+   "options": "SWEATER MERCHANDISING TNA ACTIVITY"
+  },
+  {
+   "fieldname": "section_break_tbbm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "production_tna",
+   "fieldtype": "Table",
+   "label": "Production TnA",
+   "options": "SWEATER PRODUCTION TNA ACTIVITY"
+  },
+  {
+   "default": "0",
+   "fieldname": "tissue",
+   "fieldtype": "Check",
+   "label": "TISSUE"
+  },
+  {
+   "default": "0",
+   "depends_on": "pepco",
+   "fieldname": "tag_pin",
+   "fieldtype": "Check",
+   "label": "TAG PIN"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "tissue",
+   "fieldname": "tissue_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Tissue Booking"
+  },
+  {
+   "fieldname": "tissue_booking",
+   "fieldtype": "Table",
+   "label": "Tissue Booking",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "tag_pin",
+   "fieldname": "tag_pin_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Tag Pin Booking"
+  },
+  {
+   "depends_on": "tag_pin",
+   "fieldname": "tag_pin_booking",
+   "fieldtype": "Table",
+   "label": "Tag Pin",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "tissue_booking_date",
+   "fieldtype": "Date",
+   "label": "Tissue Booking Date"
+  },
+  {
+   "fieldname": "tissue_description",
+   "fieldtype": "Data",
+   "label": "Tissue Description"
+  },
+  {
+   "fieldname": "tag_pin_booking_date",
+   "fieldtype": "Date",
+   "label": "Tag Pin Booking Date"
+  },
+  {
+   "fieldname": "tag_pin_description",
+   "fieldtype": "Data",
+   "label": "Tag Pin Description"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "knit_qty",
+   "fieldtype": "Data",
+   "label": "Knit Qty"
+  },
+  {
+   "fieldname": "shipped_qty",
+   "fieldtype": "Data",
+   "label": "Shipped Qty"
+  },
+  {
+   "default": "0",
+   "fieldname": "hanger_loop",
+   "fieldtype": "Check",
+   "label": "HANGER LOOP"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "hanger_loop",
+   "fieldname": "section_break_fsfu",
+   "fieldtype": "Section Break",
+   "label": "Hanger Loop"
+  },
+  {
+   "fieldname": "hanger_loop_booking_date",
+   "fieldtype": "Datetime",
+   "label": "Hanger Loop Booking Date"
+  },
+  {
+   "fieldname": "hanger_loop_description",
+   "fieldtype": "Data",
+   "label": "Hanger Loop Description"
+  },
+  {
+   "fieldname": "hanger_loop_booking",
+   "fieldtype": "Table",
+   "label": "Hanger Loop Booking",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "total_hanger_loop_required",
+   "fieldtype": "Data",
+   "label": "Total Hanger Loop Required"
+  },
+  {
+   "fieldname": "hanger_loop_supplier",
+   "fieldtype": "Link",
+   "label": "Hanger Loop Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "days_remaining",
+   "fieldtype": "Data",
+   "label": "Days Remaining"
+  },
+  {
+   "default": "0",
+   "fieldname": "blister_sticker",
+   "fieldtype": "Check",
+   "label": "BLISTER STICKER"
+  },
+  {
+   "fieldname": "column_break_degj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_uluv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "order_sheet_yarn_details",
+   "fieldtype": "Table",
+   "label": "Order Sheet Yarn Details",
+   "options": "Order Sheet Yarn Details"
+  },
+  {
+   "fieldname": "sweater_quantity",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "sweater_quantity",
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "section_break_ozyz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rsip",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "linking_yarn_b2b_lc",
+   "fieldtype": "Attach",
+   "label": "Linking Yarn B2B Lc"
+  },
+  {
+   "fieldname": "master_lc_copy",
+   "fieldtype": "Attach",
+   "label": "Master LC Copy"
+  },
+  {
+   "default": "0",
+   "depends_on": "pepco",
+   "fieldname": "viscose_tag",
+   "fieldtype": "Check",
+   "label": "VISCOSE TAG"
+  },
+  {
+   "default": "0",
+   "depends_on": "pepco",
+   "fieldname": "viscose_sticker",
+   "fieldtype": "Check",
+   "label": "VISCOSE STICKER"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "viscose_tag",
+   "fieldname": "viscose_tag_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Viscose Tag Booking"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "viscose_sticker",
+   "fieldname": "viscose_sticker_booking_section",
+   "fieldtype": "Section Break",
+   "label": "Viscose Sticker Booking"
+  },
+  {
+   "depends_on": "viscose_sticker",
+   "fieldname": "table_kxfh",
+   "fieldtype": "Table",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "section_break_annf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "pending_activities",
+   "fieldtype": "Table",
+   "label": "Pending Activities",
+   "options": "Pending Activities"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_xaja",
+   "fieldtype": "Section Break",
+   "label": "Accessories Attachments"
+  },
+  {
+   "fieldname": "accessories_details",
+   "fieldtype": "Table",
+   "label": "Accessories Attachments",
+   "options": "Attachment Details"
+  },
+  {
+   "fieldname": "section_break_gbuw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "finalcial_attachments",
+   "fieldtype": "Table",
+   "label": "Finalcial Attachments",
+   "options": "Attachment Details"
+  },
+  {
+   "fieldname": "column_break_mrum",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cwyn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_poly_required",
+   "fieldtype": "Data",
+   "label": "Total Poly Required"
+  },
+  {
+   "collapsible": 1,
+   "depends_on": "elastic",
+   "fieldname": "section_break_egta",
+   "fieldtype": "Section Break",
+   "label": "Elastic Booking"
+  },
+  {
+   "fieldname": "total_receive_yarn",
+   "fieldtype": "Float",
+   "label": "Total Receive Yarn"
+  },
+  {
+   "fieldname": "total_balance_yarn",
+   "fieldtype": "Float",
+   "label": "Total Balance Yarn"
+  },
+  {
+   "fieldname": "size_set_weight",
+   "fieldtype": "Attach",
+   "label": "Size Set Weight "
+  },
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Small Text",
+   "label": "Po Number"
+  },
+  {
+   "fieldname": "section_break_fgku",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shipment_details_gatepass",
+   "fieldtype": "Table",
+   "label": "SHIPMENT DETAILS GATEPASS",
+   "options": "SHIPMENT DETAILS GATEPASS"
+  },
+  {
+   "fieldname": "care_label_wo_barcode_booking_date",
+   "fieldtype": "Date",
+   "label": "Care Label W/O Barcode Booking Date"
+  },
+  {
+   "fieldname": "care_label_wo_barcode_supplier",
+   "fieldtype": "Link",
+   "label": "Care Label W/O Barcode Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "care_label_wo_barcode_description",
+   "fieldtype": "Data",
+   "label": "Care Label W/O Barcode Description"
+  },
+  {
+   "fieldname": "hand_tag_booking_date",
+   "fieldtype": "Date",
+   "label": "Hand Tag Booking Date"
+  },
+  {
+   "fieldname": "hand_tag_supplier",
+   "fieldtype": "Link",
+   "label": "Hand Tag Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "hand_tag_description",
+   "fieldtype": "Data",
+   "label": "Hand Tag Description"
+  },
+  {
+   "fieldname": "hand_tag_string_booking_date",
+   "fieldtype": "Date",
+   "label": "Hand Tag String Booking Date"
+  },
+  {
+   "fieldname": "hand_tag_string_supplier",
+   "fieldtype": "Link",
+   "label": "Hand Tag String Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "hand_tag_string_description",
+   "fieldtype": "Data",
+   "label": "Hand Tag String Description"
+  },
+  {
+   "fieldname": "tag_pin_supplier",
+   "fieldtype": "Link",
+   "label": "Tag Pin Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "total_tag_pin_required",
+   "fieldtype": "Float",
+   "label": "Total Tag Pin Required"
+  },
+  {
+   "depends_on": "viscose_tag",
+   "fieldname": "viscose_tag_details",
+   "fieldtype": "Table",
+   "label": "Viscose Tag Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "price_tag_details",
+   "fieldtype": "Table",
+   "label": "Price Tag Details",
+   "options": "Order Sheet Trim Detail"
+  },
+  {
+   "fieldname": "price_tag_booking_date",
+   "fieldtype": "Date",
+   "label": "Price tag Booking Date"
+  },
+  {
+   "fieldname": "price_tag_supplier",
+   "fieldtype": "Link",
+   "label": "Price Tag Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "price_tag_supplier_details",
+   "fieldtype": "Data",
+   "label": "Price Tag Supplier Details"
+  },
+  {
+   "fieldname": "total_price_tag_required",
+   "fieldtype": "Float",
+   "label": "Total Price Tag Required",
+   "precision": "2"
+  },
+  {
+   "fieldname": "price_tag_sticker_booking_date",
+   "fieldtype": "Date",
+   "label": "Price Tag Sticker Booking Date"
+  },
+  {
+   "fieldname": "price_tag_sticker_supplier",
+   "fieldtype": "Link",
+   "label": "Price Tag Sticker Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "price_tag_sticker_details",
+   "fieldtype": "Data",
+   "label": "Price Tag Sticker Details"
+  },
+  {
+   "fieldname": "total_price_tag_sticker_required",
+   "fieldtype": "Float",
+   "label": "Total Price Tag Sticker Required",
+   "precision": "2"
+  },
+  {
+   "fieldname": "additional_tag_booking_date",
+   "fieldtype": "Date",
+   "label": "Additional Tag Booking Date"
+  },
+  {
+   "fieldname": "additional_tag_supplier",
+   "fieldtype": "Link",
+   "label": "Additional Tag Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "additional_tag_description",
+   "fieldtype": "Data",
+   "label": "Additional Tag Description"
+  },
+  {
+   "fieldname": "cartoon_sticker_booking_date",
+   "fieldtype": "Date",
+   "label": "Cartoon Sticker Booking Date "
+  },
+  {
+   "fieldname": "cartoon_sticker_supplier",
+   "fieldtype": "Link",
+   "label": "Cartoon Sticker Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "cartoon_sticker_description",
+   "fieldtype": "Data",
+   "label": "Cartoon Sticker Description"
+  },
+  {
+   "fieldname": "section_break_ylbh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_bcgu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kprk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "cartoon_booking_date",
+   "fieldtype": "Date",
+   "label": "Cartoon Booking Date"
+  },
+  {
+   "fieldname": "linking_time",
+   "fieldtype": "Data",
+   "label": "Linking Time"
+  },
+  {
+   "default": "0",
+   "fieldname": "pepco",
+   "fieldtype": "Check",
+   "label": "PEPCO"
+  },
+  {
+   "fieldname": "column_break_ptjj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "microtex",
+   "fieldtype": "Check",
+   "label": "MICROTEX"
+  },
+  {
+   "fieldname": "column_break_vamm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "paayra",
+   "fieldtype": "Check",
+   "label": "PAAYRA"
+  },
+  {
+   "fieldname": "column_break_gqrh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "srg",
+   "fieldtype": "Check",
+   "label": "SRG"
+  },
+  {
+   "fieldname": "column_break_fjrj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "america_today",
+   "fieldtype": "Check",
+   "label": "AMERICA TODAY"
+  },
+  {
+   "default": "0",
+   "fieldname": "ms_mode",
+   "fieldtype": "Check",
+   "label": "MS MODE"
+  },
+  {
+   "fieldname": "column_break_vkvf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "silika_gel",
+   "fieldtype": "Check",
+   "label": "SILIKA GEL"
+  },
+  {
+   "default": "0",
+   "depends_on": "microtex",
+   "fieldname": "size_label",
+   "fieldtype": "Check",
+   "label": "SIZE LABEL"
+  },
+  {
+   "default": "0",
+   "fieldname": "cartoon_top_bottom",
+   "fieldtype": "Check",
+   "label": "CARTOON TOP BOTTOM"
+  },
+  {
+   "fieldname": "special_notes",
+   "fieldtype": "Markdown Editor",
+   "label": "Special Notes"
+  },
+  {
+   "fieldname": "total_po_qty",
+   "fieldtype": "Int",
+   "label": "Total PO Qty"
+  },
+  {
+   "fieldname": "ex_factory_date",
+   "fieldtype": "Date",
+   "label": "Ex Factory Date"
   }
  ],
  "image_field": "style_image",
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-13 01:23:41.259689",
+ "modified": "2026-10-02 18:07:17.872289",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet Entry",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -1277,5 +2218,6 @@
  "sort_order": "DESC",
  "states": [],
  "track_changes": 1,
- "track_seen": 1
+ "track_seen": 1,
+ "track_views": 1
 }

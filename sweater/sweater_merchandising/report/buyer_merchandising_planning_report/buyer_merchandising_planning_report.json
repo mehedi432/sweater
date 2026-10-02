@@ -1,0 +1,57 @@
+{
+ "add_total_row": 1,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-02-24 21:11:17.720177",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [
+  {
+   "default": "PEPCO",
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "BUYER",
+   "mandatory": 0,
+   "options": "Customer",
+   "wildcard_filter": 0
+  },
+  {
+   "default": "AW26",
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "SEASON",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  }
+ ],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "MSFL",
+ "letterhead": null,
+ "modified": "2026-03-06 02:11:25.436111",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Buyer Merchandising Planning Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT \n    /* 1. STYLE IDENTIFICATION (Grid Layout) */\n    CONCAT(\n        \"<table style=\", CHAR(39), \"width: 100%\", CHAR(39), \"><tr>\",\n        \"<td style=\", CHAR(39), \"width: 45px; border: none !important\", CHAR(39), \">\",\n            \"<img src=\", CHAR(39), ose.style_image, CHAR(39), \" style=\", CHAR(39), \"height: 40px; width: 40px; border: 1px solid #000; object-fit: contain\", CHAR(39), \">\",\n        \"</td>\",\n        \"<td style=\", CHAR(39), \"border: none !important; padding-left: 8px !important; text-align: left\", CHAR(39), \">\",\n            \"<b style=\", CHAR(39), \"font-size: 12px; display: block; color: #000\", CHAR(39), \">\", ose.style_name, \"</b>\",\n            \"<small style=\", CHAR(39), \"color: #555\", CHAR(39), \">\", ose.buyer, \" | \", ose.brand, \"</small>\",\n        \"</td>\",\n        \"</tr></table>\"\n    ) AS \"Style & Buyer:Html:250\",\n\n    ose.gauge AS \"GG:Data:45\",\n    ose.season AS \"Season:Data:80\",\n    \n    /* 2. ORDER QUANTITY & SHIPMENT */\n    ose.order_qty AS \"Order Qty:Int:90\",\n    DATE_FORMAT(ose.shipment_date, \"%%%%d-%%%%m-%%%%y\") AS \"Ship Date:Data:100\",\n\n    /* 3. PRODUCTION FLOW (Aggregated) */\n    IFNULL(prod.total_knit, 0) AS \"Knit:Int:70\",\n    IFNULL(prod.total_link, 0) AS \"Link:Int:70\",\n    IFNULL(prod.total_mending, 0) AS \"Mend:Int:70\",\n    IFNULL(prod.total_wash, 0) AS \"Wash:Int:70\",\n    IFNULL(prod.total_poly, 0) AS \"Packed:Int:70\",\n\n    /* 4. YARN RECAP (From Subquery) */\n    CONCAT(\"<div style=\", CHAR(39), \"font-size: 11px\", CHAR(39), \">\",\n        \"<b>Req:</b> \", ROUND(ose.total_required_yarn, 2), \"<br>\",\n        \"<b>Status:</b> \", \n        CASE \n            WHEN yrn.ready_lines = yrn.total_lines AND yrn.total_lines > 0 THEN \"READY\"\n            WHEN yrn.ready_lines > 0 THEN \"PARTIAL\"\n            ELSE \"WAITING\"\n        END,\n    \"</div>\") AS \"Yarn Status:Html:130\",\n\n    /* 5. EXTRA PLANNING FIELDS */\n    ose.production_factory AS \"Factory:Data:120\",\n    ose.production_status AS \"Prod. Status:Data:100\",\n    ose.machine_type AS \"M/C Type:Data:80\",\n    ose.machine_required AS \"M/C Req:Int:70\",\n    ose.price AS \"FOB:Currency:70\",\n    ose.l_c_number AS \"L/C No:Data:100\",\n    ose.sdo_number AS \"SDO:Data:80\",\n    ose.remarks AS \"Remarks:Data:150\"\n\nFROM \n    `tabOrder Sheet Entry` ose\n\n/* JOIN 1: AGGREGATE PRODUCTION */\nLEFT JOIN (\n    SELECT \n        parent, \n        SUM(knit) as total_knit, \n        SUM(link) as total_link,\n        SUM(mending) as total_mending, \n        SUM(wash) as total_wash, \n        SUM(poly) as total_poly\n    FROM `tabOrder Sheet Production`\n    GROUP BY parent\n) AS prod ON prod.parent = ose.name\n\n/* JOIN 2: AGGREGATE YARN DETAIL */\nLEFT JOIN (\n    SELECT \n        parent,\n        COUNT(*) as total_lines,\n        SUM(CASE WHEN do_number IS NOT NULL AND do_number != \"\" THEN 1 ELSE 0 END) as ready_lines\n    FROM `tabOrder Sheet Yarn Detail`\n    GROUP BY parent\n) AS yrn ON yrn.parent = ose.name\n\nWHERE \n    ose.docstatus < 2\n    AND (ose.buyer = %(buyer)s OR %(buyer)s IS NULL OR %(buyer)s = \"\")\n    AND (ose.season = %(season)s OR %(season)s IS NULL OR %(season)s = \"\")\n\nORDER BY \n    ose.shipment_date ASC;",
+ "ref_doctype": "Order Sheet Entry",
+ "report_name": "Buyer Merchandising Planning Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Merchandiser"
+  },
+  {
+   "role": "Asst. Merchandiser"
+  },
+  {
+   "role": "General Manager (Marketing & Merchandising)"
+  }
+ ],
+ "timeout": 0
+}

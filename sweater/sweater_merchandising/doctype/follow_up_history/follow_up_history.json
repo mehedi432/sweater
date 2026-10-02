@@ -1,0 +1,91 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-07-17 22:58:55.908233",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "activity",
+  "issue_category",
+  "issue_description",
+  "responsible_dept",
+  "responsible_person",
+  "deadline",
+  "next_action",
+  "status",
+  "risk",
+  "completion_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "activity",
+   "fieldtype": "Select",
+   "label": "Activity",
+   "options": "\nBuyer\nSample\nYarn\nAccessories\nKnitting\nLinking\nDyeing\nWashing\nFinishing\nProduction\nCommercial\nShipment\nPayment\nDocumentation\nOther"
+  },
+  {
+   "fieldname": "issue_category",
+   "fieldtype": "Select",
+   "label": "Issue Category "
+  },
+  {
+   "fieldname": "issue_description",
+   "fieldtype": "Small Text",
+   "label": "Issue Description"
+  },
+  {
+   "fieldname": "responsible_dept",
+   "fieldtype": "Link",
+   "label": "Responsible Dept ",
+   "options": "Department"
+  },
+  {
+   "fieldname": "responsible_person",
+   "fieldtype": "Link",
+   "label": "Responsible Person ",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "deadline",
+   "fieldtype": "Date",
+   "label": "Deadline"
+  },
+  {
+   "fieldname": "next_action",
+   "fieldtype": "Data",
+   "label": "Next Action"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nOpen\nIn Progress\nWaiting for Buyer\nWaiting for Supplier\nWaiting for Factory\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "risk",
+   "fieldtype": "Data",
+   "label": "Risk"
+  },
+  {
+   "fieldname": "completion_date",
+   "fieldtype": "Date",
+   "label": "Completion Date"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-17 22:58:55.908233",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Follow Up History",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,169 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{learning_type}-{style}-{buyer}-{#####}",
+ "creation": "2026-07-11 01:59:42.107163",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_lcnr",
+  "date",
+  "column_break_cxcy",
+  "order_sheet",
+  "column_break_oqmd",
+  "buyer",
+  "column_break_fjta",
+  "style",
+  "section_break_gzau",
+  "learning_type",
+  "column_break_dmuw",
+  "mistake_category",
+  "column_break_omeq",
+  "severity",
+  "column_break_rokn",
+  "department",
+  "section_break_pt0m",
+  "description",
+  "column_break_rqeq",
+  "root_cause_small_text",
+  "column_break_bdpm",
+  "preventive_action"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_lcnr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "options": "Today"
+  },
+  {
+   "fieldname": "order_sheet",
+   "fieldtype": "Link",
+   "label": "Order Sheet ",
+   "options": "Order Sheet Entry"
+  },
+  {
+   "fetch_from": "order_sheet.buyer",
+   "fieldname": "buyer",
+   "fieldtype": "Data",
+   "label": "Buyer"
+  },
+  {
+   "fetch_from": "order_sheet.style_name",
+   "fieldname": "style",
+   "fieldtype": "Data",
+   "label": "Style "
+  },
+  {
+   "fieldname": "section_break_pt0m",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "learning_type",
+   "fieldtype": "Select",
+   "label": "Learning Type",
+   "options": "MISTAKE\nNEW LEARNING\nBUYER FEEDBACK\nFACTORY FEEDBACK\nSUCCESS STORY"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "root_cause_small_text",
+   "fieldtype": "Small Text",
+   "label": "Root Cause Small Text"
+  },
+  {
+   "fieldname": "column_break_cxcy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_oqmd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fjta",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_rqeq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bdpm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "preventive_action",
+   "fieldtype": "Small Text",
+   "label": "Preventive Action"
+  },
+  {
+   "fieldname": "mistake_category",
+   "fieldtype": "Select",
+   "label": "Mistake Category ",
+   "options": "COMMUNICATION\nREPORT\nSAMPLE MANAGEMENT\nYARN\nDYEING\nACCESSORIES\nINSPECTION\nPLANNING\nTIME MANAGEMENT\nBUYER\nERP/SYSTEM\nDOCUMENTATION\nOTHERS"
+  },
+  {
+   "fieldname": "section_break_gzau",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_dmuw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_omeq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "Low\nMedium\nHigh\nCritical"
+  },
+  {
+   "fieldname": "column_break_rokn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-09 13:04:43.051257",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Merchandising Learning Log",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

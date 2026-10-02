@@ -1,0 +1,308 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "format:CHART-{style_name}-{gauge}-{sample_type}-{#####}",
+ "creation": "2026-05-08 11:09:58.830556",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "measurements_tab",
+  "section_break_pqkt",
+  "stitch_type",
+  "column_break_afyn",
+  "spi",
+  "column_break_sspx",
+  "rpi",
+  "column_break_ffoq",
+  "chest_shrinkage",
+  "rib_shrinkage",
+  "column_break_ptmj",
+  "length_shrinkage",
+  "sleeve_shrinkage",
+  "sweater_measurement_row_section",
+  "table_mhmk",
+  "section_break_mjdm",
+  "chart_preview",
+  "details_tab",
+  "section_break_v8iw",
+  "style_no",
+  "column_break_bseo",
+  "style_name",
+  "column_break_ytsx",
+  "sample_type",
+  "column_break_rfjo",
+  "buyer",
+  "column_break_gjco",
+  "colour",
+  "column_break_ahfd",
+  "season",
+  "section_break_vart",
+  "gauge",
+  "column_break_scbw",
+  "machine_type",
+  "column_break_vnpl",
+  "yarn_composition",
+  "column_break_tslj",
+  "yarn_count",
+  "column_break_nmmy",
+  "style_image",
+  "section_break_iaym",
+  "description",
+  "section_break_swkm",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_v8iw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Sweater Technical File",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_bseo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "style_no",
+   "fieldtype": "Link",
+   "label": "Style No",
+   "options": "Daily Sample Request"
+  },
+  {
+   "fieldname": "column_break_ytsx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description "
+  },
+  {
+   "fetch_from": "style_no.buyer",
+   "fieldname": "buyer",
+   "fieldtype": "Data",
+   "label": "Buyer"
+  },
+  {
+   "fieldname": "section_break_iaym",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "style_no.season_collection",
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "Season"
+  },
+  {
+   "fieldname": "section_break_swkm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rfjo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "style_no.sample_type",
+   "fieldname": "sample_type",
+   "fieldtype": "Data",
+   "label": "Sample Type "
+  },
+  {
+   "fieldname": "column_break_gjco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "style_no.color",
+   "fieldname": "colour",
+   "fieldtype": "Data",
+   "label": "Colour"
+  },
+  {
+   "fieldname": "section_break_vart",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fetch_from": "style_no.gauge",
+   "fieldname": "gauge",
+   "fieldtype": "Data",
+   "label": "Gauge"
+  },
+  {
+   "fieldname": "column_break_scbw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Data",
+   "label": "Machine Type"
+  },
+  {
+   "fieldname": "column_break_vnpl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yarn_composition",
+   "fieldtype": "Link",
+   "label": "Yarn Composition",
+   "options": "Item"
+  },
+  {
+   "fieldname": "column_break_tslj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "yarn_count",
+   "fieldtype": "Data",
+   "label": "Yarn Count"
+  },
+  {
+   "fieldname": "section_break_pqkt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "spi",
+   "fieldtype": "Float",
+   "label": "Stitch Per Inch"
+  },
+  {
+   "fieldname": "column_break_afyn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rpi",
+   "fieldtype": "Float",
+   "label": "Row Per Inch"
+  },
+  {
+   "fieldname": "column_break_sspx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "stitch_type",
+   "fieldtype": "Data",
+   "label": "Stitch Type"
+  },
+  {
+   "fieldname": "measurements_tab",
+   "fieldtype": "Tab Break",
+   "label": "Measurements"
+  },
+  {
+   "fieldname": "sweater_measurement_row_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "table_mhmk",
+   "fieldtype": "Table",
+   "label": "Sweater Measurement Row",
+   "options": "Sweater Measurement Row"
+  },
+  {
+   "fieldname": "column_break_ahfd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "style_no.style",
+   "fieldname": "style_name",
+   "fieldtype": "Data",
+   "label": "Style Name"
+  },
+  {
+   "fieldname": "section_break_mjdm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "chart_preview",
+   "fieldtype": "HTML",
+   "label": "Chart Preview"
+  },
+  {
+   "fieldname": "column_break_ffoq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chest_shrinkage",
+   "fieldtype": "Float",
+   "label": "Chest Shrinkage %"
+  },
+  {
+   "fieldname": "length_shrinkage",
+   "fieldtype": "Float",
+   "label": "Length Shrinkage %"
+  },
+  {
+   "fieldname": "sleeve_shrinkage",
+   "fieldtype": "Float",
+   "label": "Sleeve Shrinkage %"
+  },
+  {
+   "fieldname": "rib_shrinkage",
+   "fieldtype": "Float",
+   "label": "Rib Shrinkage %",
+   "precision": "2"
+  },
+  {
+   "fieldname": "column_break_ptmj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Sweater Details"
+  },
+  {
+   "fieldname": "column_break_nmmy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "style_no.reference_image",
+   "fieldname": "style_image",
+   "fieldtype": "Attach Image",
+   "label": "Style Image"
+  }
+ ],
+ "grid_page_length": 50,
+ "hide_toolbar": 1,
+ "image_field": "style_image",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-15 22:33:33.873887",
+ "modified_by": "Administrator",
+ "module": "Sample",
+ "name": "Sweater Technical File",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

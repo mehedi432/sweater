@@ -1,0 +1,43 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "creation": "2026-10-02 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "qty",
+    "ex_factory_date"
+  ],
+  "fields": [
+    {
+      "columns": 5,
+      "fieldname": "qty",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Qty",
+      "non_negative": 1,
+      "reqd": 1
+    },
+    {
+      "columns": 5,
+      "fieldname": "ex_factory_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Ex-Factory Date",
+      "reqd": 1
+    }
+  ],
+  "index_web_pages_for_search": 0,
+  "istable": 1,
+  "links": [],
+  "modified": "2026-10-02 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Sweater Merchandising",
+  "name": "Production Status Schedule",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "idx",
+  "sort_order": "ASC",
+  "states": []
+}

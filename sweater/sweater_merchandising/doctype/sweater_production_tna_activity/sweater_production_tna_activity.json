@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{style}-{#####}",
+ "creation": "2026-07-02 23:59:20.451207",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_jlzd",
+  "activity",
+  "column_break_qker",
+  "planned_date",
+  "column_break_cgdo",
+  "actual_date",
+  "column_break_vspo",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_jlzd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "activity",
+   "fieldtype": "Select",
+   "label": "Activity ",
+   "options": "YARN INHOUSE DATE\nKNITTING START DATE\nKNITTING CLOSE DATE\nLINKING START DATE\nLINKING CLOSE DATE\nMENDING START DATE\nMENDING CLOSE DATE\nWASH START DATE\nWASH CLOSE DATE\nATTACHMENT START DATE\nATTACHMENT CLOSE DATE\nSEWING START DATE\nSEWING CLOSE DATE\nPQC START DATE\nPQC CLOSE DATE\nIRON START DATE\nIRON CLOSE DATE\nPOLY START DATE\nPOLY CLOSE DATE\nPACKING LIST DATE"
+  },
+  {
+   "fieldname": "column_break_qker",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "planned_date",
+   "fieldtype": "Date",
+   "label": "Planned Date"
+  },
+  {
+   "fieldname": "column_break_cgdo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_date",
+   "fieldtype": "Date",
+   "label": "Actual Date"
+  },
+  {
+   "fieldname": "column_break_vspo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "DRAFT\nPARTIALLY COMPLETED\nCOMPLETED"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-07-03 00:18:45.744376",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "SWEATER PRODUCTION TNA ACTIVITY",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

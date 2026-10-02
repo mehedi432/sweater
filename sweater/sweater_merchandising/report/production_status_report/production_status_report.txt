@@ -1,0 +1,587 @@
+<style>
+	@page {
+		size: A4 landscape;
+		margin: 5mm;
+	}
+
+	.print-format {
+		margin: 0 !important;
+		padding: 0 !important;
+		color: #141414 !important;
+		font-family: "Aptos", "Segoe UI", Arial, sans-serif !important;
+	}
+
+	.production-sheet,
+	.production-sheet * {
+		box-sizing: border-box;
+	}
+
+	.production-sheet {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		color: #141414;
+		font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+	}
+
+	.main-table {
+		width: 100%;
+		margin: 0;
+		table-layout: fixed;
+		border-collapse: collapse;
+		border: 1px solid #111111;
+	}
+
+	.main-table th,
+	.main-table td {
+		margin: 0;
+		padding: 0;
+		border: 1px solid #111111;
+		color: #141414;
+		vertical-align: middle;
+	}
+
+	/*
+        Exact total: 100%
+
+        3.4 + 8.5 + 9.4 + 7.4 + 8.2
+        + 9.1 + 8.4 + 12.8 + 32.8 = 100
+    */
+
+	.col-sl {
+		width: 3.4%;
+	}
+
+	.col-style {
+		width: 8.5%;
+	}
+
+	.col-gauge {
+		width: 9.4%;
+	}
+
+	.col-qty {
+		width: 7.4%;
+	}
+
+	.col-date {
+		width: 8.2%;
+	}
+
+	.col-yarn {
+		width: 9.1%;
+	}
+
+	.col-pps {
+		width: 8.4%;
+	}
+
+	.col-production {
+		width: 12.8%;
+	}
+
+	.col-remarks {
+		width: 32.8%;
+	}
+
+	/* Header */
+
+	.report-title-row td {
+		height: 57px;
+		border-top: 0;
+	}
+
+	.report-title-table {
+		width: 100%;
+		height: 57px;
+		table-layout: fixed;
+		border-collapse: collapse;
+	}
+
+	.report-title-table td {
+		border: 0 !important;
+	}
+
+	.title-balance-cell {
+		width: 17%;
+	}
+
+	.title-main-cell {
+		width: 66%;
+		text-align: center;
+		font-size: 27px;
+		line-height: 1;
+		font-weight: 750;
+		letter-spacing: -0.5px;
+		white-space: nowrap;
+	}
+
+	.title-date-cell {
+		width: 17%;
+		padding-right: 5px !important;
+		text-align: right;
+		font-size: 16px;
+		line-height: 1;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+
+	/* Main column headings */
+
+	.column-heading-row th {
+		height: 69px;
+		padding: 5px 2px;
+		background: #ffffff;
+		text-align: center;
+		font-size: 12px;
+		line-height: 1.18;
+		font-weight: 750;
+		letter-spacing: 0.15px;
+	}
+
+	.production-heading-table {
+		width: 100%;
+		height: 58px;
+		border-collapse: collapse;
+	}
+
+	.production-heading-table td {
+		height: 29px;
+		padding: 1px 3px !important;
+		border: 0 !important;
+		font-size: 12px;
+		line-height: 1;
+		font-weight: 750;
+	}
+
+	.knitting-heading {
+		text-align: left;
+		vertical-align: top !important;
+	}
+
+	.linking-heading {
+		text-align: center;
+		vertical-align: bottom !important;
+	}
+
+	/* Green and red section bands */
+
+	.section-band td {
+		height: 31px;
+		text-align: center;
+		font-size: 16px;
+		line-height: 31px;
+		font-weight: 700;
+		letter-spacing: 0.7px;
+	}
+
+	.green-band td {
+		background: #4caf5b;
+		color: #ffffff;
+	}
+
+	.red-band td {
+		background: #ef3326;
+		color: #ffffff;
+	}
+
+	/* Style rows */
+
+	.style-record {
+		page-break-inside: avoid;
+	}
+
+	.sl-cell {
+		padding: 4px 2px !important;
+		text-align: center;
+		font-size: var(--style-font-size);
+		font-weight: 500;
+	}
+
+	.style-cell {
+		padding: 4px 3px !important;
+		text-align: center;
+		font-size: var(--style-font-size);
+		font-weight: 650;
+		white-space: nowrap;
+	}
+
+	.gauge-cell {
+		padding: 4px 2px !important;
+		text-align: center;
+		font-size: var(--body-font-size);
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.yarn-cell,
+	.pps-cell {
+		padding: 5px 3px !important;
+		text-align: center;
+		font-size: var(--body-font-size);
+		line-height: 1.3;
+		font-weight: 500;
+		white-space: pre-line;
+		overflow-wrap: anywhere;
+	}
+
+	.remarks-cell {
+		padding: 6px 5px !important;
+		text-align: left;
+		font-size: var(--remarks-font-size);
+		line-height: 1.35;
+		font-weight: 450;
+		white-space: pre-line;
+		overflow-wrap: anywhere;
+	}
+
+	/* Dynamic Qty and Date rows */
+
+	.schedule-cell {
+		padding: 0 !important;
+		vertical-align: top !important;
+	}
+
+	.schedule-table {
+		width: 100%;
+		height: 100%;
+		table-layout: fixed;
+		border-collapse: collapse;
+		border: 0;
+	}
+
+	.schedule-table td {
+		height: var(--schedule-row-height);
+		padding: 2px;
+		border-top: 0;
+		border-left: 0;
+		border-right: 0;
+		border-bottom: 1px solid #111111;
+		text-align: center;
+		vertical-align: middle;
+		font-size: var(--schedule-font-size);
+		line-height: 1;
+		font-weight: 500;
+		white-space: nowrap;
+	}
+
+	.schedule-table tr:last-child td {
+		border-bottom: 0;
+	}
+
+	.schedule-total-row td {
+		height: var(--total-row-height);
+		padding-top: 1px;
+		padding-bottom: 1px;
+		font-size: calc(var(--schedule-font-size) + 2px);
+		font-weight: 800;
+	}
+
+	.invisible-total {
+		color: transparent !important;
+	}
+
+	/* Dynamic knitting and linking */
+
+	.production-cell {
+		padding: 0 !important;
+	}
+
+	.production-value-table {
+		width: 100%;
+		height: var(--record-height);
+		table-layout: fixed;
+		border-collapse: collapse;
+		border: 0;
+	}
+
+	.production-value-table td {
+		width: 100%;
+		height: 50%;
+		padding: 5px 4px;
+		border: 0 !important;
+		font-size: var(--body-font-size);
+		line-height: 1.27;
+		white-space: pre-line;
+		overflow-wrap: anywhere;
+	}
+
+	.knitting-value {
+		text-align: left;
+		vertical-align: top !important;
+	}
+
+	.linking-value {
+		text-align: center;
+		vertical-align: bottom !important;
+		font-weight: 600;
+	}
+
+	/* Totals below main sheet */
+
+	.totals-table {
+		width: 25.3%;
+		margin: 0 0 0 3.4%;
+		table-layout: fixed;
+		border-collapse: collapse;
+		page-break-inside: avoid;
+	}
+
+	.totals-table td {
+		height: 34px;
+		padding: 3px 5px;
+		border: 1px solid #111111;
+		color: #141414;
+		font-size: 15px;
+		line-height: 1;
+		vertical-align: middle;
+	}
+
+	.total-gauge {
+		width: 34%;
+		text-align: center;
+	}
+
+	.total-qty {
+		width: 46%;
+		text-align: right;
+		font-variant-numeric: tabular-nums;
+	}
+
+	.total-unit {
+		width: 20%;
+		text-align: left;
+	}
+
+	.grand-total-row .total-qty {
+		font-size: 20px;
+		font-weight: 800;
+	}
+
+	.no-records {
+		padding: 35px;
+		border: 1px solid #111111;
+		text-align: center;
+		font-size: 16px;
+		font-weight: 700;
+	}
+</style>
+
+<% var buyer = filters.buyer || ""; var season = filters.season || ""; var reportDate =
+filters.report_date || ""; var reportTitle = "PRODUCTION STATUS"; if (buyer && season) {
+reportTitle = buyer + " - " + season; } else if (buyer) { reportTitle = buyer; } else if (season) {
+reportTitle = season; } function safeText(value) { if (value === null || value === undefined) {
+return ""; } return String(value); } function numericText(value) { var numericValue =
+parseFloat(value || 0); if (isNaN(numericValue)) { return "0"; } return
+String(Math.round(numericValue)); } function displayedReportDate(value) { if (!value) { return "";
+} var parts = String(value).split("-"); if (parts.length !== 3) { return String(value); } var
+monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+]; var monthIndex = parseInt(parts[1], 10) - 1; if (monthIndex < 0 || monthIndex > 11) { return
+String(value); } return parts[2] + "-" + monthNames[monthIndex] + "-" + parts[0].slice(-2); }
+function dynamicMetrics(row, totalRows) { var schedules = row.schedules || []; var scheduleCount =
+Math.max(schedules.length, 1); var totalTextLength = safeText(row.yarn_status).length +
+safeText(row.pps_status).length + safeText(row.knitting).length + safeText(row.linking).length +
+safeText(row.remarks).length; var scheduleHeight = 39; var totalHeight = 25; var bodyFont = 12; var
+remarksFont = 11; var styleFont = 17; var scheduleFont = 16; if (totalRows > 10) { scheduleHeight =
+29; totalHeight = 21; bodyFont = 9.5; remarksFont = 8.8; styleFont = 13; scheduleFont = 12; } else
+if (totalRows > 6) { scheduleHeight = 34; totalHeight = 23; bodyFont = 10.7; remarksFont = 9.7;
+styleFont = 15; scheduleFont = 14; } if (totalTextLength > 300) { bodyFont = Math.max(bodyFont - 1,
+8.5); remarksFont = Math.max(remarksFont - 1, 8); } var calculatedHeight = scheduleCount *
+scheduleHeight + totalHeight; var textBasedHeight = Math.max( 100, Math.ceil(totalTextLength / 85)
+* 17 ); var recordHeight = Math.max(calculatedHeight, textBasedHeight); return { scheduleHeight:
+scheduleHeight, totalHeight: totalHeight, bodyFont: bodyFont, remarksFont: remarksFont, styleFont:
+styleFont, scheduleFont: scheduleFont, recordHeight: recordHeight }; } var gaugeTotals = {}; var
+grandTotal = 0; var previousGroup = ""; for ( var totalIndex = 0; totalIndex < data.length;
+totalIndex++ ) { var totalRow = data[totalIndex]; var gaugeName = totalRow.gauge || ""; var
+styleTotal = parseFloat( totalRow.total_order_qty || 0 ); if (isNaN(styleTotal)) { styleTotal = 0;
+} if (!gaugeTotals[gaugeName]) { gaugeTotals[gaugeName] = 0; } gaugeTotals[gaugeName] +=
+styleTotal; grandTotal += styleTotal; } %>
+
+<div class="production-sheet">
+	<% if (!data || data.length === 0) { %>
+
+	<div class="no-records">No Production Status records found.</div>
+
+	<% } else { %>
+
+	<table class="main-table">
+		<colgroup>
+			<col class="col-sl" />
+			<col class="col-style" />
+			<col class="col-gauge" />
+			<col class="col-qty" />
+			<col class="col-date" />
+			<col class="col-yarn" />
+			<col class="col-pps" />
+			<col class="col-production" />
+			<col class="col-remarks" />
+		</colgroup>
+
+		<thead>
+			<tr class="report-title-row">
+				<td colspan="9">
+					<table class="report-title-table">
+						<tr>
+							<td class="title-balance-cell"></td>
+
+							<td class="title-main-cell"><%= safeText(reportTitle) %></td>
+
+							<td class="title-date-cell">
+								<%= displayedReportDate( reportDate ) %>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr class="column-heading-row">
+				<th>SL<br />No</th>
+
+				<th>STYLE</th>
+
+				<th>GG</th>
+
+				<th>Qty</th>
+
+				<th>EX-FTY<br />DATE</th>
+
+				<th>YARN<br />STATUS</th>
+
+				<th>PPS</th>
+
+				<th>
+					<table class="production-heading-table">
+						<tr>
+							<td class="knitting-heading">KNITTING</td>
+						</tr>
+
+						<tr>
+							<td class="linking-heading">LINKING</td>
+						</tr>
+					</table>
+				</th>
+
+				<th>Remarks</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<% for ( var rowIndex = 0; rowIndex < data.length; rowIndex++ ) { var row =
+			data[rowIndex]; var schedules = row.schedules || []; var currentGroup = row.row_group
+			|| "None"; var metrics = dynamicMetrics( row, data.length ); var styleVariables =
+			"--schedule-row-height:" + metrics.scheduleHeight + "px;" + "--total-row-height:" +
+			metrics.totalHeight + "px;" + "--body-font-size:" + metrics.bodyFont + "px;" +
+			"--remarks-font-size:" + metrics.remarksFont + "px;" + "--style-font-size:" +
+			metrics.styleFont + "px;" + "--schedule-font-size:" + metrics.scheduleFont + "px;" +
+			"--record-height:" + metrics.recordHeight + "px;"; %> <% if (currentGroup !==
+			previousGroup) { %> <% if (currentGroup === "Green") { %>
+
+			<tr class="section-band green-band">
+				<td colspan="9">GREEN</td>
+			</tr>
+
+			<% } else if ( currentGroup === "Red" ) { %>
+
+			<tr class="section-band red-band">
+				<td colspan="9">RED</td>
+			</tr>
+
+			<% } %> <% previousGroup = currentGroup; %> <% } %>
+
+			<tr class="style-record" style="<%= styleVariables %>">
+				<td class="sl-cell"><%= safeText( row.sl || rowIndex + 1 ) %></td>
+
+				<td class="style-cell"><%= safeText(row.style_name) %></td>
+
+				<td class="gauge-cell"><%= safeText(row.gauge) %></td>
+
+				<td class="schedule-cell">
+					<table class="schedule-table">
+						<tbody>
+							<% for ( var qtyIndex = 0; qtyIndex < schedules.length; qtyIndex++ ) {
+							var qtySchedule = schedules[qtyIndex]; %>
+
+							<tr>
+								<td><%= safeText( qtySchedule.qty_display ) %></td>
+							</tr>
+
+							<% } %>
+
+							<tr class="schedule-total-row">
+								<td><%= safeText( row.total_order_qty_display ) %></td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+
+				<td class="schedule-cell">
+					<table class="schedule-table">
+						<tbody>
+							<% for ( var dateIndex = 0; dateIndex < schedules.length; dateIndex++ )
+							{ var dateSchedule = schedules[dateIndex]; %>
+
+							<tr>
+								<td><%= safeText( dateSchedule.date_display ) %></td>
+							</tr>
+
+							<% } %>
+
+							<tr class="schedule-total-row">
+								<td class="invisible-total">TOTAL</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+
+				<td class="yarn-cell"><%= safeText(row.yarn_status) %></td>
+
+				<td class="pps-cell"><%= safeText(row.pps_status) %></td>
+
+				<td class="production-cell">
+					<table class="production-value-table">
+						<tr>
+							<td class="knitting-value"><%= safeText( row.knitting ) %></td>
+						</tr>
+
+						<tr>
+							<td class="linking-value"><%= safeText( row.linking ) %></td>
+						</tr>
+					</table>
+				</td>
+
+				<td class="remarks-cell"><%= safeText(row.remarks) %></td>
+			</tr>
+
+			<% } %>
+		</tbody>
+	</table>
+
+	<table class="totals-table">
+		<tbody>
+			<% var gaugeNames = Object.keys(gaugeTotals); gaugeNames.sort(function ( firstGauge,
+			secondGauge ) { return parseFloat(firstGauge) - parseFloat(secondGauge); }); for ( var
+			gaugeIndex = 0; gaugeIndex < gaugeNames.length; gaugeIndex++ ) { var currentGauge =
+			gaugeNames[gaugeIndex]; %>
+
+			<tr>
+				<td class="total-gauge"><%= safeText(currentGauge) %></td>
+
+				<td class="total-qty"><%= numericText( gaugeTotals[currentGauge] ) %></td>
+
+				<td class="total-unit">PCS</td>
+			</tr>
+
+			<% } %>
+
+			<tr class="grand-total-row">
+				<td class="total-gauge">&nbsp;</td>
+
+				<td class="total-qty"><%= numericText(grandTotal) %></td>
+
+				<td class="total-unit">PCS</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<% } %>
+</div>

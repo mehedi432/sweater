@@ -1,16 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-09-11 00:07:27.219379",
+ "creation": "2026-02-11 20:23:40.978885",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "date",
-  "comments_name",
-  "comments_file",
   "column_break_zdip",
-  "column_break_xcem"
+  "daily_sample_request",
+  "column_break_tufr",
+  "date",
+  "column_break_xcem",
+  "comments_name",
+  "column_break_eirn",
+  "comments_file"
  ],
  "fields": [
   {
@@ -36,13 +39,27 @@
   {
    "fieldname": "column_break_xcem",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "daily_sample_request",
+   "fieldtype": "Link",
+   "label": "Daily sample request",
+   "options": "Daily Sample Request"
+  },
+  {
+   "fieldname": "column_break_tufr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_eirn",
+   "fieldtype": "Column Break"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-09-11 00:08:28.132753",
+ "modified": "2026-04-10 16:55:36.019480",
  "modified_by": "Administrator",
  "module": "Sample",
  "name": "Sample Comments",

@@ -1,0 +1,207 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "autoname": "format:PS-{YYYY}-{#####}",
+  "creation": "2026-10-02 00:00:00.000000",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "report_information_section",
+    "report_date",
+    "buyer",
+    "report_information_column",
+    "season",
+    "row_group",
+    "order_information_section",
+    "order_sheet_entry",
+    "style_name",
+    "order_information_column",
+    "gauge",
+    "schedule_section",
+    "schedules",
+    "total_order_qty",
+    "status_section",
+    "yarn_status",
+    "pps_status",
+    "status_column",
+    "knitting",
+    "linking",
+    "remarks_section",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "report_information_section",
+      "fieldtype": "Section Break",
+      "label": "Report Information"
+    },
+    {
+      "allow_on_submit": 1,
+      "default": "Today",
+      "fieldname": "report_date",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Report Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "buyer",
+      "fieldtype": "Data",
+      "in_global_search": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Buyer",
+      "read_only": 1
+    },
+    {
+      "fieldname": "report_information_column",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "season",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Season",
+      "read_only": 1
+    },
+    {
+      "allow_on_submit": 1,
+      "default": "Green",
+      "fieldname": "row_group",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Report Group",
+      "options": "Green\nRed\nNone",
+      "reqd": 1
+    },
+    {
+      "fieldname": "order_information_section",
+      "fieldtype": "Section Break",
+      "label": "Order Information"
+    },
+    {
+      "fieldname": "order_sheet_entry",
+      "fieldtype": "Link",
+      "in_global_search": 1,
+      "label": "Order Sheet Entry",
+      "options": "Order Sheet Entry",
+      "reqd": 1
+    },
+    {
+      "fieldname": "style_name",
+      "fieldtype": "Data",
+      "in_global_search": 1,
+      "in_list_view": 1,
+      "label": "Style",
+      "read_only": 1
+    },
+    {
+      "fieldname": "order_information_column",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "gauge",
+      "fieldtype": "Data",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "label": "Gauge",
+      "read_only": 1
+    },
+    {
+      "fieldname": "schedule_section",
+      "fieldtype": "Section Break",
+      "label": "Quantity and Ex-Factory Schedule"
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "schedules",
+      "fieldtype": "Table",
+      "label": "Schedules",
+      "options": "Production Status Schedule",
+      "reqd": 1
+    },
+    {
+      "fieldname": "total_order_qty",
+      "fieldtype": "Int",
+      "in_list_view": 1,
+      "label": "Total Order Qty",
+      "non_negative": 1,
+      "read_only": 1
+    },
+    {
+      "fieldname": "status_section",
+      "fieldtype": "Section Break",
+      "label": "Production Status"
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "yarn_status",
+      "fieldtype": "Small Text",
+      "label": "Yarn Status"
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "pps_status",
+      "fieldtype": "Small Text",
+      "label": "PPS"
+    },
+    {
+      "fieldname": "status_column",
+      "fieldtype": "Column Break"
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "knitting",
+      "fieldtype": "Small Text",
+      "label": "Knitting"
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "linking",
+      "fieldtype": "Small Text",
+      "label": "Linking"
+    },
+    {
+      "fieldname": "remarks_section",
+      "fieldtype": "Section Break",
+      "label": "Remarks"
+    },
+    {
+      "allow_on_submit": 1,
+      "fieldname": "remarks",
+      "fieldtype": "Long Text",
+      "label": "Remarks"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "links": [],
+  "modified": "2026-10-02 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Sweater Merchandising",
+  "name": "Production Status",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "search_fields": "style_name,buyer,season,order_sheet_entry",
+  "sort_field": "report_date",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "style_name",
+  "track_changes": 1
+}

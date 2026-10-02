@@ -8,15 +8,21 @@
  "field_order": [
   "receive_date",
   "column_break_odte",
-  "shipment_date",
+  "booking_date",
   "column_break_afpy",
-  "size_ratio",
+  "shipment_date",
   "column_break_juro",
+  "size_ratio",
+  "column_break_hjcs",
   "colour",
-  "attach_po_sheet"
+  "attach_po_sheet",
+  "column_break_eyya",
+  "po_qty",
+  "ctn_qty"
  ],
  "fields": [
   {
+   "default": "Now",
    "fieldname": "receive_date",
    "fieldtype": "Datetime",
    "label": "Receive Date"
@@ -26,6 +32,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "default": "Now",
    "fieldname": "shipment_date",
    "fieldtype": "Date",
    "label": "Shipment Date"
@@ -52,13 +59,37 @@
    "fieldname": "attach_po_sheet",
    "fieldtype": "Attach",
    "label": "Attach Po Sheet"
+  },
+  {
+   "fieldname": "column_break_hjcs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "booking_date",
+   "fieldtype": "Date",
+   "label": "Booking Date"
+  },
+  {
+   "fieldname": "column_break_eyya",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ctn_qty",
+   "fieldtype": "Int",
+   "label": "Ctn Qty"
+  },
+  {
+   "fieldname": "po_qty",
+   "fieldtype": "Data",
+   "label": "Po Qty"
   }
  ],
  "grid_page_length": 80,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-12-04 23:21:31.068769",
+ "modified": "2026-08-19 21:21:38.952063",
  "modified_by": "Administrator",
  "module": "Sweater Merchandising",
  "name": "Order Sheet PO Details",

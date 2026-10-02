@@ -1,0 +1,294 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{buyer}-{style}-{follow_up_date}-{#####}",
+ "creation": "2026-07-10 09:19:26.664128",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_ho0g",
+  "follow_up_date",
+  "merchandiser",
+  "season",
+  "column_break_hvqj",
+  "order_sheet",
+  "shipment_date",
+  "column_break_dxey",
+  "style",
+  "days_remaining",
+  "column_break_srof",
+  "buyer",
+  "order_qty",
+  "section_break_jeca",
+  "current_state",
+  "overall_progress",
+  "column_break_bgsj",
+  "overall_status",
+  "column_break_opxl",
+  "overall_priority",
+  "column_break_wemj",
+  "overall_risk",
+  "control_panel_section",
+  "next_critical_action",
+  "next_critical_deadline",
+  "column_break_fvca",
+  "overall_remarks",
+  "section_break_xxkz",
+  "pending_activities",
+  "daily_updates_section",
+  "daily_updates",
+  "section_break_noea",
+  "buyer_communication",
+  "risk_register",
+  "section_break_nnxl",
+  "todays_focus",
+  "general_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_ho0g",
+   "fieldtype": "Section Break",
+   "label": "Basic Information "
+  },
+  {
+   "default": "Now",
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "label": "Follow up Date"
+  },
+  {
+   "fieldname": "order_sheet",
+   "fieldtype": "Link",
+   "label": "Order Sheet ",
+   "options": "Order Sheet Entry"
+  },
+  {
+   "fetch_from": "order_sheet.buyer",
+   "fieldname": "buyer",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Buyer ",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "order_sheet.style_name",
+   "fieldname": "style",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Style ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_state",
+   "fieldtype": "Select",
+   "label": "Current State",
+   "options": "\nInquiry\nCosting\nSampling\nBuyer Approval\nOrder Confirmed\nYarn Booking\nYarn Inhouse\nProduction\nKnitting\nLinking\nDyeing\nTrimming\nMending\nWashing\nSewing\nEmbroidery\nPrinting\nFinishing\nPQC\nPacking\nCommercial\nShipment Ready\nShipped\nClosed"
+  },
+  {
+   "fieldname": "section_break_nnxl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_hvqj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dxey",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_srof",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "overall_status",
+   "fieldtype": "Select",
+   "label": "Overall Status",
+   "options": "\nOn Track\nNeed Follow-up\nDelayed\nCritical\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "overall_priority",
+   "fieldtype": "Select",
+   "label": "Overall Priority",
+   "options": "Critical\nHigh\nMedium\nLow"
+  },
+  {
+   "fieldname": "overall_risk",
+   "fieldtype": "Select",
+   "label": "Overall Risk",
+   "options": "Critical\nHigh\nMedium\nLow"
+  },
+  {
+   "fieldname": "section_break_xxkz",
+   "fieldtype": "Section Break",
+   "label": "Pending Activities"
+  },
+  {
+   "fieldname": "pending_activities",
+   "fieldtype": "Table",
+   "label": "Pending Activities",
+   "options": "Pending Activities"
+  },
+  {
+   "fieldname": "general_remarks",
+   "fieldtype": "Small Text",
+   "label": "General Remarks "
+  },
+  {
+   "fieldname": "todays_focus",
+   "fieldtype": "Small Text",
+   "label": "Today's Focus"
+  },
+  {
+   "fetch_from": "order_sheet.order_qty",
+   "fieldname": "order_qty",
+   "fieldtype": "Data",
+   "label": "Order Qty",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "order_sheet.shipment_date",
+   "fieldname": "shipment_date",
+   "fieldtype": "Date",
+   "label": "Shipment Date"
+  },
+  {
+   "fieldname": "merchandiser",
+   "fieldtype": "Link",
+   "label": "Merchandiser",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "days_remaining",
+   "fieldtype": "Data",
+   "label": "Days Remaining",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_jeca",
+   "fieldtype": "Section Break",
+   "label": "Order Health "
+  },
+  {
+   "fieldname": "overall_progress",
+   "fieldtype": "Percent",
+   "label": "Overall Progress"
+  },
+  {
+   "fieldname": "column_break_bgsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_opxl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wemj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "order_sheet.season",
+   "fieldname": "season",
+   "fieldtype": "Data",
+   "label": "Season",
+   "read_only": 1
+  },
+  {
+   "fieldname": "control_panel_section",
+   "fieldtype": "Section Break",
+   "label": "Control Panel"
+  },
+  {
+   "fieldname": "next_critical_action",
+   "fieldtype": "Data",
+   "label": "Next Critical Action "
+  },
+  {
+   "fieldname": "column_break_fvca",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_critical_deadline",
+   "fieldtype": "Data",
+   "label": "Next Critical Deadline"
+  },
+  {
+   "fieldname": "overall_remarks",
+   "fieldtype": "Small Text",
+   "label": "Overall Remarks "
+  },
+  {
+   "fieldname": "daily_updates",
+   "fieldtype": "Table",
+   "label": "Daily Updates",
+   "options": "Daily Updates"
+  },
+  {
+   "fieldname": "daily_updates_section",
+   "fieldtype": "Section Break",
+   "label": "Daily Updates"
+  },
+  {
+   "fieldname": "section_break_noea",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "buyer_communication",
+   "fieldtype": "Table",
+   "label": "Buyer Communication ",
+   "options": "Buyer Communication"
+  },
+  {
+   "fieldname": "risk_register",
+   "fieldtype": "Table",
+   "label": "Risk Register ",
+   "options": "Risk Register"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-07-21 00:17:44.088320",
+ "modified_by": "Administrator",
+ "module": "Sweater Merchandising",
+ "name": "Merchandising Daily Follow-up",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Merchandiser",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
